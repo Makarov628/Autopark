@@ -3,64 +3,75 @@ using Autopark.Domain.Common;
 using Autopark.Domain.Common.Models;
 using Autopark.Domain.Vehicle.ValueObjects;
 using LanguageExt.Common;
+using Autopark.Domain.Common.ValueObjects;
 
 namespace Autopark.Domain.Vehicle.Entities;
 
 public class VehicleEntity : Entity<VehicleId>
 {
-    public string Name { get; protected set; }
-    public decimal Price { get; protected set; }
-    public double MileageInKilometers { get; set; }
-    public string Color { get; protected set; }
+    public CyrillicString Name { get; protected set; }
+    public Price Price { get; protected set; }
+    public Mileage MileageInKilometers { get; set; }
+    public CyrillicString Color { get; protected set; }
+    public RegistrationNumber RegistrationNumber { get; protected set; }
 
     private VehicleEntity(
         VehicleId id,
-        string name,
-        decimal price,
-        double mileageInKilometers,
-        string color) : base(id)
+        CyrillicString name,
+        Price price,
+        Mileage mileageInKilometers,
+        CyrillicString color,
+        RegistrationNumber registrationNumber) : base(id)
     {
         Name = name;
         Price = price;
         MileageInKilometers = mileageInKilometers;
         Color = color;
+        RegistrationNumber = registrationNumber;
     }
 
-    public static Fin<VehicleEntity> Create(string name, decimal price, double mileageInKilometers, string color) =>
-        Validate(name, price, mileageInKilometers, color)
-            .Map(_ => new VehicleEntity(VehicleId.CreateUnique(), name, price, mileageInKilometers, color));
+    public static VehicleEntity Create(
+        CyrillicString name,
+        Price price,
+        Mileage mileageInKilometers,
+        CyrillicString color,
+        RegistrationNumber registrationNumber) =>
+            Create(
+                VehicleId.Empty,
+                name,
+                price,
+                mileageInKilometers,
+                color,
+                registrationNumber);
+
+    public static VehicleEntity Create(
+        VehicleId id,
+        CyrillicString name,
+        Price price,
+        Mileage mileageInKilometers,
+        CyrillicString color,
+        RegistrationNumber registrationNumber) =>
+            new VehicleEntity(
+                id,
+                name,
+                price,
+                mileageInKilometers,
+                color,
+                registrationNumber);
 
     // TODO: Temp method. Needs to decompose to separate methods
-    public Fin<Unit> Update(string name, decimal price, double mileageInKilometers, string color) =>
-        Validate(name, price, mileageInKilometers, color)
-            .Do(_ =>
-            {
-                Name = name;
-                Price = price;
-                MileageInKilometers = mileageInKilometers;
-                Color = color;
-            });
-
-
-    private static Fin<Unit> Validate(
-        string name,
-        decimal price,
-        double mileageInKilometers,
-        string color)
+    public void Update(
+        CyrillicString name,
+        Price price,
+        Mileage mileageInKilometers,
+        CyrillicString color,
+        RegistrationNumber registrationNumber)
     {
-        if (string.IsNullOrWhiteSpace(name))
-            return Error.New("Name is empty");
-
-        if (price < 0)
-            return Error.New("Price is less than 0");
-
-        if (mileageInKilometers < 0)
-            return Error.New("Mileage is less than 0");
-
-        if (string.IsNullOrWhiteSpace(color))
-            return Error.New("Color is empty");
-
-        return Unit.Default;
+        Name = name;
+        Price = price;
+        MileageInKilometers = mileageInKilometers;
+        Color = color;
+        RegistrationNumber = registrationNumber;
     }
 
     protected VehicleEntity()

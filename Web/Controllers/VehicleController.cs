@@ -46,7 +46,7 @@ public class VehicleController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult> Delete(Guid id)
+    public async Task<ActionResult> Delete(int id)
     {
         var result = await _mediatr.Send(new DeleteVehicleCommand(id), HttpContext.RequestAborted);
         return result.Match<ActionResult>(

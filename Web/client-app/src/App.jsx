@@ -12,7 +12,8 @@ function App() {
     name: '',
     price: 0,
     mileageInKilometers: 0,
-    color: ''
+    color: '',
+    registrationNumber: ''
   })
 
   // Флаг, который говорит, редактируем ли мы уже существующую запись (true)
@@ -56,7 +57,8 @@ function App() {
           name: formData.name,
           price: parseFloat(formData.price),
           mileageInKilometers: parseFloat(formData.mileageInKilometers),
-          color: formData.color
+          color: formData.color,
+          registrationNumber: formData.registrationNumber
         })
       })
 
@@ -74,7 +76,8 @@ function App() {
         name: '',
         price: 0,
         mileageInKilometers: 0,
-        color: ''
+        color: '',
+        registrationNumber: ''
       })
     } catch (error) {
       console.error(error)
@@ -106,7 +109,8 @@ function App() {
       name: vehicle.name || '',
       price: vehicle.price || 0,
       mileageInKilometers: vehicle.mileageInKilometers || 0,
-      color: vehicle.color || ''
+      color: vehicle.color || '',
+      registrationNumber: vehicle.registrationNumber || ''
     })
     setIsEditMode(true)
   }
@@ -123,7 +127,8 @@ function App() {
           name: formData.name,
           price: parseFloat(formData.price),
           mileageInKilometers: parseFloat(formData.mileageInKilometers),
-          color: formData.color
+          color: formData.color,
+          registrationNumber: formData.registrationNumber
         })
       })
       if (!response.ok) {
@@ -145,7 +150,8 @@ function App() {
       name: '',
       price: 0,
       mileageInKilometers: 0,
-      color: ''
+      color: '',
+      registrationNumber: ''
     })
   }
 
@@ -165,6 +171,7 @@ function App() {
             <th className="border border-black-300 px-4 py-2">Price</th>
             <th className="border border-black-300 px-4 py-2">Mileage</th>
             <th className="border border-black-300 px-4 py-2">Color</th>
+            <th className="border border-black-300 px-4 py-2">Registration Number</th>
             <th className="border border-black-300 px-4 py-2">Actions</th>
           </tr>
         </thead>
@@ -176,6 +183,7 @@ function App() {
               <td className="border border-black-300 px-4 py-2">{vehicle.price}</td>
               <td className="border border-black-300 px-4 py-2">{vehicle.mileageInKilometers}</td>
               <td className="border border-black-300 px-4 py-2">{vehicle.color}</td>
+              <td className="border border-black-300 px-4 py-2">{vehicle.registrationNumber}</td>
               <td className="border border-black-300 px-4 py-2">
                 <button
                   className="bg-blue-500 hover:bg-blue-600 text-white py-1 px-2 rounded mr-2"
@@ -255,6 +263,19 @@ function App() {
               value={formData.color}
               onChange={(e) =>
                 setFormData((prev) => ({ ...prev, color: e.target.value }))
+              }
+            />
+          </div>
+
+          {/* registrationNumber */}
+          <div className="mb-2">
+            <label className="block mb-1 font-semibold">Registration Number:</label>
+            <input
+              type="text"
+              className="border border-gray-300 rounded w-full p-1"
+              value={formData.registrationNumber}
+              onChange={(e) =>
+                setFormData((prev) => ({ ...prev, registrationNumber: e.target.value }))
               }
             />
           </div>

@@ -8,5 +8,6 @@ public record UpdateVehicleCommand(
     string Name,
     decimal Price,
     double MileageInKilometers,
-    string Color
+    string Color,
+    string RegistrationNumber
 ) : IRequest<Fin<LanguageExt.Unit>>;

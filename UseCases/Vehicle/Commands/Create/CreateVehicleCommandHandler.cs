@@ -3,6 +3,11 @@ using LanguageExt;
 using Autopark.Infrastructure.Database;
 using Autopark.Domain.Vehicle.Entities;
 using Unit = LanguageExt.Unit;
+using Autopark.Domain.Common.ValueObjects;
+using Autopark.Domain.Vehicle.ValueObjects;
+using LanguageExt.Common;
+using Autopark.Domain.Common.Models;
+using Autopark.Domain.Common;
 
 namespace Autopark.UseCases.Vehicle.Commands.Create;
 
@@ -17,17 +22,38 @@ internal class CreateVehicleCommandHandler : IRequestHandler<CreateVehicleComman
 
     public async Task<Fin<Unit>> Handle(CreateVehicleCommand request, CancellationToken cancellationToken)
     {
-        var vehicleResult = VehicleEntity.Create(
-            request.Name,
-            request.Price,
-            request.MileageInKilometers,
-            request.Color
+        var name = CyrillicString.Create(request.Name);
+        var price = Price.Create(request.Price);
+        var mileage = Mileage.Create(request.MileageInKilometers);
+        var color = CyrillicString.Create(request.Color);
+        var registrationNumber = RegistrationNumber.Create(request.RegistrationNumber);
+
+        var potentialErrors = new Either<Error, ValueObject>[]
+        {
+            name.ToValueObjectEither(),
+            price.ToValueObjectEither(),
+            mileage.ToValueObjectEither(),
+            color.ToValueObjectEither(),
+            registrationNumber.ToValueObjectEither()
+        };
+
+        var aggregatedErrorMessage = potentialErrors
+            .MapLeftT(error => error.Message)
+            .Lefts()
+            .JoinStrings("; ");
+
+        if (!aggregatedErrorMessage.IsNullOrEmpty())
+            return Error.New(aggregatedErrorMessage);
+
+        var vehicle = VehicleEntity.Create(
+            name.Head(),
+            price.Head(),
+            mileage.Head(),
+            color.Head(),
+            registrationNumber.Head()
         );
 
-        if (vehicleResult.IsFail)
-            return vehicleResult.Bind<Unit>(_ => Unit.Default);
-
-        await _dbContext.Vehicles.AddAsync(vehicleResult.Head(), cancellationToken);
+        await _dbContext.Vehicles.AddAsync(vehicle, cancellationToken);
         await _dbContext.SaveChangesAsync(cancellationToken);
 
         return Unit.Default;

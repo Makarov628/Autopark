@@ -4,5 +4,5 @@ using LanguageExt;
 namespace Autopark.UseCases.Vehicle.Commands.Delete;
 
 public record DeleteVehicleCommand(
-    Guid Id
+    int Id
 ) : IRequest<Fin<LanguageExt.Unit>>;

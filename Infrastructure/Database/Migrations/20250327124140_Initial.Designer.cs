@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Autopark.Infrastructure.Database.Migrations
 {
     [DbContext(typeof(AutoparkDbContext))]
-    [Migration("20250326205419_Initial")]
+    [Migration("20250327124140_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -27,8 +27,11 @@ namespace Autopark.Infrastructure.Database.Migrations
 
             modelBuilder.Entity("Autopark.Domain.Vehicle.Entities.VehicleEntity", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Color")
                         .IsRequired()
@@ -46,6 +49,10 @@ namespace Autopark.Infrastructure.Database.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("RegistrationNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");

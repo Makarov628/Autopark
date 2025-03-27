@@ -6,9 +6,10 @@ namespace Autopark.UseCases.Vehicle.Queries.GetAll;
 public record GetAllVehiclesQuery() : IRequest<Fin<List<VehiclesResponse>>>;
 
 public record VehiclesResponse(
-    Guid Id,
+    int Id,
     string Name,
     decimal Price,
     double MileageInKilometers,
-    string Color
+    string Color,
+    string RegistrationNumber
 );

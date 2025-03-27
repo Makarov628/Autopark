@@ -4,6 +4,7 @@ using Autopark.Infrastructure.Database;
 using Unit = LanguageExt.Unit;
 using Microsoft.EntityFrameworkCore;
 using LanguageExt.Common;
+using Autopark.Domain.Vehicle.ValueObjects;
 
 namespace Autopark.UseCases.Vehicle.Commands.Delete;
 
@@ -18,7 +19,7 @@ internal class DeleteVehicleCommandHandler : IRequestHandler<DeleteVehicleComman
 
     public async Task<Fin<Unit>> Handle(DeleteVehicleCommand request, CancellationToken cancellationToken)
     {
-        var vehicle = await _dbContext.Vehicles.AsNoTracking().FirstOrDefaultAsync(cancellationToken);
+        var vehicle = await _dbContext.Vehicles.AsNoTracking().FirstOrDefaultAsync(v => v.Id == VehicleId.Create(request.Id), cancellationToken);
         if (vehicle is null)
             return Error.New($"Vehicle not found with id: {request.Id}");
 

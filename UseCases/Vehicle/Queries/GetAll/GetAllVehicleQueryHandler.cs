@@ -18,10 +18,11 @@ internal class GetAllVehicleQueryHandler : IRequestHandler<GetAllVehiclesQuery, 
         var vehicles = await _dbContext.Vehicles.AsNoTracking().ToListAsync(cancellationToken);
         return vehicles.ConvertAll(vehicle => new VehiclesResponse(
             vehicle.Id.Value,
-            vehicle.Name,
-            vehicle.Price,
-            vehicle.MileageInKilometers,
-            vehicle.Color
+            vehicle.Name.Value,
+            vehicle.Price.Value,
+            vehicle.MileageInKilometers.ValueInKilometers,
+            vehicle.Color.Value,
+            vehicle.RegistrationNumber.Value
         ));
     }
 }

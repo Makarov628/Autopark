@@ -1,22 +1,20 @@
-﻿using Autopark.Domain.Common.Models;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Autopark.Domain.Common.Models;
 
 namespace Autopark.Domain.Vehicle.ValueObjects;
 
-public class VehicleId: ValueObject
+public class VehicleId : ValueObject
 {
-    public Guid Value { get; private set; }
+    public int Value { get; protected set; }
 
-    private VehicleId(Guid value)
+    private VehicleId(int value)
     {
         Value = value;
     }
 
-    public static VehicleId CreateUnique()
-    {
-        return new VehicleId(Guid.NewGuid());
-    }
+    public static VehicleId Empty => new(0);
 
-    public static VehicleId Create(Guid value)
+    public static VehicleId Create(int value)
     {
         return new VehicleId(value);
     }
