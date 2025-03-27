@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  customer-api:
+    container_name: autopark
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mssql
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release
+      - ASPNETCORE_URLS=http://*:8080
+    ports:
+      - 8080:8080
+    networks:
+      - autopark-network
+
+  mssql:
+    container_name: mssql_linux
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=L@m3daSc
+    ports:
+      - 1433:1433
+    networks:
+      - autopark-network
+
+networks:
+  autopark-network:
+    driver: bridge
