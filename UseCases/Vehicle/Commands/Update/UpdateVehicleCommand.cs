@@ -4,10 +4,11 @@ using LanguageExt;
 namespace Autopark.UseCases.Vehicle.Commands.Update;
 
 public record UpdateVehicleCommand(
-    Guid Id,
+    int Id,
     string Name,
     decimal Price,
     double MileageInKilometers,
     string Color,
-    string RegistrationNumber
+    string RegistrationNumber,
+    int BrandModelId
 ) : IRequest<Fin<LanguageExt.Unit>>;

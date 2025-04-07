@@ -9,5 +9,6 @@ public record CreateVehicleCommand(
     decimal Price,
     double MileageInKilometers,
     string Color,
-    string RegistrationNumber
+    string RegistrationNumber,
+    int BrandModelId
 ) : IRequest<Fin<Unit>>;

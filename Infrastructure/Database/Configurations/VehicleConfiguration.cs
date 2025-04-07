@@ -1,3 +1,4 @@
+using Autopark.Domain.BrandModel.ValueObjects;
 using Autopark.Domain.Common.ValueObjects;
 using Autopark.Domain.Vehicle.Entities;
 using Autopark.Domain.Vehicle.ValueObjects;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Autopark.Infrastructure.Database.Configurations;
+
 public class VehicleConfiguration : IEntityTypeConfiguration<VehicleEntity>
 {
     public void Configure(EntityTypeBuilder<VehicleEntity> builder)
@@ -55,5 +57,16 @@ public class VehicleConfiguration : IEntityTypeConfiguration<VehicleEntity>
             .HasConversion(
                 registrationNumber => registrationNumber.Value,
                 value => RegistrationNumber.Create(value).ThrowIfFail());
+
+        builder.Property(s => s.BrandModelId)
+            .ValueGeneratedNever()
+            .HasConversion(
+                brandModelId => brandModelId.Value,
+                value => BrandModelId.Create(value));
+
+        builder.HasOne(s => s.BrandModel)
+            .WithMany(s => s.Vehicles)
+            .HasForeignKey(s => s.BrandModelId)
+            .HasPrincipalKey(s => s.Id);
     }
 }

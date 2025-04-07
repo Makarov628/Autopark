@@ -1,4 +1,5 @@
-﻿using Autopark.Domain.Common.Models;
+﻿using Autopark.Domain.BrandModel.Entities;
+using Autopark.Domain.Common.Models;
 using Autopark.Domain.Vehicle.Entities;
 using Autopark.Infrastructure.Database.Configurations;
 using Microsoft.EntityFrameworkCore;
@@ -11,9 +12,11 @@ public class AutoparkDbContext : DbContext
         : base(options) { }
 
     public DbSet<VehicleEntity> Vehicles { get; set; } = null!;
+    public DbSet<BrandModelEntity> BrandModels { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.ApplyConfiguration(new BrandModelConfiguration());
         modelBuilder.ApplyConfiguration(new VehicleConfiguration());
         base.OnModelCreating(modelBuilder);
     }

@@ -8,6 +8,7 @@ using Autopark.Domain.Common.ValueObjects;
 using Autopark.Domain.Vehicle.ValueObjects;
 using Autopark.Domain.Common.Models;
 using Autopark.Domain.Common;
+using Autopark.Domain.BrandModel.ValueObjects;
 
 namespace Autopark.UseCases.Vehicle.Commands.Update;
 
@@ -25,6 +26,11 @@ internal class UpdateVehicleCommandHandler : IRequestHandler<UpdateVehicleComman
         var vehicle = await _dbContext.Vehicles.AsNoTracking().FirstOrDefaultAsync(cancellationToken);
         if (vehicle is null)
             return Error.New($"Vehicle not found with id: {request.Id}");
+
+        var brandModelId = BrandModelId.Create(request.BrandModelId);
+        var brandModelExists = await _dbContext.BrandModels.AnyAsync(b => b.Id == brandModelId, cancellationToken);
+        if (!brandModelExists)
+            return Error.New($"Модель бренда машины с идентификатором '{brandModelId.Value}' не существует");
 
         var name = CyrillicString.Create(request.Name);
         var price = Price.Create(request.Price);
@@ -54,7 +60,8 @@ internal class UpdateVehicleCommandHandler : IRequestHandler<UpdateVehicleComman
             price.Head(),
             mileage.Head(),
             color.Head(),
-            registrationNumber.Head());
+            registrationNumber.Head(),
+            brandModelId);
 
         _dbContext.Vehicles.Attach(vehicle);
         _dbContext.Entry(vehicle).State = EntityState.Modified;

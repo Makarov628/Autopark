@@ -11,5 +11,6 @@ public record VehiclesResponse(
     decimal Price,
     double MileageInKilometers,
     string Color,
-    string RegistrationNumber
+    string RegistrationNumber,
+    int BrandModelId
 );

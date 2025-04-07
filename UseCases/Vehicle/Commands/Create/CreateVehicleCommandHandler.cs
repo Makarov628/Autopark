@@ -8,6 +8,8 @@ using Autopark.Domain.Vehicle.ValueObjects;
 using LanguageExt.Common;
 using Autopark.Domain.Common.Models;
 using Autopark.Domain.Common;
+using Microsoft.EntityFrameworkCore;
+using Autopark.Domain.BrandModel.ValueObjects;
 
 namespace Autopark.UseCases.Vehicle.Commands.Create;
 
@@ -22,6 +24,12 @@ internal class CreateVehicleCommandHandler : IRequestHandler<CreateVehicleComman
 
     public async Task<Fin<Unit>> Handle(CreateVehicleCommand request, CancellationToken cancellationToken)
     {
+        var brandModelId = BrandModelId.Create(request.BrandModelId);
+
+        var brandModelExists = await _dbContext.BrandModels.AnyAsync(cancellationToken);
+        if (!brandModelExists)
+            return Error.New($"Модель бренда машины с идентификатором '{brandModelId.Value}' не существует");
+
         var name = CyrillicString.Create(request.Name);
         var price = Price.Create(request.Price);
         var mileage = Mileage.Create(request.MileageInKilometers);
@@ -50,7 +58,8 @@ internal class CreateVehicleCommandHandler : IRequestHandler<CreateVehicleComman
             price.Head(),
             mileage.Head(),
             color.Head(),
-            registrationNumber.Head()
+            registrationNumber.Head(),
+            brandModelId
         );
 
         await _dbContext.Vehicles.AddAsync(vehicle, cancellationToken);
