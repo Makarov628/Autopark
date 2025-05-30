@@ -1,5 +1,7 @@
 using Autopark.Domain.BrandModel.ValueObjects;
 using Autopark.Domain.Common.ValueObjects;
+using Autopark.Domain.Driver.ValueObjects;
+using Autopark.Domain.Enterprise.ValueObjects;
 using Autopark.Domain.Vehicle.Entities;
 using Autopark.Domain.Vehicle.ValueObjects;
 using Microsoft.EntityFrameworkCore;
@@ -64,9 +66,34 @@ public class VehicleConfiguration : IEntityTypeConfiguration<VehicleEntity>
                 brandModelId => brandModelId.Value,
                 value => BrandModelId.Create(value));
 
+        builder.Property(s => s.EnterpriseId)
+            .ValueGeneratedNever()
+            .HasConversion(
+                enterpriseId => enterpriseId.Value,
+                value => EnterpriseId.Create(value));
+
+        builder.Property(s => s.ActiveDriverId)
+            .ValueGeneratedNever()
+            .HasConversion(
+                activeDriverId => activeDriverId == null ? null : (int?)activeDriverId.Value,
+                value => value.HasValue ? DriverId.Create(value.Value) : null);
+
         builder.HasOne(s => s.BrandModel)
             .WithMany(s => s.Vehicles)
             .HasForeignKey(s => s.BrandModelId)
             .HasPrincipalKey(s => s.Id);
+
+        builder.HasOne(s => s.Enterprise)
+            .WithMany(s => s.Vehicles)
+            .HasForeignKey(s => s.EnterpriseId)
+            .HasPrincipalKey(s => s.Id);
+
+        builder.HasMany(s => s.Drivers)
+            .WithOne(s => s.Vehicle)
+            .HasForeignKey(s => s.VehicleId)
+            .HasPrincipalKey(s => s.Id);
+
+        builder.Navigation(s => s.Drivers).Metadata.SetField("_drivers");
+        builder.Navigation(s => s.Drivers).UsePropertyAccessMode(PropertyAccessMode.Field);
     }
 }

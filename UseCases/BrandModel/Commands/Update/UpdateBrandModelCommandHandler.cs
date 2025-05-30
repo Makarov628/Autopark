@@ -4,6 +4,7 @@ using Autopark.Infrastructure.Database;
 using Unit = LanguageExt.Unit;
 using Microsoft.EntityFrameworkCore;
 using LanguageExt.Common;
+using Autopark.Domain.BrandModel.ValueObjects;
 
 namespace Autopark.UseCases.BrandModel.Commands.Update;
 
@@ -18,7 +19,8 @@ internal class UpdateBrandModelCommandHandler : IRequestHandler<UpdateBrandModel
 
     public async Task<Fin<Unit>> Handle(UpdateBrandModelCommand request, CancellationToken cancellationToken)
     {
-        var brandModel = await _dbContext.BrandModels.AsNoTracking().FirstOrDefaultAsync(cancellationToken);
+        var brandModelId = BrandModelId.Create(request.Id);
+        var brandModel = await _dbContext.BrandModels.AsNoTracking().FirstOrDefaultAsync(b => b.Id == brandModelId, cancellationToken);
         if (brandModel is null)
             return Error.New($"Vehicle not found with id: {request.Id}");
 

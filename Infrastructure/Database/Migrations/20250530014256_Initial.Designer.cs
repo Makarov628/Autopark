@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Autopark.Infrastructure.Database.Migrations
 {
     [DbContext(typeof(AutoparkDbContext))]
-    [Migration("20250401104321_Initial")]
+    [Migration("20250530014256_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -64,6 +64,76 @@ namespace Autopark.Infrastructure.Database.Migrations
                     b.ToTable("BrandModels", (string)null);
                 });
 
+            modelBuilder.Entity("Autopark.Domain.Driver.Entities.DriverEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EnterpriseId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Salary")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("VehicleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EnterpriseId");
+
+                    b.HasIndex("VehicleId");
+
+                    b.ToTable("Drivers", (string)null);
+                });
+
+            modelBuilder.Entity("Autopark.Domain.Enterprise.Entities.EnterpriseEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Enterprises", (string)null);
+                });
+
             modelBuilder.Entity("Autopark.Domain.Vehicle.Entities.VehicleEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -71,6 +141,9 @@ namespace Autopark.Infrastructure.Database.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ActiveDriverId")
+                        .HasColumnType("int");
 
                     b.Property<int>("BrandModelId")
                         .HasColumnType("int");
@@ -81,6 +154,9 @@ namespace Autopark.Infrastructure.Database.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("EnterpriseId")
+                        .HasColumnType("int");
 
                     b.Property<double>("MileageInKilometers")
                         .HasColumnType("float");
@@ -103,7 +179,26 @@ namespace Autopark.Infrastructure.Database.Migrations
 
                     b.HasIndex("BrandModelId");
 
+                    b.HasIndex("EnterpriseId");
+
                     b.ToTable("Vehicles", (string)null);
+                });
+
+            modelBuilder.Entity("Autopark.Domain.Driver.Entities.DriverEntity", b =>
+                {
+                    b.HasOne("Autopark.Domain.Enterprise.Entities.EnterpriseEntity", "Enterprise")
+                        .WithMany("Drivers")
+                        .HasForeignKey("EnterpriseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Autopark.Domain.Vehicle.Entities.VehicleEntity", "Vehicle")
+                        .WithMany("Drivers")
+                        .HasForeignKey("VehicleId");
+
+                    b.Navigation("Enterprise");
+
+                    b.Navigation("Vehicle");
                 });
 
             modelBuilder.Entity("Autopark.Domain.Vehicle.Entities.VehicleEntity", b =>
@@ -114,12 +209,32 @@ namespace Autopark.Infrastructure.Database.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Autopark.Domain.Enterprise.Entities.EnterpriseEntity", "Enterprise")
+                        .WithMany("Vehicles")
+                        .HasForeignKey("EnterpriseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("BrandModel");
+
+                    b.Navigation("Enterprise");
                 });
 
             modelBuilder.Entity("Autopark.Domain.BrandModel.Entities.BrandModelEntity", b =>
                 {
                     b.Navigation("Vehicles");
+                });
+
+            modelBuilder.Entity("Autopark.Domain.Enterprise.Entities.EnterpriseEntity", b =>
+                {
+                    b.Navigation("Drivers");
+
+                    b.Navigation("Vehicles");
+                });
+
+            modelBuilder.Entity("Autopark.Domain.Vehicle.Entities.VehicleEntity", b =>
+                {
+                    b.Navigation("Drivers");
                 });
 #pragma warning restore 612, 618
         }

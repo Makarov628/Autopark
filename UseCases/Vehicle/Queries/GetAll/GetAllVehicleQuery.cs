@@ -12,5 +12,7 @@ public record VehiclesResponse(
     double MileageInKilometers,
     string Color,
     string RegistrationNumber,
-    int BrandModelId
+    int BrandModelId,
+    int EnterpriseId,
+    int? ActiveDriverId
 );

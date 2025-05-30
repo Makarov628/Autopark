@@ -9,6 +9,8 @@ using Autopark.Domain.Vehicle.ValueObjects;
 using Autopark.Domain.Common.Models;
 using Autopark.Domain.Common;
 using Autopark.Domain.BrandModel.ValueObjects;
+using Autopark.Domain.Enterprise.ValueObjects;
+using Autopark.Domain.Driver.ValueObjects;
 
 namespace Autopark.UseCases.Vehicle.Commands.Update;
 
@@ -23,7 +25,8 @@ internal class UpdateVehicleCommandHandler : IRequestHandler<UpdateVehicleComman
 
     public async Task<Fin<Unit>> Handle(UpdateVehicleCommand request, CancellationToken cancellationToken)
     {
-        var vehicle = await _dbContext.Vehicles.AsNoTracking().FirstOrDefaultAsync(cancellationToken);
+        var vehicleId = VehicleId.Create(request.Id);
+        var vehicle = await _dbContext.Vehicles.AsNoTracking().FirstOrDefaultAsync(v => v.Id == vehicleId, cancellationToken);
         if (vehicle is null)
             return Error.New($"Vehicle not found with id: {request.Id}");
 
@@ -31,6 +34,17 @@ internal class UpdateVehicleCommandHandler : IRequestHandler<UpdateVehicleComman
         var brandModelExists = await _dbContext.BrandModels.AnyAsync(b => b.Id == brandModelId, cancellationToken);
         if (!brandModelExists)
             return Error.New($"Модель бренда машины с идентификатором '{brandModelId.Value}' не существует");
+
+        var enterpriseId = EnterpriseId.Create(request.EnterpriseId);
+        var enterpriseExists = await _dbContext.Enterprises.AnyAsync(e => e.Id == enterpriseId, cancellationToken);
+        if (!enterpriseExists)
+            return Error.New($"Предприятие с идентификатором '{enterpriseId.Value}' не существует");
+
+        var driverId = request.ActiveDriverId.HasValue
+            ? DriverId.Create(request.ActiveDriverId.Value)
+            : null;
+        if (driverId is not null && !await _dbContext.Drivers.AnyAsync(d => d.Id == driverId && d.VehicleId == vehicle.Id && d.EnterpriseId == vehicle.EnterpriseId, cancellationToken))
+            return Error.New($"Водитель с идентификатором '{driverId.Value}' не существует или не может быть назначен на этот автомобиль");
 
         var name = CyrillicString.Create(request.Name);
         var price = Price.Create(request.Price);
@@ -61,7 +75,9 @@ internal class UpdateVehicleCommandHandler : IRequestHandler<UpdateVehicleComman
             mileage.Head(),
             color.Head(),
             registrationNumber.Head(),
-            brandModelId);
+            brandModelId,
+            enterpriseId,
+            driverId);
 
         _dbContext.Vehicles.Attach(vehicle);
         _dbContext.Entry(vehicle).State = EntityState.Modified;

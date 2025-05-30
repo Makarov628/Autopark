@@ -1,13 +1,15 @@
 import { useState } from 'react'
 
-// Импортируем ваши компоненты (VehiclePage и BrandModelPage)
-import VehiclePage from './Vehicle'
+// Импортируем компоненты
 import BrandModelPage from './BrandModel'
+import Driver from './Driver'
+import Enterprise from './Enterprise'
+import VehiclePage from './Vehicle'
 
 function App() {
   // Определяем состояние, которое говорит, что сейчас показываем
   const [activeTab, setActiveTab] = useState('vehicle')
-  // Возможные значения: 'vehicle' или 'brandModel'
+  // Возможные значения: 'vehicle', 'brandModel', 'enterprise', 'driver'
 
   return (
     <div className="p-6">
@@ -21,21 +23,39 @@ function App() {
             activeTab === 'vehicle' ? 'bg-blue-500 text-white' : 'bg-black-300 text-white'
           }`}
         >
-          Vehicles
+          Транспорт
         </button>
         <button
           onClick={() => setActiveTab('brandModel')}
-          className={`px-4 py-2 border rounded ${
+          className={`mr-2 px-4 py-2 border rounded ${
             activeTab === 'brandModel' ? 'bg-blue-500 text-white' : 'bg-black-300 text-white'
           }`}
         >
-          Brand Models
+          Модели
+        </button>
+        <button
+          onClick={() => setActiveTab('enterprise')}
+          className={`mr-2 px-4 py-2 border rounded ${
+            activeTab === 'enterprise' ? 'bg-blue-500 text-white' : 'bg-black-300 text-white'
+          }`}
+        >
+          Предприятия
+        </button>
+        <button
+          onClick={() => setActiveTab('driver')}
+          className={`px-4 py-2 border rounded ${
+            activeTab === 'driver' ? 'bg-blue-500 text-white' : 'bg-black-300 text-white'
+          }`}
+        >
+          Водители
         </button>
       </div>
 
       {/* Рендерим компонент в зависимости от состояния */}
       {activeTab === 'vehicle' && <VehiclePage />}
       {activeTab === 'brandModel' && <BrandModelPage />}
+      {activeTab === 'enterprise' && <Enterprise />}
+      {activeTab === 'driver' && <Driver />}
     </div>
   )
 }

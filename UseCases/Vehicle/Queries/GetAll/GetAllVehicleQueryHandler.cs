@@ -23,7 +23,9 @@ internal class GetAllVehicleQueryHandler : IRequestHandler<GetAllVehiclesQuery, 
             vehicle.MileageInKilometers.ValueInKilometers,
             vehicle.Color.Value,
             vehicle.RegistrationNumber.Value,
-            vehicle.BrandModelId.Value
+            vehicle.BrandModelId.Value,
+            vehicle.EnterpriseId.Value,
+            vehicle.ActiveDriverId?.Value
         ));
     }
 }

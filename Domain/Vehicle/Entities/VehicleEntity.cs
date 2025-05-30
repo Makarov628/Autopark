@@ -6,11 +6,17 @@ using LanguageExt.Common;
 using Autopark.Domain.Common.ValueObjects;
 using Autopark.Domain.BrandModel.ValueObjects;
 using Autopark.Domain.BrandModel.Entities;
+using Autopark.Domain.Enterprise.ValueObjects;
+using Autopark.Domain.Enterprise.Entities;
+using Autopark.Domain.Driver.Entities;
+using Autopark.Domain.Driver.ValueObjects;
 
 namespace Autopark.Domain.Vehicle.Entities;
 
 public class VehicleEntity : Entity<VehicleId>
 {
+    private readonly List<DriverEntity> _drivers = new();
+
     public CyrillicString Name { get; protected set; }
     public Price Price { get; protected set; }
     public Mileage MileageInKilometers { get; set; }
@@ -20,6 +26,13 @@ public class VehicleEntity : Entity<VehicleId>
     public BrandModelId BrandModelId { get; protected set; }
     public BrandModelEntity BrandModel { get; protected set; }
 
+    public EnterpriseId EnterpriseId { get; protected set; }
+    public EnterpriseEntity Enterprise { get; protected set; }
+
+    public DriverId? ActiveDriverId { get; protected set; }
+
+    public IReadOnlyList<DriverEntity> Drivers => _drivers.AsReadOnly();
+
     private VehicleEntity(
         VehicleId id,
         CyrillicString name,
@@ -27,7 +40,8 @@ public class VehicleEntity : Entity<VehicleId>
         Mileage mileageInKilometers,
         CyrillicString color,
         RegistrationNumber registrationNumber,
-        BrandModelId brandModelId) : base(id)
+        BrandModelId brandModelId,
+        EnterpriseId enterpriseId) : base(id)
     {
         Name = name;
         Price = price;
@@ -35,6 +49,7 @@ public class VehicleEntity : Entity<VehicleId>
         Color = color;
         RegistrationNumber = registrationNumber;
         BrandModelId = brandModelId;
+        EnterpriseId = enterpriseId;
     }
 
     public static VehicleEntity Create(
@@ -43,7 +58,8 @@ public class VehicleEntity : Entity<VehicleId>
         Mileage mileageInKilometers,
         CyrillicString color,
         RegistrationNumber registrationNumber,
-        BrandModelId brandModelId) =>
+        BrandModelId brandModelId,
+        EnterpriseId enterpriseId) =>
             Create(
                 VehicleId.Empty,
                 name,
@@ -51,7 +67,8 @@ public class VehicleEntity : Entity<VehicleId>
                 mileageInKilometers,
                 color,
                 registrationNumber,
-                brandModelId);
+                brandModelId,
+                enterpriseId);
 
     public static VehicleEntity Create(
         VehicleId id,
@@ -60,7 +77,8 @@ public class VehicleEntity : Entity<VehicleId>
         Mileage mileageInKilometers,
         CyrillicString color,
         RegistrationNumber registrationNumber,
-        BrandModelId brandModelId) =>
+        BrandModelId brandModelId,
+        EnterpriseId enterpriseId) =>
             new VehicleEntity(
                 id,
                 name,
@@ -68,7 +86,8 @@ public class VehicleEntity : Entity<VehicleId>
                 mileageInKilometers,
                 color,
                 registrationNumber,
-                brandModelId);
+                brandModelId,
+                enterpriseId);
 
     // TODO: Temp method. Needs to decompose to separate methods
     public void Update(
@@ -77,7 +96,9 @@ public class VehicleEntity : Entity<VehicleId>
         Mileage mileageInKilometers,
         CyrillicString color,
         RegistrationNumber registrationNumber,
-        BrandModelId brandModelId)
+        BrandModelId brandModelId,
+        EnterpriseId enterpriseId,
+        DriverId? activeDriverId)
     {
         Name = name;
         Price = price;
@@ -85,6 +106,8 @@ public class VehicleEntity : Entity<VehicleId>
         Color = color;
         RegistrationNumber = registrationNumber;
         BrandModelId = brandModelId;
+        EnterpriseId = enterpriseId;
+        ActiveDriverId = activeDriverId;
     }
 
     protected VehicleEntity()

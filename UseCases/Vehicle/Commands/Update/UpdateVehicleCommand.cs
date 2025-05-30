@@ -10,5 +10,7 @@ public record UpdateVehicleCommand(
     double MileageInKilometers,
     string Color,
     string RegistrationNumber,
-    int BrandModelId
+    int BrandModelId,
+    int EnterpriseId,
+    int? ActiveDriverId
 ) : IRequest<Fin<LanguageExt.Unit>>;
