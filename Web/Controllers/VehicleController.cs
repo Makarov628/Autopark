@@ -2,6 +2,7 @@ using Autopark.UseCases.Vehicle.Commands.Create;
 using Autopark.UseCases.Vehicle.Commands.Delete;
 using Autopark.UseCases.Vehicle.Commands.Update;
 using Autopark.UseCases.Vehicle.Queries.GetAll;
+using Autopark.UseCases.Vehicle.Queries.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,6 +23,15 @@ public class VehicleController : ControllerBase
     public async Task<ActionResult<List<VehiclesResponse>>> GetAll()
     {
         var result = await _mediatr.Send(new GetAllVehiclesQuery(), HttpContext.RequestAborted);
+        return result.Match<ActionResult>(
+            Ok,
+            error => Problem(detail: error.Message, statusCode: 400));
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<VehicleResponse>> GetById(int id)
+    {
+        var result = await _mediatr.Send(new GetByIdVehicleQuery(id), HttpContext.RequestAborted);
         return result.Match<ActionResult>(
             Ok,
             error => Problem(detail: error.Message, statusCode: 400));

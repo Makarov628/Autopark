@@ -4,7 +4,7 @@ using Autopark.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 namespace Autopark.UseCases.BrandModel.Queries.GetAll;
 
-internal class GetAllBrandModelQueryHandler : IRequestHandler<GetAllBrandModelQuery, Fin<List<BrandModelResponse>>>
+internal class GetAllBrandModelQueryHandler : IRequestHandler<GetAllBrandModelQuery, Fin<List<BrandModelsResponse>>>
 {
     private readonly AutoparkDbContext _dbContext;
 
@@ -13,10 +13,10 @@ internal class GetAllBrandModelQueryHandler : IRequestHandler<GetAllBrandModelQu
         _dbContext = dbContext;
     }
 
-    public async Task<Fin<List<BrandModelResponse>>> Handle(GetAllBrandModelQuery request, CancellationToken cancellationToken)
+    public async Task<Fin<List<BrandModelsResponse>>> Handle(GetAllBrandModelQuery request, CancellationToken cancellationToken)
     {
         var brandModels = await _dbContext.BrandModels.AsNoTracking().ToListAsync(cancellationToken);
-        return brandModels.ConvertAll(brandModel => new BrandModelResponse(
+        return brandModels.ConvertAll(brandModel => new BrandModelsResponse(
             brandModel.Id.Value,
             brandModel.BrandName,
             brandModel.ModelName,

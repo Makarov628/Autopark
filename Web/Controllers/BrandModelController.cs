@@ -2,6 +2,7 @@ using Autopark.UseCases.BrandModel.Commands.Create;
 using Autopark.UseCases.BrandModel.Commands.Delete;
 using Autopark.UseCases.BrandModel.Commands.Update;
 using Autopark.UseCases.BrandModel.Queries.GetAll;
+using Autopark.UseCases.BrandModel.Queries.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,9 +20,18 @@ public class BrandModelController : ControllerBase
     }
 
     [HttpGet("all")]
-    public async Task<ActionResult<List<BrandModelResponse>>> GetAll()
+    public async Task<ActionResult<List<BrandModelsResponse>>> GetAll()
     {
         var result = await _mediatr.Send(new GetAllBrandModelQuery(), HttpContext.RequestAborted);
+        return result.Match<ActionResult>(
+            Ok,
+            error => Problem(detail: error.Message, statusCode: 400));
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<BrandModelResponse>> GetById(int id)
+    {
+        var result = await _mediatr.Send(new GetByIdBrandModelQuery(id), HttpContext.RequestAborted);
         return result.Match<ActionResult>(
             Ok,
             error => Problem(detail: error.Message, statusCode: 400));
