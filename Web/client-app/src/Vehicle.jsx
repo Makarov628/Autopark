@@ -29,7 +29,7 @@ function VehiclePage() {
 
   const fetchVehicles = async () => {
     try {
-      const response = await fetch('/api/Vehicle/all')
+      const response = await fetch('/api/Vehicles')
       if (!response.ok) {
         throw new Error('Ошибка при загрузке транспорта')
       }
@@ -42,7 +42,7 @@ function VehiclePage() {
 
   const fetchEnterprises = async () => {
     try {
-      const response = await fetch('/api/Enterprise/all')
+      const response = await fetch('/api/Enterprises')
       if (!response.ok) {
         throw new Error('Ошибка при загрузке предприятий')
       }
@@ -55,7 +55,7 @@ function VehiclePage() {
 
   const fetchBrandModels = async () => {
     try {
-      const response = await fetch('/api/BrandModel/all')
+      const response = await fetch('/api/BrandModels')
       if (!response.ok) {
         throw new Error('Ошибка при загрузке моделей')
       }
@@ -136,7 +136,7 @@ function VehiclePage() {
   const handleDelete = async (id) => {
     if (!window.confirm('Точно удалить этот транспорт?')) return
     try {
-      const response = await fetch(`/api/Vehicle/${id}`, {
+      const response = await fetch(`/api/Vehicles/${id}`, {
         method: 'DELETE'
       })
       if (!response.ok) {

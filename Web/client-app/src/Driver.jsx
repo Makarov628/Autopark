@@ -23,7 +23,7 @@ const Driver = () => {
 
   const fetchDrivers = async () => {
     try {
-      const response = await fetch('/api/Driver/all');
+      const response = await fetch('/api/Drivers');
       if (!response.ok) throw new Error('Ошибка при загрузке водителей');
       const data = await response.json();
       setDrivers(data);
@@ -34,7 +34,7 @@ const Driver = () => {
 
   const fetchEnterprises = async () => {
     try {
-      const response = await fetch('/api/Enterprise/all');
+      const response = await fetch('/api/Enterprises');
       if (!response.ok) throw new Error('Ошибка при загрузке предприятий');
       const data = await response.json();
       setEnterprises(data);
@@ -45,7 +45,7 @@ const Driver = () => {
 
   const fetchVehicles = async () => {
     try {
-      const response = await fetch('/api/Vehicle/all');
+      const response = await fetch('/api/Vehicles');
       if (!response.ok) throw new Error('Ошибка при загрузке транспорта');
       const data = await response.json();
       setVehicles(data);
@@ -115,7 +115,7 @@ const Driver = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`/api/Driver/${id}`, {
+      const response = await fetch(`/api/Drivers`, {
         method: 'DELETE'
       });
       

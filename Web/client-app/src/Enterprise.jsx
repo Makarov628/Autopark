@@ -15,7 +15,7 @@ const Enterprise = () => {
 
   const fetchEnterprises = async () => {
     try {
-      const response = await fetch('/api/Enterprise/all');
+      const response = await fetch('/api/Enterprises');
       if (!response.ok) throw new Error('Ошибка при загрузке предприятий');
       const data = await response.json();
       setEnterprises(data);
@@ -67,7 +67,7 @@ const Enterprise = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`/api/Enterprise/${id}`, {
+      const response = await fetch(`/api/Enterprises/${id}`, {
         method: 'DELETE'
       });
       

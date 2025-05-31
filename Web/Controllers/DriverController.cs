@@ -10,16 +10,16 @@ namespace Autopark.Web.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class DriverController : ControllerBase
+public class DriversController : ControllerBase
 {
     private readonly IMediator _mediatr;
 
-    public DriverController(IMediator mediatr)
+    public DriversController(IMediator mediatr)
     {
         _mediatr = mediatr;
     }
 
-    [HttpGet("all")]
+    [HttpGet]
     public async Task<ActionResult<List<DriversResponse>>> GetAll()
     {
         var result = await _mediatr.Send(new GetAllDriversQuery(), HttpContext.RequestAborted);

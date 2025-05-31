@@ -37,7 +37,7 @@ function BrandModel() {
   const fetchAllBrandModels = async () => {
     try {
       setLoading(true)
-      const response = await fetch('/api/BrandModel/all')
+      const response = await fetch('/api/BrandModels')
       if (!response.ok) {
         throw new Error('Ошибка при загрузке BrandModel')
       }
@@ -55,7 +55,7 @@ function BrandModel() {
     e.preventDefault()
 
     try {
-      const response = await fetch('/api/BrandModel', {
+      const response = await fetch('/api/BrandModels', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -94,7 +94,7 @@ function BrandModel() {
     if (!window.confirm('Точно удалить этот BrandModel?')) return
 
     try {
-      const response = await fetch(`/api/BrandModel/${id}`, {
+      const response = await fetch(`/api/BrandModels/${id}`, {
         method: 'DELETE'
       })
       if (!response.ok) {
@@ -125,7 +125,7 @@ function BrandModel() {
     e.preventDefault()
 
     try {
-      const response = await fetch('/api/BrandModel', {
+      const response = await fetch('/api/BrandModels', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

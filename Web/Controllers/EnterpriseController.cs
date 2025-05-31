@@ -10,16 +10,16 @@ namespace Autopark.Web.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class EnterpriseController : ControllerBase
+public class EnterprisesController : ControllerBase
 {
     private readonly IMediator _mediatr;
 
-    public EnterpriseController(IMediator mediatr)
+    public EnterprisesController(IMediator mediatr)
     {
         _mediatr = mediatr;
     }
 
-    [HttpGet("all")]
+    [HttpGet]
     public async Task<ActionResult<List<EnterprisesResponse>>> GetAll()
     {
         var result = await _mediatr.Send(new GetAllEnterprisesQuery(), HttpContext.RequestAborted);

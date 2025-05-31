@@ -10,16 +10,16 @@ namespace Autopark.Web.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class BrandModelController : ControllerBase
+public class BrandModelsController : ControllerBase
 {
     private readonly IMediator _mediatr;
 
-    public BrandModelController(IMediator mediatr)
+    public BrandModelsController(IMediator mediatr)
     {
         _mediatr = mediatr;
     }
 
-    [HttpGet("all")]
+    [HttpGet]
     public async Task<ActionResult<List<BrandModelsResponse>>> GetAll()
     {
         var result = await _mediatr.Send(new GetAllBrandModelQuery(), HttpContext.RequestAborted);
