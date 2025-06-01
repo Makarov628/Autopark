@@ -1,0 +1,183 @@
+{
+  "id": 3,
+  "name": "Грузовые Рыцари",
+  "address": "город Грузный, район Доблести, улица Чести, дом 1",
+  "vehicles": [
+    {
+      "id": 3,
+      "name": "Бывалый Швед",
+      "price": 10000,
+      "mileageInKilometers": 100000,
+      "color": "КрАсНыЙ",
+      "registrationNumber": "111SVD",
+      "brandModel": {
+        "id": 2,
+        "brandName": "Scania",
+        "modelName": "V8",
+        "transportType": 1,
+        "fuelType": 2,
+        "seatsNumber": 2,
+        "maximumLoadCapacityInKillograms": 10000
+      },
+      "activeDriver": {
+        "id": 6,
+        "firstName": "Артур",
+        "lastName": "Мечизкамнев",
+        "dateOfBirth": "2025-05-21T00:00:00",
+        "salary": 10000,
+        "attachedVehicle": null
+      },
+      "attachedDrivers": [
+        {
+          "id": 6,
+          "firstName": "Артур",
+          "lastName": "Мечизкамнев",
+          "dateOfBirth": "2025-05-21T00:00:00",
+          "salary": 10000,
+          "attachedVehicle": null
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Дальнобойный ЧЕЛ",
+      "price": 90000,
+      "mileageInKilometers": 142020,
+      "color": "Оранжевый",
+      "registrationNumber": "673MAN",
+      "brandModel": {
+        "id": 3,
+        "brandName": "MAN",
+        "modelName": "TGX",
+        "transportType": 1,
+        "fuelType": 1,
+        "seatsNumber": 2,
+        "maximumLoadCapacityInKillograms": 10000
+      },
+      "activeDriver": null,
+      "attachedDrivers": [
+        {
+          "id": 7,
+          "firstName": "Ланселот",
+          "lastName": "Меткострелов",
+          "dateOfBirth": "2025-05-15T00:00:00",
+          "salary": 10000,
+          "attachedVehicle": null
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Бравый Камазок",
+      "price": 5023,
+      "mileageInKilometers": 6782,
+      "color": "синий",
+      "registrationNumber": "023KMZ",
+      "brandModel": {
+        "id": 4,
+        "brandName": "КАМАЗ",
+        "modelName": "65115",
+        "transportType": 1,
+        "fuelType": 1,
+        "seatsNumber": 2,
+        "maximumLoadCapacityInKillograms": 9300
+      },
+      "activeDriver": null,
+      "attachedDrivers": [
+        {
+          "id": 8,
+          "firstName": "Мерлин",
+          "lastName": "Монров",
+          "dateOfBirth": "2025-04-28T00:00:00",
+          "salary": 10000,
+          "attachedVehicle": null
+        }
+      ]
+    }
+  ],
+  "drivers": [
+    {
+      "id": 6,
+      "firstName": "Артур",
+      "lastName": "Мечизкамнев",
+      "dateOfBirth": "2025-05-21T00:00:00",
+      "salary": 10000,
+      "attachedVehicle": {
+        "id": 3,
+        "name": "Бывалый Швед",
+        "price": 10000,
+        "mileageInKilometers": 100000,
+        "color": "КрАсНыЙ",
+        "registrationNumber": "111SVD",
+        "brandModel": {
+          "id": 2,
+          "brandName": "Scania",
+          "modelName": "V8",
+          "transportType": 1,
+          "fuelType": 2,
+          "seatsNumber": 2,
+          "maximumLoadCapacityInKillograms": 10000
+        },
+        "activeDriverId": 6
+      }
+    },
+    {
+      "id": 7,
+      "firstName": "Ланселот",
+      "lastName": "Меткострелов",
+      "dateOfBirth": "2025-05-15T00:00:00",
+      "salary": 10000,
+      "attachedVehicle": {
+        "id": 4,
+        "name": "Дальнобойный ЧЕЛ",
+        "price": 90000,
+        "mileageInKilometers": 142020,
+        "color": "Оранжевый",
+        "registrationNumber": "673MAN",
+        "brandModel": {
+          "id": 3,
+          "brandName": "MAN",
+          "modelName": "TGX",
+          "transportType": 1,
+          "fuelType": 1,
+          "seatsNumber": 2,
+          "maximumLoadCapacityInKillograms": 10000
+        },
+        "activeDriverId": null
+      }
+    },
+    {
+      "id": 8,
+      "firstName": "Мерлин",
+      "lastName": "Монров",
+      "dateOfBirth": "2025-04-28T00:00:00",
+      "salary": 10000,
+      "attachedVehicle": {
+        "id": 5,
+        "name": "Бравый Камазок",
+        "price": 5023,
+        "mileageInKilometers": 6782,
+        "color": "синий",
+        "registrationNumber": "023KMZ",
+        "brandModel": {
+          "id": 4,
+          "brandName": "КАМАЗ",
+          "modelName": "65115",
+          "transportType": 1,
+          "fuelType": 1,
+          "seatsNumber": 2,
+          "maximumLoadCapacityInKillograms": 9300
+        },
+        "activeDriverId": null
+      }
+    },
+    {
+      "id": 10,
+      "firstName": "Бенедикт",
+      "lastName": "Пашотов",
+      "dateOfBirth": "2025-04-28T00:00:00",
+      "salary": 0,
+      "attachedVehicle": null
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "id": 2,
+  "name": "АвтоКоллектив",
+  "address": "город Легко-Авторск, район Машинова, улица Турбинова, дом 236 л.с.",
+  "vehicles": [
+    {
+      "id": 6,
+      "name": "Раритетный Гелик ",
+      "price": 100000,
+      "mileageInKilometers": 50000,
+      "color": "чорныйй",
+      "registrationNumber": "001AAA",
+      "brandModel": {
+        "id": 5,
+        "brandName": "Mersedes-Benz",
+        "modelName": "Gelandewagen",
+        "transportType": 0,
+        "fuelType": 1,
+        "seatsNumber": 4,
+        "maximumLoadCapacityInKillograms": 1000
+      },
+      "activeDriver": {
+        "id": 5,
+        "firstName": "Валерий",
+        "lastName": "Кабанов",
+        "dateOfBirth": "2025-04-29T00:00:00",
+        "salary": 1000000,
+        "attachedVehicle": null
+      },
+      "attachedDrivers": [
+        {
+          "id": 5,
+          "firstName": "Валерий",
+          "lastName": "Кабанов",
+          "dateOfBirth": "2025-04-29T00:00:00",
+          "salary": 1000000,
+          "attachedVehicle": null
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Granta Иваныча",
+      "price": 10000,
+      "mileageInKilometers": 3000,
+      "color": "белый",
+      "registrationNumber": "546IVN",
+      "brandModel": {
+        "id": 1,
+        "brandName": "Lada",
+        "modelName": "Granta",
+        "transportType": 0,
+        "fuelType": 1,
+        "seatsNumber": 4,
+        "maximumLoadCapacityInKillograms": 1000
+      },
+      "activeDriver": {
+        "id": 3,
+        "firstName": "Иван",
+        "lastName": "Иванов",
+        "dateOfBirth": "2025-05-25T00:00:00",
+        "salary": 1000,
+        "attachedVehicle": null
+      },
+      "attachedDrivers": [
+        {
+          "id": 3,
+          "firstName": "Иван",
+          "lastName": "Иванов",
+          "dateOfBirth": "2025-05-25T00:00:00",
+          "salary": 1000,
+          "attachedVehicle": null
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Хромой Француз",
+      "price": 6500,
+      "mileageInKilometers": 10000,
+      "color": "Желтый",
+      "registrationNumber": "561FRA",
+      "brandModel": {
+        "id": 6,
+        "brandName": "Renault",
+        "modelName": "Duster",
+        "transportType": 0,
+        "fuelType": 1,
+        "seatsNumber": 5,
+        "maximumLoadCapacityInKillograms": 1000
+      },
+      "activeDriver": {
+        "id": 4,
+        "firstName": "Жерар",
+        "lastName": "Депортированов",
+        "dateOfBirth": "2025-05-06T00:00:00",
+        "salary": 40000,
+        "attachedVehicle": null
+      },
+      "attachedDrivers": [
+        {
+          "id": 4,
+          "firstName": "Жерар",
+          "lastName": "Депортированов",
+          "dateOfBirth": "2025-05-06T00:00:00",
+          "salary": 40000,
+          "attachedVehicle": null
+        }
+      ]
+    }
+  ],
+  "drivers": [
+    {
+      "id": 3,
+      "firstName": "Иван",
+      "lastName": "Иванов",
+      "dateOfBirth": "2025-05-25T00:00:00",
+      "salary": 1000,
+      "attachedVehicle": {
+        "id": 7,
+        "name": "Granta Иваныча",
+        "price": 10000,
+        "mileageInKilometers": 3000,
+        "color": "белый",
+        "registrationNumber": "546IVN",
+        "brandModel": {
+          "id": 1,
+          "brandName": "Lada",
+          "modelName": "Granta",
+          "transportType": 0,
+          "fuelType": 1,
+          "seatsNumber": 4,
+          "maximumLoadCapacityInKillograms": 1000
+        },
+        "activeDriverId": 3
+      }
+    },
+    {
+      "id": 4,
+      "firstName": "Жерар",
+      "lastName": "Депортированов",
+      "dateOfBirth": "2025-05-06T00:00:00",
+      "salary": 40000,
+      "attachedVehicle": {
+        "id": 8,
+        "name": "Хромой Француз",
+        "price": 6500,
+        "mileageInKilometers": 10000,
+        "color": "Желтый",
+        "registrationNumber": "561FRA",
+        "brandModel": {
+          "id": 6,
+          "brandName": "Renault",
+          "modelName": "Duster",
+          "transportType": 0,
+          "fuelType": 1,
+          "seatsNumber": 5,
+          "maximumLoadCapacityInKillograms": 1000
+        },
+        "activeDriverId": 4
+      }
+    },
+    {
+      "id": 5,
+      "firstName": "Валерий",
+      "lastName": "Кабанов",
+      "dateOfBirth": "2025-04-29T00:00:00",
+      "salary": 1000000,
+      "attachedVehicle": {
+        "id": 6,
+        "name": "Раритетный Гелик ",
+        "price": 100000,
+        "mileageInKilometers": 50000,
+        "color": "чорныйй",
+        "registrationNumber": "001AAA",
+        "brandModel": {
+          "id": 5,
+          "brandName": "Mersedes-Benz",
+          "modelName": "Gelandewagen",
+          "transportType": 0,
+          "fuelType": 1,
+          "seatsNumber": 4,
+          "maximumLoadCapacityInKillograms": 1000
+        },
+        "activeDriverId": 5
+      }
+    },
+    {
+      "id": 9,
+      "firstName": "Валентин",
+      "lastName": "Ктототамов",
+      "dateOfBirth": "2025-05-14T00:00:00",
+      "salary": 0,
+      "attachedVehicle": null
+    }
+  ]
+}
