@@ -4,11 +4,14 @@ using Autopark.Domain.Driver.Entities;
 using Autopark.Domain.Enterprise.Entities;
 using Autopark.Domain.Vehicle.Entities;
 using Autopark.Infrastructure.Database.Configurations;
+
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Autopark.Infrastructure.Database.Identity;
 
 namespace Autopark.Infrastructure.Database;
 
-public class AutoparkDbContext : DbContext
+public class AutoparkDbContext : IdentityDbContext<User>
 {
     public AutoparkDbContext(DbContextOptions<AutoparkDbContext> options)
         : base(options) { }

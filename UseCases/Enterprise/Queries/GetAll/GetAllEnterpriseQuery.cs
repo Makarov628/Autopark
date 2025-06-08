@@ -8,5 +8,7 @@ public record GetAllEnterprisesQuery() : IRequest<Fin<List<EnterprisesResponse>>
 public record EnterprisesResponse(
     int Id,
     string Name,
-    string Address
+    string Address,
+    int[] VehicleIds,
+    int[] DriverIds
 );

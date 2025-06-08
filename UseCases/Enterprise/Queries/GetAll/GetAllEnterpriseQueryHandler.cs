@@ -16,11 +16,21 @@ internal class GetAllEnterprisesQueryHandler : IRequestHandler<GetAllEnterprises
 
     public async Task<Fin<List<EnterprisesResponse>>> Handle(GetAllEnterprisesQuery request, CancellationToken cancellationToken)
     {
-        var enterprises = await _dbContext.Enterprises.AsNoTracking().ToListAsync(cancellationToken);
-        return enterprises.ConvertAll(enterprise => new EnterprisesResponse(
-            enterprise.Id.Value,
-            enterprise.Name.Value,
-            enterprise.Address
-        ));
+        return await (
+             from enterprise in _dbContext.Enterprises
+             select new EnterprisesResponse(
+                 enterprise.Id.Value,
+                 enterprise.Name.Value,
+                 enterprise.Address,
+                 _dbContext.Vehicles.AsNoTracking()
+                     .Where(v => v.EnterpriseId == enterprise.Id)
+                     .Select(v => v.Id.Value)
+                     .ToArray(),
+                 _dbContext.Drivers.AsNoTracking()
+                     .Where(d => d.EnterpriseId == enterprise.Id)
+                     .Select(d => d.Id.Value)
+                     .ToArray()
+             )
+          ).ToListAsync(cancellationToken);
     }
 }

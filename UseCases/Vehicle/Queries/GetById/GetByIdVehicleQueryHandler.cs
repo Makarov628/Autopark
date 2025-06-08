@@ -23,6 +23,12 @@ internal class GetByIdVehicleQueryHandler : IRequestHandler<GetByIdVehicleQuery,
         if (vehicle is null)
             return Error.New($"Vehicle not found with id: {request.Id}");
 
+        var driversIds = await _dbContext.Drivers
+            .AsNoTracking()
+            .Where(d => d.EnterpriseId == vehicle.EnterpriseId && d.VehicleId == vehicle.Id)
+            .Select(d => d.Id)
+            .ToListAsync(cancellationToken);
+
         return new VehicleResponse(
             vehicle.Id.Value,
             vehicle.Name.Value,
@@ -32,7 +38,8 @@ internal class GetByIdVehicleQueryHandler : IRequestHandler<GetByIdVehicleQuery,
             vehicle.RegistrationNumber.Value,
             vehicle.BrandModelId.Value,
             vehicle.EnterpriseId.Value,
-            vehicle.ActiveDriverId?.Value
+            vehicle.ActiveDriverId?.Value,
+            driversIds.Select(d => d.Value).ToArray()
         );
     }
 }

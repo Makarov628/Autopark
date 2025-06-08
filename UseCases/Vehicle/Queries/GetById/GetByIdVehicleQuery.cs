@@ -14,5 +14,6 @@ public record VehicleResponse(
     string RegistrationNumber,
     int BrandModelId,
     int EnterpriseId,
-    int? ActiveDriverId
+    int? ActiveDriverId,
+    int[] DriverIds
 );

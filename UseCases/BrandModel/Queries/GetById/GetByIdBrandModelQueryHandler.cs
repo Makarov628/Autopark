@@ -23,6 +23,12 @@ internal class GetByIdBrandModelQueryHandler : IRequestHandler<GetByIdBrandModel
         if (brandModel is null)
             return Error.New($"Brand model not found with id: {request.Id}");
 
+        var vehiclesIds = await _dbContext.Vehicles
+            .AsNoTracking()
+            .Where(v => v.BrandModelId == brandModelId)
+            .Select(v => v.Id)
+            .ToListAsync(cancellationToken);
+
         return new BrandModelResponse(
             brandModel.Id.Value,
             brandModel.BrandName,
@@ -30,7 +36,8 @@ internal class GetByIdBrandModelQueryHandler : IRequestHandler<GetByIdBrandModel
             brandModel.TransportType,
             brandModel.FuelType,
             brandModel.SeatsNumber,
-            brandModel.MaximumLoadCapacityInKillograms
+            brandModel.MaximumLoadCapacityInKillograms,
+            vehiclesIds.Select(v => v.Value).ToArray()
         );
     }
 }

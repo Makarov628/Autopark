@@ -15,15 +15,21 @@ internal class GetAllBrandModelQueryHandler : IRequestHandler<GetAllBrandModelQu
 
     public async Task<Fin<List<BrandModelsResponse>>> Handle(GetAllBrandModelQuery request, CancellationToken cancellationToken)
     {
-        var brandModels = await _dbContext.BrandModels.AsNoTracking().ToListAsync(cancellationToken);
-        return brandModels.ConvertAll(brandModel => new BrandModelsResponse(
-            brandModel.Id.Value,
-            brandModel.BrandName,
-            brandModel.ModelName,
-            brandModel.TransportType,
-            brandModel.FuelType,
-            brandModel.SeatsNumber,
-            brandModel.MaximumLoadCapacityInKillograms
-        ));
+        return await (
+            from brandModel in _dbContext.BrandModels
+            select new BrandModelsResponse(
+                brandModel.Id.Value,
+                brandModel.BrandName,
+                brandModel.ModelName,
+                brandModel.TransportType,
+                brandModel.FuelType,
+                brandModel.SeatsNumber,
+                brandModel.MaximumLoadCapacityInKillograms,
+                _dbContext.Vehicles.AsNoTracking()
+                    .Where(v => v.BrandModelId == brandModel.Id)
+                    .Select(v => v.Id.Value)
+                    .ToArray()
+            )
+        ).ToListAsync(cancellationToken);
     }
 }

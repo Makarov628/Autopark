@@ -13,5 +13,6 @@ public record BrandModelsResponse(
     TransportType TransportType,
     FuelType FuelType,
     uint SeatsNumber,
-    uint MaximumLoadCapacityInKillograms
+    uint MaximumLoadCapacityInKillograms,
+    int[] VehicleIds
 );
