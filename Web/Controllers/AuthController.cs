@@ -15,11 +15,19 @@ using Microsoft.AspNetCore.Mvc;
 namespace Autopark.Web.Controllers;
 
 public record SetAdminPasswordDto(string Password);
+
 public record RegisterManagerDto(
     string LastName,
     string FirstName,
     [EmailAddress] string Email,
     string Password);
+
+public record UserInfo(
+    string Id,
+    string Login,
+    string Role,
+    IReadOnlyList<int> EnterpriseIds
+);
 
 [ApiController]
 [Route("api/[controller]")]
@@ -32,7 +40,7 @@ public class AuthController : ControllerBase
 
     [HttpGet("me")]
     [Authorize]
-    public async Task<ActionResult<ICurrentUser>> GetMe([FromServices] ICurrentUser currentUser)
+    public async Task<ActionResult<UserInfo>> GetMe([FromServices] ICurrentUser currentUser)
     {
         // var claims = HttpContext.User.Claims;
         // if (!claims.Any(c => c.Type == ClaimTypes.NameIdentifier))
@@ -41,7 +49,11 @@ public class AuthController : ControllerBase
         // string userId = claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
         // return await context.Users.FindAsync(userId);
         await Task.CompletedTask;
-        return Ok(currentUser);
+        return Ok(new UserInfo(
+            currentUser.Id,
+            currentUser.Login,
+            currentUser.Role,
+            currentUser.EnterpriseIds.Select(e => e.Value).ToArray()));
     }
 
     [HttpPost("register")]
