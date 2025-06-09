@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Autopark.Infrastructure.Database.Migrations
 {
     [DbContext(typeof(AutoparkDbContext))]
-    [Migration("20250604164328_Initial")]
+    [Migration("20250608231855_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -134,6 +134,97 @@ namespace Autopark.Infrastructure.Database.Migrations
                     b.ToTable("Enterprises", (string)null);
                 });
 
+            modelBuilder.Entity("Autopark.Domain.Manager.Entities.ManagerEnterpriseEntity", b =>
+                {
+                    b.Property<string>("ManagerId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("EnterpriseId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ManagerId", "EnterpriseId");
+
+                    b.HasIndex("EnterpriseId");
+
+                    b.ToTable("ManagerEnterprises", (string)null);
+                });
+
+            modelBuilder.Entity("Autopark.Domain.Manager.Entities.ManagerEntity", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsPasswordInitialized")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
             modelBuilder.Entity("Autopark.Domain.Vehicle.Entities.VehicleEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -182,74 +273,6 @@ namespace Autopark.Infrastructure.Database.Migrations
                     b.HasIndex("EnterpriseId");
 
                     b.ToTable("Vehicles", (string)null);
-                });
-
-            modelBuilder.Entity("Autopark.Infrastructure.Database.Identity.User", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsPasswordInitialized")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -402,6 +425,25 @@ namespace Autopark.Infrastructure.Database.Migrations
                     b.Navigation("Vehicle");
                 });
 
+            modelBuilder.Entity("Autopark.Domain.Manager.Entities.ManagerEnterpriseEntity", b =>
+                {
+                    b.HasOne("Autopark.Domain.Enterprise.Entities.EnterpriseEntity", "Enterprise")
+                        .WithMany("EnterpriseManagers")
+                        .HasForeignKey("EnterpriseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Autopark.Domain.Manager.Entities.ManagerEntity", "Manager")
+                        .WithMany("EnterpriseManagers")
+                        .HasForeignKey("ManagerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Enterprise");
+
+                    b.Navigation("Manager");
+                });
+
             modelBuilder.Entity("Autopark.Domain.Vehicle.Entities.VehicleEntity", b =>
                 {
                     b.HasOne("Autopark.Domain.BrandModel.Entities.BrandModelEntity", "BrandModel")
@@ -432,7 +474,7 @@ namespace Autopark.Infrastructure.Database.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Autopark.Infrastructure.Database.Identity.User", null)
+                    b.HasOne("Autopark.Domain.Manager.Entities.ManagerEntity", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -441,7 +483,7 @@ namespace Autopark.Infrastructure.Database.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Autopark.Infrastructure.Database.Identity.User", null)
+                    b.HasOne("Autopark.Domain.Manager.Entities.ManagerEntity", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -456,7 +498,7 @@ namespace Autopark.Infrastructure.Database.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Autopark.Infrastructure.Database.Identity.User", null)
+                    b.HasOne("Autopark.Domain.Manager.Entities.ManagerEntity", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -465,7 +507,7 @@ namespace Autopark.Infrastructure.Database.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Autopark.Infrastructure.Database.Identity.User", null)
+                    b.HasOne("Autopark.Domain.Manager.Entities.ManagerEntity", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -481,7 +523,14 @@ namespace Autopark.Infrastructure.Database.Migrations
                 {
                     b.Navigation("Drivers");
 
+                    b.Navigation("EnterpriseManagers");
+
                     b.Navigation("Vehicles");
+                });
+
+            modelBuilder.Entity("Autopark.Domain.Manager.Entities.ManagerEntity", b =>
+                {
+                    b.Navigation("EnterpriseManagers");
                 });
 
             modelBuilder.Entity("Autopark.Domain.Vehicle.Entities.VehicleEntity", b =>

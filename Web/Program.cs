@@ -3,8 +3,10 @@ using Autopark.UseCases.Vehicle.Commands.Create;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Identity;
+using Autopark.Domain.Manager.Entities;
+using Autopark.Web.Services;
+using Microsoft.AspNetCore.Authentication;
 using Autopark.Infrastructure.Database.Identity;
-using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +22,7 @@ builder.Services.AddAuthentication(IdentityConstants.ApplicationScheme)
     .AddBearerToken(IdentityConstants.BearerScheme);
 builder.Services.AddCors();
 
-builder.Services.AddIdentityCore<User>()
+builder.Services.AddIdentityCore<ManagerEntity>()
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<AutoparkDbContext>()
     .AddApiEndpoints();
@@ -35,6 +37,8 @@ builder.Services.AddDbContext<AutoparkDbContext>(options =>
 });
 
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(CreateVehicleCommand).Assembly));
+builder.Services.AddTransient<IClaimsTransformation, EnterpriseClaimsTransformation>();
+builder.Services.AddScoped<ICurrentUser, CurrentUser>();
 builder.Services.AddControllers();
 
 var app = builder.Build();
@@ -49,7 +53,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 app.MapFallbackToFile("index.html");
-app.MapIdentityApi<User>();
+app.MapIdentityApi<ManagerEntity>();
 
 app.UseSwagger();
 app.UseSwaggerUI();

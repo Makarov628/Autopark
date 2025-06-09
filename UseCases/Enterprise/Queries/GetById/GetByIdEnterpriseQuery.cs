@@ -11,5 +11,6 @@ public record EnterpriseResponse(
     string Name,
     string Address,
     int[] VehicleIds,
-    int[] DriverIds
+    int[] DriverIds,
+    string[] ManagerIds
 );

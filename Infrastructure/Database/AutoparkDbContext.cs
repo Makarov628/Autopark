@@ -7,11 +7,11 @@ using Autopark.Infrastructure.Database.Configurations;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Autopark.Infrastructure.Database.Identity;
+using Autopark.Domain.Manager.Entities;
 
 namespace Autopark.Infrastructure.Database;
 
-public class AutoparkDbContext : IdentityDbContext<User>
+public class AutoparkDbContext : IdentityDbContext<ManagerEntity>
 {
     public AutoparkDbContext(DbContextOptions<AutoparkDbContext> options)
         : base(options) { }
@@ -20,6 +20,7 @@ public class AutoparkDbContext : IdentityDbContext<User>
     public DbSet<BrandModelEntity> BrandModels { get; set; } = null!;
     public DbSet<EnterpriseEntity> Enterprises { get; set; } = null!;
     public DbSet<DriverEntity> Drivers { get; set; } = null!;
+    public DbSet<ManagerEnterpriseEntity> ManagerEnterprises { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -27,6 +28,9 @@ public class AutoparkDbContext : IdentityDbContext<User>
         modelBuilder.ApplyConfiguration(new VehicleConfiguration());
         modelBuilder.ApplyConfiguration(new EnterpriseConfiguration());
         modelBuilder.ApplyConfiguration(new DriverConfiguration());
+        modelBuilder.ApplyConfiguration(new ManagerConfiguration());
+        modelBuilder.ApplyConfiguration(new ManagerEnterpriseConfiguration());
+
         base.OnModelCreating(modelBuilder);
     }
 

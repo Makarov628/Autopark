@@ -31,6 +31,8 @@ namespace Autopark.Infrastructure.Database.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     IsPasswordInitialized = table.Column<bool>(type: "bit", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -194,6 +196,30 @@ namespace Autopark.Infrastructure.Database.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ManagerEnterprises",
+                columns: table => new
+                {
+                    ManagerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    EnterpriseId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ManagerEnterprises", x => new { x.ManagerId, x.EnterpriseId });
+                    table.ForeignKey(
+                        name: "FK_ManagerEnterprises_AspNetUsers_ManagerId",
+                        column: x => x.ManagerId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ManagerEnterprises_Enterprises_EnterpriseId",
+                        column: x => x.EnterpriseId,
+                        principalTable: "Enterprises",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Vehicles",
                 columns: table => new
                 {
@@ -308,6 +334,11 @@ namespace Autopark.Infrastructure.Database.Migrations
                 column: "VehicleId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ManagerEnterprises_EnterpriseId",
+                table: "ManagerEnterprises",
+                column: "EnterpriseId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Vehicles_BrandModelId",
                 table: "Vehicles",
                 column: "BrandModelId");
@@ -340,13 +371,16 @@ namespace Autopark.Infrastructure.Database.Migrations
                 name: "Drivers");
 
             migrationBuilder.DropTable(
+                name: "ManagerEnterprises");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Vehicles");
 
             migrationBuilder.DropTable(
-                name: "Vehicles");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "BrandModels");

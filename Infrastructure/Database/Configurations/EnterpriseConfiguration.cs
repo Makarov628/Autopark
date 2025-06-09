@@ -50,6 +50,14 @@ public class EnterpriseConfiguration : IEntityTypeConfiguration<EnterpriseEntity
             .HasForeignKey(s => s.EnterpriseId)
             .HasPrincipalKey(s => s.Id);
 
+        builder.HasMany(s => s.EnterpriseManagers)
+            .WithOne(s => s.Enterprise)
+            .HasForeignKey(s => s.EnterpriseId)
+            .HasPrincipalKey(s => s.Id);
+
+        builder.Navigation(s => s.EnterpriseManagers).Metadata.SetField("_enterpriseManagers");
+        builder.Navigation(s => s.EnterpriseManagers).UsePropertyAccessMode(PropertyAccessMode.Field);
+
         builder.Navigation(s => s.Vehicles).Metadata.SetField("_vehicles");
         builder.Navigation(s => s.Vehicles).UsePropertyAccessMode(PropertyAccessMode.Field);
 
