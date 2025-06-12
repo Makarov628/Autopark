@@ -3,6 +3,7 @@ using System.Security.Claims;
 using Autopark.Domain.Common;
 using Autopark.Domain.Common.Models;
 using Autopark.Domain.Common.ValueObjects;
+using Autopark.Domain.Enterprise.ValueObjects;
 using Autopark.Domain.Manager.Entities;
 using Autopark.Infrastructure.Database;
 using Autopark.Infrastructure.Database.Identity;
@@ -11,6 +12,7 @@ using LanguageExt.Common;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Autopark.Web.Controllers;
 
@@ -27,6 +29,10 @@ public record UserInfo(
     string Login,
     string Role,
     IReadOnlyList<int> EnterpriseIds
+);
+
+public record AttachToEnterprise(
+    int enterpriseId
 );
 
 [ApiController]
@@ -125,6 +131,26 @@ public class AuthController : ControllerBase
         await users.UpdateAsync(admin);
 
         return Ok("Пароль сохранён. Эндпоинт больше не доступен.");
+    }
+
+    [HttpPost("attach-to-enterprise")]
+    [Authorize]
+    public async Task<IActionResult> AttachToEnterprise(
+        [FromBody] AttachToEnterprise dto,
+        [FromServices] ICurrentUser currentUser,
+        [FromServices] AutoparkDbContext db)
+    {
+        var isAttached = await db.ManagerEnterprises.AnyAsync(m =>
+            m.EnterpriseId == EnterpriseId.Create(dto.enterpriseId)
+            && m.ManagerId == currentUser.Id);
+
+        if (!isAttached)
+        {
+            await db.ManagerEnterprises.AddAsync(ManagerEnterpriseEntity.Create(currentUser.Id, EnterpriseId.Create(dto.enterpriseId)));
+            await db.SaveChangesAsync();
+        }
+
+        return Ok();
     }
 
 }
