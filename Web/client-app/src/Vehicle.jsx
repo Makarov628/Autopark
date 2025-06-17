@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { api } from './utils/api'
 
 // Здесь мы предполагаем, что у нас есть
 // interface VehicleResponse { ... brandModelId: number, ... }
@@ -8,6 +9,7 @@ function VehiclePage() {
   const [vehicles, setVehicles] = useState([])
   const [enterprises, setEnterprises] = useState([])
   const [brandModels, setBrandModels] = useState([])
+  const [drivers, setDrivers] = useState([])
   const [formData, setFormData] = useState({
     name: '',
     price: '',
@@ -25,11 +27,12 @@ function VehiclePage() {
     fetchVehicles()
     fetchEnterprises()
     fetchBrandModels()
+    fetchDrivers()
   }, [])
 
   const fetchVehicles = async () => {
     try {
-      const response = await fetch('/api/Vehicles')
+      const response = await api.get('/api/Vehicles')
       if (!response.ok) {
         throw new Error('Ошибка при загрузке транспорта')
       }
@@ -42,7 +45,7 @@ function VehiclePage() {
 
   const fetchEnterprises = async () => {
     try {
-      const response = await fetch('/api/Enterprises')
+      const response = await api.get('/api/Enterprises')
       if (!response.ok) {
         throw new Error('Ошибка при загрузке предприятий')
       }
@@ -55,7 +58,7 @@ function VehiclePage() {
 
   const fetchBrandModels = async () => {
     try {
-      const response = await fetch('/api/BrandModels')
+      const response = await api.get('/api/BrandModels')
       if (!response.ok) {
         throw new Error('Ошибка при загрузке моделей')
       }
@@ -63,6 +66,19 @@ function VehiclePage() {
       setBrandModels(data)
     } catch (err) {
       setError('Ошибка при загрузке моделей')
+    }
+  }
+
+  const fetchDrivers = async () => {
+    try {
+      const response = await api.get('/api/Drivers')
+      if (!response.ok) {
+        throw new Error('Ошибка при загрузке водителей')
+      }
+      const data = await response.json()
+      setDrivers(data)
+    } catch (err) {
+      setError('Ошибка при загрузке водителей')
     }
   }
 
@@ -86,17 +102,13 @@ function VehiclePage() {
         activeDriverId: formData.activeDriverId ? parseInt(formData.activeDriverId) : null
       }
 
-      const url = '/api/Vehicle'
+      const url = '/api/Vehicles'
       const method = editingId ? 'PUT' : 'POST'
       const body = editingId ? { id: editingId, ...submitData } : submitData
 
-      const response = await fetch(url, {
-        method,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(body)
-      })
+      const response = method === 'POST' 
+        ? await api.post(url, body)
+        : await api.put(url, body)
 
       if (!response.ok) {
         throw new Error('Ошибка при сохранении транспорта')
@@ -136,9 +148,7 @@ function VehiclePage() {
   const handleDelete = async (id) => {
     if (!window.confirm('Точно удалить этот транспорт?')) return
     try {
-      const response = await fetch(`/api/Vehicles/${id}`, {
-        method: 'DELETE'
-      })
+      const response = await api.delete(`/api/Vehicles/${id}`)
       if (!response.ok) {
         throw new Error('Ошибка при удалении транспорта')
       }
@@ -147,6 +157,14 @@ function VehiclePage() {
       setError('Ошибка при удалении транспорта')
     }
   }
+
+  // Получаем список водителей для выбранного предприятия
+  const getAvailableDrivers = () => {
+    if (!formData.enterpriseId) return [];
+    return drivers.filter(driver =>
+      driver.enterpriseId === parseInt(formData.enterpriseId)
+    );
+  };
 
   return (
     <div className="container mx-auto p-4">
@@ -269,6 +287,25 @@ function VehiclePage() {
           </label>
         </div>
 
+        <div className="mb-4">
+          <label className="block text-white-700 text-sm font-bold mb-2">
+            Активный водитель:
+            <select
+              name="activeDriverId"
+              value={formData.activeDriverId}
+              onChange={handleInputChange}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+            >
+              <option value="">Не назначен</option>
+              {getAvailableDrivers().map(driver => (
+                <option key={driver.id} value={driver.id}>
+                  {driver.firstName} {driver.lastName}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+
         <button
           type="submit"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -289,6 +326,7 @@ function VehiclePage() {
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Рег. номер</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Модель</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Предприятие</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Активный водитель</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Действия</th>
             </tr>
           </thead>
@@ -306,6 +344,11 @@ function VehiclePage() {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   {enterprises.find(e => e.id === vehicle.enterpriseId)?.name}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {drivers.find(d => d.id === vehicle.activeDriverId) ? 
+                    `${drivers.find(d => d.id === vehicle.activeDriverId)?.firstName} ${drivers.find(d => d.id === vehicle.activeDriverId)?.lastName}` : 
+                    'Не назначен'}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <button

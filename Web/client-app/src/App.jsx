@@ -1,19 +1,101 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { initializeCsrf, logout } from './utils/api'
 
 // Импортируем компоненты
 import BrandModelPage from './BrandModel'
 import Driver from './Driver'
 import Enterprise from './Enterprise'
 import VehiclePage from './Vehicle'
+import Login from './components/Login'
 
 function App() {
+  // Состояние авторизации
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  
   // Определяем состояние, которое говорит, что сейчас показываем
   const [activeTab, setActiveTab] = useState('vehicle')
   // Возможные значения: 'vehicle', 'brandModel', 'enterprise', 'driver'
 
+  // Инициализируем CSRF токен и проверяем авторизацию при загрузке приложения
+  useEffect(() => {
+    const initializeApp = async () => {
+      try {
+        // Инициализируем CSRF токен
+        await initializeCsrf();
+        
+        // Проверяем авторизацию
+        await checkAuthStatus();
+      } catch (error) {
+        console.warn('Ошибка при инициализации приложения:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    initializeApp();
+  }, []);
+
+  // Функция для проверки статуса авторизации
+  const checkAuthStatus = async () => {
+    try {
+      const response = await fetch('/api/auth/me', {
+        credentials: 'include'
+      });
+      
+      if (response.ok) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+      }
+    } catch (error) {
+      console.warn('Ошибка при проверке авторизации:', error);
+      setIsAuthenticated(false);
+    }
+  };
+
+  // Обработчик успешной авторизации
+  const handleLoginSuccess = () => {
+    setIsAuthenticated(true);
+  };
+
+  // Обработчик выхода
+  const handleLogout = async () => {
+    const success = await logout();
+    if (success) {
+      setIsAuthenticated(false);
+    } else {
+      // Даже если logout не удался, сбрасываем состояние авторизации
+      setIsAuthenticated(false);
+    }
+  };
+
+  // Показываем загрузку
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-900">
+        <div className="text-white text-xl">Загрузка...</div>
+      </div>
+    );
+  }
+
+  // Показываем форму входа, если не авторизован
+  if (!isAuthenticated) {
+    return <Login onLoginSuccess={handleLoginSuccess} />;
+  }
+
+  // Основной интерфейс приложения
   return (
     <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">Autopark Management</h1>
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-3xl font-bold">Autopark Management</h1>
+        <button
+          onClick={handleLogout}
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Выйти
+        </button>
+      </div>
 
       {/* Кнопки-переключатели */}
       <div className="mb-4">

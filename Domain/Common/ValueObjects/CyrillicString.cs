@@ -16,7 +16,7 @@ public class CyrillicString : ValueObject
 
     public static Fin<CyrillicString> Create(string value)
     {
-        if(!Pattern.IsMatch(value))
+        if (!Pattern.IsMatch(value))
             return Error.New("Используйте символы кириллицы и числа от 0 до 9");
 
         return new CyrillicString(value);

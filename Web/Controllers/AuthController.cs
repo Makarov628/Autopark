@@ -39,9 +39,11 @@ public record AttachToEnterprise(
 [Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
+    private readonly SignInManager<ManagerEntity> _signInManager;
 
-    public AuthController()
+    public AuthController(SignInManager<ManagerEntity> signInManager)
     {
+        _signInManager = signInManager;
     }
 
     [HttpGet("me")]
@@ -60,6 +62,21 @@ public class AuthController : ControllerBase
             currentUser.Login,
             currentUser.Role,
             currentUser.EnterpriseIds.Select(e => e.Value).ToArray()));
+    }
+
+    [HttpPost("logout")]
+    [Authorize]
+    public async Task<ActionResult> Logout()
+    {
+        // Уничтожаем пользовательскую сессию
+        await _signInManager.SignOutAsync();
+
+        // Возвращаем успешный ответ
+        return Ok(new { message = "Успешный выход из системы" });
+
+        // Альтернативно можно использовать встроенный эндпоинт Identity API:
+        // POST /logout (автоматически создается через MapIdentityApi)
+        // Но тогда нужно обновить клиентский код для использования /logout вместо /api/auth/logout
     }
 
     [HttpPost("register")]
@@ -152,5 +169,4 @@ public class AuthController : ControllerBase
 
         return Ok();
     }
-
 }

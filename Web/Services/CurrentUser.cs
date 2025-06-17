@@ -1,5 +1,3 @@
-
-
 using System.Security.Claims;
 using Autopark.Domain.Enterprise.ValueObjects;
 using Autopark.Infrastructure.Database.Identity;
@@ -9,7 +7,7 @@ namespace Autopark.Web.Services;
 public sealed class CurrentUser : ICurrentUser
 {
     public bool IsAuthenticated { get; }
-    public string Id { get; }
+    public string Id { get; } = string.Empty;
     public string Login { get; } = string.Empty;
     public string Role { get; } = string.Empty;
     public IReadOnlyList<EnterpriseId> EnterpriseIds { get; } = Array.Empty<EnterpriseId>();

@@ -7,7 +7,6 @@ using Autopark.Infrastructure.Database;
 using LanguageExt;
 using LanguageExt.Common;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace Autopark.UseCases.Enterprise.Commands.Create;
 

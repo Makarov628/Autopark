@@ -1,4 +1,20 @@
 import { useEffect, useState } from 'react'
+import { api } from './utils/api'
+
+// Enum значения для TransportType
+const TRANSPORT_TYPES = {
+  0: 'Легковой автомобиль',
+  1: 'Грузовик',
+  2: 'Автобус'
+}
+
+// Enum значения для FuelType
+const FUEL_TYPES = {
+  1: 'Бензин',
+  2: 'Дизель',
+  3: 'Электричество',
+  999: 'Нет'
+}
 
 // Примерная структура BrandModel, чтобы TypeScript/JS понимал
 // interface BrandModel {
@@ -14,6 +30,7 @@ import { useEffect, useState } from 'react'
 function BrandModel() {
   const [brandModels, setBrandModels] = useState([])
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   // Форма для добавления/редактирования
   const [formData, setFormData] = useState({
@@ -37,13 +54,15 @@ function BrandModel() {
   const fetchAllBrandModels = async () => {
     try {
       setLoading(true)
-      const response = await fetch('/api/BrandModels')
+      setError('')
+      const response = await api.get('/api/BrandModels')
       if (!response.ok) {
-        throw new Error('Ошибка при загрузке BrandModel')
+        throw new Error('Ошибка при загрузке моделей транспорта')
       }
       const data = await response.json()
       setBrandModels(data)
     } catch (error) {
+      setError('Ошибка при загрузке моделей транспорта')
       console.error(error)
     } finally {
       setLoading(false)
@@ -55,20 +74,18 @@ function BrandModel() {
     e.preventDefault()
 
     try {
-      const response = await fetch('/api/BrandModels', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          brandName: formData.brandName,
-          modelName: formData.modelName,
-          transportType: parseInt(formData.transportType),
-          fuelType: parseInt(formData.fuelType),
-          seatsNumber: parseInt(formData.seatsNumber),
-          maximumLoadCapacityInKillograms: parseInt(formData.maximumLoadCapacityInKillograms)
-        })
+      setError('')
+      const response = await api.post('/api/BrandModels', {
+        brandName: formData.brandName,
+        modelName: formData.modelName,
+        transportType: parseInt(formData.transportType),
+        fuelType: parseInt(formData.fuelType),
+        seatsNumber: parseInt(formData.seatsNumber),
+        maximumLoadCapacityInKillograms: parseInt(formData.maximumLoadCapacityInKillograms)
       })
+      
       if (!response.ok) {
-        throw new Error('Ошибка при создании BrandModel')
+        throw new Error('Ошибка при создании модели транспорта')
       }
 
       // Обновляем список
@@ -85,23 +102,24 @@ function BrandModel() {
         maximumLoadCapacityInKillograms: 0
       })
     } catch (error) {
+      setError('Ошибка при создании модели транспорта')
       console.error(error)
     }
   }
 
   // Удаление
   const handleDelete = async (id) => {
-    if (!window.confirm('Точно удалить этот BrandModel?')) return
+    if (!window.confirm('Точно удалить эту модель транспорта?')) return
 
     try {
-      const response = await fetch(`/api/BrandModels/${id}`, {
-        method: 'DELETE'
-      })
+      setError('')
+      const response = await api.delete(`/api/BrandModels/${id}`)
       if (!response.ok) {
-        throw new Error('Ошибка при удалении BrandModel')
+        throw new Error('Ошибка при удалении модели транспорта')
       }
       await fetchAllBrandModels()
     } catch (error) {
+      setError('Ошибка при удалении модели транспорта')
       console.error(error)
     }
   }
@@ -125,26 +143,25 @@ function BrandModel() {
     e.preventDefault()
 
     try {
-      const response = await fetch('/api/BrandModels', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          id: formData.id,
-          brandName: formData.brandName,
-          modelName: formData.modelName,
-          transportType: parseInt(formData.transportType),
-          fuelType: parseInt(formData.fuelType),
-          seatsNumber: parseInt(formData.seatsNumber),
-          maximumLoadCapacityInKillograms: parseInt(formData.maximumLoadCapacityInKillograms)
-        })
+      setError('')
+      const response = await api.put('/api/BrandModels', {
+        id: formData.id,
+        brandName: formData.brandName,
+        modelName: formData.modelName,
+        transportType: parseInt(formData.transportType),
+        fuelType: parseInt(formData.fuelType),
+        seatsNumber: parseInt(formData.seatsNumber),
+        maximumLoadCapacityInKillograms: parseInt(formData.maximumLoadCapacityInKillograms)
       })
+      
       if (!response.ok) {
-        throw new Error('Ошибка при обновлении BrandModel')
+        throw new Error('Ошибка при обновлении модели транспорта')
       }
       // Перечитываем список
       await fetchAllBrandModels()
       cancelEdit()
     } catch (error) {
+      setError('Ошибка при обновлении модели транспорта')
       console.error(error)
     }
   }
@@ -164,166 +181,188 @@ function BrandModel() {
   }
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">BrandModel Management</h1>
-
-      {loading && <div>Загрузка...</div>}
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Модели транспорта</h1>
+      
+      {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">{error}</div>}
+      {loading && <div className="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded mb-4">Загрузка...</div>}
 
       {/* Таблица */}
-      <table className="table-auto w-full border-collapse border border-black-300 mb-4">
-        <thead>
-          <tr className="bg-black-100">
-            <th className="border border-black-300 px-4 py-2">Id</th>
-            <th className="border border-black-300 px-4 py-2">Brand Name</th>
-            <th className="border border-black-300 px-4 py-2">Model Name</th>
-            <th className="border border-black-300 px-4 py-2">Transport Type</th>
-            <th className="border border-black-300 px-4 py-2">Fuel Type</th>
-            <th className="border border-black-300 px-4 py-2">Seats Number</th>
-            <th className="border border-black-300 px-4 py-2">Load Capacity (kg)</th>
-            <th className="border border-black-300 px-4 py-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {brandModels.map((bm) => (
-            <tr key={bm.id}>
-              <td className="border border-black-300 px-4 py-2">{bm.id}</td>
-              <td className="border border-black-300 px-4 py-2">{bm.brandName}</td>
-              <td className="border border-black-300 px-4 py-2">{bm.modelName}</td>
-              <td className="border border-black-300 px-4 py-2">{bm.transportType}</td>
-              <td className="border border-black-300 px-4 py-2">{bm.fuelType}</td>
-              <td className="border border-black-300 px-4 py-2">{bm.seatsNumber}</td>
-              <td className="border border-black-300 px-4 py-2">
-                {bm.maximumLoadCapacityInKillograms}
-              </td>
-              <td className="border border-gray-300 px-4 py-2">
-                <button
-                  className="bg-blue-500 hover:bg-blue-600 text-white py-1 px-2 rounded mr-2"
-                  onClick={() => startEdit(bm)}
-                >
-                  Edit
-                </button>
-                <button
-                  className="bg-red-500 hover:bg-red-600 text-white py-1 px-2 rounded"
-                  onClick={() => handleDelete(bm.id)}
-                >
-                  Delete
-                </button>
-              </td>
+      <div className="bg-gray-800 shadow-md rounded mb-8">
+        <table className="min-w-full">
+          <thead>
+            <tr className="bg-gray-800">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Марка</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Модель</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Тип транспорта</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Тип топлива</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Количество мест</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Грузоподъемность (кг)</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Действия</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="bg-gray-800 divide-y divide-gray-700">
+            {brandModels.map((bm) => (
+              <tr key={bm.id}>
+                <td className="px-6 py-4 whitespace-nowrap">{bm.id}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{bm.brandName}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{bm.modelName}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{TRANSPORT_TYPES[bm.transportType] || bm.transportType}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{FUEL_TYPES[bm.fuelType] || bm.fuelType}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{bm.seatsNumber}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{bm.maximumLoadCapacityInKillograms}</td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <button
+                    onClick={() => startEdit(bm)}
+                    className="text-indigo-600 hover:text-indigo-900 mr-4"
+                  >
+                    Редактировать
+                  </button>
+                  <button
+                    onClick={() => handleDelete(bm.id)}
+                    className="text-red-600 hover:text-red-900"
+                  >
+                    Удалить
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {/* Форма для создания / редактирования */}
-      <div className="max-w-md p-4 border border-gray-200 rounded">
-        <h2 className="text-xl font-bold mb-2">
-          {isEditMode ? 'Edit BrandModel' : 'Add BrandModel'}
+      <div className="bg-gray-800 p-4 rounded shadow">
+        <h2 className="text-xl font-semibold mb-4">
+          {isEditMode ? 'Редактировать модель транспорта' : 'Добавить модель транспорта'}
         </h2>
         <form onSubmit={isEditMode ? handleUpdate : handleAdd}>
-          {/* brandName */}
-          <div className="mb-2">
-            <label className="block mb-1 font-semibold">Brand Name:</label>
-            <input
-              type="text"
-              className="border border-gray-300 rounded w-full p-1"
-              value={formData.brandName}
-              onChange={(e) =>
-                setFormData({ ...formData, brandName: e.target.value })
-              }
-            />
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* brandName */}
+            <div className="mb-4">
+              <label className="block text-gray-200 text-sm font-bold mb-2">
+                Марка:
+                <input
+                  type="text"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+                  value={formData.brandName}
+                  onChange={(e) =>
+                    setFormData({ ...formData, brandName: e.target.value })
+                  }
+                  required
+                />
+              </label>
+            </div>
 
-          {/* modelName */}
-          <div className="mb-2">
-            <label className="block mb-1 font-semibold">Model Name:</label>
-            <input
-              type="text"
-              className="border border-gray-300 rounded w-full p-1"
-              value={formData.modelName}
-              onChange={(e) =>
-                setFormData({ ...formData, modelName: e.target.value })
-              }
-            />
-          </div>
+            {/* modelName */}
+            <div className="mb-4">
+              <label className="block text-gray-200 text-sm font-bold mb-2">
+                Модель:
+                <input
+                  type="text"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+                  value={formData.modelName}
+                  onChange={(e) =>
+                    setFormData({ ...formData, modelName: e.target.value })
+                  }
+                  required
+                />
+              </label>
+            </div>
 
-          {/* transportType */}
-          <div className="mb-2">
-            <label className="block mb-1 font-semibold">Transport Type:</label>
-            <input
-              type="number"
-              className="border border-gray-300 rounded w-full p-1"
-              value={formData.transportType}
-              onChange={(e) =>
-                setFormData({ ...formData, transportType: e.target.value })
-              }
-            />
-            <p className="text-sm text-gray-500">
-              Пример: 0=Car, 1=Truck, 2=Bus
-            </p>
-          </div>
+            {/* transportType */}
+            <div className="mb-4">
+              <label className="block text-gray-200 text-sm font-bold mb-2">
+                Тип транспорта:
+                <select
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+                  value={formData.transportType}
+                  onChange={(e) =>
+                    setFormData({ ...formData, transportType: e.target.value })
+                  }
+                  required
+                >
+                  <option value="0">Легковой автомобиль</option>
+                  <option value="1">Грузовик</option>
+                  <option value="2">Автобус</option>
+                </select>
+              </label>
+            </div>
 
-          {/* fuelType */}
-          <div className="mb-2">
-            <label className="block mb-1 font-semibold">Fuel Type:</label>
-            <input
-              type="number"
-              className="border border-gray-300 rounded w-full p-1"
-              value={formData.fuelType}
-              onChange={(e) =>
-                setFormData({ ...formData, fuelType: e.target.value })
-              }
-            />
-            <p className="text-sm text-gray-500">
-              Пример: 1=Gasoline, 2=Diesel, 3=Gas, 999=None
-            </p>
-          </div>
+            {/* fuelType */}
+            <div className="mb-4">
+              <label className="block text-gray-200 text-sm font-bold mb-2">
+                Тип топлива:
+                <select
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+                  value={formData.fuelType}
+                  onChange={(e) =>
+                    setFormData({ ...formData, fuelType: e.target.value })
+                  }
+                  required
+                >
+                  <option value="1">Бензин</option>
+                  <option value="2">Дизель</option>
+                  <option value="3">Электричество</option>
+                  <option value="999">Нет</option>
+                </select>
+              </label>
+            </div>
 
-          {/* seatsNumber */}
-          <div className="mb-2">
-            <label className="block mb-1 font-semibold">Seats Number:</label>
-            <input
-              type="number"
-              className="border border-gray-300 rounded w-full p-1"
-              value={formData.seatsNumber}
-              onChange={(e) =>
-                setFormData({ ...formData, seatsNumber: e.target.value })
-              }
-            />
-          </div>
+            {/* seatsNumber */}
+            <div className="mb-4">
+              <label className="block text-gray-200 text-sm font-bold mb-2">
+                Количество мест:
+                <input
+                  type="number"
+                  min="0"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+                  value={formData.seatsNumber}
+                  onChange={(e) =>
+                    setFormData({ ...formData, seatsNumber: e.target.value })
+                  }
+                  required
+                />
+              </label>
+            </div>
 
-          {/* maximumLoadCapacityInKillograms */}
-          <div className="mb-2">
-            <label className="block mb-1 font-semibold">
-              Max Load Capacity (kg):
-            </label>
-            <input
-              type="number"
-              className="border border-gray-300 rounded w-full p-1"
-              value={formData.maximumLoadCapacityInKillograms}
-              onChange={(e) =>
-                setFormData({
-                  ...formData,
-                  maximumLoadCapacityInKillograms: e.target.value
-                })
-              }
-            />
+            {/* maximumLoadCapacityInKillograms */}
+            <div className="mb-4">
+              <label className="block text-gray-200 text-sm font-bold mb-2">
+                Грузоподъемность (кг):
+                <input
+                  type="number"
+                  min="0"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
+                  value={formData.maximumLoadCapacityInKillograms}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      maximumLoadCapacityInKillograms: e.target.value
+                    })
+                  }
+                  required
+                />
+              </label>
+            </div>
           </div>
 
           {/* Buttons */}
           <div className="flex gap-2 mt-4">
             <button
               type="submit"
-              className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
-              {isEditMode ? 'Save Changes' : 'Add BrandModel'}
+              {isEditMode ? 'Сохранить изменения' : 'Добавить'}
             </button>
             {isEditMode && (
               <button
                 type="button"
                 onClick={cancelEdit}
-                className="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded"
+                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               >
-                Cancel
+                Отмена
               </button>
             )}
           </div>

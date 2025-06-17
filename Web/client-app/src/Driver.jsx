@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { api } from './utils/api';
 
 const Driver = () => {
   const [drivers, setDrivers] = useState([]);
@@ -23,7 +24,7 @@ const Driver = () => {
 
   const fetchDrivers = async () => {
     try {
-      const response = await fetch('/api/Drivers');
+      const response = await api.get('/api/Drivers');
       if (!response.ok) throw new Error('Ошибка при загрузке водителей');
       const data = await response.json();
       setDrivers(data);
@@ -34,7 +35,7 @@ const Driver = () => {
 
   const fetchEnterprises = async () => {
     try {
-      const response = await fetch('/api/Enterprises');
+      const response = await api.get('/api/Enterprises');
       if (!response.ok) throw new Error('Ошибка при загрузке предприятий');
       const data = await response.json();
       setEnterprises(data);
@@ -45,7 +46,7 @@ const Driver = () => {
 
   const fetchVehicles = async () => {
     try {
-      const response = await fetch('/api/Vehicles');
+      const response = await api.get('/api/Vehicles');
       if (!response.ok) throw new Error('Ошибка при загрузке транспорта');
       const data = await response.json();
       setVehicles(data);
@@ -67,22 +68,23 @@ const Driver = () => {
     try {
       const submitData = {
         ...formData,
+        dateOfBirth: new Date(formData.dateOfBirth + 'T00:00:00').toISOString(),
         salary: parseFloat(formData.salary),
-        enterpriseId: parseInt(formData.enterpriseId),
-        attachedVehicleId: formData.attachedVehicleId ? parseInt(formData.attachedVehicleId) : null
+        enterpriseId: parseInt(formData.enterpriseId)
       };
 
-      const url = '/api/Driver';
+      // Добавляем attachedVehicleId только при обновлении
+      if (editingId && formData.attachedVehicleId) {
+        submitData.attachedVehicleId = parseInt(formData.attachedVehicleId);
+      }
+
+      const url = '/api/Drivers';
       const method = editingId ? 'PUT' : 'POST';
       const body = editingId ? { id: editingId, ...submitData } : submitData;
 
-      const response = await fetch(url, {
-        method,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(body)
-      });
+      const response = method === 'POST' 
+        ? await api.post(url, body)
+        : await api.put(url, body);
 
       if (!response.ok) throw new Error('Ошибка при сохранении водителя');
 
@@ -114,10 +116,9 @@ const Driver = () => {
   };
 
   const handleDelete = async (id) => {
+    if (!window.confirm('Точно удалить этого водителя?')) return;
     try {
-      const response = await fetch(`/api/Drivers`, {
-        method: 'DELETE'
-      });
+      const response = await api.delete(`/api/Drivers/${id}`);
       
       if (!response.ok) throw new Error('Ошибка при удалении водителя');
       
