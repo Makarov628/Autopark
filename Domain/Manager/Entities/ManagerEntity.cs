@@ -1,15 +1,19 @@
+using Autopark.Domain.Common.Models;
 using Autopark.Domain.Common.ValueObjects;
-using Microsoft.AspNetCore.Identity;
+using Autopark.Domain.Enterprise.ValueObjects;
+using Autopark.Domain.User.ValueObjects;
+using Autopark.Domain.User.Entities;
+using Autopark.Domain.Manager.ValueObjects;
+using System.Collections.Generic;
 
 namespace Autopark.Domain.Manager.Entities;
 
-public class ManagerEntity : IdentityUser
+public class ManagerEntity : Entity<ManagerId>
 {
-    private readonly List<ManagerEnterpriseEntity> _enterpriseManagers = new();
+    public UserId UserId { get; set; }
+    public virtual UserEntity User { get; set; }
 
-    public bool IsPasswordInitialized { get; set; } = true;
-    public CyrillicString FirstName { get; set; }
-    public CyrillicString LastName { get; set; }
+    private readonly List<ManagerEnterpriseEntity> _enterpriseManagers = new();
 
     public IReadOnlyList<ManagerEnterpriseEntity> EnterpriseManagers => _enterpriseManagers.AsReadOnly();
 }

@@ -4,6 +4,7 @@ using Autopark.Domain.Driver.Entities;
 using Autopark.Domain.Enterprise.Entities;
 using Autopark.Domain.Vehicle.Entities;
 using Autopark.Infrastructure.Database.Configurations;
+using Autopark.Domain.User.Entities;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -11,7 +12,7 @@ using Autopark.Domain.Manager.Entities;
 
 namespace Autopark.Infrastructure.Database;
 
-public class AutoparkDbContext : IdentityDbContext<ManagerEntity>
+public class AutoparkDbContext : DbContext
 {
     public AutoparkDbContext(DbContextOptions<AutoparkDbContext> options)
         : base(options) { }
@@ -20,7 +21,13 @@ public class AutoparkDbContext : IdentityDbContext<ManagerEntity>
     public DbSet<BrandModelEntity> BrandModels { get; set; } = null!;
     public DbSet<EnterpriseEntity> Enterprises { get; set; } = null!;
     public DbSet<DriverEntity> Drivers { get; set; } = null!;
+    public DbSet<ManagerEntity> Managers { get; set; } = null!;
     public DbSet<ManagerEnterpriseEntity> ManagerEnterprises { get; set; } = null!;
+    public DbSet<UserEntity> Users { get; set; } = null!;
+    public DbSet<Credentials> Credentials { get; set; } = null!;
+    public DbSet<UserRole> UserRoles { get; set; } = null!;
+    public DbSet<Device> Devices { get; set; } = null!;
+    public DbSet<ActivationToken> ActivationTokens { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -30,6 +37,11 @@ public class AutoparkDbContext : IdentityDbContext<ManagerEntity>
         modelBuilder.ApplyConfiguration(new DriverConfiguration());
         modelBuilder.ApplyConfiguration(new ManagerConfiguration());
         modelBuilder.ApplyConfiguration(new ManagerEnterpriseConfiguration());
+        modelBuilder.ApplyConfiguration(new UserConfiguration());
+        modelBuilder.ApplyConfiguration(new CredentialsConfiguration());
+        modelBuilder.ApplyConfiguration(new UserRoleConfiguration());
+        modelBuilder.ApplyConfiguration(new DeviceConfiguration());
+        modelBuilder.ApplyConfiguration(new ActivationTokenConfiguration());
 
         base.OnModelCreating(modelBuilder);
     }

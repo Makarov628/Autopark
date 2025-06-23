@@ -1,42 +1,42 @@
 using MediatR;
-using LanguageExt;
-using Autopark.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
-using Autopark.Domain.Driver.ValueObjects;
+using Autopark.Infrastructure.Database;
+using Autopark.Domain.Driver.Entities;
+using Autopark.Domain.User.Entities;
+using LanguageExt;
 using LanguageExt.Common;
-using Autopark.Infrastructure.Database.Identity;
+using Autopark.Domain.Driver.ValueObjects;
 
 namespace Autopark.UseCases.Driver.Queries.GetById;
 
-internal class GetByIdDriverQueryHandler : IRequestHandler<GetByIdDriverQuery, Fin<DriverResponse>>
+public class GetByIdDriverQueryHandler : IRequestHandler<GetByIdDriverQuery, Fin<DriverResponse>>
 {
-    private readonly AutoparkDbContext _dbContext;
-    private readonly ICurrentUser _currentUser;
+    private readonly AutoparkDbContext _context;
 
-    public GetByIdDriverQueryHandler(AutoparkDbContext dbContext, ICurrentUser currentUser)
+    public GetByIdDriverQueryHandler(AutoparkDbContext context)
     {
-        _dbContext = dbContext;
-        _currentUser = currentUser;
+        _context = context;
     }
 
     public async Task<Fin<DriverResponse>> Handle(GetByIdDriverQuery request, CancellationToken cancellationToken)
     {
-        var driverId = DriverId.Create(request.Id);
-        var driver = await _dbContext.Drivers
-            .AsNoTracking()
-            .FirstOrDefaultAsync(d => d.Id == driverId && _currentUser.EnterpriseIds.Contains(d.EnterpriseId), cancellationToken);
+        var driver = await _context.Drivers
+            .Include(d => d.User)
+            .Include(d => d.Enterprise)
+            .Include(d => d.Vehicle)
+            .FirstOrDefaultAsync(d => d.Id == DriverId.Create(request.Id), cancellationToken);
 
-        if (driver is null)
+        if (driver == null)
             return Error.New($"Driver not found with id: {request.Id}");
 
         return new DriverResponse(
             driver.Id.Value,
-            driver.FirstName.Value,
-            driver.LastName.Value,
-            driver.DateOfBirth,
+            driver.User.FirstName.Value,
+            driver.User.LastName.Value,
+            driver.User.DateOfBirth ?? DateTime.MinValue,
             driver.Salary,
             driver.EnterpriseId.Value,
-            driver.VehicleId is not null ? driver.VehicleId.Value : null
+            driver.VehicleId?.Value
         );
     }
 }

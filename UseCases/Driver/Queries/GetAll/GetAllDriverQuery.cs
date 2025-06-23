@@ -7,6 +7,7 @@ public record GetAllDriversQuery() : IRequest<Fin<List<DriversResponse>>>;
 
 public record DriversResponse(
     int Id,
+    int UserId,
     string FirstName,
     string LastName,
     DateTime DateOfBirth,

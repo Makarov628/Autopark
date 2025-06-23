@@ -2,12 +2,16 @@ using Autopark.Infrastructure.Database;
 using Autopark.UseCases.Vehicle.Commands.Create;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Identity;
-using Autopark.Domain.Manager.Entities;
 using Autopark.Web.Services;
-using Microsoft.AspNetCore.Authentication;
-using Autopark.Infrastructure.Database.Identity;
 using Autopark.Web.Middleware;
+using Autopark.Infrastructure.Database.Identity;
+using Autopark.Infrastructure.Database.Services;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,27 +19,57 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Autopark", Version = "v1" });
+
+    // Добавляем поддержку JWT в Swagger
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
+});
+
+// Настройка JWT аутентификации
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.ASCII.GetBytes(builder.Configuration["Jwt:SecretKey"] ?? "your-secret-key-here"))
+    };
+
+    options.Events = new JwtBearerEvents
+    {
+        OnTokenValidated = JwtEventsHandler.OnTokenValidated
+    };
 });
 
 builder.Services.AddAuthorization();
-builder.Services.AddAuthentication(IdentityConstants.ApplicationScheme)
-    .AddCookie(IdentityConstants.ApplicationScheme)
-    .AddBearerToken(IdentityConstants.BearerScheme);
 builder.Services.AddCors();
-
-// Настройки CSRF для разработки (без SSL)
-builder.Services.AddAntiforgery(o =>
-{
-    o.Cookie.Name = "XSRF-TOKEN";
-    o.HeaderName = "X-CSRF-TOKEN";
-    o.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
-    o.Cookie.SameSite = SameSiteMode.Lax;
-});
-
-builder.Services.AddIdentityCore<ManagerEntity>()
-    .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<AutoparkDbContext>()
-    .AddApiEndpoints();
 
 builder.Services.AddDbContext<AutoparkDbContext>(options =>
 {
@@ -52,10 +86,22 @@ builder.Services.AddDbContext<AutoparkDbContext>(options =>
 });
 
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(CreateVehicleCommand).Assembly));
-builder.Services.AddTransient<IClaimsTransformation, EnterpriseClaimsTransformation>();
-builder.Services.AddScoped<ICurrentUser, CurrentUser>();
 
-// Добавляем контроллеры без глобального фильтра CSRF
+// Регистрация сервисов
+// builder.Services.AddTransient<IClaimsTransformation, EnterpriseClaimsTransformation>();
+builder.Services.AddScoped<ICurrentUser, CurrentUser>();
+builder.Services.AddHttpContextAccessor();
+
+// Регистрация сервисов инфраструктуры
+builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
+builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IMessengerService, MessengerService>();
+builder.Services.AddScoped<ITokenGenerator, TokenGenerator>();
+builder.Services.AddScoped<IPushNotificationService, PushNotificationService>();
+builder.Services.AddScoped<ICaptchaService, CaptchaService>();
+
+// Добавляем контроллеры
 builder.Services.AddControllers();
 
 var app = builder.Build();
@@ -65,15 +111,14 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseCors(cors => cors.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
+// Используем наш JWT middleware
+app.UseMiddleware<JwtMiddleware>();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseAntiforgery();
-app.UseCsrfValidation();
-
 app.MapControllers();
 app.MapFallbackToFile("index.html");
-app.MapIdentityApi<ManagerEntity>();
 
 app.UseSwagger();
 app.UseSwaggerUI();
@@ -84,7 +129,6 @@ using (var scope = app.Services.CreateScope())
     if (!builder.Environment.IsEnvironment("Test"))
     {
         dbContext.Database.Migrate();
-        await DatabaseSeed.SeedAdminAsync(scope);
     }
 }
 

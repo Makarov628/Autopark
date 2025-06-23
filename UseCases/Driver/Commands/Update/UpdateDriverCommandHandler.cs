@@ -24,7 +24,10 @@ internal class UpdateDriverCommandHandler : IRequestHandler<UpdateDriverCommand,
     public async Task<Fin<LanguageExt.Unit>> Handle(UpdateDriverCommand request, CancellationToken cancellationToken)
     {
         var driverId = DriverId.Create(request.Id);
-        var driver = await _dbContext.Drivers.AsNoTracking().FirstOrDefaultAsync(v => v.Id == driverId, cancellationToken);
+        var driver = await _dbContext.Drivers
+            .Include(d => d.User)
+            .FirstOrDefaultAsync(v => v.Id == driverId, cancellationToken);
+
         if (driver is null)
             return Error.New($"Driver not found with id: {request.Id}");
 
@@ -40,34 +43,43 @@ internal class UpdateDriverCommandHandler : IRequestHandler<UpdateDriverCommand,
         if (vehicleId is not null && !await _dbContext.Vehicles.AnyAsync(v => v.Id == vehicleId && v.EnterpriseId == enterpriseId, cancellationToken))
             return Error.New($"Автомобиль с идентификатором '{vehicleId.Value}' не существует или не может быть назначен этому водителю");
 
-        var lastName = CyrillicString.Create(request.LastName);
-        var firstName = CyrillicString.Create(request.FirstName);
+        // var lastName = CyrillicString.Create(request.LastName);
+        // var firstName = CyrillicString.Create(request.FirstName);
 
-        var potentialErrors = new Either<Error, ValueObject>[]
+        // var potentialErrors = new Either<Error, ValueObject>[]
+        // {
+        //     lastName.ToValueObjectEither(),
+        //     firstName.ToValueObjectEither()
+        // };
+
+        // var aggregatedErrorMessage = potentialErrors
+        //     .MapLeftT(error => error.Message)
+        //     .Lefts()
+        //     .JoinStrings("; ");
+
+        // if (!aggregatedErrorMessage.IsNullOrEmpty())
+        //     return Error.New(aggregatedErrorMessage);
+
+        // Обновляем данные пользователя
+        // driver.User.FirstName = firstName.Head();
+        // driver.User.LastName = lastName.Head();
+        // driver.User.DateOfBirth = request.DateOfBirth;
+
+        // Обновляем данные водителя
+        driver.UpdateEnterprise(enterpriseId);
+        driver.UpdateSalary(request.Salary);
+        if (vehicleId is not null)
         {
-            lastName.ToValueObjectEither(),
-            firstName.ToValueObjectEither()
-        };
-
-        var aggregatedErrorMessage = potentialErrors
-            .MapLeftT(error => error.Message)
-            .Lefts()
-            .JoinStrings("; ");
-
-        if (!aggregatedErrorMessage.IsNullOrEmpty())
-            return Error.New(aggregatedErrorMessage);
-
-        driver.Update(
-            firstName: firstName.Head(),
-            lastName: lastName.Head(),
-            dateOfBirth: request.DateOfBirth,
-            salary: request.Salary,
-            enterpriseId: enterpriseId,
-            vehicleId: vehicleId
-        );
+            driver.AttachToVehicle(vehicleId);
+        }
+        else
+        {
+            driver.DetachFromVehicle();
+        }
 
         _dbContext.Drivers.Attach(driver);
         _dbContext.Entry(driver).State = EntityState.Modified;
+        // _dbContext.Entry(driver.User).State = EntityState.Modified;
         await _dbContext.SaveChangesAsync(cancellationToken);
 
         return LanguageExt.Unit.Default;

@@ -1,36 +1,38 @@
 using MediatR;
-using LanguageExt;
-using Autopark.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
-using Autopark.Infrastructure.Database.Identity;
+using Autopark.Infrastructure.Database;
+using Autopark.Domain.Driver.Entities;
+using Autopark.Domain.User.Entities;
+using LanguageExt;
+
 namespace Autopark.UseCases.Driver.Queries.GetAll;
 
-internal class GetAllDriversQueryHandler : IRequestHandler<GetAllDriversQuery, Fin<List<DriversResponse>>>
+public class GetAllDriversQueryHandler : IRequestHandler<GetAllDriversQuery, Fin<List<DriversResponse>>>
 {
-    private readonly AutoparkDbContext _dbContext;
-    private readonly ICurrentUser _currentUser;
+    private readonly AutoparkDbContext _context;
 
-    public GetAllDriversQueryHandler(AutoparkDbContext dbContext, ICurrentUser currentUser)
+    public GetAllDriversQueryHandler(AutoparkDbContext context)
     {
-        _dbContext = dbContext;
-        _currentUser = currentUser;
+        _context = context;
     }
 
     public async Task<Fin<List<DriversResponse>>> Handle(GetAllDriversQuery request, CancellationToken cancellationToken)
     {
-        var drivers = await _dbContext.Drivers
-            .AsNoTracking()
-            .Where(v => _currentUser.EnterpriseIds.Contains(v.EnterpriseId))
+        var drivers = await _context.Drivers
+            .Include(d => d.User)
+            .Include(d => d.Enterprise)
+            .Include(d => d.Vehicle)
             .ToListAsync(cancellationToken);
 
-        return drivers.ConvertAll(driver => new DriversResponse(
+        return drivers.Select(driver => new DriversResponse(
             driver.Id.Value,
-            driver.FirstName.Value,
-            driver.LastName.Value,
-            driver.DateOfBirth,
+            driver.UserId.Value,
+            driver.User.FirstName.Value,
+            driver.User.LastName.Value,
+            driver.User.DateOfBirth ?? DateTime.MinValue,
             driver.Salary,
             driver.EnterpriseId.Value,
-            driver.VehicleId is not null ? driver.VehicleId.Value : null
-        ));
+            driver.VehicleId?.Value
+        )).ToList();
     }
 }

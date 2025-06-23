@@ -5,11 +5,13 @@ using Autopark.UseCases.BrandModel.Queries.GetAll;
 using Autopark.UseCases.BrandModel.Queries.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Autopark.Web.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class BrandModelsController : ControllerBase
 {
     private readonly IMediator _mediatr;
@@ -20,6 +22,7 @@ public class BrandModelsController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize(Roles = "Admin,Manager,Driver")]
     public async Task<ActionResult<List<BrandModelsResponse>>> GetAll()
     {
         var result = await _mediatr.Send(new GetAllBrandModelQuery(), HttpContext.RequestAborted);
@@ -29,6 +32,7 @@ public class BrandModelsController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "Admin,Manager,Driver")]
     public async Task<ActionResult<BrandModelResponse>> GetById(int id)
     {
         var result = await _mediatr.Send(new GetByIdBrandModelQuery(id), HttpContext.RequestAborted);
@@ -38,6 +42,7 @@ public class BrandModelsController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult> Create([FromBody] CreateBrandModelCommand createBrandModelCommand)
     {
         var result = await _mediatr.Send(createBrandModelCommand, HttpContext.RequestAborted);
@@ -47,6 +52,7 @@ public class BrandModelsController : ControllerBase
     }
 
     [HttpPut]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult> Update([FromBody] UpdateBrandModelCommand updateBrandModelCommand)
     {
         var result = await _mediatr.Send(updateBrandModelCommand, HttpContext.RequestAborted);
@@ -56,6 +62,7 @@ public class BrandModelsController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult> Delete(int id)
     {
         var result = await _mediatr.Send(new DeleteBrandModelCommand(id), HttpContext.RequestAborted);

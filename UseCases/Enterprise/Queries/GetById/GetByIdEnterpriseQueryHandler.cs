@@ -53,7 +53,7 @@ internal class GetByIdEnterpriseQueryHandler : IRequestHandler<GetByIdEnterprise
             enterprise.Address,
             vehiclesIds.Select(v => v.Value).ToArray(),
             driversIds.Select(d => d.Value).ToArray(),
-            managersIds.ToArray()
+            managersIds.Select(m => m.Value.ToString()).ToArray()
         );
     }
 }

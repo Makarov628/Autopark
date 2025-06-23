@@ -1,6 +1,8 @@
 using Autopark.Domain.Enterprise.ValueObjects;
 using Autopark.Domain.Manager.Entities;
+using Autopark.Domain.Manager.ValueObjects;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Autopark.Infrastructure.Database.Configurations;
@@ -9,13 +11,26 @@ public class ManagerEnterpriseConfiguration : IEntityTypeConfiguration<ManagerEn
 {
     public void Configure(EntityTypeBuilder<ManagerEnterpriseEntity> builder)
     {
-        ConfigureVehiclesTable(builder);
+        ConfigureManagerEnterprisesTable(builder);
     }
 
-    public void ConfigureVehiclesTable(EntityTypeBuilder<ManagerEnterpriseEntity> builder)
+    public void ConfigureManagerEnterprisesTable(EntityTypeBuilder<ManagerEnterpriseEntity> builder)
     {
         builder.ToTable("ManagerEnterprises");
-        builder.HasKey(s => new { s.ManagerId, s.EnterpriseId });
+
+        builder.HasKey(s => s.Id);
+        builder.Property(s => s.Id)
+                    .ValueGeneratedOnAdd()
+                    .UseIdentityColumn()
+                    .HasConversion(
+                        id => id.Value,
+                        value => ManagerEnterpriseEntityId.Create(value))
+                    .Metadata.SetBeforeSaveBehavior(PropertySaveBehavior.Ignore);
+
+        builder.Property(s => s.ManagerId)
+            .HasConversion(
+                id => id.Value,
+                value => ManagerId.Create(value));
 
         builder.Property(s => s.EnterpriseId)
             .ValueGeneratedNever()

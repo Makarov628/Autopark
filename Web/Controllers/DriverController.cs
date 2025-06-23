@@ -5,11 +5,13 @@ using Autopark.UseCases.Driver.Queries.GetAll;
 using Autopark.UseCases.Driver.Queries.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Autopark.Web.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class DriversController : ControllerBase
 {
     private readonly IMediator _mediatr;
@@ -20,6 +22,7 @@ public class DriversController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize(Roles = "Admin,Manager,Driver")]
     public async Task<ActionResult<List<DriversResponse>>> GetAll()
     {
         var result = await _mediatr.Send(new GetAllDriversQuery(), HttpContext.RequestAborted);
@@ -29,6 +32,7 @@ public class DriversController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "Admin,Manager,Driver")]
     public async Task<ActionResult<DriverResponse>> GetById(int id)
     {
         var result = await _mediatr.Send(new GetByIdDriverQuery(id), HttpContext.RequestAborted);
@@ -38,6 +42,7 @@ public class DriversController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin,Manager")]
     public async Task<ActionResult> Create([FromBody] CreateDriverCommand createDriverCommand)
     {
         var result = await _mediatr.Send(createDriverCommand, HttpContext.RequestAborted);
@@ -47,6 +52,7 @@ public class DriversController : ControllerBase
     }
 
     [HttpPut]
+    [Authorize(Roles = "Admin,Manager")]
     public async Task<ActionResult> Update([FromBody] UpdateDriverCommand updateDriverCommand)
     {
         var result = await _mediatr.Send(updateDriverCommand, HttpContext.RequestAborted);
@@ -56,6 +62,7 @@ public class DriversController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin,Manager")]
     public async Task<ActionResult> Delete(int id)
     {
         var result = await _mediatr.Send(new DeleteDriverCommand(id), HttpContext.RequestAborted);

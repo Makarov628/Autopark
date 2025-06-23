@@ -5,6 +5,7 @@ using Unit = LanguageExt.Unit;
 using Microsoft.EntityFrameworkCore;
 using LanguageExt.Common;
 using Autopark.Domain.Driver.ValueObjects;
+using Autopark.Domain.User.Entities;
 
 namespace Autopark.UseCases.Driver.Commands.Delete;
 
@@ -19,13 +20,22 @@ internal class DeleteDriverCommandHandler : IRequestHandler<DeleteDriverCommand,
 
     public async Task<Fin<Unit>> Handle(DeleteDriverCommand request, CancellationToken cancellationToken)
     {
-        var driver = await _dbContext.Drivers.AsNoTracking().FirstOrDefaultAsync(v => v.Id == DriverId.Create(request.Id), cancellationToken);
+        var driver = await _dbContext.Drivers
+            .Include(d => d.User)
+            .ThenInclude(u => u.Roles)
+            .FirstOrDefaultAsync(v => v.Id == DriverId.Create(request.Id), cancellationToken);
+
         if (driver is null)
             return Error.New($"Driver not found with id: {request.Id}");
 
-        if (_dbContext.Entry(driver).State == EntityState.Detached)
-            _dbContext.Drivers.Attach(driver);
+        // Удаляем роль Driver у пользователя
+        var driverRole = driver.User.Roles.FirstOrDefault(r => r.Role == UserRoleType.Driver);
+        if (driverRole != null)
+        {
+            _dbContext.UserRoles.Remove(driverRole);
+        }
 
+        // Удаляем водителя
         _dbContext.Drivers.Remove(driver);
         await _dbContext.SaveChangesAsync(cancellationToken);
 

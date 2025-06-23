@@ -1,10 +1,9 @@
-
-
 using Autopark.Domain.Common.ValueObjects;
 using Autopark.Domain.Driver.Entities;
 using Autopark.Domain.Driver.ValueObjects;
 using Autopark.Domain.Enterprise.ValueObjects;
 using Autopark.Domain.Vehicle.ValueObjects;
+using Autopark.Domain.User.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -31,17 +30,15 @@ public class DriverConfiguration : IEntityTypeConfiguration<DriverEntity>
                 value => DriverId.Create(value))
             .Metadata.SetBeforeSaveBehavior(PropertySaveBehavior.Ignore);
 
-        builder.Property(s => s.FirstName)
-            .ValueGeneratedNever()
+        builder.Property(s => s.UserId)
             .HasConversion(
-                firstName => firstName.Value,
-                value => CyrillicString.Create(value).ThrowIfFail());
+                id => id.Value,
+                value => Autopark.Domain.User.ValueObjects.UserId.Create(value));
 
-        builder.Property(s => s.LastName)
-            .ValueGeneratedNever()
-            .HasConversion(
-                lastName => lastName.Value,
-                value => CyrillicString.Create(value).ThrowIfFail());
+        builder.HasOne(s => s.User)
+            .WithMany()
+            .HasForeignKey(s => s.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.Property(s => s.VehicleId)
             .ValueGeneratedNever()

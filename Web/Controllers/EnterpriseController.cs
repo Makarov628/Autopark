@@ -5,11 +5,13 @@ using Autopark.UseCases.Enterprise.Queries.GetAll;
 using Autopark.UseCases.Enterprise.Queries.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Autopark.Web.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class EnterprisesController : ControllerBase
 {
     private readonly IMediator _mediatr;
@@ -20,6 +22,7 @@ public class EnterprisesController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize(Roles = "Admin,Manager")]
     public async Task<ActionResult<List<EnterprisesResponse>>> GetAll()
     {
         var result = await _mediatr.Send(new GetAllEnterprisesQuery(), HttpContext.RequestAborted);
@@ -29,6 +32,7 @@ public class EnterprisesController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "Admin,Manager")]
     public async Task<ActionResult<EnterpriseResponse>> GetById(int id)
     {
         var result = await _mediatr.Send(new GetByIdEnterpriseQuery(id), HttpContext.RequestAborted);
@@ -38,6 +42,7 @@ public class EnterprisesController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult> Create([FromBody] CreateEnterpriseCommand createEnterpriseCommand)
     {
         var result = await _mediatr.Send(createEnterpriseCommand, HttpContext.RequestAborted);
@@ -47,6 +52,7 @@ public class EnterprisesController : ControllerBase
     }
 
     [HttpPut]
+    [Authorize(Roles = "Admin, Manager")]
     public async Task<ActionResult> Update([FromBody] UpdateEnterpriseCommand updateEnterpriseCommand)
     {
         var result = await _mediatr.Send(updateEnterpriseCommand, HttpContext.RequestAborted);
@@ -56,6 +62,7 @@ public class EnterprisesController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult> Delete(int id)
     {
         var result = await _mediatr.Send(new DeleteEnterpriseCommand(id), HttpContext.RequestAborted);

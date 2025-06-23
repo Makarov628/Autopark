@@ -1,24 +1,25 @@
-
+using Autopark.Domain.Common.Models;
 using Autopark.Domain.Enterprise.Entities;
 using Autopark.Domain.Enterprise.ValueObjects;
+using Autopark.Domain.Manager.ValueObjects;
 
 namespace Autopark.Domain.Manager.Entities;
 
-public class ManagerEnterpriseEntity
+public class ManagerEnterpriseEntity : Entity<ManagerEnterpriseEntityId>
 {
-    public string ManagerId { get; protected set; }
+    public ManagerId ManagerId { get; protected set; }
     public ManagerEntity Manager { get; protected set; }
 
     public EnterpriseId EnterpriseId { get; protected set; }
     public EnterpriseEntity Enterprise { get; protected set; }
 
-    private ManagerEnterpriseEntity(string managerId, EnterpriseId enterpriseId)
+    private ManagerEnterpriseEntity(ManagerId managerId, EnterpriseId enterpriseId)
     {
         ManagerId = managerId;
         EnterpriseId = enterpriseId;
     }
 
-    public static ManagerEnterpriseEntity Create(string managerId, EnterpriseId enterpriseId) => new(managerId, enterpriseId);
+    public static ManagerEnterpriseEntity Create(ManagerId managerId, EnterpriseId enterpriseId) => new(managerId, enterpriseId);
 
     protected ManagerEnterpriseEntity() { }
 }

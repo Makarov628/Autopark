@@ -36,7 +36,7 @@ internal class GetAllEnterprisesQueryHandler : IRequestHandler<GetAllEnterprises
                      .ToArray(),
                 _dbContext.ManagerEnterprises.AsNoTracking()
                     .Where(me => me.EnterpriseId == enterprise.Id)
-                    .Select(me => me.ManagerId)
+                    .Select(me => me.ManagerId.Value.ToString())
                     .ToArray()
              )
           ).ToListAsync(cancellationToken);

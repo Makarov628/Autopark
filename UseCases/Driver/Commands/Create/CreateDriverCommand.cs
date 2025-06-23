@@ -5,9 +5,7 @@ using Unit = LanguageExt.Unit;
 namespace Autopark.UseCases.Driver.Commands.Create;
 
 public record CreateDriverCommand(
-    string FirstName,
-    string LastName,
-    DateTime DateOfBirth,
+    int UserId,
     decimal Salary,
     int EnterpriseId
 ) : IRequest<Fin<Unit>>;

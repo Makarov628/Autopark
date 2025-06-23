@@ -1,10 +1,11 @@
-
-
 using Autopark.Domain.Common.ValueObjects;
+using Autopark.Domain.User.Entities;
+using Autopark.Domain.User.ValueObjects;
 using Autopark.Domain.Manager.Entities;
-using Microsoft.AspNetCore.Identity;
+using Autopark.Domain.Manager.ValueObjects;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 
 namespace Autopark.Infrastructure.Database;
 
@@ -12,32 +13,56 @@ public static class DatabaseSeed
 {
     public static async Task SeedAdminAsync(IServiceScope scope)
     {
-        var users = scope.ServiceProvider.GetRequiredService<UserManager<ManagerEntity>>();
-        var roles = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+        var dbContext = scope.ServiceProvider.GetRequiredService<AutoparkDbContext>();
         var cfg = scope.ServiceProvider.GetRequiredService<IConfiguration>();
 
-        const string adminRole = "Admin";
-        if (!await roles.RoleExistsAsync(adminRole))
-            await roles.CreateAsync(new IdentityRole(adminRole));
+        var adminEmail = cfg["Admin:Email"] ?? "admin@autopark.com";
+        var adminFirstName = cfg["Admin:FirstName"] ?? "Админ";
+        var adminLastName = cfg["Admin:LastName"] ?? "Админов";
 
-        var email = cfg["Admin:Email"] ?? "admin@example.com";
-        var user = await users.FindByEmailAsync(email);
-        if (user is not null)
-            return;
+        // Проверяем, существует ли уже админ
+        var existingAdmin = await dbContext.Users
+            .Include(u => u.Roles)
+            .FirstOrDefaultAsync(u => u.Email == adminEmail);
 
-        user = new ManagerEntity
+        if (existingAdmin != null)
         {
-            Id = Guid.NewGuid().ToString(),
-            Email = email,
-            UserName = email,
-            IsPasswordInitialized = false,
-            LastName = CyrillicString.Create("Админов").ThrowIfFail(),
-            FirstName = CyrillicString.Create("Админ").ThrowIfFail()
+            // Проверяем, есть ли у пользователя роль Admin
+            if (existingAdmin.Roles.Any(r => r.Role == UserRoleType.Admin))
+            {
+                return; // Админ уже существует
+            }
+        }
+
+        // Создаем пользователя-админа
+        var adminUser = new UserEntity
+        {
+            Email = adminEmail,
+            FirstName = CyrillicString.Create(adminFirstName).ThrowIfFail(),
+            LastName = CyrillicString.Create(adminLastName).ThrowIfFail(),
+            IsActive = true,
+            DateOfBirth = new DateTime(1990, 1, 1)
         };
 
-        var randomPassword = Guid.NewGuid() + "aA!";
-        await users.CreateAsync(user, randomPassword);
-        await users.AddToRoleAsync(user, adminRole);
+        dbContext.Users.Add(adminUser);
+        await dbContext.SaveChangesAsync();
 
+        // Добавляем роль Admin
+        var adminRole = new UserRole
+        {
+            UserId = adminUser.Id,
+            Role = UserRoleType.Admin
+        };
+
+        dbContext.UserRoles.Add(adminRole);
+
+        // Создаем менеджера для админа
+        var adminManager = new ManagerEntity
+        {
+            UserId = adminUser.Id
+        };
+
+        dbContext.Managers.Add(adminManager);
+        await dbContext.SaveChangesAsync();
     }
 }

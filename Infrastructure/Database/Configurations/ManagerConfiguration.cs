@@ -1,6 +1,9 @@
 using Autopark.Domain.Common.ValueObjects;
 using Autopark.Domain.Manager.Entities;
+using Autopark.Domain.Manager.ValueObjects;
+using Autopark.Domain.User.ValueObjects;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Autopark.Infrastructure.Database.Configurations;
@@ -9,22 +12,29 @@ public class ManagerConfiguration : IEntityTypeConfiguration<ManagerEntity>
 {
     public void Configure(EntityTypeBuilder<ManagerEntity> builder)
     {
-        ConfigureVehiclesTable(builder);
+        ConfigureManagersTable(builder);
     }
 
-    public void ConfigureVehiclesTable(EntityTypeBuilder<ManagerEntity> builder)
+    public void ConfigureManagersTable(EntityTypeBuilder<ManagerEntity> builder)
     {
-        builder.Property(s => s.LastName)
-            .ValueGeneratedNever()
-            .HasConversion(
-                name => name.Value,
-                value => CyrillicString.Create(value).ThrowIfFail());
+        builder.HasKey(m => m.Id);
+        builder.Property(s => s.Id)
+                    .ValueGeneratedOnAdd()
+                    .UseIdentityColumn()
+                    .HasConversion(
+                        id => id.Value,
+                        value => ManagerId.Create(value))
+                    .Metadata.SetBeforeSaveBehavior(PropertySaveBehavior.Ignore);
 
-        builder.Property(s => s.FirstName)
-            .ValueGeneratedNever()
+        builder.Property(m => m.UserId)
             .HasConversion(
-                name => name.Value,
-                value => CyrillicString.Create(value).ThrowIfFail());
+                id => id.Value,
+                value => UserId.Create(value));
+
+        builder.HasOne(m => m.User)
+            .WithMany()
+            .HasForeignKey(m => m.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasMany(s => s.EnterpriseManagers)
             .WithOne(s => s.Manager)
