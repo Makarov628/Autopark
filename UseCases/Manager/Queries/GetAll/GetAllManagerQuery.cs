@@ -3,9 +3,9 @@ using MediatR;
 
 namespace Autopark.UseCases.Manager.Queries.GetAll;
 
-public record GetAllManagerQuery() : IRequest<Fin<List<ManagerResponse>>>;
+public record GetAllManagerQuery() : IRequest<Fin<List<ManagersResponse>>>;
 
-public record ManagerResponse(
+public record ManagersResponse(
     int Id,
     int UserId,
     string Email,

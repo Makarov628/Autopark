@@ -14,6 +14,7 @@ using GetAllUser = Autopark.UseCases.User.Queries.GetAll;
 using GetByIdUser = Autopark.UseCases.User.Queries.GetById;
 using Autopark.Infrastructure.Database.Identity;
 using Autopark.Domain.User.Entities;
+using Autopark.UseCases.Common.Exceptions;
 
 namespace Autopark.Web.Controllers;
 
@@ -37,11 +38,15 @@ public class UserController : ControllerBase
         try
         {
             var userId = await _mediatr.Send(createUserCommand, HttpContext.RequestAborted);
-            return Created();
+            return StatusCode(201);
+        }
+        catch (ValidationException ex)
+        {
+            return BadRequest(ex.Message);
         }
         catch (Exception ex)
         {
-            return Problem(detail: ex.Message, statusCode: 400);
+            return Problem(detail: ex.Message, statusCode: 500);
         }
     }
 
@@ -54,9 +59,17 @@ public class UserController : ControllerBase
             await _mediatr.Send(activateUserCommand, HttpContext.RequestAborted);
             return Ok();
         }
+        catch (ValidationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
+        catch (NotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }
         catch (Exception ex)
         {
-            return Problem(detail: ex.Message, statusCode: 400);
+            return Problem(detail: ex.Message, statusCode: 500);
         }
     }
 
@@ -69,9 +82,17 @@ public class UserController : ControllerBase
             var response = await _mediatr.Send(loginUserCommand, HttpContext.RequestAborted);
             return Ok(response);
         }
+        catch (UnauthorizedException ex)
+        {
+            return Unauthorized(ex.Message);
+        }
+        catch (ValidationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
         catch (Exception ex)
         {
-            return Problem(detail: ex.Message, statusCode: 400);
+            return Problem(detail: ex.Message, statusCode: 500);
         }
     }
 
@@ -84,9 +105,13 @@ public class UserController : ControllerBase
             await _mediatr.Send(logoutCommand, HttpContext.RequestAborted);
             return Ok();
         }
+        catch (ValidationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
         catch (Exception ex)
         {
-            return Problem(detail: ex.Message, statusCode: 400);
+            return Problem(detail: ex.Message, statusCode: 500);
         }
     }
 
@@ -99,9 +124,17 @@ public class UserController : ControllerBase
             var response = await _mediatr.Send(refreshTokenCommand, HttpContext.RequestAborted);
             return Ok(response);
         }
+        catch (UnauthorizedException ex)
+        {
+            return Unauthorized(ex.Message);
+        }
+        catch (ValidationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
         catch (Exception ex)
         {
-            return Problem(detail: ex.Message, statusCode: 400);
+            return Problem(detail: ex.Message, statusCode: 500);
         }
     }
 
@@ -114,9 +147,13 @@ public class UserController : ControllerBase
             await _mediatr.Send(setPushTokenCommand, HttpContext.RequestAborted);
             return Ok();
         }
+        catch (ValidationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
         catch (Exception ex)
         {
-            return Problem(detail: ex.Message, statusCode: 400);
+            return Problem(detail: ex.Message, statusCode: 500);
         }
     }
 
@@ -133,17 +170,17 @@ public class UserController : ControllerBase
         var result = await _mediatr.Send(new GetByIdUserQuery(userId), HttpContext.RequestAborted);
         return result.Match<ActionResult>(
             Ok,
-            error => Problem(detail: error.Message, statusCode: 400));
+            error => NotFound(error.Message));
     }
 
     [HttpGet]
     [Authorize(Roles = "Admin,Manager")]
-    public async Task<ActionResult<List<GetAllUser.UserResponse>>> GetAll()
+    public async Task<ActionResult<List<GetAllUser.UsersResponse>>> GetAll()
     {
         var result = await _mediatr.Send(new GetAllUserQuery(), HttpContext.RequestAborted);
         return result.Match<ActionResult>(
             Ok,
-            error => Problem(detail: error.Message, statusCode: 400));
+            error => Problem(detail: error.Message, statusCode: 500));
     }
 
     [HttpGet("{id}")]
@@ -153,12 +190,12 @@ public class UserController : ControllerBase
         var result = await _mediatr.Send(new GetByIdUserQuery(id), HttpContext.RequestAborted);
         return result.Match<ActionResult>(
             Ok,
-            error => Problem(detail: error.Message, statusCode: 400));
+            error => NotFound(error.Message));
     }
 
     [HttpGet("available")]
     [Authorize(Roles = "Admin,Manager")]
-    public async Task<ActionResult<List<GetAllUser.UserResponse>>> GetAvailable([FromQuery] string notHasRole)
+    public async Task<ActionResult<List<GetAllUser.UsersResponse>>> GetAvailable([FromQuery] string notHasRole)
     {
         if (!Enum.TryParse<UserRoleType>(notHasRole, true, out var roleType))
             return BadRequest($"Некорректная роль: {notHasRole}");
@@ -166,6 +203,6 @@ public class UserController : ControllerBase
         var result = await _mediatr.Send(new GetAllUserQuery(roleType), HttpContext.RequestAborted);
         return result.Match<ActionResult>(
             Ok,
-            error => Problem(detail: error.Message, statusCode: 400));
+            error => Problem(detail: error.Message, statusCode: 500));
     }
 }

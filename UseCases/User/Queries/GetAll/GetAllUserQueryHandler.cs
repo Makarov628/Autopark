@@ -7,7 +7,7 @@ using Autopark.Domain.User.Entities;
 
 namespace Autopark.UseCases.User.Queries.GetAll;
 
-internal class GetAllUserQueryHandler : IRequestHandler<GetAllUserQuery, Fin<List<UserResponse>>>
+internal class GetAllUserQueryHandler : IRequestHandler<GetAllUserQuery, Fin<List<UsersResponse>>>
 {
     private readonly AutoparkDbContext _dbContext;
 
@@ -16,7 +16,7 @@ internal class GetAllUserQueryHandler : IRequestHandler<GetAllUserQuery, Fin<Lis
         _dbContext = dbContext;
     }
 
-    public async Task<Fin<List<UserResponse>>> Handle(GetAllUserQuery request, CancellationToken cancellationToken)
+    public async Task<Fin<List<UsersResponse>>> Handle(GetAllUserQuery request, CancellationToken cancellationToken)
     {
         try
         {
@@ -33,7 +33,7 @@ internal class GetAllUserQueryHandler : IRequestHandler<GetAllUserQuery, Fin<Lis
 
             var users = await usersQuery.ToListAsync(cancellationToken);
 
-            var response = users.Select(user => new UserResponse(
+            var response = users.Select(user => new UsersResponse(
                 Id: user.Id.Value,
                 Email: user.Email,
                 Phone: user.Phone ?? string.Empty,

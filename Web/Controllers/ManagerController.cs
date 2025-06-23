@@ -8,6 +8,7 @@ using LanguageExt;
 using GetAllManager = Autopark.UseCases.Manager.Queries.GetAll;
 using GetByIdManager = Autopark.UseCases.Manager.Queries.GetById;
 using Microsoft.AspNetCore.Authorization;
+using Autopark.UseCases.Common.Exceptions;
 
 namespace Autopark.Web.Controllers;
 
@@ -25,12 +26,12 @@ public class ManagersController : ControllerBase
 
     [HttpGet]
     [Authorize(Roles = "Admin,Manager")]
-    public async Task<ActionResult<List<GetAllManager.ManagerResponse>>> GetAll()
+    public async Task<ActionResult<List<GetAllManager.ManagersResponse>>> GetAll()
     {
         var result = await _mediatr.Send(new GetAllManagerQuery(), HttpContext.RequestAborted);
         return result.Match<ActionResult>(
             Ok,
-            error => Problem(detail: error.Message, statusCode: 400));
+            error => Problem(detail: error.Message, statusCode: 500));
     }
 
     [HttpGet("{id}")]
@@ -40,7 +41,7 @@ public class ManagersController : ControllerBase
         var result = await _mediatr.Send(new GetByIdManagerQuery(id), HttpContext.RequestAborted);
         return result.Match<ActionResult>(
             Ok,
-            error => Problem(detail: error.Message, statusCode: 400));
+            error => NotFound(error.Message));
     }
 
     [HttpPost]
@@ -50,11 +51,19 @@ public class ManagersController : ControllerBase
         try
         {
             await _mediatr.Send(createManagerCommand, HttpContext.RequestAborted);
-            return Created();
+            return StatusCode(201);
+        }
+        catch (ValidationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
+        catch (NotFoundException ex)
+        {
+            return NotFound(ex.Message);
         }
         catch (Exception ex)
         {
-            return Problem(detail: ex.Message, statusCode: 400);
+            return Problem(detail: ex.Message, statusCode: 500);
         }
     }
 
@@ -65,7 +74,12 @@ public class ManagersController : ControllerBase
         var result = await _mediatr.Send(new DeleteManagerCommand(id), HttpContext.RequestAborted);
         return result.Match<ActionResult>(
             _ => NoContent(),
-            error => Problem(detail: error.Message, statusCode: 400));
+            error =>
+            {
+                if (error.Message.Contains("используется") || error.Message.Contains("связан"))
+                    return Conflict(error.Message);
+                return NotFound(error.Message);
+            });
     }
 
     [HttpPut("{userId}/enterprises")]
@@ -74,7 +88,7 @@ public class ManagersController : ControllerBase
     {
         var result = await _mediatr.Send(new UpdateManagerEnterprisesCommand(userId, enterpriseIds), HttpContext.RequestAborted);
         return result.Match<ActionResult>(
-            _ => NoContent(),
-            error => Problem(detail: error.Message, statusCode: 400));
+            _ => Ok(),
+            error => NotFound(error.Message));
     }
 }

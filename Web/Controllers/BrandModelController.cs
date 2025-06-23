@@ -6,6 +6,7 @@ using Autopark.UseCases.BrandModel.Queries.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Autopark.UseCases.Common.Exceptions;
 
 namespace Autopark.Web.Controllers;
 
@@ -28,7 +29,7 @@ public class BrandModelsController : ControllerBase
         var result = await _mediatr.Send(new GetAllBrandModelQuery(), HttpContext.RequestAborted);
         return result.Match<ActionResult>(
             Ok,
-            error => Problem(detail: error.Message, statusCode: 400));
+            error => Problem(detail: error.Message, statusCode: 500));
     }
 
     [HttpGet("{id}")]
@@ -38,7 +39,7 @@ public class BrandModelsController : ControllerBase
         var result = await _mediatr.Send(new GetByIdBrandModelQuery(id), HttpContext.RequestAborted);
         return result.Match<ActionResult>(
             Ok,
-            error => Problem(detail: error.Message, statusCode: 400));
+            error => NotFound(error.Message));
     }
 
     [HttpPost]
@@ -47,8 +48,8 @@ public class BrandModelsController : ControllerBase
     {
         var result = await _mediatr.Send(createBrandModelCommand, HttpContext.RequestAborted);
         return result.Match<ActionResult>(
-            _ => Created(),
-            error => Problem(detail: error.Message, statusCode: 400));
+            _ => StatusCode(201),
+            error => BadRequest(error.Message));
     }
 
     [HttpPut]
@@ -57,8 +58,8 @@ public class BrandModelsController : ControllerBase
     {
         var result = await _mediatr.Send(updateBrandModelCommand, HttpContext.RequestAborted);
         return result.Match<ActionResult>(
-            _ => NoContent(),
-            error => Problem(detail: error.Message, statusCode: 400));
+            _ => Ok(),
+            error => NotFound(error.Message));
     }
 
     [HttpDelete("{id}")]
@@ -68,6 +69,11 @@ public class BrandModelsController : ControllerBase
         var result = await _mediatr.Send(new DeleteBrandModelCommand(id), HttpContext.RequestAborted);
         return result.Match<ActionResult>(
             _ => NoContent(),
-            error => Problem(detail: error.Message, statusCode: 400));
+            error =>
+            {
+                if (error.Message.Contains("используется") || error.Message.Contains("связан"))
+                    return Conflict(error.Message);
+                return NotFound(error.Message);
+            });
     }
 }

@@ -6,6 +6,7 @@ using Autopark.UseCases.Enterprise.Queries.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Autopark.UseCases.Common.Exceptions;
 
 namespace Autopark.Web.Controllers;
 
@@ -28,7 +29,7 @@ public class EnterprisesController : ControllerBase
         var result = await _mediatr.Send(new GetAllEnterprisesQuery(), HttpContext.RequestAborted);
         return result.Match<ActionResult>(
             Ok,
-            error => Problem(detail: error.Message, statusCode: 400));
+            error => Problem(detail: error.Message, statusCode: 500));
     }
 
     [HttpGet("{id}")]
@@ -38,7 +39,7 @@ public class EnterprisesController : ControllerBase
         var result = await _mediatr.Send(new GetByIdEnterpriseQuery(id), HttpContext.RequestAborted);
         return result.Match<ActionResult>(
             Ok,
-            error => Problem(detail: error.Message, statusCode: 400));
+            error => NotFound(error.Message));
     }
 
     [HttpPost]
@@ -47,8 +48,8 @@ public class EnterprisesController : ControllerBase
     {
         var result = await _mediatr.Send(createEnterpriseCommand, HttpContext.RequestAborted);
         return result.Match<ActionResult>(
-            _ => Created(),
-            error => Problem(detail: error.Message, statusCode: 400));
+            _ => StatusCode(201),
+            error => BadRequest(error.Message));
     }
 
     [HttpPut]
@@ -57,17 +58,24 @@ public class EnterprisesController : ControllerBase
     {
         var result = await _mediatr.Send(updateEnterpriseCommand, HttpContext.RequestAborted);
         return result.Match<ActionResult>(
-            _ => NoContent(),
-            error => Problem(detail: error.Message, statusCode: 400));
+            _ => Ok(),
+            error => NotFound(error.Message));
     }
 
     [HttpDelete("{id}")]
     [Authorize(Roles = "Admin")]
     public async Task<ActionResult> Delete(int id)
     {
-        var result = await _mediatr.Send(new DeleteEnterpriseCommand(id), HttpContext.RequestAborted);
-        return result.Match<ActionResult>(
-            _ => NoContent(),
-            error => Problem(detail: error.Message, statusCode: 400));
+        try
+        {
+            var result = await _mediatr.Send(new DeleteEnterpriseCommand(id), HttpContext.RequestAborted);
+            return result.Match<ActionResult>(
+                _ => NoContent(),
+                error => NotFound(error.Message));
+        }
+        catch (ConflictException ex)
+        {
+            return Conflict(ex.Message);
+        }
     }
 }

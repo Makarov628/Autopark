@@ -4,7 +4,7 @@ using Autopark.Infrastructure.Database;
 using Unit = LanguageExt.Unit;
 using Microsoft.EntityFrameworkCore;
 using LanguageExt.Common;
-using Autopark.Domain.Vehicle.ValueObjects;
+using Autopark.Domain.BrandModel.ValueObjects;
 
 namespace Autopark.UseCases.BrandModel.Commands.Delete;
 
@@ -19,9 +19,15 @@ internal class DeleteBrandModelCommandHandler : IRequestHandler<DeleteBrandModel
 
     public async Task<Fin<Unit>> Handle(DeleteBrandModelCommand request, CancellationToken cancellationToken)
     {
-        var brandModel = await _dbContext.BrandModels.AsNoTracking().FirstOrDefaultAsync(v => v.Id == VehicleId.Create(request.Id), cancellationToken);
+        var brandModelId = BrandModelId.Create(request.Id);
+        var brandModel = await _dbContext.BrandModels.AsNoTracking().FirstOrDefaultAsync(v => v.Id == brandModelId, cancellationToken);
         if (brandModel is null)
-            return Error.New($"Модель бренда машины с идентификатором '{request.Id} не существует");
+            return Error.New($"Модель бренда машины с идентификатором '{request.Id}' не существует");
+
+        // Проверяем наличие связанных транспортных средств
+        var hasVehicles = await _dbContext.Vehicles.AnyAsync(v => v.BrandModelId == brandModelId, cancellationToken);
+        if (hasVehicles)
+            return Error.New($"Модель бренда с идентификатором '{brandModelId.Value}' не может быть удалена, так как используется в транспортных средствах");
 
         if (_dbContext.Entry(brandModel).State == EntityState.Detached)
             _dbContext.BrandModels.Attach(brandModel);

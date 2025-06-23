@@ -4,9 +4,9 @@ using Autopark.Domain.User.Entities;
 
 namespace Autopark.UseCases.User.Queries.GetAll;
 
-public record GetAllUserQuery(UserRoleType? NotHasRole = null) : IRequest<Fin<List<UserResponse>>>;
+public record GetAllUserQuery(UserRoleType? NotHasRole = null) : IRequest<Fin<List<UsersResponse>>>;
 
-public record UserResponse(
+public record UsersResponse(
     int Id,
     string Email,
     string Phone,

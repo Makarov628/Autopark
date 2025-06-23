@@ -7,7 +7,7 @@ using Autopark.Domain.Manager.ValueObjects;
 
 namespace Autopark.UseCases.Manager.Queries.GetAll;
 
-internal class GetAllManagerQueryHandler : IRequestHandler<GetAllManagerQuery, Fin<List<ManagerResponse>>>
+internal class GetAllManagerQueryHandler : IRequestHandler<GetAllManagerQuery, Fin<List<ManagersResponse>>>
 {
     private readonly AutoparkDbContext _dbContext;
 
@@ -16,7 +16,7 @@ internal class GetAllManagerQueryHandler : IRequestHandler<GetAllManagerQuery, F
         _dbContext = dbContext;
     }
 
-    public async Task<Fin<List<ManagerResponse>>> Handle(GetAllManagerQuery request, CancellationToken cancellationToken)
+    public async Task<Fin<List<ManagersResponse>>> Handle(GetAllManagerQuery request, CancellationToken cancellationToken)
     {
         try
         {
@@ -27,7 +27,7 @@ internal class GetAllManagerQueryHandler : IRequestHandler<GetAllManagerQuery, F
                 .AsNoTracking()
                 .ToListAsync(cancellationToken);
 
-            var response = managers.Select(manager => new ManagerResponse(
+            var response = managers.Select(manager => new ManagersResponse(
                 Id: manager.Id.Value,
                 UserId: manager.UserId.Value,
                 Email: manager.User.Email,

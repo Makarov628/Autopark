@@ -7,6 +7,7 @@ using Autopark.Infrastructure.Database.Services;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
+using Autopark.UseCases.Common.Exceptions;
 
 namespace Autopark.UseCases.User.Commands.Login;
 
@@ -38,24 +39,24 @@ public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, LoginUs
 
         if (user == null)
         {
-            throw new InvalidOperationException("Неверный email или пароль");
+            throw new UnauthorizedException("Неверный email или пароль");
         }
 
         // 2. Проверяем, что пользователь активирован
         if (!user.IsActive)
         {
-            throw new InvalidOperationException("Пользователь не активирован");
+            throw new UnauthorizedException("Пользователь не активирован");
         }
 
         // 3. Проверяем пароль
         if (user.Credentials?.PasswordHash == null || user.Credentials?.Salt == null)
         {
-            throw new AuthenEx("Неверный email или пароль");
+            throw new UnauthorizedException("Неверный email или пароль");
         }
 
         if (!_passwordHasher.VerifyPassword(request.Password, user.Credentials.Salt, user.Credentials.PasswordHash))
         {
-            throw new InvalidOperationException("Неверный email или пароль");
+            throw new UnauthorizedException("Неверный email или пароль");
         }
 
         // 4. Создаём устройство (сессию)
