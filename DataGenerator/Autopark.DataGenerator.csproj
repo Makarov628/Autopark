@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="CommandLineParser" Version="2.9.1" />
+        <PackageReference Include="Bogus" Version="35.4.0" />
+        <PackageReference Include="MediatR" Version="12.4.1" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Domain\Autopark.Domain.csproj" />
+        <ProjectReference
+            Include="..\Infrastructure\Database\Autopark.Infrastructure.Database.csproj" />
+        <ProjectReference Include="..\UseCases\Autopark.UseCases.csproj" />
+    </ItemGroup>
+
+</Project> 

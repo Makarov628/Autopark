@@ -7,4 +7,4 @@ namespace Autopark.UseCases.Manager.Commands.Create;
 public record CreateManagerCommand(
     int UserId,
     List<int> EnterpriseIds
-) : IRequest<Fin<Unit>>;
+) : IRequest<Fin<int>>;

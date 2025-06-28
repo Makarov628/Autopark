@@ -1,0 +1,503 @@
+{
+  "Enterprises": [
+    {
+      "Id": "0902b4a1-7315-4f0c-a0a0-b340fea993d0",
+      "Name": "Крюков, Новикова and Князев",
+      "Address": "Мира площадь, 040, Пенза, Афганистан",
+      "Vehicles": [
+        {
+          "Id": "e294f279-2ce8-478a-925f-ce2f6f1e4959",
+          "Name": "Ивеко",
+          "Price": 1764879.740046306500000,
+          "MileageInKilometers": 132129,
+          "Color": "Серебристый",
+          "RegistrationNumber": "В075ЩЪ166",
+          "BrandModelId": "7d48cecc-6135-4428-8a29-12222eb1b99c",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "143e782a-172a-4cd2-8c8c-3f5ecf39657e",
+          "Name": "Газель",
+          "Price": 3778334.86575753500000,
+          "MileageInKilometers": 34630,
+          "Color": "Синий",
+          "RegistrationNumber": "Ч252ЛЖ021",
+          "BrandModelId": "8090fb82-6e86-4612-b439-5696386a7e10",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "c4e1f90a-79bb-4f6d-96ed-a278ce1eaa76",
+          "Name": "ГАЗ",
+          "Price": 1209258.14313434000000,
+          "MileageInKilometers": 63621,
+          "Color": "Оранжевый",
+          "RegistrationNumber": "Д718ЫК104",
+          "BrandModelId": "82443cba-7cbf-4f86-8c2b-75c96a79e117",
+          "ActiveDriverId": null
+        }
+      ],
+      "Drivers": [
+        {
+          "Id": "067bc744-e830-44ef-abf5-e6e656785ef1",
+          "UserId": "8e13f5bc-9a5f-4101-bc82-1dc5f9e3e5de",
+          "Salary": 102958.305158167300000,
+          "VehicleId": null
+        }
+      ]
+    },
+    {
+      "Id": "3e7d64f0-b747-450f-9c9e-5fa344c7d13b",
+      "Name": "Петров, Максимова and Шашков",
+      "Address": "площадь Горная, 434, Тула, Мадагаскар",
+      "Vehicles": [
+        {
+          "Id": "c6028bce-8040-4a69-856b-61f70496aa3c",
+          "Name": "БелАЗ",
+          "Price": 1610392.536347027000000,
+          "MileageInKilometers": 154567,
+          "Color": "Коричневый",
+          "RegistrationNumber": "К756ЧЧ396",
+          "BrandModelId": "a142c177-d593-4064-8792-999edd45a703",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "0e412fd7-c16f-4d9a-a536-369e98b93ba7",
+          "Name": "ЗИЛ",
+          "Price": 2027834.869429517000000,
+          "MileageInKilometers": 21620,
+          "Color": "Серый",
+          "RegistrationNumber": "З625ПЗ771",
+          "BrandModelId": "cc747ba0-38e7-454b-b20d-ac5eb0d8ece5",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "de59194f-a77d-4e28-aabd-c3c627bf798a",
+          "Name": "Газель",
+          "Price": 2762771.872402022000000,
+          "MileageInKilometers": 53660,
+          "Color": "Серебристый",
+          "RegistrationNumber": "А444ЦН270",
+          "BrandModelId": "a142c177-d593-4064-8792-999edd45a703",
+          "ActiveDriverId": null
+        }
+      ],
+      "Drivers": [
+        {
+          "Id": "b8ba5e10-997f-46ae-ab0c-36d3d5136f13",
+          "UserId": "87aa8370-cd3e-4bb7-8e07-51010fbb448a",
+          "Salary": 78304.051388196700000,
+          "VehicleId": null
+        }
+      ]
+    }
+  ],
+  "BrandModels": [
+    {
+      "Id": "286bcc6f-b83b-4521-b1dd-b23dbc60cbee",
+      "BrandName": "Toyota",
+      "ModelName": "Camry",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 500
+    },
+    {
+      "Id": "eba85f05-c744-455b-aa0b-5b047789e602",
+      "BrandName": "Toyota",
+      "ModelName": "Corolla",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "09b25237-77ff-4797-bc85-8af5db7248ce",
+      "BrandName": "Honda",
+      "ModelName": "Civic",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "8090fb82-6e86-4612-b439-5696386a7e10",
+      "BrandName": "Honda",
+      "ModelName": "Accord",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 500
+    },
+    {
+      "Id": "96f0ee77-d406-44e8-a571-974840c58308",
+      "BrandName": "BMW",
+      "ModelName": "X5",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 600
+    },
+    {
+      "Id": "7d48cecc-6135-4428-8a29-12222eb1b99c",
+      "BrandName": "BMW",
+      "ModelName": "3 Series",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "3e254781-0a3e-4934-b4f5-1c6225e10027",
+      "BrandName": "Mercedes",
+      "ModelName": "C-Class",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "d61deebf-6d41-4017-bf00-b2d8eab521cf",
+      "BrandName": "Mercedes",
+      "ModelName": "E-Class",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 500
+    },
+    {
+      "Id": "cc747ba0-38e7-454b-b20d-ac5eb0d8ece5",
+      "BrandName": "Audi",
+      "ModelName": "A4",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "34ce4714-b8bb-450a-ab8f-e351480523af",
+      "BrandName": "Audi",
+      "ModelName": "Q5",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 550
+    },
+    {
+      "Id": "9b31700c-a291-43af-b864-3f37f3af1b84",
+      "BrandName": "Volkswagen",
+      "ModelName": "Golf",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 400
+    },
+    {
+      "Id": "93ee4f81-d20a-43e4-a566-81f7672406f3",
+      "BrandName": "Volkswagen",
+      "ModelName": "Passat",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 500
+    },
+    {
+      "Id": "6d29ae54-5948-4f9d-b453-2c9dc9f4806b",
+      "BrandName": "Tesla",
+      "ModelName": "Model 3",
+      "TransportType": "Car",
+      "FuelType": "Electricity",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "12c502f4-57f5-42af-9c6a-4dff78ba7d56",
+      "BrandName": "Tesla",
+      "ModelName": "Model S",
+      "TransportType": "Car",
+      "FuelType": "Electricity",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 500
+    },
+    {
+      "Id": "309de59d-6fe9-47b1-9be7-121b1ed60132",
+      "BrandName": "Nissan",
+      "ModelName": "Leaf",
+      "TransportType": "Car",
+      "FuelType": "Electricity",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 400
+    },
+    {
+      "Id": "82443cba-7cbf-4f86-8c2b-75c96a79e117",
+      "BrandName": "Ford",
+      "ModelName": "Focus",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "05c68b97-350f-4856-8a1e-caeae4341fd8",
+      "BrandName": "Chevrolet",
+      "ModelName": "Cruze",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "0e314ef9-3ed5-47b4-89be-9f6e3a2dc9e6",
+      "BrandName": "Hyundai",
+      "ModelName": "Elantra",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "07ab8ef2-bb13-4126-914a-82b8caa9bb44",
+      "BrandName": "Kia",
+      "ModelName": "Rio",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 400
+    },
+    {
+      "Id": "3ff36387-e4fd-4f94-b434-a1a3890f789a",
+      "BrandName": "Mazda",
+      "ModelName": "3",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "2ac769fa-9472-4b0a-bd66-f08015f390ba",
+      "BrandName": "Volvo",
+      "ModelName": "FH16",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 20000
+    },
+    {
+      "Id": "24f9b691-99ed-4004-b907-46f744f1b41a",
+      "BrandName": "Scania",
+      "ModelName": "R500",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 18000
+    },
+    {
+      "Id": "25e5da25-a7a1-487f-8e52-c40a94a437d2",
+      "BrandName": "MAN",
+      "ModelName": "TGX",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 16000
+    },
+    {
+      "Id": "d21c9938-4f0c-4796-a0ef-a7fb997f1b3b",
+      "BrandName": "Mercedes",
+      "ModelName": "Actros",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 18000
+    },
+    {
+      "Id": "949ce5f9-6547-4d94-aef4-e8fef9248bc1",
+      "BrandName": "Iveco",
+      "ModelName": "Stralis",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 15000
+    },
+    {
+      "Id": "a142c177-d593-4064-8792-999edd45a703",
+      "BrandName": "DAF",
+      "ModelName": "XF",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 16000
+    },
+    {
+      "Id": "4ca92b44-4057-4261-9a9e-6fac2303d110",
+      "BrandName": "Renault",
+      "ModelName": "T",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 16000
+    },
+    {
+      "Id": "269bb8bf-26e8-47b5-ac78-61ab35a1bc42",
+      "BrandName": "Isuzu",
+      "ModelName": "Forward",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 8000
+    },
+    {
+      "Id": "ceb59f49-3862-442f-b743-35a5887642b5",
+      "BrandName": "Hino",
+      "ModelName": "500",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 10000
+    },
+    {
+      "Id": "23d5ebb7-7df0-40e9-a298-a483f58fb5b8",
+      "BrandName": "Ural",
+      "ModelName": "4320",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 12000
+    },
+    {
+      "Id": "6798f2af-95b6-49b0-a862-3b65fecba956",
+      "BrandName": "Mercedes",
+      "ModelName": "Sprinter",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 20,
+      "MaximumLoadCapacityInKillograms": 3000
+    },
+    {
+      "Id": "de451c5e-7ddc-4729-921c-db97dde5ac80",
+      "BrandName": "Volkswagen",
+      "ModelName": "Crafter",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 18,
+      "MaximumLoadCapacityInKillograms": 2800
+    },
+    {
+      "Id": "50dec4cf-3afc-4d9f-a359-41ea5669258f",
+      "BrandName": "Ford",
+      "ModelName": "Transit",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 16,
+      "MaximumLoadCapacityInKillograms": 2500
+    },
+    {
+      "Id": "0cddc008-42e3-4b31-a3f4-33c51e98d659",
+      "BrandName": "Iveco",
+      "ModelName": "Daily",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 22,
+      "MaximumLoadCapacityInKillograms": 3500
+    },
+    {
+      "Id": "b7b4deed-4d5c-451b-80a5-243a4a351023",
+      "BrandName": "Fiat",
+      "ModelName": "Ducato",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 16,
+      "MaximumLoadCapacityInKillograms": 2500
+    },
+    {
+      "Id": "b0ded390-07c9-46f6-98ee-3d796635e82d",
+      "BrandName": "Peugeot",
+      "ModelName": "Boxer",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 16,
+      "MaximumLoadCapacityInKillograms": 2500
+    },
+    {
+      "Id": "2a7faeb4-624b-4fbd-a53e-4ddbf52ef401",
+      "BrandName": "Citroen",
+      "ModelName": "Jumper",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 16,
+      "MaximumLoadCapacityInKillograms": 2500
+    },
+    {
+      "Id": "9a02a2af-28a1-4819-8d88-cf238b5a188f",
+      "BrandName": "Renault",
+      "ModelName": "Master",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 18,
+      "MaximumLoadCapacityInKillograms": 2800
+    },
+    {
+      "Id": "4ce2ef8a-f419-4420-838e-c79e8a9ce500",
+      "BrandName": "Nissan",
+      "ModelName": "NV300",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 16,
+      "MaximumLoadCapacityInKillograms": 2500
+    },
+    {
+      "Id": "3b5002a0-60cd-4692-a69d-a2c84d860c13",
+      "BrandName": "Opel",
+      "ModelName": "Movano",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 16,
+      "MaximumLoadCapacityInKillograms": 2500
+    }
+  ],
+  "Users": [
+    {
+      "Id": "f0eb9dde-a2d9-48ea-83fd-20c34e63c21c",
+      "Email": "Stanislav.Potapov@hotmail.com",
+      "Phone": "+7-832-831-05-71",
+      "IsActive": true,
+      "FirstName": "Семён",
+      "LastName": "Агафонова",
+      "DateOfBirth": "1995-05-28T00:14:30.9318062+06:00"
+    },
+    {
+      "Id": "342e2d00-dc26-402f-82a4-d7d0c060727e",
+      "Email": "Valeriya.Rodionova@yahoo.com",
+      "Phone": "+7-521-512-62-78",
+      "IsActive": true,
+      "FirstName": "Юлия",
+      "LastName": "Стрелкова",
+      "DateOfBirth": "1975-04-17T20:06:47.4587059+06:00"
+    },
+    {
+      "Id": "32d624a6-4a5a-4d9e-9407-d1759e3b831a",
+      "Email": "Aleksei.Sidorov84@ya.ru",
+      "Phone": "+7-349-909-78-22",
+      "IsActive": true,
+      "FirstName": "Раиса",
+      "LastName": "Зайцева",
+      "DateOfBirth": "1999-06-26T03:04:04.8394608+06:00"
+    },
+    {
+      "Id": "568733d8-976a-4c4a-af40-0e60f937d784",
+      "Email": "Oleg16@gmail.com",
+      "Phone": "+7-177-423-04-67",
+      "IsActive": true,
+      "FirstName": "Вадим",
+      "LastName": "Зимин",
+      "DateOfBirth": "1993-03-27T08:03:57.6797632+06:00"
+    },
+    {
+      "Id": "4add0bca-0b67-4ab1-b85f-4d882df48869",
+      "Email": "Lavrentii3@gmail.com",
+      "Phone": "+7-295-164-51-35",
+      "IsActive": true,
+      "FirstName": "Елена",
+      "LastName": "Сафонов",
+      "DateOfBirth": "1975-03-17T15:48:46.6672838+06:00"
+    }
+  ]
+}

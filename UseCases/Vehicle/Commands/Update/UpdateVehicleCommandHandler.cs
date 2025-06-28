@@ -79,8 +79,22 @@ internal class UpdateVehicleCommandHandler : IRequestHandler<UpdateVehicleComman
             enterpriseId,
             driverId);
 
-        _dbContext.Vehicles.Attach(vehicle);
-        _dbContext.Entry(vehicle).State = EntityState.Modified;
+        // Получаем машину с отслеживанием для обновления
+        var trackedVehicle = await _dbContext.Vehicles.FirstOrDefaultAsync(v => v.Id == vehicleId, cancellationToken);
+        if (trackedVehicle is null)
+            return Error.New($"Vehicle not found with id: {request.Id}");
+
+        // Обновляем свойства отслеживаемой сущности
+        trackedVehicle.Update(
+            name.Head(),
+            price.Head(),
+            mileage.Head(),
+            color.Head(),
+            registrationNumber.Head(),
+            brandModelId,
+            enterpriseId,
+            driverId);
+
         await _dbContext.SaveChangesAsync(cancellationToken);
 
         return Unit.Default;

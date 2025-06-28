@@ -1,0 +1,5327 @@
+{
+  "Enterprises": [
+    {
+      "Id": "3b841ad4-de61-4d73-a034-d11d9e74696d",
+      "Name": "Журавлев - Авдеева",
+      "Address": "Рабочая проспект, 013, Барнаул, Андорра",
+      "Vehicles": [
+        {
+          "Id": "ea229bb3-8797-4a45-ac98-620a8b097a62",
+          "Name": "Интеллектуальный Гранитный Плащ",
+          "Price": 4955378.367067380500000,
+          "MileageInKilometers": 111860,
+          "Color": "Красный",
+          "RegistrationNumber": "U756BR410",
+          "BrandModelId": "c9e0792d-de7b-407f-ad2a-9555eff5e611",
+          "EnterpriseId": "",
+          "ActiveDriverId": "98255a5a-3254-4f4a-b32b-cfca86f6d253"
+        },
+        {
+          "Id": "f9040a97-4b27-4397-97d1-2b0a1526a37d",
+          "Name": "Лоснящийся Бетонный Стол",
+          "Price": 3201628.369815000500000,
+          "MileageInKilometers": 125980,
+          "Color": "Серый",
+          "RegistrationNumber": "S021IZ791",
+          "BrandModelId": "410651ce-4224-4419-9515-b424bef31d2c",
+          "EnterpriseId": "",
+          "ActiveDriverId": "05290a61-1282-45b1-8580-1e23a180a1a4"
+        },
+        {
+          "Id": "4e8ab812-26d8-4b3d-8f82-bb19e11f32e5",
+          "Name": "Практичный Пластиковый Берет",
+          "Price": 2442759.724282905500000,
+          "MileageInKilometers": 118429,
+          "Color": "Белый",
+          "RegistrationNumber": "J698AN310",
+          "BrandModelId": "5883970e-befb-43cf-97ed-3622a1147453",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "6b40b424-4381-42fe-80f0-f69360c15767",
+          "Name": "Эргономичный Хлопковый Компьютер",
+          "Price": 3794202.951471104000000,
+          "MileageInKilometers": 144032,
+          "Color": "Серый",
+          "RegistrationNumber": "F048UQ702",
+          "BrandModelId": "f9caefe4-43e1-45a3-87a4-6245eec61ff2",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "8c58013e-c378-4a10-9b12-5c4030390194",
+          "Name": "Лоснящийся Кожанный Кошелек",
+          "Price": 2796068.470068009500000,
+          "MileageInKilometers": 20202,
+          "Color": "Черный",
+          "RegistrationNumber": "G262NH058",
+          "BrandModelId": "9af2116a-7f18-4509-ba5c-90737f6d7c38",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "edb2dc0e-2cb9-45a1-96e4-6e34d34bbbe2",
+          "Name": "Потрясающий Гранитный Кошелек",
+          "Price": 3521614.984667154500000,
+          "MileageInKilometers": 105962,
+          "Color": "Синий",
+          "RegistrationNumber": "G573CJ725",
+          "BrandModelId": "d3671a25-caa2-4f28-8aa7-6638ed08ef9b",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "baca5eb7-d223-4b0c-ae11-d5aed7698789",
+          "Name": "Лоснящийся Неодимовый Кепка",
+          "Price": 2185502.863467407000000,
+          "MileageInKilometers": 154434,
+          "Color": "Синий",
+          "RegistrationNumber": "P447UY931",
+          "BrandModelId": "eda04dfe-856a-4081-bb92-bc1123c86eff",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "41702cb2-29e7-4082-881f-454605414216",
+          "Name": "Свободный Стальной Носки",
+          "Price": 2255919.031682856500000,
+          "MileageInKilometers": 192715,
+          "Color": "Синий",
+          "RegistrationNumber": "D282EC569",
+          "BrandModelId": "12f05ce9-c617-4d6d-b140-b7addb8ada80",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "8d10b759-bf01-4dc7-b244-9cd738e947fc",
+          "Name": "Практичный Деревянный Ботинок",
+          "Price": 1404363.818751516500000,
+          "MileageInKilometers": 117176,
+          "Color": "Оранжевый",
+          "RegistrationNumber": "U072BS467",
+          "BrandModelId": "c9647356-13e7-435c-aa52-be879c125a1e",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "de3e6f78-fa02-4b79-a780-140c5a0b34c7",
+          "Name": "Свободный Кожанный Кепка",
+          "Price": 2180099.716564658000000,
+          "MileageInKilometers": 141565,
+          "Color": "Желтый",
+          "RegistrationNumber": "V597RT108",
+          "BrandModelId": "65005085-39e6-4a31-b20e-9370ce3f0cab",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "d0504fd1-a868-4171-a9aa-1839d7a235cc",
+          "Name": "Маленький Деревянный Ботинок",
+          "Price": 4138733.768634666500000,
+          "MileageInKilometers": 30606,
+          "Color": "Серый",
+          "RegistrationNumber": "B149DP637",
+          "BrandModelId": "bb962acd-f1fe-4370-9468-0f943065492e",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "5a502b81-e2bb-4267-b95d-864b76c679b6",
+          "Name": "Невероятный Натуральный Автомобиль",
+          "Price": 1716419.926994742500000,
+          "MileageInKilometers": 192842,
+          "Color": "Черный",
+          "RegistrationNumber": "P000RU111",
+          "BrandModelId": "5883970e-befb-43cf-97ed-3622a1147453",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "1aadb8d8-9854-4af6-8997-ed83867b4320",
+          "Name": "Великолепный Резиновый Носки",
+          "Price": 2827178.33189688500000,
+          "MileageInKilometers": 60120,
+          "Color": "Белый",
+          "RegistrationNumber": "Z893EM460",
+          "BrandModelId": "46adbca2-3d61-4d29-99d6-7fe411599df1",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "04ad2b69-be01-4b9f-a811-060ce2336714",
+          "Name": "Великолепный Деревянный Куртка",
+          "Price": 4741547.455689368000000,
+          "MileageInKilometers": 39828,
+          "Color": "Зеленый",
+          "RegistrationNumber": "L910RG779",
+          "BrandModelId": "dc5ef5ad-3da3-46c4-88c4-9f7853ea72c6",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "524ddc15-c0a9-447d-8832-293b70e63357",
+          "Name": "Интеллектуальный Бетонный Плащ",
+          "Price": 4365337.57507004000000,
+          "MileageInKilometers": 165171,
+          "Color": "Белый",
+          "RegistrationNumber": "V590FV077",
+          "BrandModelId": "0404f36d-e302-4473-a524-afc41a99e80f",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "19d3541a-df34-41b5-8e1d-1f8bc90e6261",
+          "Name": "Свободный Натуральный Стол",
+          "Price": 3478771.626113669000000,
+          "MileageInKilometers": 33509,
+          "Color": "Синий",
+          "RegistrationNumber": "B430NY195",
+          "BrandModelId": "a657bf86-1905-4aa6-bceb-bb91785395ef",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "a83c0da4-77f3-4d49-9128-8502b56a0e5c",
+          "Name": "Великолепный Стальной Ножницы",
+          "Price": 1313096.833217862500000,
+          "MileageInKilometers": 12152,
+          "Color": "Белый",
+          "RegistrationNumber": "B623YJ810",
+          "BrandModelId": "410651ce-4224-4419-9515-b424bef31d2c",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "4a4f93d6-a7e8-4cfa-af88-ad0c0ec6a2f0",
+          "Name": "Маленький Резиновый Клатч",
+          "Price": 945124.6589781872000000,
+          "MileageInKilometers": 109532,
+          "Color": "Зеленый",
+          "RegistrationNumber": "T934GQ628",
+          "BrandModelId": "2026a497-1024-46ae-8f79-c173441258e3",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "b5ec90e3-8d1c-4fdc-8aa3-6e6c26a7b975",
+          "Name": "Грубый Хлопковый Ремень",
+          "Price": 4894038.224439971000000,
+          "MileageInKilometers": 67745,
+          "Color": "Оранжевый",
+          "RegistrationNumber": "G394IW765",
+          "BrandModelId": "1f6258d4-72e5-43b7-9434-4d3cc4706ab1",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "77718aad-ebf9-4c36-9eda-2369abd25ca7",
+          "Name": "Большой Деревянный Стул",
+          "Price": 2824793.272899356000000,
+          "MileageInKilometers": 83952,
+          "Color": "Желтый",
+          "RegistrationNumber": "O194YA943",
+          "BrandModelId": "eee89aab-f8e3-4dda-ad70-60156fa08436",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        }
+      ],
+      "Drivers": [
+        {
+          "Id": "98255a5a-3254-4f4a-b32b-cfca86f6d253",
+          "UserId": "d514f577-3c6b-4b38-9ae3-9f6f8f62ad00",
+          "Salary": 88412.496605148800000,
+          "VehicleId": "ea229bb3-8797-4a45-ac98-620a8b097a62"
+        },
+        {
+          "Id": "05290a61-1282-45b1-8580-1e23a180a1a4",
+          "UserId": "34877b59-ef23-4dca-8a45-752e5f5795d8",
+          "Salary": 107945.479665857500000,
+          "VehicleId": "f9040a97-4b27-4397-97d1-2b0a1526a37d"
+        },
+        {
+          "Id": "0cbb9e06-693e-49cb-a442-190ac5b11ba4",
+          "UserId": "b6929963-9620-4d1e-ae9d-8305b22724fe",
+          "Salary": 84422.931882749700000,
+          "VehicleId": null
+        },
+        {
+          "Id": "052188f7-de6b-45f3-b2d6-eec8a095f7b7",
+          "UserId": "5765c86d-98d6-481f-90e1-c97faf9eafec",
+          "Salary": 118057.268004891100000,
+          "VehicleId": null
+        },
+        {
+          "Id": "2191ec70-41bb-4a4c-895e-296c0d2fcda1",
+          "UserId": "44454854-ab50-42ae-bc70-3861d546d573",
+          "Salary": 105737.822109711300000,
+          "VehicleId": null
+        },
+        {
+          "Id": "30ef1ca2-bc3f-4d30-9a6f-45c0ce722a1f",
+          "UserId": "0d346b24-2e5e-4e0a-90d3-47b4ad0e0d40",
+          "Salary": 76496.114268198700000,
+          "VehicleId": null
+        },
+        {
+          "Id": "c8f3aee7-3406-496e-bdbb-ff54853c8b00",
+          "UserId": "f06e5bf4-5604-449f-8367-25da34b2ba77",
+          "Salary": 89057.060954653200000,
+          "VehicleId": null
+        },
+        {
+          "Id": "a75adeaa-516e-48ac-8751-277197ea0fef",
+          "UserId": "172fbb51-ad26-4f00-97d0-3e831330e468",
+          "Salary": 78676.019156666500000,
+          "VehicleId": null
+        },
+        {
+          "Id": "b9fb96bc-8d27-433e-b547-7eec3e79e984",
+          "UserId": "cfa6c079-e0e6-447b-8760-d809f038babf",
+          "Salary": 131997.991018927600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "55e7be5f-36db-48c2-b2c9-b12ee5fe6bdd",
+          "UserId": "c1d54d13-5292-4872-83f6-e71ca9fa5f22",
+          "Salary": 117444.323733190200000,
+          "VehicleId": null
+        },
+        {
+          "Id": "bb9eec20-15ba-4807-af2f-0b909fa6a828",
+          "UserId": "9d1cfd82-b46a-476f-b7d8-6efb1ed9d39c",
+          "Salary": 124132.839205736700000,
+          "VehicleId": null
+        },
+        {
+          "Id": "fb3cd708-cc5f-4d3a-93c6-cc787f9ce8e3",
+          "UserId": "f1a60313-0bca-4dd7-b822-357ee816f602",
+          "Salary": 140296.215419795500000,
+          "VehicleId": null
+        },
+        {
+          "Id": "51dca638-8c52-4a24-aa20-587a4f772b06",
+          "UserId": "55ee0256-1479-472c-a69a-e9437a8fd21c",
+          "Salary": 146909.890927798100000,
+          "VehicleId": null
+        },
+        {
+          "Id": "fc9ba638-527e-496e-90f9-7f12bc035634",
+          "UserId": "5afbba3f-1438-4e23-b3d4-e9c2216f735a",
+          "Salary": 58420.8261260859800000,
+          "VehicleId": null
+        },
+        {
+          "Id": "90479e52-9da1-41e9-bf5f-3c6c2402bc7e",
+          "UserId": "959ae4d2-f820-4277-86e8-6d67605edde6",
+          "Salary": 102193.288343117200000,
+          "VehicleId": null
+        },
+        {
+          "Id": "cdf0d9bd-1d82-499b-9828-92fcc069fa92",
+          "UserId": "14fbafb1-463c-42ff-8de5-5ab581e8ccd6",
+          "Salary": 107913.234950002900000,
+          "VehicleId": null
+        }
+      ]
+    },
+    {
+      "Id": "9e414fc7-e934-449f-bdb6-0f6da20d6a91",
+      "Name": "Антонов, Абрамова and Орехов",
+      "Address": "Островского ул., 371, Пенза, Австралия",
+      "Vehicles": [
+        {
+          "Id": "cce0c321-5b8a-4bf8-8306-98fabf2e3cf4",
+          "Name": "Большой Деревянный Шарф",
+          "Price": 1534948.429165560500000,
+          "MileageInKilometers": 20341,
+          "Color": "Оранжевый",
+          "RegistrationNumber": "P914VD448",
+          "BrandModelId": "e21a400e-3550-409d-af12-e10ea6b13f62",
+          "EnterpriseId": "",
+          "ActiveDriverId": "569d23d5-5adb-4bed-af7c-9019cb65ee77"
+        },
+        {
+          "Id": "556b123f-8660-4ff3-94e0-3ffa1faa9a90",
+          "Name": "Лоснящийся Стальной Стул",
+          "Price": 2695898.961390294500000,
+          "MileageInKilometers": 160059,
+          "Color": "Красный",
+          "RegistrationNumber": "O104MO380",
+          "BrandModelId": "5883970e-befb-43cf-97ed-3622a1147453",
+          "EnterpriseId": "",
+          "ActiveDriverId": "cc07d776-387f-40e7-b293-bb38c5a36a7d"
+        },
+        {
+          "Id": "c59d33e1-480c-413a-a448-f66bb4f72bcc",
+          "Name": "Большой Натуральный Ремень",
+          "Price": 1854418.716898754000000,
+          "MileageInKilometers": 142643,
+          "Color": "Черный",
+          "RegistrationNumber": "X938JK056",
+          "BrandModelId": "2026a497-1024-46ae-8f79-c173441258e3",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "e4113ea5-cff5-4d4d-a363-175b8b31d54e",
+          "Name": "Практичный Натуральный Свитер",
+          "Price": 1102851.074151212000000,
+          "MileageInKilometers": 170664,
+          "Color": "Желтый",
+          "RegistrationNumber": "V632YM231",
+          "BrandModelId": "2065899d-1231-4a66-a1b9-7054aa2849ed",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "e534a5c5-f8f9-40cf-b082-b3464fc16062",
+          "Name": "Грубый Деревянный Стул",
+          "Price": 2288318.556397037000000,
+          "MileageInKilometers": 160323,
+          "Color": "Зеленый",
+          "RegistrationNumber": "S486AN301",
+          "BrandModelId": "c9647356-13e7-435c-aa52-be879c125a1e",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "63ec5c05-62d9-4b23-b01b-7a33fd743872",
+          "Name": "Великолепный Натуральный Кулон",
+          "Price": 3765564.837104468000000,
+          "MileageInKilometers": 618,
+          "Color": "Серебристый",
+          "RegistrationNumber": "M751GD773",
+          "BrandModelId": "2065899d-1231-4a66-a1b9-7054aa2849ed",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "46516b77-072c-41e1-ac69-7e143395329b",
+          "Name": "Лоснящийся Гранитный Берет",
+          "Price": 2743487.688046194500000,
+          "MileageInKilometers": 149106,
+          "Color": "Серебристый",
+          "RegistrationNumber": "M488SL764",
+          "BrandModelId": "65005085-39e6-4a31-b20e-9370ce3f0cab",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "63a401b3-67cb-480f-8841-1787f41c1e97",
+          "Name": "Эргономичный Меховой Портмоне",
+          "Price": 1596447.087333885500000,
+          "MileageInKilometers": 49420,
+          "Color": "Красный",
+          "RegistrationNumber": "T517DN782",
+          "BrandModelId": "dc5ef5ad-3da3-46c4-88c4-9f7853ea72c6",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "d4a04b67-82a7-4275-9999-40ab110f5935",
+          "Name": "Грубый Кожанный Кепка",
+          "Price": 610983.5069841867500000,
+          "MileageInKilometers": 168289,
+          "Color": "Серебристый",
+          "RegistrationNumber": "H728QF855",
+          "BrandModelId": "d48acc5f-fe4d-4db5-9380-cb0523b39251",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "cce4320e-2686-49f2-9f02-7485a1dc3eb1",
+          "Name": "Эргономичный Хлопковый Портмоне",
+          "Price": 3308313.178777334000000,
+          "MileageInKilometers": 157808,
+          "Color": "Серебристый",
+          "RegistrationNumber": "T174AC436",
+          "BrandModelId": "a275ee54-5f97-482d-881b-2cc0cb36a473",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "9fa3ca5f-b60f-4609-8799-cb067861290b",
+          "Name": "Невероятный Неодимовый Куртка",
+          "Price": 656584.1790292931000000,
+          "MileageInKilometers": 179544,
+          "Color": "Оранжевый",
+          "RegistrationNumber": "F770GH321",
+          "BrandModelId": "bb962acd-f1fe-4370-9468-0f943065492e",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "f8152cd9-9181-479d-804d-b9a7193dc735",
+          "Name": "Свободный Деревянный Ботинок",
+          "Price": 2562746.135296091000000,
+          "MileageInKilometers": 171541,
+          "Color": "Оранжевый",
+          "RegistrationNumber": "F532BM962",
+          "BrandModelId": "0e91ac63-9423-433f-bf10-c355c94407b1",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "4d00b237-b61a-4330-a3f1-59efc84f7d22",
+          "Name": "Практичный Хлопковый Берет",
+          "Price": 3207923.482420350500000,
+          "MileageInKilometers": 170629,
+          "Color": "Коричневый",
+          "RegistrationNumber": "V799AN181",
+          "BrandModelId": "adadfcd2-d19d-4003-b2f6-b4b5bcc450a2",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "1908924a-9df0-4d9c-9337-c47bfe4320d0",
+          "Name": "Практичный Пластиковый Автомобиль",
+          "Price": 2910817.507050360500000,
+          "MileageInKilometers": 196555,
+          "Color": "Серый",
+          "RegistrationNumber": "Z326XX738",
+          "BrandModelId": "46adbca2-3d61-4d29-99d6-7fe411599df1",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "b8079d39-83c2-4594-9df8-22a5a06f230d",
+          "Name": "Большой Натуральный Кулон",
+          "Price": 1815665.010548013500000,
+          "MileageInKilometers": 167022,
+          "Color": "Коричневый",
+          "RegistrationNumber": "H046JI536",
+          "BrandModelId": "eee89aab-f8e3-4dda-ad70-60156fa08436",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "2dcda08a-ec97-4d20-8554-b0ecde64f953",
+          "Name": "Интеллектуальный Резиновый Майка",
+          "Price": 2230393.373976762500000,
+          "MileageInKilometers": 111190,
+          "Color": "Красный",
+          "RegistrationNumber": "W368GM091",
+          "BrandModelId": "0404f36d-e302-4473-a524-afc41a99e80f",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "7f8e174a-3c19-4966-b474-39c823a8e2bf",
+          "Name": "Маленький Хлопковый Свитер",
+          "Price": 2813389.053259032500000,
+          "MileageInKilometers": 23704,
+          "Color": "Зеленый",
+          "RegistrationNumber": "G865TX918",
+          "BrandModelId": "eda04dfe-856a-4081-bb92-bc1123c86eff",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "a5cd41cd-364f-469a-aa95-bc482062dab8",
+          "Name": "Фантастический Стальной Ботинок",
+          "Price": 3267870.686624628500000,
+          "MileageInKilometers": 184037,
+          "Color": "Желтый",
+          "RegistrationNumber": "K750OG241",
+          "BrandModelId": "b6afb4a3-1953-43d9-bfb2-d1ef13ab5a62",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "4b9edebf-f26d-40ca-86c9-afb45957dade",
+          "Name": "Грубый Пластиковый Портмоне",
+          "Price": 2682664.892353737500000,
+          "MileageInKilometers": 147197,
+          "Color": "Серебристый",
+          "RegistrationNumber": "J443JP903",
+          "BrandModelId": "f9caefe4-43e1-45a3-87a4-6245eec61ff2",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "52e8cf31-b5dc-4b71-b5a7-8080e9f0f0bc",
+          "Name": "Эргономичный Бетонный Майка",
+          "Price": 2770510.90507664000000,
+          "MileageInKilometers": 129095,
+          "Color": "Оранжевый",
+          "RegistrationNumber": "M956DL994",
+          "BrandModelId": "dc7656a3-7329-4213-9a97-98145011bfac",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        }
+      ],
+      "Drivers": [
+        {
+          "Id": "569d23d5-5adb-4bed-af7c-9019cb65ee77",
+          "UserId": "956f9e7e-1092-433d-a90f-6b71fd517af1",
+          "Salary": 92733.134861445600000,
+          "VehicleId": "cce0c321-5b8a-4bf8-8306-98fabf2e3cf4"
+        },
+        {
+          "Id": "cc07d776-387f-40e7-b293-bb38c5a36a7d",
+          "UserId": "d7917981-b601-414a-90a3-fb2b00647326",
+          "Salary": 84185.053982858100000,
+          "VehicleId": "556b123f-8660-4ff3-94e0-3ffa1faa9a90"
+        },
+        {
+          "Id": "f878484b-9668-417e-9f58-2ea1df89dbca",
+          "UserId": "776ea1b8-7de7-45e4-9130-826dc3ad52eb",
+          "Salary": 55210.4443801615600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "e1b2666f-5703-4d40-9de5-1687fc1ff5ea",
+          "UserId": "5671e6b2-46a4-49cc-8a3e-a9e9f4f0a9c4",
+          "Salary": 126849.540312238800000,
+          "VehicleId": null
+        },
+        {
+          "Id": "fe4c74ae-f0ab-49ac-bda5-d801b45269d1",
+          "UserId": "d56e64f6-3ed1-4e20-8e15-2d81d44d8457",
+          "Salary": 55683.5698455961300000,
+          "VehicleId": null
+        },
+        {
+          "Id": "f031cad9-bdb4-4389-9931-16b8caf1b86d",
+          "UserId": "c4480139-438b-4bdf-9acd-584222568b89",
+          "Salary": 59037.6623948280100000,
+          "VehicleId": null
+        },
+        {
+          "Id": "3ae527e3-369e-4868-b567-81d399917164",
+          "UserId": "8ce2fccd-5c07-494b-8878-b4b7905648c0",
+          "Salary": 122943.124674699800000,
+          "VehicleId": null
+        },
+        {
+          "Id": "43010d2f-0717-4313-884e-4e719b765df0",
+          "UserId": "1e18d387-2c7c-4e8d-860e-aa42d6b3d888",
+          "Salary": 100771.636446365900000,
+          "VehicleId": null
+        },
+        {
+          "Id": "b67ddfad-4c47-4631-ae98-8cc5f7f61753",
+          "UserId": "29510756-1be4-4c31-bc7f-aa8245fdd055",
+          "Salary": 109908.35607978900000,
+          "VehicleId": null
+        },
+        {
+          "Id": "5d01fa61-f39c-43c2-80d5-8ebf645d93d5",
+          "UserId": "30b90407-a8f4-4854-9bfb-1dd782d3fad3",
+          "Salary": 59465.6717541933400000,
+          "VehicleId": null
+        },
+        {
+          "Id": "ab6e7b89-dce1-42f1-8ba8-2f5cbc46c814",
+          "UserId": "d4f51c36-e8a1-4991-9968-ed086a131c42",
+          "Salary": 66256.09375362100000,
+          "VehicleId": null
+        },
+        {
+          "Id": "9d45a340-b7bd-48ba-830a-97056ca813ac",
+          "UserId": "d2603736-dcee-4878-9fb9-be833f7ad474",
+          "Salary": 52573.7231143627900000,
+          "VehicleId": null
+        },
+        {
+          "Id": "f128af93-2d1a-4f31-924a-cbc98a6d7050",
+          "UserId": "62accf52-657a-44fc-a2f3-a48f8dfe2601",
+          "Salary": 131902.273782483400000,
+          "VehicleId": null
+        },
+        {
+          "Id": "f61e9600-1005-4a5f-ab24-f243c588121a",
+          "UserId": "c50fe02e-0e3d-4c07-a560-33338ba0ccca",
+          "Salary": 140166.438599194600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "ad74286d-9556-49e8-a0af-2e5b975f2a31",
+          "UserId": "b71d0dad-c4f2-4469-91da-c10b9382115a",
+          "Salary": 79797.710585313700000,
+          "VehicleId": null
+        },
+        {
+          "Id": "5333c6e6-3210-49c4-936f-8d7fb5a743eb",
+          "UserId": "39ec1be2-b33c-44ae-9b53-8bbefffac8e5",
+          "Salary": 138156.35675012900000,
+          "VehicleId": null
+        }
+      ]
+    },
+    {
+      "Id": "5bcf6801-9e6c-4ab8-b708-a509f6512507",
+      "Name": "Белов, Щукин and Виноградов",
+      "Address": "8 Марта ул., 324, Казань, Бангладеш",
+      "Vehicles": [
+        {
+          "Id": "2fe057b9-58bf-4cba-ad96-6ba8343471ff",
+          "Name": "Эргономичный Пластиковый Носки",
+          "Price": 959002.895217717500000,
+          "MileageInKilometers": 20559,
+          "Color": "Зеленый",
+          "RegistrationNumber": "R702MW174",
+          "BrandModelId": "e21a400e-3550-409d-af12-e10ea6b13f62",
+          "EnterpriseId": "",
+          "ActiveDriverId": "7eaaa5dc-13c8-4fe3-a3ff-3ba07b7a3f6c"
+        },
+        {
+          "Id": "72769f6a-87b2-493a-a45f-83b00d3d2120",
+          "Name": "Фантастический Неодимовый Свитер",
+          "Price": 2187221.428734363500000,
+          "MileageInKilometers": 67421,
+          "Color": "Белый",
+          "RegistrationNumber": "N881UZ117",
+          "BrandModelId": "0e91ac63-9423-433f-bf10-c355c94407b1",
+          "EnterpriseId": "",
+          "ActiveDriverId": "0c2d8715-8974-4347-9a24-671b6c4ba698"
+        },
+        {
+          "Id": "c9c412e8-3f34-4dfc-ac6b-7133db645b57",
+          "Name": "Грубый Неодимовый Сабо",
+          "Price": 3904033.621663184000000,
+          "MileageInKilometers": 25304,
+          "Color": "Зеленый",
+          "RegistrationNumber": "W649ZL502",
+          "BrandModelId": "d48acc5f-fe4d-4db5-9380-cb0523b39251",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "e28a6ea6-7464-4005-b013-d3c13dfd41ea",
+          "Name": "Великолепный Резиновый Куртка",
+          "Price": 1921166.801622869000000,
+          "MileageInKilometers": 30464,
+          "Color": "Оранжевый",
+          "RegistrationNumber": "G515WX352",
+          "BrandModelId": "eda04dfe-856a-4081-bb92-bc1123c86eff",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "494c0fb1-6e9b-4471-9f39-7342e5dacee9",
+          "Name": "Великолепный Бетонный Компьютер",
+          "Price": 2309949.653373270500000,
+          "MileageInKilometers": 23121,
+          "Color": "Белый",
+          "RegistrationNumber": "E370EA859",
+          "BrandModelId": "7377ae24-fbb5-4670-889a-587256ce0723",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "f5fd3a70-e593-42c3-bdda-3fe62da69160",
+          "Name": "Потрясающий Деревянный Кепка",
+          "Price": 4441766.781310758500000,
+          "MileageInKilometers": 23869,
+          "Color": "Оранжевый",
+          "RegistrationNumber": "X015OE549",
+          "BrandModelId": "adadfcd2-d19d-4003-b2f6-b4b5bcc450a2",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "01c0573e-5531-4c5b-98df-3eb6c2a124ca",
+          "Name": "Интеллектуальный Натуральный Куртка",
+          "Price": 1410072.978619395500000,
+          "MileageInKilometers": 125527,
+          "Color": "Черный",
+          "RegistrationNumber": "X199OM237",
+          "BrandModelId": "5883970e-befb-43cf-97ed-3622a1147453",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "552f40ba-78ff-48e6-9092-17054eb27dfe",
+          "Name": "Фантастический Деревянный Компьютер",
+          "Price": 3636923.992820550500000,
+          "MileageInKilometers": 108822,
+          "Color": "Серебристый",
+          "RegistrationNumber": "O589WJ422",
+          "BrandModelId": "65005085-39e6-4a31-b20e-9370ce3f0cab",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "a0acb358-0b5f-4ebf-b756-9679dc2a5405",
+          "Name": "Маленький Стальной Плащ",
+          "Price": 4695331.379912168000000,
+          "MileageInKilometers": 179670,
+          "Color": "Желтый",
+          "RegistrationNumber": "H976ZV313",
+          "BrandModelId": "b5640370-5d59-4870-bb83-8b81cf5cf06c",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "a9c6856f-4540-485e-b2b7-56ccd22a223a",
+          "Name": "Большой Гранитный Майка",
+          "Price": 564121.3795767752000000,
+          "MileageInKilometers": 162635,
+          "Color": "Зеленый",
+          "RegistrationNumber": "O116YG958",
+          "BrandModelId": "0b6a6967-3a50-452f-a3ca-0ceb24f9b1b7",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "ada5ac25-c66b-411f-9db0-e6a2bbe65465",
+          "Name": "Грубый Кожанный Сабо",
+          "Price": 3913132.922812274000000,
+          "MileageInKilometers": 197426,
+          "Color": "Зеленый",
+          "RegistrationNumber": "O344HY360",
+          "BrandModelId": "759277b9-ee37-4799-9120-b90d8ba6e088",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "d536d649-d495-4e3c-a8a8-36d1eb4f86c2",
+          "Name": "Невероятный Хлопковый Клатч",
+          "Price": 2911403.166845868500000,
+          "MileageInKilometers": 55625,
+          "Color": "Серебристый",
+          "RegistrationNumber": "I253KC643",
+          "BrandModelId": "1f6258d4-72e5-43b7-9434-4d3cc4706ab1",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "ebd72c48-d174-4489-96f0-5ee934f6d3ac",
+          "Name": "Потрясающий Деревянный Куртка",
+          "Price": 1034646.929839913000000,
+          "MileageInKilometers": 157865,
+          "Color": "Зеленый",
+          "RegistrationNumber": "U803QL603",
+          "BrandModelId": "e21a400e-3550-409d-af12-e10ea6b13f62",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "a01930c2-5cdd-438a-bfd2-8e9a23b6e438",
+          "Name": "Интеллектуальный Стальной Ножницы",
+          "Price": 893579.2939143248000000,
+          "MileageInKilometers": 198072,
+          "Color": "Красный",
+          "RegistrationNumber": "D385IG352",
+          "BrandModelId": "b5640370-5d59-4870-bb83-8b81cf5cf06c",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "ff4e832f-1a88-4cd7-8d03-c8f5daa5a25a",
+          "Name": "Потрясающий Деревянный Ножницы",
+          "Price": 3316840.229284200500000,
+          "MileageInKilometers": 59271,
+          "Color": "Зеленый",
+          "RegistrationNumber": "B736FH994",
+          "BrandModelId": "eda04dfe-856a-4081-bb92-bc1123c86eff",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "24cd5101-a54a-49b8-a3ee-a26e691c95a8",
+          "Name": "Свободный Хлопковый Ремень",
+          "Price": 1732883.595523371500000,
+          "MileageInKilometers": 659,
+          "Color": "Черный",
+          "RegistrationNumber": "F455LB969",
+          "BrandModelId": "759277b9-ee37-4799-9120-b90d8ba6e088",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "5c53f6b3-3146-47ef-835d-4d599cd57e1b",
+          "Name": "Эргономичный Меховой Портмоне",
+          "Price": 4784882.945773158500000,
+          "MileageInKilometers": 179286,
+          "Color": "Черный",
+          "RegistrationNumber": "Q235SR761",
+          "BrandModelId": "234163cb-b75b-43c0-9f52-aae5418c0133",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "d9ff7c96-9eef-4962-bcbb-8fd3da3e6792",
+          "Name": "Свободный Стальной Кошелек",
+          "Price": 1327165.607107148000000,
+          "MileageInKilometers": 9721,
+          "Color": "Синий",
+          "RegistrationNumber": "G132VJ400",
+          "BrandModelId": "2026a497-1024-46ae-8f79-c173441258e3",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "be0e6212-fff4-42c3-942f-f00fcdb94eae",
+          "Name": "Большой Пластиковый Свитер",
+          "Price": 4395602.189601473000000,
+          "MileageInKilometers": 147010,
+          "Color": "Серый",
+          "RegistrationNumber": "Z589SA265",
+          "BrandModelId": "adadfcd2-d19d-4003-b2f6-b4b5bcc450a2",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "fd551e18-ae49-4592-b872-8b35f9ba7fca",
+          "Name": "Свободный Неодимовый Ножницы",
+          "Price": 1399182.031863023000000,
+          "MileageInKilometers": 70484,
+          "Color": "Коричневый",
+          "RegistrationNumber": "O271VQ552",
+          "BrandModelId": "b6afb4a3-1953-43d9-bfb2-d1ef13ab5a62",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        }
+      ],
+      "Drivers": [
+        {
+          "Id": "7eaaa5dc-13c8-4fe3-a3ff-3ba07b7a3f6c",
+          "UserId": "61317e7e-8105-4876-a127-9fa966a6021b",
+          "Salary": 89454.586775719500000,
+          "VehicleId": "2fe057b9-58bf-4cba-ad96-6ba8343471ff"
+        },
+        {
+          "Id": "0c2d8715-8974-4347-9a24-671b6c4ba698",
+          "UserId": "52cff1b4-e5b6-4a5a-a96b-5debd5c6266f",
+          "Salary": 104601.959537063700000,
+          "VehicleId": "72769f6a-87b2-493a-a45f-83b00d3d2120"
+        },
+        {
+          "Id": "ef37fe67-b11c-451a-80f9-865e16f6f8a3",
+          "UserId": "e286cd8e-79d9-4280-8e97-247743985ac0",
+          "Salary": 123658.421018001800000,
+          "VehicleId": null
+        },
+        {
+          "Id": "c96d7e15-ecfe-4682-bd42-9483f54329a7",
+          "UserId": "978b9a48-3a02-419e-be11-011188902e6c",
+          "Salary": 71673.501851816400000,
+          "VehicleId": null
+        },
+        {
+          "Id": "118181be-f3cf-472b-9f7f-1af3e7bd4931",
+          "UserId": "19e4fa03-8217-4026-9666-453fec3e5e4f",
+          "Salary": 87627.848069010200000,
+          "VehicleId": null
+        },
+        {
+          "Id": "28fcf277-06be-434e-a2cd-94f2cfe0f504",
+          "UserId": "6d783856-f265-420e-90fa-ef5debf3bd73",
+          "Salary": 113372.579479297900000,
+          "VehicleId": null
+        },
+        {
+          "Id": "67f281a6-4ea8-4431-80a0-d8765dc97a52",
+          "UserId": "b8621089-d969-47ce-ac19-ad8657597e4c",
+          "Salary": 100394.811784101100000,
+          "VehicleId": null
+        },
+        {
+          "Id": "58ca2fab-03da-40fc-abd6-378cadd45d65",
+          "UserId": "e18b7a44-0a35-40a6-b6d5-aa8ed20e6599",
+          "Salary": 62993.329955727500000,
+          "VehicleId": null
+        },
+        {
+          "Id": "b0aa3fa3-bc3f-427b-b884-befd9e60faa4",
+          "UserId": "9862b885-70eb-4856-8b8a-ba1adbce5561",
+          "Salary": 103299.904127279200000,
+          "VehicleId": null
+        },
+        {
+          "Id": "c0989115-cc1f-4f56-b22e-883ccf5c4aeb",
+          "UserId": "1eb88084-8fcb-4dd0-b144-e685015e1bf3",
+          "Salary": 54650.3761339235900000,
+          "VehicleId": null
+        },
+        {
+          "Id": "e88b50d4-2754-48f6-acc7-956f592a8453",
+          "UserId": "36982db2-0493-442c-b0c8-a8ccd78d7538",
+          "Salary": 113850.781304692300000,
+          "VehicleId": null
+        },
+        {
+          "Id": "77c1c7ab-0fac-40e9-8bf4-09f151650ee5",
+          "UserId": "f038db00-c413-4831-ba50-0936ea0ff502",
+          "Salary": 106691.65135207200000,
+          "VehicleId": null
+        },
+        {
+          "Id": "bf198f9e-43c8-4e6a-9ad2-717f305779ae",
+          "UserId": "106d1992-9a97-4510-b914-7d8d62730ef8",
+          "Salary": 109104.59950524600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "ebdb537b-bdc3-4019-9824-d91a715efcd4",
+          "UserId": "0c15a0b1-3490-4d5f-8826-f60702901ca7",
+          "Salary": 131481.314721275700000,
+          "VehicleId": null
+        },
+        {
+          "Id": "cb9493c1-4558-475b-9b3d-7e20e5fe6c52",
+          "UserId": "cc16369a-35be-4215-944c-f729a350a57b",
+          "Salary": 110257.81382818600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "76242e40-5d5c-4637-a2aa-46e6ad247c92",
+          "UserId": "54c41e0d-39fa-4114-b44a-b504bdc6a048",
+          "Salary": 51499.5800338217900000,
+          "VehicleId": null
+        }
+      ]
+    },
+    {
+      "Id": "908b0e1a-8af1-4279-9be8-e90750c1b924",
+      "Name": "Воронов - Артемьева",
+      "Address": "улица Красная, 605, Казань, Норвегия",
+      "Vehicles": [
+        {
+          "Id": "b8ab39d8-f424-4280-a516-dfd96cec9c0a",
+          "Name": "Потрясающий Резиновый Ботинок",
+          "Price": 1909260.328175019500000,
+          "MileageInKilometers": 70417,
+          "Color": "Желтый",
+          "RegistrationNumber": "H495GX716",
+          "BrandModelId": "234163cb-b75b-43c0-9f52-aae5418c0133",
+          "EnterpriseId": "",
+          "ActiveDriverId": "8c3bcc2e-0e73-4a8c-87e2-eec097cdaca8"
+        },
+        {
+          "Id": "91798a7f-a539-41d4-a4a0-f21a5a37fe75",
+          "Name": "Великолепный Резиновый Ботинок",
+          "Price": 3193062.296170154000000,
+          "MileageInKilometers": 137136,
+          "Color": "Белый",
+          "RegistrationNumber": "Q707CZ629",
+          "BrandModelId": "9af2116a-7f18-4509-ba5c-90737f6d7c38",
+          "EnterpriseId": "",
+          "ActiveDriverId": "b0234fa5-bf6c-4a73-bafd-c1112689bf04"
+        },
+        {
+          "Id": "6013b44e-d560-4d2f-be95-298b7f6fc93a",
+          "Name": "Потрясающий Деревянный Компьютер",
+          "Price": 4175096.004455117000000,
+          "MileageInKilometers": 173318,
+          "Color": "Синий",
+          "RegistrationNumber": "J802WO572",
+          "BrandModelId": "4d54133a-5c9c-4759-8e32-11c3d081711f",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "87133595-b5ba-424e-a940-444a287a6d2c",
+          "Name": "Интеллектуальный Деревянный Куртка",
+          "Price": 872951.9636063003000000,
+          "MileageInKilometers": 106682,
+          "Color": "Коричневый",
+          "RegistrationNumber": "C478WA761",
+          "BrandModelId": "12f05ce9-c617-4d6d-b140-b7addb8ada80",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "e7a503f4-548b-46fe-a46f-3da6edbcfeb8",
+          "Name": "Большой Гранитный Портмоне",
+          "Price": 1563633.909924102500000,
+          "MileageInKilometers": 52898,
+          "Color": "Оранжевый",
+          "RegistrationNumber": "H144YF399",
+          "BrandModelId": "efa3b0d2-9f40-4913-b432-31a25c38b8da",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "171f1429-53e3-4af6-a1fa-ddcb87d0186e",
+          "Name": "Фантастический Пластиковый Свитер",
+          "Price": 1736203.640162567000000,
+          "MileageInKilometers": 91834,
+          "Color": "Черный",
+          "RegistrationNumber": "U903MV094",
+          "BrandModelId": "e21a400e-3550-409d-af12-e10ea6b13f62",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "17141dae-f92e-49cd-9868-f0e0cf66559e",
+          "Name": "Эргономичный Стальной Сабо",
+          "Price": 4631317.906598226500000,
+          "MileageInKilometers": 149648,
+          "Color": "Синий",
+          "RegistrationNumber": "N393EX684",
+          "BrandModelId": "8e4057a2-fdad-4df6-bd7d-08aeff43c4b8",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "d46d5384-684f-426d-9803-e317f593d037",
+          "Name": "Маленький Натуральный Компьютер",
+          "Price": 2963362.008043053500000,
+          "MileageInKilometers": 144375,
+          "Color": "Зеленый",
+          "RegistrationNumber": "T539AL225",
+          "BrandModelId": "0404f36d-e302-4473-a524-afc41a99e80f",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "67d561d2-3f73-4277-8ece-7bfb99ce3bba",
+          "Name": "Грубый Бетонный Кошелек",
+          "Price": 1740806.836620341000000,
+          "MileageInKilometers": 22937,
+          "Color": "Желтый",
+          "RegistrationNumber": "Y263XY350",
+          "BrandModelId": "6f6c5236-18a8-4252-b122-1cf4b5c5f97e",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "8985898e-93c2-46ef-83ef-57cf1e7134ec",
+          "Name": "Эргономичный Бетонный Портмоне",
+          "Price": 1367837.980867971500000,
+          "MileageInKilometers": 86591,
+          "Color": "Черный",
+          "RegistrationNumber": "O621TF577",
+          "BrandModelId": "6f6c5236-18a8-4252-b122-1cf4b5c5f97e",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "35ed58b1-3660-41c0-8c16-0b46e4dce09c",
+          "Name": "Интеллектуальный Стальной Кепка",
+          "Price": 613468.7211220079000000,
+          "MileageInKilometers": 144468,
+          "Color": "Белый",
+          "RegistrationNumber": "Y983TM574",
+          "BrandModelId": "efa3b0d2-9f40-4913-b432-31a25c38b8da",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "f2a892e5-82a3-4491-98f8-e56d7ea481fa",
+          "Name": "Потрясающий Стальной Ботинок",
+          "Price": 1109103.885135806000000,
+          "MileageInKilometers": 85586,
+          "Color": "Красный",
+          "RegistrationNumber": "D747DC526",
+          "BrandModelId": "234163cb-b75b-43c0-9f52-aae5418c0133",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "e7853a5a-833a-4eee-9216-92c94cb8ac61",
+          "Name": "Невероятный Хлопковый Сабо",
+          "Price": 2837591.366518436000000,
+          "MileageInKilometers": 193448,
+          "Color": "Желтый",
+          "RegistrationNumber": "P049UE823",
+          "BrandModelId": "9af2116a-7f18-4509-ba5c-90737f6d7c38",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "911a4260-c281-42dc-9ece-7d2fd915d270",
+          "Name": "Лоснящийся Гранитный Клатч",
+          "Price": 2495665.63791563000000,
+          "MileageInKilometers": 188460,
+          "Color": "Белый",
+          "RegistrationNumber": "S395WT944",
+          "BrandModelId": "0404f36d-e302-4473-a524-afc41a99e80f",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "e65d2134-d5c0-4169-9879-de2f0b597e96",
+          "Name": "Интеллектуальный Неодимовый Берет",
+          "Price": 4427376.943752549500000,
+          "MileageInKilometers": 133857,
+          "Color": "Черный",
+          "RegistrationNumber": "R624RC807",
+          "BrandModelId": "62c6c3f7-c2b8-4fae-81e5-97097a4f4d58",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "9c93b8df-7bf0-46ab-8f0e-4fda1529a376",
+          "Name": "Практичный Кожанный Носки",
+          "Price": 1245061.40372811500000,
+          "MileageInKilometers": 167151,
+          "Color": "Желтый",
+          "RegistrationNumber": "P452ZQ841",
+          "BrandModelId": "a657bf86-1905-4aa6-bceb-bb91785395ef",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "e41aefda-eada-42e5-b64c-5c3e12d8b4e7",
+          "Name": "Фантастический Меховой Кулон",
+          "Price": 3118843.493471799500000,
+          "MileageInKilometers": 154142,
+          "Color": "Серый",
+          "RegistrationNumber": "K267WV957",
+          "BrandModelId": "62c6c3f7-c2b8-4fae-81e5-97097a4f4d58",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "5626354e-a8c8-43de-a9bf-2905cd258e7a",
+          "Name": "Невероятный Меховой Клатч",
+          "Price": 1417514.814906759500000,
+          "MileageInKilometers": 196680,
+          "Color": "Зеленый",
+          "RegistrationNumber": "P729BT252",
+          "BrandModelId": "0404f36d-e302-4473-a524-afc41a99e80f",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "2049a8f1-4ac0-4ba2-b323-1d2688727c89",
+          "Name": "Грубый Хлопковый Ботинок",
+          "Price": 3104423.218388309000000,
+          "MileageInKilometers": 102329,
+          "Color": "Белый",
+          "RegistrationNumber": "P988TQ433",
+          "BrandModelId": "9af2116a-7f18-4509-ba5c-90737f6d7c38",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "c7f91ada-2700-4c56-9266-ca222f03cb01",
+          "Name": "Великолепный Неодимовый Кулон",
+          "Price": 4151989.851071787500000,
+          "MileageInKilometers": 113407,
+          "Color": "Синий",
+          "RegistrationNumber": "D224ZS026",
+          "BrandModelId": "a657bf86-1905-4aa6-bceb-bb91785395ef",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        }
+      ],
+      "Drivers": [
+        {
+          "Id": "8c3bcc2e-0e73-4a8c-87e2-eec097cdaca8",
+          "UserId": "9d1e8e18-ce97-46ad-abd6-9f0ca285e424",
+          "Salary": 104947.060558454600000,
+          "VehicleId": "b8ab39d8-f424-4280-a516-dfd96cec9c0a"
+        },
+        {
+          "Id": "b0234fa5-bf6c-4a73-bafd-c1112689bf04",
+          "UserId": "c734d7a2-7dae-47a5-b362-605dbc3fa2b1",
+          "Salary": 140304.382234022200000,
+          "VehicleId": "91798a7f-a539-41d4-a4a0-f21a5a37fe75"
+        },
+        {
+          "Id": "584c9ff2-80d7-4c6a-af38-82a7379b4432",
+          "UserId": "42e16435-7830-4a85-95b3-3f1c87f59194",
+          "Salary": 111325.700609630800000,
+          "VehicleId": null
+        },
+        {
+          "Id": "c8fbdc97-76b7-4c85-9afd-d9adedc4f129",
+          "UserId": "107ca1fb-18c6-425b-a120-c46412eb60f7",
+          "Salary": 132174.958000972400000,
+          "VehicleId": null
+        },
+        {
+          "Id": "70932a7e-4e6e-4e1d-af96-3ac4eb06ab92",
+          "UserId": "bb42eaeb-42ea-4137-bd93-2f3e21df090c",
+          "Salary": 102299.978980934200000,
+          "VehicleId": null
+        },
+        {
+          "Id": "d0834ef9-ae5a-4345-9cfd-bfdddf128f57",
+          "UserId": "308c2a41-979f-4256-9301-62c26a3ab591",
+          "Salary": 148194.653353744500000,
+          "VehicleId": null
+        },
+        {
+          "Id": "9f0dc00d-18a1-482d-baa0-640dc1e19c9c",
+          "UserId": "14aeb92b-a792-4174-a3a7-6e83fd52f316",
+          "Salary": 79775.75251356500000,
+          "VehicleId": null
+        },
+        {
+          "Id": "0d2bf5f1-1c1e-4461-b6b0-02a2185b8b8f",
+          "UserId": "5610d1ea-4a16-449a-a301-b2c726daea7f",
+          "Salary": 65530.59826396900000,
+          "VehicleId": null
+        },
+        {
+          "Id": "ae4bf299-c7ff-4522-86da-0304099aca76",
+          "UserId": "eeffaaa3-d0f4-47e7-82ce-5878070527be",
+          "Salary": 74858.249316391600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "6073f75c-2e3e-49af-885a-b80c85757642",
+          "UserId": "359de73e-a5bb-4af0-8849-1d030ed42f2e",
+          "Salary": 129172.383425371900000,
+          "VehicleId": null
+        },
+        {
+          "Id": "760a026b-0f34-43a5-ab2e-1fa59034bfd6",
+          "UserId": "bd3848d0-b384-46d5-b2e3-f14ecda5a175",
+          "Salary": 149749.010847764600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "fe9e31f5-18d2-4d46-bdb7-7ad7045895aa",
+          "UserId": "b8a1ade9-ad86-410e-9d94-aea944ec1e13",
+          "Salary": 141873.319256991800000,
+          "VehicleId": null
+        },
+        {
+          "Id": "da8b0895-fe8a-48ff-8da0-18e3fa9e8f90",
+          "UserId": "b02753ad-583b-4ac2-aebf-6aefccb568fc",
+          "Salary": 148640.429321043400000,
+          "VehicleId": null
+        },
+        {
+          "Id": "f1d497bc-9fe7-43ad-a1cf-8c585297fb8a",
+          "UserId": "a1d5e9b2-68e6-4753-8195-0fea92adaed3",
+          "Salary": 58704.3842806966900000,
+          "VehicleId": null
+        },
+        {
+          "Id": "b655d083-fcbd-4e8e-8ad7-efd5b42c4e37",
+          "UserId": "187419f5-d8c7-4e08-9d47-df979a402cb1",
+          "Salary": 140635.608365123900000,
+          "VehicleId": null
+        },
+        {
+          "Id": "8b537477-e6ce-43b5-bbbf-72123e9d34f3",
+          "UserId": "1458e0ab-b518-4d8c-865f-03b735f28196",
+          "Salary": 147901.002968615400000,
+          "VehicleId": null
+        }
+      ]
+    },
+    {
+      "Id": "50cae016-c950-4cc8-8949-699c8fab5782",
+      "Name": "Богданов, Корнилова and Муравьев",
+      "Address": "Механизаторов пл., 143, Магнитогорск, Гренада",
+      "Vehicles": [
+        {
+          "Id": "d7afaddf-3eed-45c0-9e22-d45f7b5658b9",
+          "Name": "Маленький Деревянный Компьютер",
+          "Price": 1567884.324648267500000,
+          "MileageInKilometers": 53647,
+          "Color": "Коричневый",
+          "RegistrationNumber": "L635ZN780",
+          "BrandModelId": "d3671a25-caa2-4f28-8aa7-6638ed08ef9b",
+          "EnterpriseId": "",
+          "ActiveDriverId": "82072592-6731-4c4f-8b9c-4f9b930f20c0"
+        },
+        {
+          "Id": "0cc01420-7926-44bb-8044-4359397e87ef",
+          "Name": "Практичный Бетонный Шарф",
+          "Price": 3645900.078826982000000,
+          "MileageInKilometers": 11050,
+          "Color": "Серый",
+          "RegistrationNumber": "L204HY388",
+          "BrandModelId": "dc5ef5ad-3da3-46c4-88c4-9f7853ea72c6",
+          "EnterpriseId": "",
+          "ActiveDriverId": "348a13ab-715a-4cfc-b780-fecc74e6f0a4"
+        },
+        {
+          "Id": "f21b12f2-a0b5-4ba9-b17d-01fffcf57377",
+          "Name": "Потрясающий Стальной Майка",
+          "Price": 1096561.180599759500000,
+          "MileageInKilometers": 119620,
+          "Color": "Красный",
+          "RegistrationNumber": "I919BW643",
+          "BrandModelId": "a275ee54-5f97-482d-881b-2cc0cb36a473",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "14fadab6-8384-4e63-a69e-3d458285d63f",
+          "Name": "Свободный Деревянный Носки",
+          "Price": 4763002.817915564000000,
+          "MileageInKilometers": 21325,
+          "Color": "Черный",
+          "RegistrationNumber": "D579LS013",
+          "BrandModelId": "b0d4b557-4476-4d67-9823-aaac96e29cdd",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "e2b051f7-8f06-41c0-960e-710d72d31c34",
+          "Name": "Большой Бетонный Ножницы",
+          "Price": 2211811.746185106500000,
+          "MileageInKilometers": 152076,
+          "Color": "Серебристый",
+          "RegistrationNumber": "W863FH846",
+          "BrandModelId": "efa3b0d2-9f40-4913-b432-31a25c38b8da",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "2d214387-ebe1-4a7c-9f6e-716ca64e6264",
+          "Name": "Потрясающий Неодимовый Стул",
+          "Price": 2285172.213971130500000,
+          "MileageInKilometers": 76876,
+          "Color": "Коричневый",
+          "RegistrationNumber": "V610AD184",
+          "BrandModelId": "0e91ac63-9423-433f-bf10-c355c94407b1",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "09ffa633-ed6a-4b31-a6c7-b5b001dd7ae4",
+          "Name": "Свободный Пластиковый Клатч",
+          "Price": 2503359.634167090500000,
+          "MileageInKilometers": 47324,
+          "Color": "Серый",
+          "RegistrationNumber": "P550FW452",
+          "BrandModelId": "b6afb4a3-1953-43d9-bfb2-d1ef13ab5a62",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "b237e6a2-4d8b-4160-a851-46ebe433932c",
+          "Name": "Грубый Бетонный Автомобиль",
+          "Price": 4944269.760247238000000,
+          "MileageInKilometers": 142845,
+          "Color": "Оранжевый",
+          "RegistrationNumber": "C800BI307",
+          "BrandModelId": "e21a400e-3550-409d-af12-e10ea6b13f62",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "4bac655f-9a1c-4ac8-96b7-1d3660de03da",
+          "Name": "Интеллектуальный Неодимовый Плащ",
+          "Price": 908560.9910421977000000,
+          "MileageInKilometers": 180208,
+          "Color": "Зеленый",
+          "RegistrationNumber": "C565UT563",
+          "BrandModelId": "d48acc5f-fe4d-4db5-9380-cb0523b39251",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "46c549ba-f66d-42f8-befd-bed16fcc9109",
+          "Name": "Эргономичный Бетонный Ножницы",
+          "Price": 1317600.594927225500000,
+          "MileageInKilometers": 65500,
+          "Color": "Серый",
+          "RegistrationNumber": "K300RO514",
+          "BrandModelId": "6f6c5236-18a8-4252-b122-1cf4b5c5f97e",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "500a1ec1-9f03-4f7a-8e16-2d2df22a89bf",
+          "Name": "Фантастический Хлопковый Клатч",
+          "Price": 3695282.323366320500000,
+          "MileageInKilometers": 10835,
+          "Color": "Синий",
+          "RegistrationNumber": "H980TL545",
+          "BrandModelId": "12f05ce9-c617-4d6d-b140-b7addb8ada80",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "d231deb3-b4a8-4fe5-8939-b2f78a722182",
+          "Name": "Грубый Бетонный Автомобиль",
+          "Price": 4715285.599670198000000,
+          "MileageInKilometers": 70836,
+          "Color": "Желтый",
+          "RegistrationNumber": "A192WO777",
+          "BrandModelId": "dc7656a3-7329-4213-9a97-98145011bfac",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "2b8c101e-be0f-46cf-a401-3cc0c1400181",
+          "Name": "Маленький Меховой Ремень",
+          "Price": 3412519.767873216500000,
+          "MileageInKilometers": 85464,
+          "Color": "Серебристый",
+          "RegistrationNumber": "A531YO742",
+          "BrandModelId": "eee89aab-f8e3-4dda-ad70-60156fa08436",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "38e8a601-8841-4e93-b681-9e72e37dbc9d",
+          "Name": "Свободный Хлопковый Компьютер",
+          "Price": 915692.7074370197000000,
+          "MileageInKilometers": 131775,
+          "Color": "Желтый",
+          "RegistrationNumber": "A552JQ186",
+          "BrandModelId": "0404f36d-e302-4473-a524-afc41a99e80f",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "1b3f7fde-4d7d-4dd4-af55-25a095855456",
+          "Name": "Потрясающий Хлопковый Кошелек",
+          "Price": 661853.3822659170500000,
+          "MileageInKilometers": 120283,
+          "Color": "Черный",
+          "RegistrationNumber": "D595IY798",
+          "BrandModelId": "5883970e-befb-43cf-97ed-3622a1147453",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "d0ab6dca-5e48-41b3-81d2-621a5f6dc144",
+          "Name": "Невероятный Хлопковый Стол",
+          "Price": 4182652.038730883000000,
+          "MileageInKilometers": 132378,
+          "Color": "Красный",
+          "RegistrationNumber": "W102WT053",
+          "BrandModelId": "d3671a25-caa2-4f28-8aa7-6638ed08ef9b",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "4e57d845-a0ec-4e9a-829b-0002ddc4b59f",
+          "Name": "Грубый Гранитный Куртка",
+          "Price": 2906615.024570727500000,
+          "MileageInKilometers": 156000,
+          "Color": "Коричневый",
+          "RegistrationNumber": "J629FU406",
+          "BrandModelId": "eda04dfe-856a-4081-bb92-bc1123c86eff",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "327e7952-d0f5-4c20-8d5a-c3d6fc69a26a",
+          "Name": "Свободный Пластиковый Кулон",
+          "Price": 964611.067603068500000,
+          "MileageInKilometers": 98093,
+          "Color": "Синий",
+          "RegistrationNumber": "U797AU256",
+          "BrandModelId": "65005085-39e6-4a31-b20e-9370ce3f0cab",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "b5cf7d80-26d2-4614-8f65-e222547609ba",
+          "Name": "Потрясающий Бетонный Кулон",
+          "Price": 2029975.503524784500000,
+          "MileageInKilometers": 71029,
+          "Color": "Серый",
+          "RegistrationNumber": "J373VJ905",
+          "BrandModelId": "d48acc5f-fe4d-4db5-9380-cb0523b39251",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "e49b9f78-9506-4cb5-8479-3b2108e0a820",
+          "Name": "Практичный Деревянный Портмоне",
+          "Price": 3437687.936583338000000,
+          "MileageInKilometers": 156012,
+          "Color": "Зеленый",
+          "RegistrationNumber": "R065QZ132",
+          "BrandModelId": "b6afb4a3-1953-43d9-bfb2-d1ef13ab5a62",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        }
+      ],
+      "Drivers": [
+        {
+          "Id": "82072592-6731-4c4f-8b9c-4f9b930f20c0",
+          "UserId": "6230caf4-3817-43b9-9d5d-85c34240305b",
+          "Salary": 90938.34792307500000,
+          "VehicleId": "d7afaddf-3eed-45c0-9e22-d45f7b5658b9"
+        },
+        {
+          "Id": "348a13ab-715a-4cfc-b780-fecc74e6f0a4",
+          "UserId": "e399c8ca-c4c9-4425-b827-edf1deb23093",
+          "Salary": 79426.256953471500000,
+          "VehicleId": "0cc01420-7926-44bb-8044-4359397e87ef"
+        },
+        {
+          "Id": "68fc994b-ac52-49d3-a74e-d3eece6387ae",
+          "UserId": "174d6934-b75c-46e3-90d6-1accbbf5ce3b",
+          "Salary": 137030.295416261200000,
+          "VehicleId": null
+        },
+        {
+          "Id": "4e51a1ab-2b7c-4ba4-b849-557687db0cc9",
+          "UserId": "aa811c5f-94c0-44a0-a3cc-4826c798b397",
+          "Salary": 57068.7386240198900000,
+          "VehicleId": null
+        },
+        {
+          "Id": "f20dfd35-2f44-4fa1-a663-85ebd6bdf673",
+          "UserId": "013d58fd-a7dc-48cf-90ea-41dcb5ed6422",
+          "Salary": 127925.387387129200000,
+          "VehicleId": null
+        },
+        {
+          "Id": "2bcdfa13-df02-4c0c-b9e1-37f8c6f4ba84",
+          "UserId": "b888a673-76d8-4c87-85f6-cb51715ae220",
+          "Salary": 118948.769834334400000,
+          "VehicleId": null
+        },
+        {
+          "Id": "cdff3d37-6b78-4aaa-b659-3093eb262e8c",
+          "UserId": "b3a5512b-e9ae-4da8-aa15-4e33883fd934",
+          "Salary": 115283.538524659100000,
+          "VehicleId": null
+        },
+        {
+          "Id": "174e50d4-9f91-4d8e-a399-c4b54f64cd81",
+          "UserId": "8e215dc4-8843-4c13-87e6-d7d8754d337f",
+          "Salary": 140770.413023778400000,
+          "VehicleId": null
+        },
+        {
+          "Id": "da354e46-dd06-4500-84aa-ac86be3e9ddb",
+          "UserId": "4a011778-3953-4cfc-b77b-6b842cef43d7",
+          "Salary": 77696.71852127500000,
+          "VehicleId": null
+        },
+        {
+          "Id": "28eb9b72-366f-42c2-a597-f75d524a5007",
+          "UserId": "2924988b-0521-4d70-a525-3bbb4e0370e6",
+          "Salary": 78605.819879381800000,
+          "VehicleId": null
+        },
+        {
+          "Id": "47bb68b3-baac-4925-877e-493c57159e90",
+          "UserId": "ed81d177-1c29-42d6-9807-ff49ab516c45",
+          "Salary": 64578.642656364800000,
+          "VehicleId": null
+        },
+        {
+          "Id": "13d3c47d-64db-42f4-9f90-8a0afe2d2580",
+          "UserId": "7b9a366c-35e9-44e3-ab1f-b3d7b52190e7",
+          "Salary": 133427.665933700100000,
+          "VehicleId": null
+        },
+        {
+          "Id": "07904180-924f-41ec-aca4-5185c924b807",
+          "UserId": "752a5933-8030-42de-ae67-3254facb4da2",
+          "Salary": 127998.334531671500000,
+          "VehicleId": null
+        },
+        {
+          "Id": "93ec14a4-5c5c-4c29-954b-929b02ad29ec",
+          "UserId": "f15c1050-6d89-486d-9df3-75792dbc46e5",
+          "Salary": 83936.970883019700000,
+          "VehicleId": null
+        },
+        {
+          "Id": "5a8c7872-7d2a-4cfe-9545-d31bdfc9c249",
+          "UserId": "0cce4032-4120-415c-a7d8-0b3a10e4a8d0",
+          "Salary": 125726.134132466400000,
+          "VehicleId": null
+        },
+        {
+          "Id": "b58c860e-9e09-4aba-854a-02611c0f522b",
+          "UserId": "cfc0680d-bdbd-4528-9069-84882ed04f44",
+          "Salary": 51430.0689107878500000,
+          "VehicleId": null
+        }
+      ]
+    },
+    {
+      "Id": "3c88402d-0b5f-4365-b71f-765bebb32022",
+      "Name": "Вишняков, Соловьев and Беляев",
+      "Address": "Фрунзе улица, 490, Челябинск, Южно-Африканская Республика",
+      "Vehicles": [
+        {
+          "Id": "25ce0e02-f812-41f1-8730-0d02c407ae28",
+          "Name": "Интеллектуальный Натуральный Стул",
+          "Price": 3179274.296735736500000,
+          "MileageInKilometers": 51601,
+          "Color": "Коричневый",
+          "RegistrationNumber": "W315MW225",
+          "BrandModelId": "dc7656a3-7329-4213-9a97-98145011bfac",
+          "EnterpriseId": "",
+          "ActiveDriverId": "d0836a1f-6809-4c7c-990f-ab778f2689b0"
+        },
+        {
+          "Id": "ea436791-6732-412f-a4bf-8090f966000f",
+          "Name": "Интеллектуальный Неодимовый Стол",
+          "Price": 1427520.355994588000000,
+          "MileageInKilometers": 85675,
+          "Color": "Черный",
+          "RegistrationNumber": "X041SQ593",
+          "BrandModelId": "eda04dfe-856a-4081-bb92-bc1123c86eff",
+          "EnterpriseId": "",
+          "ActiveDriverId": "d073493e-0bc9-415d-b151-a216921cb5e0"
+        },
+        {
+          "Id": "3b41456b-5b13-4ea1-b131-4f6d2a2208b2",
+          "Name": "Интеллектуальный Кожанный Свитер",
+          "Price": 3797066.360798523500000,
+          "MileageInKilometers": 36198,
+          "Color": "Синий",
+          "RegistrationNumber": "K582JL041",
+          "BrandModelId": "0404f36d-e302-4473-a524-afc41a99e80f",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "e7bcfb59-2179-4645-a9d6-052b11452411",
+          "Name": "Маленький Натуральный Кошелек",
+          "Price": 4524047.332107107000000,
+          "MileageInKilometers": 186073,
+          "Color": "Коричневый",
+          "RegistrationNumber": "Q206MB505",
+          "BrandModelId": "234163cb-b75b-43c0-9f52-aae5418c0133",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "14294d35-d237-4751-88a9-29d2a6d54592",
+          "Name": "Эргономичный Резиновый Портмоне",
+          "Price": 1593121.313994872000000,
+          "MileageInKilometers": 53290,
+          "Color": "Зеленый",
+          "RegistrationNumber": "G055YA826",
+          "BrandModelId": "adadfcd2-d19d-4003-b2f6-b4b5bcc450a2",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "56704621-7894-49a6-8199-db74dc88e9c0",
+          "Name": "Грубый Стальной Автомобиль",
+          "Price": 3242208.712939187000000,
+          "MileageInKilometers": 9504,
+          "Color": "Белый",
+          "RegistrationNumber": "F446OB958",
+          "BrandModelId": "46adbca2-3d61-4d29-99d6-7fe411599df1",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "b91f8d8f-0994-400b-80db-f0912c3de808",
+          "Name": "Великолепный Стальной Кошелек",
+          "Price": 4261996.974841173500000,
+          "MileageInKilometers": 182339,
+          "Color": "Красный",
+          "RegistrationNumber": "A359HR880",
+          "BrandModelId": "f9caefe4-43e1-45a3-87a4-6245eec61ff2",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "9724e482-8524-460d-bd7c-8a1669f0fbc7",
+          "Name": "Лоснящийся Кожанный Сабо",
+          "Price": 2163428.681771349500000,
+          "MileageInKilometers": 112392,
+          "Color": "Черный",
+          "RegistrationNumber": "O059HZ215",
+          "BrandModelId": "7377ae24-fbb5-4670-889a-587256ce0723",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "bba872fb-335a-4fc4-84cf-c0efdd5ea34b",
+          "Name": "Свободный Деревянный Майка",
+          "Price": 2793262.933145246000000,
+          "MileageInKilometers": 60902,
+          "Color": "Красный",
+          "RegistrationNumber": "C090US669",
+          "BrandModelId": "adadfcd2-d19d-4003-b2f6-b4b5bcc450a2",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "2571acfa-f5e0-45e2-bde6-18fac9f16fc5",
+          "Name": "Невероятный Натуральный Ремень",
+          "Price": 4279784.11196558000000,
+          "MileageInKilometers": 101295,
+          "Color": "Желтый",
+          "RegistrationNumber": "A857QT186",
+          "BrandModelId": "8e4057a2-fdad-4df6-bd7d-08aeff43c4b8",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "d0f3fea7-8138-45e8-a0e5-c4aa62f12716",
+          "Name": "Практичный Бетонный Носки",
+          "Price": 3656053.968955952000000,
+          "MileageInKilometers": 99364,
+          "Color": "Зеленый",
+          "RegistrationNumber": "D368KC604",
+          "BrandModelId": "410651ce-4224-4419-9515-b424bef31d2c",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "4d776f76-2e18-41e7-875e-68053266e914",
+          "Name": "Потрясающий Пластиковый Кепка",
+          "Price": 4563975.994625633000000,
+          "MileageInKilometers": 196257,
+          "Color": "Зеленый",
+          "RegistrationNumber": "V561JQ682",
+          "BrandModelId": "410651ce-4224-4419-9515-b424bef31d2c",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "f1c53b94-0af8-4daa-b0b7-4541cec6283f",
+          "Name": "Эргономичный Хлопковый Кулон",
+          "Price": 2626066.344977096000000,
+          "MileageInKilometers": 188921,
+          "Color": "Красный",
+          "RegistrationNumber": "Z066AP123",
+          "BrandModelId": "b6afb4a3-1953-43d9-bfb2-d1ef13ab5a62",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "4ec7ebe2-e6f6-4bd6-b071-d7b326c66eb2",
+          "Name": "Лоснящийся Резиновый Кулон",
+          "Price": 3630961.542765506000000,
+          "MileageInKilometers": 122302,
+          "Color": "Желтый",
+          "RegistrationNumber": "J467JH002",
+          "BrandModelId": "bb962acd-f1fe-4370-9468-0f943065492e",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "4b340351-141e-445c-b351-1ae778b6fec4",
+          "Name": "Великолепный Бетонный Шарф",
+          "Price": 523099.26349412265500000,
+          "MileageInKilometers": 126680,
+          "Color": "Коричневый",
+          "RegistrationNumber": "O916XS433",
+          "BrandModelId": "62c6c3f7-c2b8-4fae-81e5-97097a4f4d58",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "ef34da31-03ce-4576-a3c7-79816e0834fc",
+          "Name": "Практичный Стальной Кепка",
+          "Price": 4473881.786374335500000,
+          "MileageInKilometers": 97389,
+          "Color": "Серый",
+          "RegistrationNumber": "R819XP254",
+          "BrandModelId": "410651ce-4224-4419-9515-b424bef31d2c",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "fca4c1fd-5ea4-412b-b8f4-89c4ca9c40cd",
+          "Name": "Фантастический Пластиковый Автомобиль",
+          "Price": 4448791.497957728000000,
+          "MileageInKilometers": 29996,
+          "Color": "Красный",
+          "RegistrationNumber": "O284CZ054",
+          "BrandModelId": "0404f36d-e302-4473-a524-afc41a99e80f",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "ec4e5741-e3b8-47c7-94e5-b071ab26961f",
+          "Name": "Фантастический Кожанный Куртка",
+          "Price": 2982464.552204888000000,
+          "MileageInKilometers": 71988,
+          "Color": "Белый",
+          "RegistrationNumber": "T915EB751",
+          "BrandModelId": "b5640370-5d59-4870-bb83-8b81cf5cf06c",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "4f14e7ac-cb23-4560-b609-15bb7bb7c60b",
+          "Name": "Эргономичный Резиновый Кошелек",
+          "Price": 3204754.288062179000000,
+          "MileageInKilometers": 170917,
+          "Color": "Серый",
+          "RegistrationNumber": "W000UP287",
+          "BrandModelId": "0b6a6967-3a50-452f-a3ca-0ceb24f9b1b7",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "3d343c92-69fb-49ad-b159-535ffbbfce63",
+          "Name": "Невероятный Пластиковый Кулон",
+          "Price": 727643.2396155431000000,
+          "MileageInKilometers": 157929,
+          "Color": "Черный",
+          "RegistrationNumber": "P454YG324",
+          "BrandModelId": "efa3b0d2-9f40-4913-b432-31a25c38b8da",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        }
+      ],
+      "Drivers": [
+        {
+          "Id": "d0836a1f-6809-4c7c-990f-ab778f2689b0",
+          "UserId": "125ab753-c1a2-43ee-ae55-128d2a61beb7",
+          "Salary": 70271.5483588500000,
+          "VehicleId": "25ce0e02-f812-41f1-8730-0d02c407ae28"
+        },
+        {
+          "Id": "d073493e-0bc9-415d-b151-a216921cb5e0",
+          "UserId": "6340ac42-ed4d-4e53-93d6-7cab8427706f",
+          "Salary": 96446.967006869100000,
+          "VehicleId": "ea436791-6732-412f-a4bf-8090f966000f"
+        },
+        {
+          "Id": "3ef75d33-c8db-4e02-ac5f-a140402d55cd",
+          "UserId": "0e6027e8-a82b-4b08-ba74-9a2d5fa42991",
+          "Salary": 122339.160448098200000,
+          "VehicleId": null
+        },
+        {
+          "Id": "3bd76153-7ee7-45a6-9877-f4f259ecbb3f",
+          "UserId": "9eebcfd4-9ffd-4ed5-8e5f-dd1ab9ee6239",
+          "Salary": 64255.059936202600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "67f47f9a-4591-400c-9991-db51232ec2db",
+          "UserId": "0e528d8a-7653-4f13-9975-98fe6903afc3",
+          "Salary": 50198.34991553721500000,
+          "VehicleId": null
+        },
+        {
+          "Id": "331ba189-17e2-49a2-8137-1bc97f0c4518",
+          "UserId": "8f14c073-2deb-4416-a234-9fdff527ce6f",
+          "Salary": 136923.411156480900000,
+          "VehicleId": null
+        },
+        {
+          "Id": "cbe9260d-1f27-4c58-a25e-fd283e3efca6",
+          "UserId": "99b72321-b8d7-4fa5-acee-18e07f0c5246",
+          "Salary": 133521.365366653200000,
+          "VehicleId": null
+        },
+        {
+          "Id": "0a17a227-db29-4638-b92a-d85c40266c59",
+          "UserId": "0624a089-d14c-4dd7-803a-6d7b8e95fc23",
+          "Salary": 70069.858906823100000,
+          "VehicleId": null
+        },
+        {
+          "Id": "801ef75f-ea2f-4acd-8357-22a22b41c942",
+          "UserId": "9f644acb-ecb8-4d93-81ad-4d1f729c344c",
+          "Salary": 129359.703594520600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "78ededd3-b641-4488-993b-ee9f274a58af",
+          "UserId": "dc0b56f6-d99b-449f-a87e-3ec290bbdf4b",
+          "Salary": 80592.164411485300000,
+          "VehicleId": null
+        },
+        {
+          "Id": "312b6584-cc8b-486b-ae9e-29d4a939edc2",
+          "UserId": "2c8457bb-5495-4f64-b88a-74e9308fc1d2",
+          "Salary": 75577.426294599400000,
+          "VehicleId": null
+        },
+        {
+          "Id": "091b738e-289f-403d-aef3-b50e5ccc2f6a",
+          "UserId": "e352bfe3-36bf-4a89-83c9-a8de04734026",
+          "Salary": 80110.479206829600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "87f38e7b-de93-4825-96ee-9785d7150eda",
+          "UserId": "d96c6b0a-ba63-4f15-a0af-ef9e9875b155",
+          "Salary": 144854.552994880100000,
+          "VehicleId": null
+        },
+        {
+          "Id": "6762bc02-98b8-4aa3-9df8-8c3752786ace",
+          "UserId": "d5accc12-1289-46d7-8f4b-e5ddecf4c72a",
+          "Salary": 130922.188740653100000,
+          "VehicleId": null
+        },
+        {
+          "Id": "90b773a3-0686-44e1-b75c-0a58a57fe6ab",
+          "UserId": "626bf6f1-23e6-4928-a7a9-f7f44e8e0021",
+          "Salary": 148139.995335666500000,
+          "VehicleId": null
+        },
+        {
+          "Id": "3f53e414-2baf-4ac8-aca6-29e2953aa651",
+          "UserId": "1093d602-32e1-4cf6-ba39-603b19cbd409",
+          "Salary": 56448.520303912700000,
+          "VehicleId": null
+        }
+      ]
+    },
+    {
+      "Id": "78bce5ee-6e77-4c33-9b4b-98ca0c65a611",
+      "Name": "Авдеев Сбыт",
+      "Address": "площадь Цветочная, 639, Киров, Колумбия",
+      "Vehicles": [
+        {
+          "Id": "4c2dca57-c569-4b3f-b80b-43bdf2b7dff0",
+          "Name": "Большой Стальной Кулон",
+          "Price": 4004593.758024750500000,
+          "MileageInKilometers": 1847,
+          "Color": "Коричневый",
+          "RegistrationNumber": "B766UW065",
+          "BrandModelId": "d3671a25-caa2-4f28-8aa7-6638ed08ef9b",
+          "EnterpriseId": "",
+          "ActiveDriverId": "cd8a4f24-1b8c-45d3-8e1e-7efa60576713"
+        },
+        {
+          "Id": "93f99b04-3774-417b-a3d0-dacf2fde9912",
+          "Name": "Лоснящийся Бетонный Берет",
+          "Price": 1677711.047460827000000,
+          "MileageInKilometers": 80417,
+          "Color": "Серый",
+          "RegistrationNumber": "W009YV288",
+          "BrandModelId": "65005085-39e6-4a31-b20e-9370ce3f0cab",
+          "EnterpriseId": "",
+          "ActiveDriverId": "eeff9f39-f3f0-463c-87d1-43edd174767b"
+        },
+        {
+          "Id": "12bbea48-cefb-4847-a0f0-e2b3ff5fecf3",
+          "Name": "Невероятный Гранитный Плащ",
+          "Price": 1862871.39960206000000,
+          "MileageInKilometers": 91559,
+          "Color": "Коричневый",
+          "RegistrationNumber": "Z177ON407",
+          "BrandModelId": "8e4057a2-fdad-4df6-bd7d-08aeff43c4b8",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "02b91f81-bbde-43b9-94f3-e9711d53cb56",
+          "Name": "Интеллектуальный Гранитный Ремень",
+          "Price": 3081610.563601649000000,
+          "MileageInKilometers": 122754,
+          "Color": "Красный",
+          "RegistrationNumber": "L119RF769",
+          "BrandModelId": "b5640370-5d59-4870-bb83-8b81cf5cf06c",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "f7591792-5115-4ee1-8978-feb73a161447",
+          "Name": "Большой Кожанный Берет",
+          "Price": 4568724.965064569000000,
+          "MileageInKilometers": 198911,
+          "Color": "Красный",
+          "RegistrationNumber": "U464PK467",
+          "BrandModelId": "c9e0792d-de7b-407f-ad2a-9555eff5e611",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "6338c463-db63-4df0-b227-859172a22197",
+          "Name": "Грубый Пластиковый Берет",
+          "Price": 4095254.702292795500000,
+          "MileageInKilometers": 159713,
+          "Color": "Коричневый",
+          "RegistrationNumber": "R255JK852",
+          "BrandModelId": "c9647356-13e7-435c-aa52-be879c125a1e",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "553bb60f-41c2-41ef-ad3e-d0d7e1ea26b0",
+          "Name": "Потрясающий Деревянный Берет",
+          "Price": 1932630.702153134000000,
+          "MileageInKilometers": 80391,
+          "Color": "Черный",
+          "RegistrationNumber": "B998JN310",
+          "BrandModelId": "0404f36d-e302-4473-a524-afc41a99e80f",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "e24520ec-1953-44e2-832c-11b2056469d3",
+          "Name": "Великолепный Кожанный Ремень",
+          "Price": 4272339.753118152500000,
+          "MileageInKilometers": 79759,
+          "Color": "Коричневый",
+          "RegistrationNumber": "C522MR628",
+          "BrandModelId": "d3671a25-caa2-4f28-8aa7-6638ed08ef9b",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "44d7d596-bcfe-45f4-9140-34798fdd3938",
+          "Name": "Большой Резиновый Клатч",
+          "Price": 1682117.562426273500000,
+          "MileageInKilometers": 186075,
+          "Color": "Серебристый",
+          "RegistrationNumber": "P471QH089",
+          "BrandModelId": "eda04dfe-856a-4081-bb92-bc1123c86eff",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "9d8e1e64-a9a7-4152-804f-ab67a29aef09",
+          "Name": "Маленький Резиновый Компьютер",
+          "Price": 2981552.138805434000000,
+          "MileageInKilometers": 140807,
+          "Color": "Белый",
+          "RegistrationNumber": "P343LV314",
+          "BrandModelId": "dc7656a3-7329-4213-9a97-98145011bfac",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "77d70a2a-93b0-4397-874d-1981f6c25c02",
+          "Name": "Потрясающий Бетонный Стол",
+          "Price": 1798320.677875349000000,
+          "MileageInKilometers": 131442,
+          "Color": "Серый",
+          "RegistrationNumber": "W111CO401",
+          "BrandModelId": "d48acc5f-fe4d-4db5-9380-cb0523b39251",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "4d17066c-8000-4358-b0b6-eb33ee755617",
+          "Name": "Фантастический Хлопковый Портмоне",
+          "Price": 2934283.79829924500000,
+          "MileageInKilometers": 162199,
+          "Color": "Белый",
+          "RegistrationNumber": "E203SL692",
+          "BrandModelId": "dc5ef5ad-3da3-46c4-88c4-9f7853ea72c6",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "05b66a39-083f-4924-8f18-e38256c889db",
+          "Name": "Невероятный Пластиковый Берет",
+          "Price": 2392493.255968091000000,
+          "MileageInKilometers": 160459,
+          "Color": "Черный",
+          "RegistrationNumber": "Y421SV072",
+          "BrandModelId": "4d54133a-5c9c-4759-8e32-11c3d081711f",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "c242031f-831a-41b7-8dcc-55862aa1f23b",
+          "Name": "Свободный Меховой Плащ",
+          "Price": 806893.417913207000000,
+          "MileageInKilometers": 25019,
+          "Color": "Серебристый",
+          "RegistrationNumber": "W847CT434",
+          "BrandModelId": "8e4057a2-fdad-4df6-bd7d-08aeff43c4b8",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "c7de6b9a-ef93-4b6d-94b5-80bbf86fc719",
+          "Name": "Потрясающий Хлопковый Берет",
+          "Price": 3613702.770202964000000,
+          "MileageInKilometers": 74178,
+          "Color": "Желтый",
+          "RegistrationNumber": "Q458RZ224",
+          "BrandModelId": "1f6258d4-72e5-43b7-9434-4d3cc4706ab1",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "624e2059-d609-464a-9a1e-2961f9720aa7",
+          "Name": "Потрясающий Хлопковый Сабо",
+          "Price": 3809740.631547141500000,
+          "MileageInKilometers": 40206,
+          "Color": "Желтый",
+          "RegistrationNumber": "K003CF453",
+          "BrandModelId": "eda04dfe-856a-4081-bb92-bc1123c86eff",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "3b87bc83-361a-4471-a35f-da194725752e",
+          "Name": "Великолепный Пластиковый Компьютер",
+          "Price": 4872788.78964701000000,
+          "MileageInKilometers": 43806,
+          "Color": "Черный",
+          "RegistrationNumber": "D779VK678",
+          "BrandModelId": "46adbca2-3d61-4d29-99d6-7fe411599df1",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "fa97440e-a2b5-45e9-82b5-b6ae67ad81cf",
+          "Name": "Невероятный Кожанный Свитер",
+          "Price": 1225400.867706992000000,
+          "MileageInKilometers": 160411,
+          "Color": "Серый",
+          "RegistrationNumber": "X227ZG007",
+          "BrandModelId": "eda04dfe-856a-4081-bb92-bc1123c86eff",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "b2ac76b4-ced8-455c-8ec8-42b7b503a754",
+          "Name": "Эргономичный Гранитный Кулон",
+          "Price": 3809545.69920048500000,
+          "MileageInKilometers": 181657,
+          "Color": "Зеленый",
+          "RegistrationNumber": "J740UZ518",
+          "BrandModelId": "8e4057a2-fdad-4df6-bd7d-08aeff43c4b8",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "a33c7b36-6fe5-413d-8d62-7d23a1bc69ae",
+          "Name": "Грубый Бетонный Куртка",
+          "Price": 710235.8106522152000000,
+          "MileageInKilometers": 46744,
+          "Color": "Желтый",
+          "RegistrationNumber": "W540MM541",
+          "BrandModelId": "8e4057a2-fdad-4df6-bd7d-08aeff43c4b8",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        }
+      ],
+      "Drivers": [
+        {
+          "Id": "cd8a4f24-1b8c-45d3-8e1e-7efa60576713",
+          "UserId": "6d3ffda8-cde4-4f48-a58e-82c5764cf1c7",
+          "Salary": 90169.815085907400000,
+          "VehicleId": "4c2dca57-c569-4b3f-b80b-43bdf2b7dff0"
+        },
+        {
+          "Id": "eeff9f39-f3f0-463c-87d1-43edd174767b",
+          "UserId": "739233a0-ce70-4187-8459-1729abb0a632",
+          "Salary": 64607.659873835600000,
+          "VehicleId": "93f99b04-3774-417b-a3d0-dacf2fde9912"
+        },
+        {
+          "Id": "d086c478-74a2-4c7d-b469-b20abe6e7d0f",
+          "UserId": "dd01510b-0ff6-49b9-ba86-45ddf5286fde",
+          "Salary": 127882.66193954400000,
+          "VehicleId": null
+        },
+        {
+          "Id": "be546af5-df20-4843-b926-0c12c5966295",
+          "UserId": "601a7a9b-638f-4b16-a501-0adbb13067ce",
+          "Salary": 112528.894265428600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "3cc8d601-8d0f-47e9-95b7-68928fb10868",
+          "UserId": "50e6627c-46d6-4b96-887c-0258effc20f2",
+          "Salary": 111125.245951640100000,
+          "VehicleId": null
+        },
+        {
+          "Id": "0d47cedc-232c-47ff-a491-5394e1656b2d",
+          "UserId": "32c42389-065d-439d-ab39-36e635c90f4a",
+          "Salary": 111802.840121929900000,
+          "VehicleId": null
+        },
+        {
+          "Id": "e2718c11-1a83-4da3-a51e-75eca8d13dbe",
+          "UserId": "1501be60-01af-4366-9eb6-88da226e84b0",
+          "Salary": 121482.593785730500000,
+          "VehicleId": null
+        },
+        {
+          "Id": "912d6920-28c3-454f-b1f3-8012dc29c826",
+          "UserId": "b6bd4252-e72e-42e3-a2b4-4b2a792fb621",
+          "Salary": 57434.6147512246900000,
+          "VehicleId": null
+        },
+        {
+          "Id": "ff3d3ca9-427c-42cf-b7d8-03b7e7f14f10",
+          "UserId": "c83930c5-76b6-4aed-95df-5d986ac59790",
+          "Salary": 115753.574001488100000,
+          "VehicleId": null
+        },
+        {
+          "Id": "ac81ce95-76c3-43cf-8581-6342d37b3656",
+          "UserId": "c3510f72-e5ba-41ee-a301-f5173a852f6d",
+          "Salary": 129749.654410290400000,
+          "VehicleId": null
+        },
+        {
+          "Id": "ec055433-92e3-43b0-bc90-64d02c82a8fa",
+          "UserId": "e6e3d9af-0bf2-48bc-bdcd-f53569e08485",
+          "Salary": 76823.357691440400000,
+          "VehicleId": null
+        },
+        {
+          "Id": "6d1fc476-1ad1-4faa-8d9b-bee6f5a9e3d7",
+          "UserId": "358384f7-8c50-418d-969f-d7ae86fafc57",
+          "Salary": 86785.781540342500000,
+          "VehicleId": null
+        },
+        {
+          "Id": "880ce45c-3350-43ef-81eb-f5a10fe9eadf",
+          "UserId": "4a17edd3-86f2-48ed-aecc-4ab8639b055e",
+          "Salary": 125576.876884129300000,
+          "VehicleId": null
+        },
+        {
+          "Id": "9eeebda0-a61c-49ae-8f86-2e2827249fa8",
+          "UserId": "2fa5a594-91e4-4084-98b1-d1c6a0a53482",
+          "Salary": 122122.417703327900000,
+          "VehicleId": null
+        },
+        {
+          "Id": "935fe382-652e-4d4c-b46d-a0841bf70413",
+          "UserId": "d0a12cbc-6e18-41a9-9ac7-88475c562f19",
+          "Salary": 63842.779311278300000,
+          "VehicleId": null
+        },
+        {
+          "Id": "4a7337df-85ac-404d-8967-5c6c987a8b68",
+          "UserId": "a4e52be4-d654-4fae-8896-8023c4c51282",
+          "Salary": 78801.06988772800000,
+          "VehicleId": null
+        }
+      ]
+    },
+    {
+      "Id": "98f470ab-8a17-4398-8f84-8a5b8d46e178",
+      "Name": "Власова Трейд",
+      "Address": "проспект Лесная, 204, Ставрополь, Колумбия",
+      "Vehicles": [
+        {
+          "Id": "df486504-da34-497e-8840-98417663a230",
+          "Name": "Фантастический Пластиковый Носки",
+          "Price": 2222837.351736314000000,
+          "MileageInKilometers": 11330,
+          "Color": "Синий",
+          "RegistrationNumber": "E772AH584",
+          "BrandModelId": "f9caefe4-43e1-45a3-87a4-6245eec61ff2",
+          "EnterpriseId": "",
+          "ActiveDriverId": "d7fa4133-8edd-49bf-8f67-b6bd2a93ccd9"
+        },
+        {
+          "Id": "fdaf50b9-5068-4004-847e-6d63b9e728d6",
+          "Name": "Большой Стальной Шарф",
+          "Price": 4112008.198238052500000,
+          "MileageInKilometers": 159233,
+          "Color": "Белый",
+          "RegistrationNumber": "I329GF357",
+          "BrandModelId": "46adbca2-3d61-4d29-99d6-7fe411599df1",
+          "EnterpriseId": "",
+          "ActiveDriverId": "7e33b7e9-2701-4482-9eed-eb75681ddd35"
+        },
+        {
+          "Id": "2e6f3800-4bab-488c-a4af-d8e8fcf02bcb",
+          "Name": "Эргономичный Кожанный Кулон",
+          "Price": 1540624.552537914500000,
+          "MileageInKilometers": 168993,
+          "Color": "Синий",
+          "RegistrationNumber": "X391ND449",
+          "BrandModelId": "7377ae24-fbb5-4670-889a-587256ce0723",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "b7d09782-e356-456c-8dc9-65d9d0dd1cf1",
+          "Name": "Грубый Деревянный Майка",
+          "Price": 3280968.977445284000000,
+          "MileageInKilometers": 99818,
+          "Color": "Зеленый",
+          "RegistrationNumber": "C362HC685",
+          "BrandModelId": "6f6c5236-18a8-4252-b122-1cf4b5c5f97e",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "cac3f7a1-da35-40fd-8a7a-6c542354f6a5",
+          "Name": "Невероятный Гранитный Кепка",
+          "Price": 3004855.755954422000000,
+          "MileageInKilometers": 137382,
+          "Color": "Зеленый",
+          "RegistrationNumber": "T427TG267",
+          "BrandModelId": "a657bf86-1905-4aa6-bceb-bb91785395ef",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "d5db9746-0414-49c3-adea-7d6698a79bde",
+          "Name": "Лоснящийся Меховой Компьютер",
+          "Price": 4175878.407754842500000,
+          "MileageInKilometers": 82450,
+          "Color": "Серебристый",
+          "RegistrationNumber": "I725CO434",
+          "BrandModelId": "a42609fa-ab7e-42df-b51f-b78a08f69774",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "262757ba-b55e-4647-98ae-4d243b30b257",
+          "Name": "Свободный Бетонный Куртка",
+          "Price": 1934133.377742504500000,
+          "MileageInKilometers": 117318,
+          "Color": "Синий",
+          "RegistrationNumber": "I364WH911",
+          "BrandModelId": "b0d4b557-4476-4d67-9823-aaac96e29cdd",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "9bef8845-52e4-43be-b75b-c9dee7453cbd",
+          "Name": "Великолепный Неодимовый Кошелек",
+          "Price": 2264718.678523529000000,
+          "MileageInKilometers": 106863,
+          "Color": "Красный",
+          "RegistrationNumber": "X462AV052",
+          "BrandModelId": "8e4057a2-fdad-4df6-bd7d-08aeff43c4b8",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "671b4dbf-7366-456c-9fe1-3429bdd07428",
+          "Name": "Маленький Хлопковый Стул",
+          "Price": 2678705.179712042000000,
+          "MileageInKilometers": 113087,
+          "Color": "Серебристый",
+          "RegistrationNumber": "I197FX603",
+          "BrandModelId": "b6afb4a3-1953-43d9-bfb2-d1ef13ab5a62",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "bd494dec-0bdf-4b2d-97b1-adee3b6565bf",
+          "Name": "Практичный Стальной Носки",
+          "Price": 3538065.778418561000000,
+          "MileageInKilometers": 124469,
+          "Color": "Красный",
+          "RegistrationNumber": "X015ZC559",
+          "BrandModelId": "8e4057a2-fdad-4df6-bd7d-08aeff43c4b8",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "88004483-8232-4ea0-8cca-bafa4fad2c37",
+          "Name": "Эргономичный Пластиковый Плащ",
+          "Price": 1615806.626922099500000,
+          "MileageInKilometers": 122901,
+          "Color": "Белый",
+          "RegistrationNumber": "R664OA794",
+          "BrandModelId": "efa3b0d2-9f40-4913-b432-31a25c38b8da",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "04b4e31e-c99b-465d-aa4b-09c04d3def6d",
+          "Name": "Практичный Кожанный Ремень",
+          "Price": 3178604.806524887000000,
+          "MileageInKilometers": 50166,
+          "Color": "Серебристый",
+          "RegistrationNumber": "A984UU846",
+          "BrandModelId": "2026a497-1024-46ae-8f79-c173441258e3",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "8d32fa8e-bfa7-4532-85ba-0b8d897f6861",
+          "Name": "Маленький Деревянный Кепка",
+          "Price": 2421561.080531322500000,
+          "MileageInKilometers": 130318,
+          "Color": "Оранжевый",
+          "RegistrationNumber": "Z557KF994",
+          "BrandModelId": "b6afb4a3-1953-43d9-bfb2-d1ef13ab5a62",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "f56f4d95-1791-418a-9488-a231343cb610",
+          "Name": "Невероятный Кожанный Шарф",
+          "Price": 3661072.137085316000000,
+          "MileageInKilometers": 39941,
+          "Color": "Серебристый",
+          "RegistrationNumber": "P389RV425",
+          "BrandModelId": "0ebadbe0-f7b4-4b95-9bbf-e6bef5105c85",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "7015b61c-0bc5-45ed-9bc6-711de8f0387f",
+          "Name": "Маленький Деревянный Плащ",
+          "Price": 2683372.477565250500000,
+          "MileageInKilometers": 40511,
+          "Color": "Зеленый",
+          "RegistrationNumber": "H599FJ229",
+          "BrandModelId": "1f6258d4-72e5-43b7-9434-4d3cc4706ab1",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "fda396fd-f32b-4a91-b660-289ac1525182",
+          "Name": "Лоснящийся Натуральный Ножницы",
+          "Price": 4155602.712267294500000,
+          "MileageInKilometers": 157442,
+          "Color": "Желтый",
+          "RegistrationNumber": "T074VG312",
+          "BrandModelId": "eee89aab-f8e3-4dda-ad70-60156fa08436",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "4c2968c1-cf89-4006-b633-787893707db2",
+          "Name": "Потрясающий Гранитный Автомобиль",
+          "Price": 4400526.967929684500000,
+          "MileageInKilometers": 34884,
+          "Color": "Белый",
+          "RegistrationNumber": "E024DT906",
+          "BrandModelId": "c9647356-13e7-435c-aa52-be879c125a1e",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "068be8b8-0600-4fd0-a97c-c1fe4fdd0c87",
+          "Name": "Невероятный Меховой Стол",
+          "Price": 2404389.157620984500000,
+          "MileageInKilometers": 108451,
+          "Color": "Белый",
+          "RegistrationNumber": "L575WO088",
+          "BrandModelId": "0b6a6967-3a50-452f-a3ca-0ceb24f9b1b7",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "eed7aa34-ddfe-4802-8989-1ed41345c11e",
+          "Name": "Большой Резиновый Шарф",
+          "Price": 3785960.74580406500000,
+          "MileageInKilometers": 193402,
+          "Color": "Синий",
+          "RegistrationNumber": "J849EJ722",
+          "BrandModelId": "d3671a25-caa2-4f28-8aa7-6638ed08ef9b",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "2f29a934-a72e-4add-a969-8964c311cb36",
+          "Name": "Фантастический Кожанный Майка",
+          "Price": 3600819.581437701500000,
+          "MileageInKilometers": 110074,
+          "Color": "Коричневый",
+          "RegistrationNumber": "K955KQ219",
+          "BrandModelId": "a275ee54-5f97-482d-881b-2cc0cb36a473",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        }
+      ],
+      "Drivers": [
+        {
+          "Id": "d7fa4133-8edd-49bf-8f67-b6bd2a93ccd9",
+          "UserId": "7093a8b1-3181-41f5-b520-e78816979dff",
+          "Salary": 108553.79293605400000,
+          "VehicleId": "df486504-da34-497e-8840-98417663a230"
+        },
+        {
+          "Id": "7e33b7e9-2701-4482-9eed-eb75681ddd35",
+          "UserId": "a1e6d22e-efc3-4593-8a90-5e7900fff265",
+          "Salary": 129324.99087384200000,
+          "VehicleId": "fdaf50b9-5068-4004-847e-6d63b9e728d6"
+        },
+        {
+          "Id": "0bb170db-66d5-4418-8636-5f922a667697",
+          "UserId": "cea6a23b-5120-439d-9462-84654d175199",
+          "Salary": 78860.223679272600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "c0f6244d-b4fa-4168-9b53-fb382dcbae24",
+          "UserId": "9b3ba66d-464a-4810-8980-f93b3ef5feb4",
+          "Salary": 107262.934072531300000,
+          "VehicleId": null
+        },
+        {
+          "Id": "e525fea6-a5d5-45a1-8038-c2b97b321f85",
+          "UserId": "699e1299-1234-40a5-b2ad-51a6ba976355",
+          "Salary": 145794.640246683100000,
+          "VehicleId": null
+        },
+        {
+          "Id": "43077668-964d-4db2-9a02-2d689c425549",
+          "UserId": "eefacbcc-bb70-4816-9747-d2e1052a6604",
+          "Salary": 118266.887249549300000,
+          "VehicleId": null
+        },
+        {
+          "Id": "36ea3e2f-c422-4768-943b-f2c3a2fae79d",
+          "UserId": "07613f97-2733-41cb-b197-d4abbd5bb166",
+          "Salary": 88982.119429382600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "e87f2568-1b5a-4f6a-aade-8331b7f47f3b",
+          "UserId": "596f7fd2-7bb8-40fc-b8aa-1f667c8a3288",
+          "Salary": 74514.852801577600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "400bb5bb-aa13-4888-880c-f172eb540dc9",
+          "UserId": "18591837-2ae8-412d-bba3-f5cb07b302d8",
+          "Salary": 101623.029332432400000,
+          "VehicleId": null
+        },
+        {
+          "Id": "5d1d06eb-4cf7-4c3f-aad8-4f2d01657e67",
+          "UserId": "0be1bb19-55f6-4528-a6ae-27fd518aef1a",
+          "Salary": 99475.68734617700000,
+          "VehicleId": null
+        },
+        {
+          "Id": "dfc4c642-0648-427e-b9a8-6c1e478fbe37",
+          "UserId": "ada8734c-b218-472e-b11f-7ab3d3f0d419",
+          "Salary": 103858.063115672200000,
+          "VehicleId": null
+        },
+        {
+          "Id": "684f9857-eb63-4de7-afc6-9e1bb4bdffb4",
+          "UserId": "0600d47a-4e04-4513-8660-0e756de5cf8b",
+          "Salary": 57389.0964069352900000,
+          "VehicleId": null
+        },
+        {
+          "Id": "5bff7e5b-8370-4479-a67f-e73e7afc0292",
+          "UserId": "f3de9f15-bb2c-4d98-af8c-816c9acd1504",
+          "Salary": 101868.813369362100000,
+          "VehicleId": null
+        },
+        {
+          "Id": "c0b03cf5-6c23-4347-ac09-9f02f563f71f",
+          "UserId": "f1f22343-916f-4ccd-b39b-d05600b8af1a",
+          "Salary": 134012.636860838400000,
+          "VehicleId": null
+        },
+        {
+          "Id": "2a315711-ffca-4784-ada3-8b033b7aa882",
+          "UserId": "e8265fa6-4416-4e9b-8339-46ffaabbac7a",
+          "Salary": 149841.710599065600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "27638062-4bb2-4a92-b4fe-fcfd5868133c",
+          "UserId": "0843db0b-04f0-43cc-98ec-430680b73340",
+          "Salary": 61632.751399480200000,
+          "VehicleId": null
+        }
+      ]
+    },
+    {
+      "Id": "7bd162d3-2759-487b-a21c-8d2463627672",
+      "Name": "Цветкова - Абрамова",
+      "Address": "пр. Береговая, 867, Сочи, Габон",
+      "Vehicles": [
+        {
+          "Id": "e91e435d-74b7-4d4a-a5fd-2f6486b5ba0d",
+          "Name": "Грубый Резиновый Ножницы",
+          "Price": 1337917.850678993000000,
+          "MileageInKilometers": 122867,
+          "Color": "Серый",
+          "RegistrationNumber": "I371KF306",
+          "BrandModelId": "bb962acd-f1fe-4370-9468-0f943065492e",
+          "EnterpriseId": "",
+          "ActiveDriverId": "c930bd4e-de34-417c-b73e-f3efe40a0514"
+        },
+        {
+          "Id": "f540bf54-5560-446e-93d3-d58773da56ce",
+          "Name": "Интеллектуальный Неодимовый Компьютер",
+          "Price": 3076991.800977272000000,
+          "MileageInKilometers": 141680,
+          "Color": "Серый",
+          "RegistrationNumber": "N685UD776",
+          "BrandModelId": "234163cb-b75b-43c0-9f52-aae5418c0133",
+          "EnterpriseId": "",
+          "ActiveDriverId": "80a3edeb-ae71-48a2-8067-944ebafb7ba5"
+        },
+        {
+          "Id": "bc936b46-7610-4668-970d-14fd83078106",
+          "Name": "Свободный Резиновый Кошелек",
+          "Price": 3005496.878032832000000,
+          "MileageInKilometers": 169062,
+          "Color": "Красный",
+          "RegistrationNumber": "V716WT511",
+          "BrandModelId": "410651ce-4224-4419-9515-b424bef31d2c",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "71b1b2b8-4cd5-43d3-a9cc-1611afae6afe",
+          "Name": "Невероятный Хлопковый Носки",
+          "Price": 2006686.46559317000000,
+          "MileageInKilometers": 197232,
+          "Color": "Черный",
+          "RegistrationNumber": "Z986CH998",
+          "BrandModelId": "d3671a25-caa2-4f28-8aa7-6638ed08ef9b",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "f8024325-c987-405e-b255-6eb75f88770c",
+          "Name": "Практичный Натуральный Плащ",
+          "Price": 3381430.630282403000000,
+          "MileageInKilometers": 33993,
+          "Color": "Коричневый",
+          "RegistrationNumber": "J188KV173",
+          "BrandModelId": "adadfcd2-d19d-4003-b2f6-b4b5bcc450a2",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "d25fac4f-c408-4dc8-b13c-a71304782780",
+          "Name": "Грубый Хлопковый Куртка",
+          "Price": 3389365.590659663000000,
+          "MileageInKilometers": 161459,
+          "Color": "Желтый",
+          "RegistrationNumber": "G648JM751",
+          "BrandModelId": "759277b9-ee37-4799-9120-b90d8ba6e088",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "e8c4529a-b365-41e8-931a-0cc236415b54",
+          "Name": "Свободный Деревянный Свитер",
+          "Price": 2743044.098065362500000,
+          "MileageInKilometers": 105427,
+          "Color": "Серый",
+          "RegistrationNumber": "Y005CT653",
+          "BrandModelId": "dc5ef5ad-3da3-46c4-88c4-9f7853ea72c6",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "1d37208c-94d4-4627-83ce-15c890d49f1a",
+          "Name": "Лоснящийся Хлопковый Автомобиль",
+          "Price": 1375722.143315658500000,
+          "MileageInKilometers": 20642,
+          "Color": "Зеленый",
+          "RegistrationNumber": "V989GP349",
+          "BrandModelId": "4d54133a-5c9c-4759-8e32-11c3d081711f",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "3f928048-123a-44af-936f-53bca981c522",
+          "Name": "Грубый Кожанный Кошелек",
+          "Price": 4247179.829467268000000,
+          "MileageInKilometers": 146484,
+          "Color": "Синий",
+          "RegistrationNumber": "K943XH172",
+          "BrandModelId": "12f05ce9-c617-4d6d-b140-b7addb8ada80",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "b8f9485a-db1d-43fa-a055-f385cb6a3489",
+          "Name": "Лоснящийся Хлопковый Кошелек",
+          "Price": 2916991.330118748500000,
+          "MileageInKilometers": 9109,
+          "Color": "Синий",
+          "RegistrationNumber": "N073IP605",
+          "BrandModelId": "5883970e-befb-43cf-97ed-3622a1147453",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "a3b7a0f7-efc4-408c-8f94-906957e0ebcd",
+          "Name": "Невероятный Меховой Плащ",
+          "Price": 1614811.908659459000000,
+          "MileageInKilometers": 84200,
+          "Color": "Оранжевый",
+          "RegistrationNumber": "B684GT063",
+          "BrandModelId": "f9caefe4-43e1-45a3-87a4-6245eec61ff2",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "4dfb283d-6b07-4025-8456-802d91624a1e",
+          "Name": "Великолепный Хлопковый Берет",
+          "Price": 4013209.380401213000000,
+          "MileageInKilometers": 88938,
+          "Color": "Черный",
+          "RegistrationNumber": "V700OI530",
+          "BrandModelId": "bb962acd-f1fe-4370-9468-0f943065492e",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "f96875f5-900a-47fe-8e1e-77721e5a4fdd",
+          "Name": "Грубый Неодимовый Носки",
+          "Price": 2456591.952031331000000,
+          "MileageInKilometers": 116470,
+          "Color": "Черный",
+          "RegistrationNumber": "E091FV815",
+          "BrandModelId": "759277b9-ee37-4799-9120-b90d8ba6e088",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "c76e1fd9-606a-4cfb-8f7e-7b8d2a9911dd",
+          "Name": "Великолепный Бетонный Плащ",
+          "Price": 1279335.733643529500000,
+          "MileageInKilometers": 74433,
+          "Color": "Синий",
+          "RegistrationNumber": "S044EP400",
+          "BrandModelId": "e21a400e-3550-409d-af12-e10ea6b13f62",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "173c5db6-62c5-4eba-9d53-828053dbd78b",
+          "Name": "Лоснящийся Бетонный Шарф",
+          "Price": 1935007.681842716000000,
+          "MileageInKilometers": 109893,
+          "Color": "Зеленый",
+          "RegistrationNumber": "A327DB764",
+          "BrandModelId": "410651ce-4224-4419-9515-b424bef31d2c",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "2b0087f8-117d-4b75-8696-01427a43b2dc",
+          "Name": "Потрясающий Резиновый Стул",
+          "Price": 575053.6846241192000000,
+          "MileageInKilometers": 19817,
+          "Color": "Коричневый",
+          "RegistrationNumber": "H949VH575",
+          "BrandModelId": "65005085-39e6-4a31-b20e-9370ce3f0cab",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "538feb26-e73c-482d-8b97-90569759303c",
+          "Name": "Маленький Неодимовый Берет",
+          "Price": 4086426.663316053500000,
+          "MileageInKilometers": 66374,
+          "Color": "Черный",
+          "RegistrationNumber": "D323YQ357",
+          "BrandModelId": "d48acc5f-fe4d-4db5-9380-cb0523b39251",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "41318158-8b40-4e4c-8ba5-716cbf56f969",
+          "Name": "Практичный Меховой Майка",
+          "Price": 1637910.94643667500000,
+          "MileageInKilometers": 128987,
+          "Color": "Серый",
+          "RegistrationNumber": "A721UU345",
+          "BrandModelId": "8e4057a2-fdad-4df6-bd7d-08aeff43c4b8",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "4db21fc7-8422-46ea-903c-201b3f13a08c",
+          "Name": "Эргономичный Меховой Автомобиль",
+          "Price": 3716968.251921858500000,
+          "MileageInKilometers": 57085,
+          "Color": "Серебристый",
+          "RegistrationNumber": "Q300ER812",
+          "BrandModelId": "8e4057a2-fdad-4df6-bd7d-08aeff43c4b8",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "dfd5be35-faa0-468d-973c-937e2e3ecd69",
+          "Name": "Маленький Пластиковый Ботинок",
+          "Price": 3174505.667078274500000,
+          "MileageInKilometers": 133521,
+          "Color": "Красный",
+          "RegistrationNumber": "K824HT901",
+          "BrandModelId": "bb962acd-f1fe-4370-9468-0f943065492e",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        }
+      ],
+      "Drivers": [
+        {
+          "Id": "c930bd4e-de34-417c-b73e-f3efe40a0514",
+          "UserId": "7fff9218-2898-459b-83e6-0a3e820fd706",
+          "Salary": 57168.1888341755600000,
+          "VehicleId": "e91e435d-74b7-4d4a-a5fd-2f6486b5ba0d"
+        },
+        {
+          "Id": "80a3edeb-ae71-48a2-8067-944ebafb7ba5",
+          "UserId": "55b79156-359b-488e-99b4-08263cedddba",
+          "Salary": 93867.398260099500000,
+          "VehicleId": "f540bf54-5560-446e-93d3-d58773da56ce"
+        },
+        {
+          "Id": "2f88615f-6a05-48ce-ab48-1cade6a4408a",
+          "UserId": "822254ae-e4df-4e11-a516-8fb6c8eba058",
+          "Salary": 67234.160014071600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "fab31bc7-a08b-47a6-827e-2074d27d0332",
+          "UserId": "e4e3d4ec-0c60-44c4-b05b-6aecf7fb59a1",
+          "Salary": 86238.012246898400000,
+          "VehicleId": null
+        },
+        {
+          "Id": "7dd60978-37fe-4b19-a4e4-ce7ed45387c5",
+          "UserId": "c810a686-a3b5-4bac-82ff-8230dbc843b8",
+          "Salary": 103768.168042305900000,
+          "VehicleId": null
+        },
+        {
+          "Id": "93d2737c-d3f8-4f9d-8bd1-dc08e4703528",
+          "UserId": "1322c2c6-cc8d-4639-9341-dda5e845cdee",
+          "Salary": 74074.352264438900000,
+          "VehicleId": null
+        },
+        {
+          "Id": "6ca26689-cd88-4504-ab98-179b934f855f",
+          "UserId": "511ca212-2fa0-4bab-8a6f-7686bd371d3e",
+          "Salary": 110728.604514491100000,
+          "VehicleId": null
+        },
+        {
+          "Id": "938ff078-37b1-48b4-a58b-e332092e84b5",
+          "UserId": "0d675e19-6f28-4cb0-85cb-bc2d828f196c",
+          "Salary": 118872.961946238300000,
+          "VehicleId": null
+        },
+        {
+          "Id": "dc2fcc8e-d22f-451a-9469-cdd30546b9ce",
+          "UserId": "5c49f995-7643-4c7a-9579-498200f35992",
+          "Salary": 70016.358755536500000,
+          "VehicleId": null
+        },
+        {
+          "Id": "7c018d1b-fc5b-4b19-a972-2b6545a9a3e9",
+          "UserId": "7c287655-0f49-4b2f-b6c3-27951f85d37d",
+          "Salary": 59958.4722472161400000,
+          "VehicleId": null
+        },
+        {
+          "Id": "91f9203c-aeb1-4b4d-8764-bcd4ad4f74d5",
+          "UserId": "e1d65a44-eea9-48fb-a747-b5306d259c37",
+          "Salary": 71907.141488933500000,
+          "VehicleId": null
+        },
+        {
+          "Id": "d1cfc111-0f75-401d-b8bc-8871f4be3b97",
+          "UserId": "e34f69e8-78d8-4823-bc68-2059e299b86f",
+          "Salary": 143972.415567362900000,
+          "VehicleId": null
+        },
+        {
+          "Id": "4964fdcb-438f-4647-a3b0-34a45b7152c4",
+          "UserId": "aefda441-37a6-4d31-a194-06a065e8c474",
+          "Salary": 54225.8962077209200000,
+          "VehicleId": null
+        },
+        {
+          "Id": "f47f37bb-f946-4a7b-8a40-64751c42d0f5",
+          "UserId": "b88416e8-f068-42d3-be22-82595fe31de6",
+          "Salary": 51768.1147911437400000,
+          "VehicleId": null
+        },
+        {
+          "Id": "88b91d8e-40d4-4e5b-8b8b-7e5507d42935",
+          "UserId": "49baeb7e-96a3-4127-903d-a52a6d347a9b",
+          "Salary": 109012.849563273100000,
+          "VehicleId": null
+        },
+        {
+          "Id": "26e26018-34e7-4d72-8237-21a6b7cef764",
+          "UserId": "d8c29597-1b23-4b11-8d92-4fc03e8aba4e",
+          "Salary": 146660.993991727500000,
+          "VehicleId": null
+        }
+      ]
+    },
+    {
+      "Id": "96d54ef6-76be-49e2-83c6-6d0018e69122",
+      "Name": "Жданов - Карпова",
+      "Address": "Коммунальная площадь, 868, Чебоксары, Ирак",
+      "Vehicles": [
+        {
+          "Id": "5910e1d4-11b6-41ed-bf8f-2c924ce6a093",
+          "Name": "Практичный Деревянный Кошелек",
+          "Price": 4023604.851922157000000,
+          "MileageInKilometers": 22133,
+          "Color": "Черный",
+          "RegistrationNumber": "Q324QO453",
+          "BrandModelId": "9af2116a-7f18-4509-ba5c-90737f6d7c38",
+          "EnterpriseId": "",
+          "ActiveDriverId": "714f77ae-1dcc-4abd-9b0d-c7761709a471"
+        },
+        {
+          "Id": "0cdf05a7-2bd9-4557-ab88-999c234d3755",
+          "Name": "Большой Пластиковый Берет",
+          "Price": 813724.3283958518000000,
+          "MileageInKilometers": 70883,
+          "Color": "Желтый",
+          "RegistrationNumber": "X667SL040",
+          "BrandModelId": "c9647356-13e7-435c-aa52-be879c125a1e",
+          "EnterpriseId": "",
+          "ActiveDriverId": "f7fcfac5-08e6-4977-8b88-22434db96a15"
+        },
+        {
+          "Id": "569f6471-4331-406d-94b3-437abd980a3b",
+          "Name": "Большой Хлопковый Стул",
+          "Price": 1471880.928909524000000,
+          "MileageInKilometers": 182092,
+          "Color": "Коричневый",
+          "RegistrationNumber": "Y684YJ068",
+          "BrandModelId": "5883970e-befb-43cf-97ed-3622a1147453",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "2e3e4b29-9cb4-463b-a49b-f8bc0e20e5cd",
+          "Name": "Грубый Натуральный Клатч",
+          "Price": 4047287.86655019500000,
+          "MileageInKilometers": 121818,
+          "Color": "Красный",
+          "RegistrationNumber": "T257YE923",
+          "BrandModelId": "b0d4b557-4476-4d67-9823-aaac96e29cdd",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "33d06805-91c3-4d2d-99b5-115bd902b576",
+          "Name": "Грубый Кожанный Компьютер",
+          "Price": 4126425.085493946500000,
+          "MileageInKilometers": 168298,
+          "Color": "Серебристый",
+          "RegistrationNumber": "W267VY633",
+          "BrandModelId": "0b6a6967-3a50-452f-a3ca-0ceb24f9b1b7",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "8a36bca5-da23-4e3e-b2ef-f40585b7bf45",
+          "Name": "Эргономичный Хлопковый Шарф",
+          "Price": 2898166.853385945500000,
+          "MileageInKilometers": 93031,
+          "Color": "Черный",
+          "RegistrationNumber": "B032NZ277",
+          "BrandModelId": "a275ee54-5f97-482d-881b-2cc0cb36a473",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "54e6a759-a1d5-418e-b6ec-a7c9b9f967b1",
+          "Name": "Маленький Гранитный Ножницы",
+          "Price": 1337819.605044881000000,
+          "MileageInKilometers": 149733,
+          "Color": "Красный",
+          "RegistrationNumber": "S948GE143",
+          "BrandModelId": "c9e0792d-de7b-407f-ad2a-9555eff5e611",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "ee8a21c1-7ba4-44d0-b040-6b52805366c0",
+          "Name": "Практичный Кожанный Носки",
+          "Price": 1209961.793365646000000,
+          "MileageInKilometers": 2793,
+          "Color": "Красный",
+          "RegistrationNumber": "O050GX855",
+          "BrandModelId": "c9647356-13e7-435c-aa52-be879c125a1e",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "a01e5f67-0967-4e18-a53b-5991cb002265",
+          "Name": "Грубый Хлопковый Плащ",
+          "Price": 1686966.804801054500000,
+          "MileageInKilometers": 175334,
+          "Color": "Коричневый",
+          "RegistrationNumber": "D767JN030",
+          "BrandModelId": "b5640370-5d59-4870-bb83-8b81cf5cf06c",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "49e0544f-d158-46b9-be22-761181f83229",
+          "Name": "Лоснящийся Меховой Берет",
+          "Price": 4861743.664597637000000,
+          "MileageInKilometers": 167484,
+          "Color": "Красный",
+          "RegistrationNumber": "L098NK904",
+          "BrandModelId": "efa3b0d2-9f40-4913-b432-31a25c38b8da",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "abbc1abf-c073-4f39-8b65-3b73b98b01f4",
+          "Name": "Потрясающий Деревянный Ножницы",
+          "Price": 1466483.727067178000000,
+          "MileageInKilometers": 101902,
+          "Color": "Красный",
+          "RegistrationNumber": "Q514JU073",
+          "BrandModelId": "9af2116a-7f18-4509-ba5c-90737f6d7c38",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "d3994833-68cd-438f-8a30-bdcb905d9527",
+          "Name": "Потрясающий Кожанный Компьютер",
+          "Price": 2660717.740385246000000,
+          "MileageInKilometers": 2783,
+          "Color": "Синий",
+          "RegistrationNumber": "I087AU310",
+          "BrandModelId": "d48acc5f-fe4d-4db5-9380-cb0523b39251",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "ac168efc-1fe3-48ea-b255-cb8ab492613f",
+          "Name": "Великолепный Резиновый Берет",
+          "Price": 1135912.362114735500000,
+          "MileageInKilometers": 109910,
+          "Color": "Серебристый",
+          "RegistrationNumber": "E075AU937",
+          "BrandModelId": "adadfcd2-d19d-4003-b2f6-b4b5bcc450a2",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "017bf5bb-3b6e-4de7-a192-fff384d4e949",
+          "Name": "Потрясающий Деревянный Плащ",
+          "Price": 3727751.473245812000000,
+          "MileageInKilometers": 166921,
+          "Color": "Серебристый",
+          "RegistrationNumber": "I651LG270",
+          "BrandModelId": "b6afb4a3-1953-43d9-bfb2-d1ef13ab5a62",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "edef9fce-d8cf-4403-9af2-316ac4c01bb1",
+          "Name": "Маленький Бетонный Компьютер",
+          "Price": 4056239.879989493000000,
+          "MileageInKilometers": 39538,
+          "Color": "Зеленый",
+          "RegistrationNumber": "X597TG935",
+          "BrandModelId": "adadfcd2-d19d-4003-b2f6-b4b5bcc450a2",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "139de444-41b4-490d-8823-a6996308cd14",
+          "Name": "Интеллектуальный Резиновый Кошелек",
+          "Price": 1173848.583079665500000,
+          "MileageInKilometers": 152254,
+          "Color": "Желтый",
+          "RegistrationNumber": "N368CU789",
+          "BrandModelId": "759277b9-ee37-4799-9120-b90d8ba6e088",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "1359aff8-0cc2-4256-9d00-86c5af7d5cd2",
+          "Name": "Потрясающий Пластиковый Ремень",
+          "Price": 3542825.382591357500000,
+          "MileageInKilometers": 133831,
+          "Color": "Желтый",
+          "RegistrationNumber": "Q803TS252",
+          "BrandModelId": "9af2116a-7f18-4509-ba5c-90737f6d7c38",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "3273d708-625f-4a0b-b74c-dd05919f926c",
+          "Name": "Грубый Резиновый Берет",
+          "Price": 4586295.736698458000000,
+          "MileageInKilometers": 6017,
+          "Color": "Белый",
+          "RegistrationNumber": "Z234QZ290",
+          "BrandModelId": "b6afb4a3-1953-43d9-bfb2-d1ef13ab5a62",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "758ef5f9-d014-48d8-9796-03efd8d04d78",
+          "Name": "Маленький Стальной Ремень",
+          "Price": 3114245.323791797000000,
+          "MileageInKilometers": 178622,
+          "Color": "Серебристый",
+          "RegistrationNumber": "W639OU415",
+          "BrandModelId": "c9647356-13e7-435c-aa52-be879c125a1e",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        },
+        {
+          "Id": "f448902c-10f3-483b-ba8b-87a609055386",
+          "Name": "Интеллектуальный Резиновый Кошелек",
+          "Price": 1098767.685382988000000,
+          "MileageInKilometers": 96161,
+          "Color": "Коричневый",
+          "RegistrationNumber": "O892OJ639",
+          "BrandModelId": "234163cb-b75b-43c0-9f52-aae5418c0133",
+          "EnterpriseId": "",
+          "ActiveDriverId": null
+        }
+      ],
+      "Drivers": [
+        {
+          "Id": "714f77ae-1dcc-4abd-9b0d-c7761709a471",
+          "UserId": "1de26093-e16a-4135-b37b-68a7760296b6",
+          "Salary": 114741.184732290500000,
+          "VehicleId": "5910e1d4-11b6-41ed-bf8f-2c924ce6a093"
+        },
+        {
+          "Id": "f7fcfac5-08e6-4977-8b88-22434db96a15",
+          "UserId": "d17bfc25-67aa-4abf-90d5-efe5e1624321",
+          "Salary": 58360.8633877527300000,
+          "VehicleId": "0cdf05a7-2bd9-4557-ab88-999c234d3755"
+        },
+        {
+          "Id": "3326ae7f-1355-44e6-9299-5eea20542763",
+          "UserId": "b0ef3b91-5bf7-4618-ae40-3cc9efc378c7",
+          "Salary": 121425.486948073600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "ae7cd802-aabc-4ac1-969b-937d8fce1b7d",
+          "UserId": "1cb08f1c-34b9-40af-a907-ca20e01cd2aa",
+          "Salary": 141767.421221252300000,
+          "VehicleId": null
+        },
+        {
+          "Id": "004e81a6-efb4-48dc-ba1d-12362f9c4601",
+          "UserId": "413f6b3f-4de0-4277-bec4-5bae603c5225",
+          "Salary": 149421.440669997300000,
+          "VehicleId": null
+        },
+        {
+          "Id": "444ef81e-6d14-4ccf-b814-431eb6d8d1f4",
+          "UserId": "5507653a-ecaa-4b65-ac82-8a102cf771d6",
+          "Salary": 64833.831561186300000,
+          "VehicleId": null
+        },
+        {
+          "Id": "0958f0ab-8312-43e8-b07e-b7df1ae6cc90",
+          "UserId": "2bcd7e2c-dea0-4e5b-8418-f7a04d033fd5",
+          "Salary": 119409.345029578200000,
+          "VehicleId": null
+        },
+        {
+          "Id": "87c4051b-0e1f-491c-877b-0f7162b59b3a",
+          "UserId": "ed908ce7-5ff9-4de2-84e1-c1eb817b028a",
+          "Salary": 132553.830455315200000,
+          "VehicleId": null
+        },
+        {
+          "Id": "80d33724-d2a4-4038-a9b0-beae511a261f",
+          "UserId": "c6eebbef-3cd2-413c-9911-f6208a8645dc",
+          "Salary": 104952.235918004200000,
+          "VehicleId": null
+        },
+        {
+          "Id": "0c8e31ef-d745-42ce-9225-03c545bc4fb8",
+          "UserId": "e8d6f31d-2b72-43f5-b086-9d392e913331",
+          "Salary": 128183.117917824100000,
+          "VehicleId": null
+        },
+        {
+          "Id": "40b21067-f175-43ef-8ac9-6b287504b595",
+          "UserId": "4131e213-a85b-40ef-826b-838bfa1f747a",
+          "Salary": 120785.149499208300000,
+          "VehicleId": null
+        },
+        {
+          "Id": "c27e6195-c220-4b4c-9e34-95730d87510d",
+          "UserId": "8b4ac6b3-b148-443f-9990-71f09ab1edfb",
+          "Salary": 102725.727554748600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "211ff570-e618-4121-8cb8-a76c6e6ca8ef",
+          "UserId": "0d202157-8a12-4185-8405-6349699e1cf5",
+          "Salary": 51797.742024901200000,
+          "VehicleId": null
+        },
+        {
+          "Id": "6bb37675-c45c-441c-bcf9-978f77e3add1",
+          "UserId": "5bad74b3-8d71-458b-bd09-7e3daa6150d4",
+          "Salary": 144472.575278241400000,
+          "VehicleId": null
+        },
+        {
+          "Id": "3639caa5-b764-4bcd-9710-843752b55a21",
+          "UserId": "02586645-5857-4701-b441-f703717445fc",
+          "Salary": 76053.330360936600000,
+          "VehicleId": null
+        },
+        {
+          "Id": "d0e87ab6-8a4e-402e-bead-457ff98310e8",
+          "UserId": "26654dc9-cf9e-414b-a6de-86565051103e",
+          "Salary": 117764.247426653400000,
+          "VehicleId": null
+        }
+      ]
+    }
+  ],
+  "BrandModels": [
+    {
+      "Id": "0ebadbe0-f7b4-4b95-9bbf-e6bef5105c85",
+      "BrandName": "Toyota",
+      "ModelName": "Camry",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 500
+    },
+    {
+      "Id": "dc7656a3-7329-4213-9a97-98145011bfac",
+      "BrandName": "Toyota",
+      "ModelName": "Corolla",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "20606102-a036-4c29-b854-962d64740d13",
+      "BrandName": "Honda",
+      "ModelName": "Civic",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "8e4057a2-fdad-4df6-bd7d-08aeff43c4b8",
+      "BrandName": "Honda",
+      "ModelName": "Accord",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 500
+    },
+    {
+      "Id": "234163cb-b75b-43c0-9f52-aae5418c0133",
+      "BrandName": "BMW",
+      "ModelName": "X5",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 600
+    },
+    {
+      "Id": "b5640370-5d59-4870-bb83-8b81cf5cf06c",
+      "BrandName": "BMW",
+      "ModelName": "3 Series",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "65005085-39e6-4a31-b20e-9370ce3f0cab",
+      "BrandName": "Mercedes",
+      "ModelName": "C-Class",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "410651ce-4224-4419-9515-b424bef31d2c",
+      "BrandName": "Mercedes",
+      "ModelName": "E-Class",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 500
+    },
+    {
+      "Id": "dc5ef5ad-3da3-46c4-88c4-9f7853ea72c6",
+      "BrandName": "Audi",
+      "ModelName": "A4",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "9af2116a-7f18-4509-ba5c-90737f6d7c38",
+      "BrandName": "Audi",
+      "ModelName": "Q5",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 550
+    },
+    {
+      "Id": "0e91ac63-9423-433f-bf10-c355c94407b1",
+      "BrandName": "Volkswagen",
+      "ModelName": "Golf",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 400
+    },
+    {
+      "Id": "efa3b0d2-9f40-4913-b432-31a25c38b8da",
+      "BrandName": "Volkswagen",
+      "ModelName": "Passat",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 500
+    },
+    {
+      "Id": "62c6c3f7-c2b8-4fae-81e5-97097a4f4d58",
+      "BrandName": "Tesla",
+      "ModelName": "Model 3",
+      "TransportType": "Car",
+      "FuelType": "Electricity",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "d3671a25-caa2-4f28-8aa7-6638ed08ef9b",
+      "BrandName": "Tesla",
+      "ModelName": "Model S",
+      "TransportType": "Car",
+      "FuelType": "Electricity",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 500
+    },
+    {
+      "Id": "7377ae24-fbb5-4670-889a-587256ce0723",
+      "BrandName": "Nissan",
+      "ModelName": "Leaf",
+      "TransportType": "Car",
+      "FuelType": "Electricity",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 400
+    },
+    {
+      "Id": "5883970e-befb-43cf-97ed-3622a1147453",
+      "BrandName": "Ford",
+      "ModelName": "Focus",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "e21a400e-3550-409d-af12-e10ea6b13f62",
+      "BrandName": "Chevrolet",
+      "ModelName": "Cruze",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "b6afb4a3-1953-43d9-bfb2-d1ef13ab5a62",
+      "BrandName": "Hyundai",
+      "ModelName": "Elantra",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "d48acc5f-fe4d-4db5-9380-cb0523b39251",
+      "BrandName": "Kia",
+      "ModelName": "Rio",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 400
+    },
+    {
+      "Id": "0b6a6967-3a50-452f-a3ca-0ceb24f9b1b7",
+      "BrandName": "Mazda",
+      "ModelName": "3",
+      "TransportType": "Car",
+      "FuelType": "Gasoline",
+      "SeatsNumber": 5,
+      "MaximumLoadCapacityInKillograms": 450
+    },
+    {
+      "Id": "2026a497-1024-46ae-8f79-c173441258e3",
+      "BrandName": "Volvo",
+      "ModelName": "FH16",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 20000
+    },
+    {
+      "Id": "2065899d-1231-4a66-a1b9-7054aa2849ed",
+      "BrandName": "Scania",
+      "ModelName": "R500",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 18000
+    },
+    {
+      "Id": "4d54133a-5c9c-4759-8e32-11c3d081711f",
+      "BrandName": "MAN",
+      "ModelName": "TGX",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 16000
+    },
+    {
+      "Id": "0404f36d-e302-4473-a524-afc41a99e80f",
+      "BrandName": "Mercedes",
+      "ModelName": "Actros",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 18000
+    },
+    {
+      "Id": "6f6c5236-18a8-4252-b122-1cf4b5c5f97e",
+      "BrandName": "Iveco",
+      "ModelName": "Stralis",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 15000
+    },
+    {
+      "Id": "c9647356-13e7-435c-aa52-be879c125a1e",
+      "BrandName": "DAF",
+      "ModelName": "XF",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 16000
+    },
+    {
+      "Id": "a275ee54-5f97-482d-881b-2cc0cb36a473",
+      "BrandName": "Renault",
+      "ModelName": "T",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 16000
+    },
+    {
+      "Id": "c9e0792d-de7b-407f-ad2a-9555eff5e611",
+      "BrandName": "Isuzu",
+      "ModelName": "Forward",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 8000
+    },
+    {
+      "Id": "12f05ce9-c617-4d6d-b140-b7addb8ada80",
+      "BrandName": "Hino",
+      "ModelName": "500",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 10000
+    },
+    {
+      "Id": "a657bf86-1905-4aa6-bceb-bb91785395ef",
+      "BrandName": "Ural",
+      "ModelName": "4320",
+      "TransportType": "Truck",
+      "FuelType": "Diesel",
+      "SeatsNumber": 2,
+      "MaximumLoadCapacityInKillograms": 12000
+    },
+    {
+      "Id": "759277b9-ee37-4799-9120-b90d8ba6e088",
+      "BrandName": "Mercedes",
+      "ModelName": "Sprinter",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 20,
+      "MaximumLoadCapacityInKillograms": 3000
+    },
+    {
+      "Id": "bb962acd-f1fe-4370-9468-0f943065492e",
+      "BrandName": "Volkswagen",
+      "ModelName": "Crafter",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 18,
+      "MaximumLoadCapacityInKillograms": 2800
+    },
+    {
+      "Id": "b0d4b557-4476-4d67-9823-aaac96e29cdd",
+      "BrandName": "Ford",
+      "ModelName": "Transit",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 16,
+      "MaximumLoadCapacityInKillograms": 2500
+    },
+    {
+      "Id": "f9caefe4-43e1-45a3-87a4-6245eec61ff2",
+      "BrandName": "Iveco",
+      "ModelName": "Daily",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 22,
+      "MaximumLoadCapacityInKillograms": 3500
+    },
+    {
+      "Id": "a42609fa-ab7e-42df-b51f-b78a08f69774",
+      "BrandName": "Fiat",
+      "ModelName": "Ducato",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 16,
+      "MaximumLoadCapacityInKillograms": 2500
+    },
+    {
+      "Id": "eee89aab-f8e3-4dda-ad70-60156fa08436",
+      "BrandName": "Peugeot",
+      "ModelName": "Boxer",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 16,
+      "MaximumLoadCapacityInKillograms": 2500
+    },
+    {
+      "Id": "1f6258d4-72e5-43b7-9434-4d3cc4706ab1",
+      "BrandName": "Citroen",
+      "ModelName": "Jumper",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 16,
+      "MaximumLoadCapacityInKillograms": 2500
+    },
+    {
+      "Id": "adadfcd2-d19d-4003-b2f6-b4b5bcc450a2",
+      "BrandName": "Renault",
+      "ModelName": "Master",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 18,
+      "MaximumLoadCapacityInKillograms": 2800
+    },
+    {
+      "Id": "eda04dfe-856a-4081-bb92-bc1123c86eff",
+      "BrandName": "Nissan",
+      "ModelName": "NV300",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 16,
+      "MaximumLoadCapacityInKillograms": 2500
+    },
+    {
+      "Id": "46adbca2-3d61-4d29-99d6-7fe411599df1",
+      "BrandName": "Opel",
+      "ModelName": "Movano",
+      "TransportType": "Bus",
+      "FuelType": "Diesel",
+      "SeatsNumber": 16,
+      "MaximumLoadCapacityInKillograms": 2500
+    }
+  ],
+  "Users": [
+    {
+      "Id": "d514f577-3c6b-4b38-9ae3-9f6f8f62ad00",
+      "Email": "Nikita.Gulyaeva73@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Евгений",
+      "LastName": "Мельников",
+      "DateOfBirth": "1970-08-22T18:57:40.747033+06:00"
+    },
+    {
+      "Id": "34877b59-ef23-4dca-8a45-752e5f5795d8",
+      "Email": "Matvei.Knyazev10@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Виктория",
+      "LastName": "Ермакова",
+      "DateOfBirth": "1989-08-27T14:23:01.439448+06:00"
+    },
+    {
+      "Id": "b6929963-9620-4d1e-ae9d-8305b22724fe",
+      "Email": "Darya51@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Василий",
+      "LastName": "Смирнова",
+      "DateOfBirth": "1983-03-27T02:27:07.4744485+06:00"
+    },
+    {
+      "Id": "5765c86d-98d6-481f-90e1-c97faf9eafec",
+      "Email": "Maksim63@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Геннадий",
+      "LastName": "Романова",
+      "DateOfBirth": "2000-07-17T03:23:53.600663+06:00"
+    },
+    {
+      "Id": "44454854-ab50-42ae-bc70-3861d546d573",
+      "Email": "Ekaterina_Novikov@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Фёдор",
+      "LastName": "Тарасов",
+      "DateOfBirth": "1980-02-20T23:02:56.9816598+06:00"
+    },
+    {
+      "Id": "0d346b24-2e5e-4e0a-90d3-47b4ad0e0d40",
+      "Email": "Oleg_Yakushev36@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Марина",
+      "LastName": "Громов",
+      "DateOfBirth": "1990-11-29T14:34:05.963227+06:00"
+    },
+    {
+      "Id": "f06e5bf4-5604-449f-8367-25da34b2ba77",
+      "Email": "Anatolii87@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Ирина",
+      "LastName": "Виноградова",
+      "DateOfBirth": "1996-08-19T08:32:48.429544+06:00"
+    },
+    {
+      "Id": "172fbb51-ad26-4f00-97d0-3e831330e468",
+      "Email": "Maksim.Sysoev@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Виталий",
+      "LastName": "Крылов",
+      "DateOfBirth": "1982-04-08T15:51:08.5093564+06:00"
+    },
+    {
+      "Id": "cfa6c079-e0e6-447b-8760-d809f038babf",
+      "Email": "Lavrentii93@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Анатолий",
+      "LastName": "Фомина",
+      "DateOfBirth": "1973-07-14T09:38:12.3204394+06:00"
+    },
+    {
+      "Id": "c1d54d13-5292-4872-83f6-e71ca9fa5f22",
+      "Email": "Lyubov_Nikitina41@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Валентина",
+      "LastName": "Федотова",
+      "DateOfBirth": "1962-12-14T03:28:37.3298303+06:00"
+    },
+    {
+      "Id": "9d1cfd82-b46a-476f-b7d8-6efb1ed9d39c",
+      "Email": "Anzhela_Kondratev@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Илья",
+      "LastName": "Одинцов",
+      "DateOfBirth": "1989-04-04T01:46:18.6314869+06:00"
+    },
+    {
+      "Id": "f1a60313-0bca-4dd7-b822-357ee816f602",
+      "Email": "Ekaterina.Uvarova7@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Григорий",
+      "LastName": "Белозерова",
+      "DateOfBirth": "1976-09-16T01:12:11.7269246+06:00"
+    },
+    {
+      "Id": "55ee0256-1479-472c-a69a-e9437a8fd21c",
+      "Email": "Vladimir_Ignatova@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Алексей",
+      "LastName": "Антонова",
+      "DateOfBirth": "1996-12-04T02:40:12.5056134+06:00"
+    },
+    {
+      "Id": "5afbba3f-1438-4e23-b3d4-e9c2216f735a",
+      "Email": "Dmitrii53@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Василиса",
+      "LastName": "Михайлов",
+      "DateOfBirth": "1977-09-05T07:47:45.9528278+06:00"
+    },
+    {
+      "Id": "959ae4d2-f820-4277-86e8-6d67605edde6",
+      "Email": "Irina_Grigoreva@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Арина",
+      "LastName": "Устинова",
+      "DateOfBirth": "2003-01-29T03:11:04.5152524+06:00"
+    },
+    {
+      "Id": "14fbafb1-463c-42ff-8de5-5ab581e8ccd6",
+      "Email": "Stanislav76@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Аркадий",
+      "LastName": "Князева",
+      "DateOfBirth": "1989-07-19T05:46:10.7370015+06:00"
+    },
+    {
+      "Id": "956f9e7e-1092-433d-a90f-6b71fd517af1",
+      "Email": "Artyom3@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Виктория",
+      "LastName": "Тарасова",
+      "DateOfBirth": "2000-11-08T04:33:15.955343+06:00"
+    },
+    {
+      "Id": "d7917981-b601-414a-90a3-fb2b00647326",
+      "Email": "Anzhelika_Kostin@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Виктор",
+      "LastName": "Кириллова",
+      "DateOfBirth": "1965-08-15T17:00:39.1940506+06:00"
+    },
+    {
+      "Id": "776ea1b8-7de7-45e4-9130-826dc3ad52eb",
+      "Email": "Evgenii.Noskov85@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Тамара",
+      "LastName": "Колобов",
+      "DateOfBirth": "1981-08-05T12:51:47.8200363+06:00"
+    },
+    {
+      "Id": "5671e6b2-46a4-49cc-8a3e-a9e9f4f0a9c4",
+      "Email": "Arkadii.Vasileva@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Альберт",
+      "LastName": "Мельников",
+      "DateOfBirth": "1964-05-13T14:56:40.8540764+06:00"
+    },
+    {
+      "Id": "d56e64f6-3ed1-4e20-8e15-2d81d44d8457",
+      "Email": "Lyudmila.Fedoseev@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Александра",
+      "LastName": "Тетерин",
+      "DateOfBirth": "1989-10-17T02:29:15.6645922+06:00"
+    },
+    {
+      "Id": "c4480139-438b-4bdf-9acd-584222568b89",
+      "Email": "Egor_Frolova89@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Юрий",
+      "LastName": "Силин",
+      "DateOfBirth": "1979-04-12T18:09:39.301647+06:00"
+    },
+    {
+      "Id": "8ce2fccd-5c07-494b-8878-b4b7905648c0",
+      "Email": "Albert17@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Ярослав",
+      "LastName": "Лазарев",
+      "DateOfBirth": "1987-07-24T02:09:48.026032+06:00"
+    },
+    {
+      "Id": "1e18d387-2c7c-4e8d-860e-aa42d6b3d888",
+      "Email": "Igor.Filippova@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Зинаида",
+      "LastName": "Гущина",
+      "DateOfBirth": "1961-02-05T09:42:28.9034309+06:00"
+    },
+    {
+      "Id": "29510756-1be4-4c31-bc7f-aa8245fdd055",
+      "Email": "Anzhela.Mukhin48@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Ульяна",
+      "LastName": "Макаров",
+      "DateOfBirth": "1962-05-26T06:55:25.1277044+06:00"
+    },
+    {
+      "Id": "30b90407-a8f4-4854-9bfb-1dd782d3fad3",
+      "Email": "Boris_Chernova32@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Михаил",
+      "LastName": "Калинина",
+      "DateOfBirth": "2006-08-29T14:51:02.5018804+06:00"
+    },
+    {
+      "Id": "d4f51c36-e8a1-4991-9968-ed086a131c42",
+      "Email": "Tamara.Shashkov@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Михаил",
+      "LastName": "Сысоев",
+      "DateOfBirth": "1997-03-11T00:44:56.8810973+06:00"
+    },
+    {
+      "Id": "d2603736-dcee-4878-9fb9-be833f7ad474",
+      "Email": "Fyodor_Uvarova@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Сергей",
+      "LastName": "Фомин",
+      "DateOfBirth": "1961-04-07T20:23:36.5735906+06:00"
+    },
+    {
+      "Id": "62accf52-657a-44fc-a2f3-a48f8dfe2601",
+      "Email": "Regina.Agafonov@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Алла",
+      "LastName": "Меркушева",
+      "DateOfBirth": "1998-01-29T03:52:13.7963848+06:00"
+    },
+    {
+      "Id": "c50fe02e-0e3d-4c07-a560-33338ba0ccca",
+      "Email": "Anatolii53@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Валентина",
+      "LastName": "Самойлов",
+      "DateOfBirth": "2001-07-07T16:06:04.0886256+06:00"
+    },
+    {
+      "Id": "b71d0dad-c4f2-4469-91da-c10b9382115a",
+      "Email": "Arina.Kabanov85@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Фёдор",
+      "LastName": "Бобылева",
+      "DateOfBirth": "1994-07-23T23:00:11.5817476+06:00"
+    },
+    {
+      "Id": "39ec1be2-b33c-44ae-9b53-8bbefffac8e5",
+      "Email": "Vladimir.Karpov11@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Борис",
+      "LastName": "Быкова",
+      "DateOfBirth": "1971-03-19T19:32:35.0854421+06:00"
+    },
+    {
+      "Id": "61317e7e-8105-4876-a127-9fa966a6021b",
+      "Email": "Zhanna.Kononova97@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Андрей",
+      "LastName": "Бирюков",
+      "DateOfBirth": "2001-11-25T07:22:52.3222608+06:00"
+    },
+    {
+      "Id": "52cff1b4-e5b6-4a5a-a96b-5debd5c6266f",
+      "Email": "Arsenii.Eliseeva@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Максим",
+      "LastName": "Никитина",
+      "DateOfBirth": "1991-11-01T09:13:34.5785343+06:00"
+    },
+    {
+      "Id": "e286cd8e-79d9-4280-8e97-247743985ac0",
+      "Email": "Mikhail_Ignatova@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Евгения",
+      "LastName": "Фролов",
+      "DateOfBirth": "1977-01-02T19:44:13.0957495+06:00"
+    },
+    {
+      "Id": "978b9a48-3a02-419e-be11-011188902e6c",
+      "Email": "Albert.Zinoveva10@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Егор",
+      "LastName": "Рогов",
+      "DateOfBirth": "2006-07-30T19:11:58.522052+06:00"
+    },
+    {
+      "Id": "19e4fa03-8217-4026-9666-453fec3e5e4f",
+      "Email": "Valentina.Nikitin28@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Таисия",
+      "LastName": "Шестаков",
+      "DateOfBirth": "1970-09-09T10:25:05.1658572+06:00"
+    },
+    {
+      "Id": "6d783856-f265-420e-90fa-ef5debf3bd73",
+      "Email": "Lyudmila15@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Ульяна",
+      "LastName": "Щербаков",
+      "DateOfBirth": "1978-03-16T21:21:40.7869606+06:00"
+    },
+    {
+      "Id": "b8621089-d969-47ce-ac19-ad8657597e4c",
+      "Email": "Darya90@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Никита",
+      "LastName": "Якушев",
+      "DateOfBirth": "1973-10-22T19:27:21.9292145+06:00"
+    },
+    {
+      "Id": "e18b7a44-0a35-40a6-b6d5-aa8ed20e6599",
+      "Email": "Vasilii.Golubev64@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Егор",
+      "LastName": "Моисеев",
+      "DateOfBirth": "1980-12-15T23:34:01.7658679+06:00"
+    },
+    {
+      "Id": "9862b885-70eb-4856-8b8a-ba1adbce5561",
+      "Email": "Vladimir.Ponomareva@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "София",
+      "LastName": "Кузнецова",
+      "DateOfBirth": "1998-08-14T04:07:25.006056+06:00"
+    },
+    {
+      "Id": "1eb88084-8fcb-4dd0-b144-e685015e1bf3",
+      "Email": "Klavdiya.Filippov@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Галина",
+      "LastName": "Николаева",
+      "DateOfBirth": "2000-02-26T00:54:07.6689613+06:00"
+    },
+    {
+      "Id": "36982db2-0493-442c-b0c8-a8ccd78d7538",
+      "Email": "Valentina_Molchanov70@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Людмила",
+      "LastName": "Осипов",
+      "DateOfBirth": "1988-01-21T01:38:57.2817762+06:00"
+    },
+    {
+      "Id": "f038db00-c413-4831-ba50-0936ea0ff502",
+      "Email": "Larisa.Maslova@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Валентин",
+      "LastName": "Королева",
+      "DateOfBirth": "1991-12-07T08:19:39.7840927+06:00"
+    },
+    {
+      "Id": "106d1992-9a97-4510-b914-7d8d62730ef8",
+      "Email": "Andrei68@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Елизавета",
+      "LastName": "Рыбаков",
+      "DateOfBirth": "1974-11-10T10:31:01.2318348+06:00"
+    },
+    {
+      "Id": "0c15a0b1-3490-4d5f-8826-f60702901ca7",
+      "Email": "Yurii50@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Владимир",
+      "LastName": "Одинцова",
+      "DateOfBirth": "2001-02-19T08:52:10.3687338+06:00"
+    },
+    {
+      "Id": "cc16369a-35be-4215-944c-f729a350a57b",
+      "Email": "Yurii_Turova@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Александра",
+      "LastName": "Дроздова",
+      "DateOfBirth": "1999-09-22T11:05:34.5109623+06:00"
+    },
+    {
+      "Id": "54c41e0d-39fa-4114-b44a-b504bdc6a048",
+      "Email": "Tatyana.Kudryashova@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Антон",
+      "LastName": "Гордеев",
+      "DateOfBirth": "1973-10-24T07:01:14.5244131+06:00"
+    },
+    {
+      "Id": "9d1e8e18-ce97-46ad-abd6-9f0ca285e424",
+      "Email": "Fyodor.Melnikov24@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Валентин",
+      "LastName": "Вишнякова",
+      "DateOfBirth": "1964-01-09T20:09:24.3084961+06:00"
+    },
+    {
+      "Id": "c734d7a2-7dae-47a5-b362-605dbc3fa2b1",
+      "Email": "Rimma34@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Ангелина",
+      "LastName": "Щербакова",
+      "DateOfBirth": "1964-02-04T11:17:20.1971928+06:00"
+    },
+    {
+      "Id": "42e16435-7830-4a85-95b3-3f1c87f59194",
+      "Email": "Rimma.Sharapova13@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Вера",
+      "LastName": "Юдина",
+      "DateOfBirth": "1993-07-12T15:27:01.9689684+06:00"
+    },
+    {
+      "Id": "107ca1fb-18c6-425b-a120-c46412eb60f7",
+      "Email": "Boris_Drozdov@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Иван",
+      "LastName": "Орехова",
+      "DateOfBirth": "1971-11-16T18:20:52.8541408+06:00"
+    },
+    {
+      "Id": "bb42eaeb-42ea-4137-bd93-2f3e21df090c",
+      "Email": "Andrei.Molchanova@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Анастасия",
+      "LastName": "Брагина",
+      "DateOfBirth": "1983-09-16T00:37:23.0318874+06:00"
+    },
+    {
+      "Id": "308c2a41-979f-4256-9301-62c26a3ab591",
+      "Email": "Denis.Prokhorov@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Антонина",
+      "LastName": "Пономарева",
+      "DateOfBirth": "2004-10-07T01:30:15.3738881+06:00"
+    },
+    {
+      "Id": "14aeb92b-a792-4174-a3a7-6e83fd52f316",
+      "Email": "Ivan.Savelev23@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Иван",
+      "LastName": "Бобров",
+      "DateOfBirth": "1979-11-02T06:55:13.4920808+06:00"
+    },
+    {
+      "Id": "5610d1ea-4a16-449a-a301-b2c726daea7f",
+      "Email": "Raisa_Makarova@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Лука",
+      "LastName": "Королева",
+      "DateOfBirth": "2004-01-23T01:02:24.8569443+06:00"
+    },
+    {
+      "Id": "eeffaaa3-d0f4-47e7-82ce-5878070527be",
+      "Email": "Artyom61@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Арсений",
+      "LastName": "Михеев",
+      "DateOfBirth": "2005-08-22T22:38:11.8080862+06:00"
+    },
+    {
+      "Id": "359de73e-a5bb-4af0-8849-1d030ed42f2e",
+      "Email": "Boris89@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Борис",
+      "LastName": "Голубев",
+      "DateOfBirth": "1980-11-05T15:49:03.0908591+06:00"
+    },
+    {
+      "Id": "bd3848d0-b384-46d5-b2e3-f14ecda5a175",
+      "Email": "Andrei.Maksimov@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Вячеслав",
+      "LastName": "Морозов",
+      "DateOfBirth": "1982-05-29T23:39:28.2145459+06:00"
+    },
+    {
+      "Id": "b8a1ade9-ad86-410e-9d94-aea944ec1e13",
+      "Email": "Evgeniya27@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Герман",
+      "LastName": "Блинова",
+      "DateOfBirth": "1961-08-02T03:41:27.079119+06:00"
+    },
+    {
+      "Id": "b02753ad-583b-4ac2-aebf-6aefccb568fc",
+      "Email": "Svetlana74@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Георгий",
+      "LastName": "Комиссарова",
+      "DateOfBirth": "1986-11-05T23:56:49.1759184+06:00"
+    },
+    {
+      "Id": "a1d5e9b2-68e6-4753-8195-0fea92adaed3",
+      "Email": "Aleksandr60@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Александра",
+      "LastName": "Попова",
+      "DateOfBirth": "1993-05-13T10:51:37.3812651+06:00"
+    },
+    {
+      "Id": "187419f5-d8c7-4e08-9d47-df979a402cb1",
+      "Email": "Vasilii.Vishnyakov68@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Алина",
+      "LastName": "Емельянова",
+      "DateOfBirth": "1988-01-19T20:24:13.0528735+06:00"
+    },
+    {
+      "Id": "1458e0ab-b518-4d8c-865f-03b735f28196",
+      "Email": "Boris43@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Семён",
+      "LastName": "Маслова",
+      "DateOfBirth": "1960-09-19T04:50:18.3631443+06:00"
+    },
+    {
+      "Id": "6230caf4-3817-43b9-9d5d-85c34240305b",
+      "Email": "Vadim_Arkhipov74@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Игнатий",
+      "LastName": "Рожкова",
+      "DateOfBirth": "1987-10-20T06:45:11.3670021+06:00"
+    },
+    {
+      "Id": "e399c8ca-c4c9-4425-b827-edf1deb23093",
+      "Email": "Mariya.Shubin51@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Роман",
+      "LastName": "Исакова",
+      "DateOfBirth": "1977-07-26T15:09:48.4817325+06:00"
+    },
+    {
+      "Id": "174d6934-b75c-46e3-90d6-1accbbf5ce3b",
+      "Email": "Klavdiya_Merkusheva15@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Денис",
+      "LastName": "Исакова",
+      "DateOfBirth": "1977-04-21T12:27:06.4880926+06:00"
+    },
+    {
+      "Id": "aa811c5f-94c0-44a0-a3cc-4826c798b397",
+      "Email": "Mikhail.Suvorov95@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Дмитрий",
+      "LastName": "Смирнова",
+      "DateOfBirth": "1967-06-04T16:16:10.2509721+06:00"
+    },
+    {
+      "Id": "013d58fd-a7dc-48cf-90ea-41dcb5ed6422",
+      "Email": "Zhanna84@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Илья",
+      "LastName": "Яковлев",
+      "DateOfBirth": "1988-02-09T17:44:43.6178927+06:00"
+    },
+    {
+      "Id": "b888a673-76d8-4c87-85f6-cb51715ae220",
+      "Email": "Alina91@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Вероника",
+      "LastName": "Веселова",
+      "DateOfBirth": "1995-12-17T14:18:33.4474484+06:00"
+    },
+    {
+      "Id": "b3a5512b-e9ae-4da8-aa15-4e33883fd934",
+      "Email": "Boris17@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Ксения",
+      "LastName": "Федорова",
+      "DateOfBirth": "2003-08-25T13:09:26.4640312+06:00"
+    },
+    {
+      "Id": "8e215dc4-8843-4c13-87e6-d7d8754d337f",
+      "Email": "Ulyana50@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Игорь",
+      "LastName": "Уварова",
+      "DateOfBirth": "2002-06-27T06:43:39.6393418+06:00"
+    },
+    {
+      "Id": "4a011778-3953-4cfc-b77b-6b842cef43d7",
+      "Email": "Raisa79@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Ксения",
+      "LastName": "Щукина",
+      "DateOfBirth": "1966-11-23T03:10:12.9818663+06:00"
+    },
+    {
+      "Id": "2924988b-0521-4d70-a525-3bbb4e0370e6",
+      "Email": "Mariya99@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Надежда",
+      "LastName": "Зиновьев",
+      "DateOfBirth": "1991-06-10T00:52:53.7251271+06:00"
+    },
+    {
+      "Id": "ed81d177-1c29-42d6-9807-ff49ab516c45",
+      "Email": "Anton16@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Елизавета",
+      "LastName": "Стрелков",
+      "DateOfBirth": "2001-03-25T14:05:44.3103393+06:00"
+    },
+    {
+      "Id": "7b9a366c-35e9-44e3-ab1f-b3d7b52190e7",
+      "Email": "Aleksandra31@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Ольга",
+      "LastName": "Маркова",
+      "DateOfBirth": "2001-02-05T18:01:48.4573+06:00"
+    },
+    {
+      "Id": "752a5933-8030-42de-ae67-3254facb4da2",
+      "Email": "Viktor15@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Никита",
+      "LastName": "Данилов",
+      "DateOfBirth": "1977-02-07T09:35:31.4289751+06:00"
+    },
+    {
+      "Id": "f15c1050-6d89-486d-9df3-75792dbc46e5",
+      "Email": "Marina_Voroncov86@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Римма",
+      "LastName": "Семенов",
+      "DateOfBirth": "1971-02-19T14:04:59.2805378+06:00"
+    },
+    {
+      "Id": "0cce4032-4120-415c-a7d8-0b3a10e4a8d0",
+      "Email": "Larisa.Konstantinova11@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Константин",
+      "LastName": "Доронин",
+      "DateOfBirth": "2001-03-04T20:33:12.6008006+06:00"
+    },
+    {
+      "Id": "cfc0680d-bdbd-4528-9069-84882ed04f44",
+      "Email": "Arkadii56@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Алина",
+      "LastName": "Аксенов",
+      "DateOfBirth": "2002-12-02T03:05:25.1328791+06:00"
+    },
+    {
+      "Id": "125ab753-c1a2-43ee-ae55-128d2a61beb7",
+      "Email": "Anzhelika.Orlov@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Анатолий",
+      "LastName": "Савельев",
+      "DateOfBirth": "1986-05-17T00:12:03.4483588+06:00"
+    },
+    {
+      "Id": "6340ac42-ed4d-4e53-93d6-7cab8427706f",
+      "Email": "Vera.Frolova54@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Марина",
+      "LastName": "Большакова",
+      "DateOfBirth": "1995-04-21T22:32:10.4805833+06:00"
+    },
+    {
+      "Id": "0e6027e8-a82b-4b08-ba74-9a2d5fa42991",
+      "Email": "Regina.Chernov@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Фёдор",
+      "LastName": "Козлов",
+      "DateOfBirth": "1966-11-02T06:58:15.8806536+06:00"
+    },
+    {
+      "Id": "9eebcfd4-9ffd-4ed5-8e5f-dd1ab9ee6239",
+      "Email": "Yurii_Muravev86@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Марина",
+      "LastName": "Никонов",
+      "DateOfBirth": "1990-06-21T09:50:29.8461749+06:00"
+    },
+    {
+      "Id": "0e528d8a-7653-4f13-9975-98fe6903afc3",
+      "Email": "Vladislav_Sherbakova@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Мария",
+      "LastName": "Красильников",
+      "DateOfBirth": "1970-07-02T04:54:37.8851649+06:00"
+    },
+    {
+      "Id": "8f14c073-2deb-4416-a234-9fdff527ce6f",
+      "Email": "Elizaveta47@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Николай",
+      "LastName": "Вишнякова",
+      "DateOfBirth": "1964-03-04T09:11:05.3747188+06:00"
+    },
+    {
+      "Id": "99b72321-b8d7-4fa5-acee-18e07f0c5246",
+      "Email": "Taisiya14@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Анна",
+      "LastName": "Морозова",
+      "DateOfBirth": "1984-11-24T02:36:54.6692777+06:00"
+    },
+    {
+      "Id": "0624a089-d14c-4dd7-803a-6d7b8e95fc23",
+      "Email": "Ivan91@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Алла",
+      "LastName": "Селиверстова",
+      "DateOfBirth": "1971-08-03T12:42:15.7358586+06:00"
+    },
+    {
+      "Id": "9f644acb-ecb8-4d93-81ad-4d1f729c344c",
+      "Email": "Antonina_Kalashnikov@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Василиса",
+      "LastName": "Исаков",
+      "DateOfBirth": "1987-03-05T04:48:28.542101+06:00"
+    },
+    {
+      "Id": "dc0b56f6-d99b-449f-a87e-3ec290bbdf4b",
+      "Email": "Viktoriya21@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Зоя",
+      "LastName": "Яковлева",
+      "DateOfBirth": "1963-10-23T02:14:14.5192329+06:00"
+    },
+    {
+      "Id": "2c8457bb-5495-4f64-b88a-74e9308fc1d2",
+      "Email": "Anzhela_Nesterov59@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Маргарита",
+      "LastName": "Зиновьева",
+      "DateOfBirth": "2005-11-07T03:00:00.8243569+06:00"
+    },
+    {
+      "Id": "e352bfe3-36bf-4a89-83c9-a8de04734026",
+      "Email": "Elena73@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Ульяна",
+      "LastName": "Веселов",
+      "DateOfBirth": "2004-04-16T17:08:17.0294302+06:00"
+    },
+    {
+      "Id": "d96c6b0a-ba63-4f15-a0af-ef9e9875b155",
+      "Email": "Rimma_Andreeva55@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Матвей",
+      "LastName": "Колесников",
+      "DateOfBirth": "1977-01-27T09:43:41.7321876+06:00"
+    },
+    {
+      "Id": "d5accc12-1289-46d7-8f4b-e5ddecf4c72a",
+      "Email": "Vasilii28@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Ксения",
+      "LastName": "Фролов",
+      "DateOfBirth": "1995-11-14T23:08:29.7565562+06:00"
+    },
+    {
+      "Id": "626bf6f1-23e6-4928-a7a9-f7f44e8e0021",
+      "Email": "Matvei_Korolev82@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Василиса",
+      "LastName": "Макаров",
+      "DateOfBirth": "2004-02-29T00:54:09.843919+06:00"
+    },
+    {
+      "Id": "1093d602-32e1-4cf6-ba39-603b19cbd409",
+      "Email": "Alevtina_Aveev6@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Татьяна",
+      "LastName": "Панова",
+      "DateOfBirth": "1963-03-07T06:39:11.3062593+06:00"
+    },
+    {
+      "Id": "6d3ffda8-cde4-4f48-a58e-82c5764cf1c7",
+      "Email": "Albert_Sitnikov@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Валерия",
+      "LastName": "Симонов",
+      "DateOfBirth": "1966-07-01T21:35:05.6319839+06:00"
+    },
+    {
+      "Id": "739233a0-ce70-4187-8459-1729abb0a632",
+      "Email": "Elizaveta.Mamontova15@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Юлия",
+      "LastName": "Жуков",
+      "DateOfBirth": "1979-12-14T13:18:56.9350217+06:00"
+    },
+    {
+      "Id": "dd01510b-0ff6-49b9-ba86-45ddf5286fde",
+      "Email": "Vasilii_Zakharova@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Ангелина",
+      "LastName": "Панов",
+      "DateOfBirth": "1997-07-14T17:29:53.2892533+06:00"
+    },
+    {
+      "Id": "601a7a9b-638f-4b16-a501-0adbb13067ce",
+      "Email": "Oksana_Lebeev@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Анатолий",
+      "LastName": "Блохина",
+      "DateOfBirth": "1984-02-12T06:05:22.2079278+06:00"
+    },
+    {
+      "Id": "50e6627c-46d6-4b96-887c-0258effc20f2",
+      "Email": "Alina26@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Оксана",
+      "LastName": "Кузнецова",
+      "DateOfBirth": "2002-07-20T12:46:17.0444757+06:00"
+    },
+    {
+      "Id": "32c42389-065d-439d-ab39-36e635c90f4a",
+      "Email": "Anton81@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Анна",
+      "LastName": "Белякова",
+      "DateOfBirth": "1975-11-26T09:39:10.3326859+06:00"
+    },
+    {
+      "Id": "1501be60-01af-4366-9eb6-88da226e84b0",
+      "Email": "Svetlana.Bykova87@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Михаил",
+      "LastName": "Антонов",
+      "DateOfBirth": "1975-09-07T20:15:12.7546394+06:00"
+    },
+    {
+      "Id": "b6bd4252-e72e-42e3-a2b4-4b2a792fb621",
+      "Email": "Ulyana.Voronov54@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Ангелина",
+      "LastName": "Коновалова",
+      "DateOfBirth": "1993-01-21T14:52:49.2482908+06:00"
+    },
+    {
+      "Id": "c83930c5-76b6-4aed-95df-5d986ac59790",
+      "Email": "Alina.Arkhipov75@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Лаврентий",
+      "LastName": "Терентьев",
+      "DateOfBirth": "1985-09-13T18:36:30.7518034+06:00"
+    },
+    {
+      "Id": "c3510f72-e5ba-41ee-a301-f5173a852f6d",
+      "Email": "Angelina78@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Елизавета",
+      "LastName": "Шарапова",
+      "DateOfBirth": "1974-10-13T07:21:08.9582221+06:00"
+    },
+    {
+      "Id": "e6e3d9af-0bf2-48bc-bdcd-f53569e08485",
+      "Email": "Antonina.Naumova@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Михаил",
+      "LastName": "Котова",
+      "DateOfBirth": "1997-12-09T16:25:53.3377077+06:00"
+    },
+    {
+      "Id": "358384f7-8c50-418d-969f-d7ae86fafc57",
+      "Email": "Dmitrii99@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Елизавета",
+      "LastName": "Яковлева",
+      "DateOfBirth": "1996-11-27T16:20:47.6502537+06:00"
+    },
+    {
+      "Id": "4a17edd3-86f2-48ed-aecc-4ab8639b055e",
+      "Email": "Egor94@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Валентин",
+      "LastName": "Субботин",
+      "DateOfBirth": "2003-09-05T04:34:18.9060657+06:00"
+    },
+    {
+      "Id": "2fa5a594-91e4-4084-98b1-d1c6a0a53482",
+      "Email": "Zoya_Ershov@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Аркадий",
+      "LastName": "Громов",
+      "DateOfBirth": "1976-04-08T15:20:15.3873596+06:00"
+    },
+    {
+      "Id": "d0a12cbc-6e18-41a9-9ac7-88475c562f19",
+      "Email": "Alevtina82@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Лидия",
+      "LastName": "Мельников",
+      "DateOfBirth": "1964-04-21T09:38:58.3395402+06:00"
+    },
+    {
+      "Id": "a4e52be4-d654-4fae-8896-8023c4c51282",
+      "Email": "Konstantin56@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Василиса",
+      "LastName": "Гордеева",
+      "DateOfBirth": "1988-08-23T12:23:19.7598882+06:00"
+    },
+    {
+      "Id": "7093a8b1-3181-41f5-b520-e78816979dff",
+      "Email": "Elizaveta_Sorokina6@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Вадим",
+      "LastName": "Кононов",
+      "DateOfBirth": "1962-04-13T19:02:10.6770121+06:00"
+    },
+    {
+      "Id": "a1e6d22e-efc3-4593-8a90-5e7900fff265",
+      "Email": "Aleksandra67@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Елена",
+      "LastName": "Мясников",
+      "DateOfBirth": "2004-02-13T03:40:13.6595098+06:00"
+    },
+    {
+      "Id": "cea6a23b-5120-439d-9462-84654d175199",
+      "Email": "Aleksandra96@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Екатерина",
+      "LastName": "Евдокимов",
+      "DateOfBirth": "1992-08-15T00:21:44.8444019+06:00"
+    },
+    {
+      "Id": "9b3ba66d-464a-4810-8980-f93b3ef5feb4",
+      "Email": "Matvei_Filippova4@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Лидия",
+      "LastName": "Герасимова",
+      "DateOfBirth": "1983-12-03T19:35:58.2589457+06:00"
+    },
+    {
+      "Id": "699e1299-1234-40a5-b2ad-51a6ba976355",
+      "Email": "Valeriya75@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Юлия",
+      "LastName": "Соболев",
+      "DateOfBirth": "1987-12-03T23:53:22.4838155+06:00"
+    },
+    {
+      "Id": "eefacbcc-bb70-4816-9747-d2e1052a6604",
+      "Email": "Anzhelika.Biryukov@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Георгий",
+      "LastName": "Тетерин",
+      "DateOfBirth": "1986-01-02T07:26:05.5306633+06:00"
+    },
+    {
+      "Id": "07613f97-2733-41cb-b197-d4abbd5bb166",
+      "Email": "Dmitrii46@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Светлана",
+      "LastName": "Фомичев",
+      "DateOfBirth": "1965-03-08T17:24:17.0073421+06:00"
+    },
+    {
+      "Id": "596f7fd2-7bb8-40fc-b8aa-1f667c8a3288",
+      "Email": "Ekaterina90@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Егор",
+      "LastName": "Петров",
+      "DateOfBirth": "1976-07-23T13:24:20.4393186+06:00"
+    },
+    {
+      "Id": "18591837-2ae8-412d-bba3-f5cb07b302d8",
+      "Email": "Anna.Safonov13@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Надежда",
+      "LastName": "Зиновьев",
+      "DateOfBirth": "1998-10-13T03:03:05.295479+06:00"
+    },
+    {
+      "Id": "0be1bb19-55f6-4528-a6ae-27fd518aef1a",
+      "Email": "Tamara.Aksenova68@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Илья",
+      "LastName": "Сорокин",
+      "DateOfBirth": "1965-05-13T11:52:53.7401759+06:00"
+    },
+    {
+      "Id": "ada8734c-b218-472e-b11f-7ab3d3f0d419",
+      "Email": "Egor.Sokolova13@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Анастасия",
+      "LastName": "Тихонов",
+      "DateOfBirth": "1969-05-25T16:47:21.1990952+06:00"
+    },
+    {
+      "Id": "0600d47a-4e04-4513-8660-0e756de5cf8b",
+      "Email": "Nikolai_Gushin@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Даниил",
+      "LastName": "Блохин",
+      "DateOfBirth": "1996-06-15T06:50:12.4270536+06:00"
+    },
+    {
+      "Id": "f3de9f15-bb2c-4d98-af8c-816c9acd1504",
+      "Email": "Aleksei88@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Жанна",
+      "LastName": "Щукина",
+      "DateOfBirth": "1988-12-30T07:18:43.2276747+06:00"
+    },
+    {
+      "Id": "f1f22343-916f-4ccd-b39b-d05600b8af1a",
+      "Email": "Lidiya_Prokhorova87@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Валерий",
+      "LastName": "Никонова",
+      "DateOfBirth": "2001-12-10T20:18:09.8959441+06:00"
+    },
+    {
+      "Id": "e8265fa6-4416-4e9b-8339-46ffaabbac7a",
+      "Email": "Naezhda_Gurev55@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Таисия",
+      "LastName": "Григорьев",
+      "DateOfBirth": "1983-04-13T03:10:40.9460577+06:00"
+    },
+    {
+      "Id": "0843db0b-04f0-43cc-98ec-430680b73340",
+      "Email": "Anzhelika30@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Матвей",
+      "LastName": "Гурьев",
+      "DateOfBirth": "1967-02-12T09:56:35.1043781+06:00"
+    },
+    {
+      "Id": "7fff9218-2898-459b-83e6-0a3e820fd706",
+      "Email": "Sofiya_Savin17@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Любовь",
+      "LastName": "Куликова",
+      "DateOfBirth": "1978-10-13T01:49:06.7876545+06:00"
+    },
+    {
+      "Id": "55b79156-359b-488e-99b4-08263cedddba",
+      "Email": "Alevtina.Potapov33@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Макар",
+      "LastName": "Игнатова",
+      "DateOfBirth": "1990-01-29T08:24:12.1092631+06:00"
+    },
+    {
+      "Id": "822254ae-e4df-4e11-a516-8fb6c8eba058",
+      "Email": "Irina_Grigoreva@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Анатолий",
+      "LastName": "Шашков",
+      "DateOfBirth": "1982-02-02T09:04:14.0043463+06:00"
+    },
+    {
+      "Id": "e4e3d4ec-0c60-44c4-b05b-6aecf7fb59a1",
+      "Email": "Denis.Ignatov@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Арсений",
+      "LastName": "Овчинникова",
+      "DateOfBirth": "1972-06-02T19:48:24.7583144+06:00"
+    },
+    {
+      "Id": "c810a686-a3b5-4bac-82ff-8230dbc843b8",
+      "Email": "Grigorii_Ustinov@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Геннадий",
+      "LastName": "Антонова",
+      "DateOfBirth": "1969-03-09T22:27:14.7980805+06:00"
+    },
+    {
+      "Id": "1322c2c6-cc8d-4639-9341-dda5e845cdee",
+      "Email": "Daniil67@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Анжела",
+      "LastName": "Никифорова",
+      "DateOfBirth": "1995-02-14T18:26:53.2744085+06:00"
+    },
+    {
+      "Id": "511ca212-2fa0-4bab-8a6f-7686bd371d3e",
+      "Email": "Denis.Kovalev60@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Виталий",
+      "LastName": "Попова",
+      "DateOfBirth": "2006-11-26T07:28:00.8087547+06:00"
+    },
+    {
+      "Id": "0d675e19-6f28-4cb0-85cb-bc2d828f196c",
+      "Email": "Klavdiya27@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Варвара",
+      "LastName": "Кошелев",
+      "DateOfBirth": "2006-12-15T04:37:14.5350214+06:00"
+    },
+    {
+      "Id": "5c49f995-7643-4c7a-9579-498200f35992",
+      "Email": "Anastasiya55@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Маргарита",
+      "LastName": "Трофимов",
+      "DateOfBirth": "1960-12-06T10:15:47.3300262+06:00"
+    },
+    {
+      "Id": "7c287655-0f49-4b2f-b6c3-27951f85d37d",
+      "Email": "Luka34@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Екатерина",
+      "LastName": "Савельев",
+      "DateOfBirth": "1983-10-23T00:28:43.1559123+06:00"
+    },
+    {
+      "Id": "e1d65a44-eea9-48fb-a747-b5306d259c37",
+      "Email": "Igor_Soloveva92@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Валерия",
+      "LastName": "Никонова",
+      "DateOfBirth": "1977-07-02T05:17:38.2894165+06:00"
+    },
+    {
+      "Id": "e34f69e8-78d8-4823-bc68-2059e299b86f",
+      "Email": "Boris37@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Игнатий",
+      "LastName": "Громова",
+      "DateOfBirth": "1979-06-03T04:58:04.7916611+06:00"
+    },
+    {
+      "Id": "aefda441-37a6-4d31-a194-06a065e8c474",
+      "Email": "Arkadii.Vinogradov@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Константин",
+      "LastName": "Харитонов",
+      "DateOfBirth": "1984-11-02T04:03:15.7604177+06:00"
+    },
+    {
+      "Id": "b88416e8-f068-42d3-be22-82595fe31de6",
+      "Email": "Marina42@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Роман",
+      "LastName": "Денисов",
+      "DateOfBirth": "1967-04-18T19:50:40.8305106+06:00"
+    },
+    {
+      "Id": "49baeb7e-96a3-4127-903d-a52a6d347a9b",
+      "Email": "Varvara_Belyaeva@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Антонина",
+      "LastName": "Сидоров",
+      "DateOfBirth": "2004-10-12T10:47:27.3054166+06:00"
+    },
+    {
+      "Id": "d8c29597-1b23-4b11-8d92-4fc03e8aba4e",
+      "Email": "Nina_Mukhina@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Вячеслав",
+      "LastName": "Стрелкова",
+      "DateOfBirth": "1975-10-06T06:17:09.3215654+06:00"
+    },
+    {
+      "Id": "1de26093-e16a-4135-b37b-68a7760296b6",
+      "Email": "Elizaveta_Kovalev65@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Ульяна",
+      "LastName": "Горшкова",
+      "DateOfBirth": "1973-01-11T18:21:16.9754453+06:00"
+    },
+    {
+      "Id": "d17bfc25-67aa-4abf-90d5-efe5e1624321",
+      "Email": "Artyom92@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Наталья",
+      "LastName": "Ларионов",
+      "DateOfBirth": "1977-11-29T03:21:12.4731342+06:00"
+    },
+    {
+      "Id": "b0ef3b91-5bf7-4618-ae40-3cc9efc378c7",
+      "Email": "Viktoriya.Ershov61@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Анфиса",
+      "LastName": "Фокин",
+      "DateOfBirth": "1964-10-24T00:10:58.8100782+06:00"
+    },
+    {
+      "Id": "1cb08f1c-34b9-40af-a907-ca20e01cd2aa",
+      "Email": "Egor_Osipova@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Даниил",
+      "LastName": "Степанов",
+      "DateOfBirth": "1987-05-13T16:08:36.1458507+06:00"
+    },
+    {
+      "Id": "413f6b3f-4de0-4277-bec4-5bae603c5225",
+      "Email": "Vyacheslav_Dementev78@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Герман",
+      "LastName": "Лазарева",
+      "DateOfBirth": "1973-07-28T18:02:05.9325782+06:00"
+    },
+    {
+      "Id": "5507653a-ecaa-4b65-ac82-8a102cf771d6",
+      "Email": "German94@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Игнатий",
+      "LastName": "Морозов",
+      "DateOfBirth": "1978-11-16T21:10:17.5341442+06:00"
+    },
+    {
+      "Id": "2bcd7e2c-dea0-4e5b-8418-f7a04d033fd5",
+      "Email": "Dmitrii93@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Олег",
+      "LastName": "Давыдова",
+      "DateOfBirth": "1966-02-17T16:58:08.1441065+06:00"
+    },
+    {
+      "Id": "ed908ce7-5ff9-4de2-84e1-c1eb817b028a",
+      "Email": "German20@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Владислав",
+      "LastName": "Гуляев",
+      "DateOfBirth": "1979-11-09T10:11:29.6626768+06:00"
+    },
+    {
+      "Id": "c6eebbef-3cd2-413c-9911-f6208a8645dc",
+      "Email": "Arsenii_Soboleva@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Владимир",
+      "LastName": "Вишнякова",
+      "DateOfBirth": "1975-07-13T04:43:42.9735276+06:00"
+    },
+    {
+      "Id": "e8d6f31d-2b72-43f5-b086-9d392e913331",
+      "Email": "Eduard.Novikov75@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Варвара",
+      "LastName": "Орлов",
+      "DateOfBirth": "1999-07-07T02:51:02.090464+06:00"
+    },
+    {
+      "Id": "4131e213-a85b-40ef-826b-838bfa1f747a",
+      "Email": "Egor63@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Алина",
+      "LastName": "Федосеев",
+      "DateOfBirth": "1965-03-23T06:23:54.9477678+06:00"
+    },
+    {
+      "Id": "8b4ac6b3-b148-443f-9990-71f09ab1edfb",
+      "Email": "Ekaterina_Egorova38@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Иван",
+      "LastName": "Федоров",
+      "DateOfBirth": "1962-07-02T16:18:41.1812199+06:00"
+    },
+    {
+      "Id": "0d202157-8a12-4185-8405-6349699e1cf5",
+      "Email": "Semyon10@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Эдуард",
+      "LastName": "Суханова",
+      "DateOfBirth": "1978-12-29T23:57:04.4519717+06:00"
+    },
+    {
+      "Id": "5bad74b3-8d71-458b-bd09-7e3daa6150d4",
+      "Email": "Kira92@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Анатолий",
+      "LastName": "Турова",
+      "DateOfBirth": "1961-08-10T17:00:50.8233492+06:00"
+    },
+    {
+      "Id": "02586645-5857-4701-b441-f703717445fc",
+      "Email": "Zhanna_Filatov92@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Анатолий",
+      "LastName": "Игнатов",
+      "DateOfBirth": "1997-02-18T18:10:36.081846+06:00"
+    },
+    {
+      "Id": "26654dc9-cf9e-414b-a6de-86565051103e",
+      "Email": "Sergei1@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Георгий",
+      "LastName": "Григорьев",
+      "DateOfBirth": "1979-06-03T10:44:46.2381135+06:00"
+    },
+    {
+      "Id": "7b281dad-4761-49ca-a9cb-32cdde997800",
+      "Email": "Daniil.Bragin34@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Алина",
+      "LastName": "Симонов",
+      "DateOfBirth": "1997-10-20T11:22:29.1566816+06:00"
+    },
+    {
+      "Id": "0e7a3d5a-88ba-4984-8cf4-ee579066e4b6",
+      "Email": "Vitalii.Strelkov85@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Юрий",
+      "LastName": "Васильева",
+      "DateOfBirth": "1991-10-21T18:44:14.4850286+06:00"
+    },
+    {
+      "Id": "989809ff-bd77-4580-a862-bd644f89476e",
+      "Email": "Yuliya30@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Зинаида",
+      "LastName": "Цветков",
+      "DateOfBirth": "1995-04-19T07:41:28.5933648+06:00"
+    },
+    {
+      "Id": "7ed8c04b-0396-414a-9b45-b797737c453b",
+      "Email": "Albert.Gushin@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Николай",
+      "LastName": "Блохина",
+      "DateOfBirth": "1994-06-28T14:20:53.1490107+06:00"
+    },
+    {
+      "Id": "16ca5178-da78-4a6b-ac45-81f286b0cc64",
+      "Email": "Gennadii_Belyakov83@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Артём",
+      "LastName": "Муравьева",
+      "DateOfBirth": "1977-06-08T11:03:30.5854014+06:00"
+    },
+    {
+      "Id": "751bc6b4-adee-4c2e-a44d-8491134b7e7c",
+      "Email": "Sergei_Samoilov5@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Василиса",
+      "LastName": "Тарасова",
+      "DateOfBirth": "1983-03-11T11:03:55.1527241+06:00"
+    },
+    {
+      "Id": "34a049f1-00d5-4bb4-99eb-4a2e6cbfb9e7",
+      "Email": "Vasilii73@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Валентин",
+      "LastName": "Никонов",
+      "DateOfBirth": "1972-06-16T20:46:53.2868181+06:00"
+    },
+    {
+      "Id": "31315798-75c4-460a-9f8c-3f2e6296b6ce",
+      "Email": "Nina.Kirillov@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Александр",
+      "LastName": "Михайлов",
+      "DateOfBirth": "1983-03-15T13:43:56.4769584+06:00"
+    },
+    {
+      "Id": "fab4a219-74ad-4a52-a0f6-0e661b8f58f8",
+      "Email": "Sofiya12@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Татьяна",
+      "LastName": "Фомин",
+      "DateOfBirth": "1966-04-07T17:03:40.5775646+06:00"
+    },
+    {
+      "Id": "ee4e5ac6-3330-46f0-9b6f-0cb675dfb4cd",
+      "Email": "Vitalii69@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Алексей",
+      "LastName": "Панфилов",
+      "DateOfBirth": "1967-05-11T16:53:04.3346705+06:00"
+    },
+    {
+      "Id": "aa992d8c-b526-4d9f-a53d-f003bd6ffe51",
+      "Email": "Aleksandra.Kryukova41@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Никита",
+      "LastName": "Тетерин",
+      "DateOfBirth": "1978-02-20T20:33:08.9258615+06:00"
+    },
+    {
+      "Id": "2bb65c26-ebae-4a5b-9395-42571c1dfc63",
+      "Email": "Antonina29@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Леонид",
+      "LastName": "Гаврилова",
+      "DateOfBirth": "1968-12-17T15:06:35.9392312+06:00"
+    },
+    {
+      "Id": "22f7b295-8395-4419-9c28-a91fbd30454e",
+      "Email": "Stepan.Ignatov@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Михаил",
+      "LastName": "Турова",
+      "DateOfBirth": "2005-06-29T21:13:14.6119965+06:00"
+    },
+    {
+      "Id": "f8d8c95b-75b6-46cc-beda-ebbbefc6ae5f",
+      "Email": "Anfisa_Subbotina86@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Владимир",
+      "LastName": "Емельянов",
+      "DateOfBirth": "1983-11-07T20:20:16.4157212+06:00"
+    },
+    {
+      "Id": "d7b541f2-6060-42a9-a78d-d5d4e292c2fd",
+      "Email": "Taisiya_Biryukov@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Людмила",
+      "LastName": "Тимофеев",
+      "DateOfBirth": "1986-11-19T22:52:16.1230118+06:00"
+    },
+    {
+      "Id": "06551f0a-238c-4520-b647-deaa99e36533",
+      "Email": "Vera_Nekrasova@yandex.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Арина",
+      "LastName": "Горшкова",
+      "DateOfBirth": "1963-12-04T20:31:38.456928+06:00"
+    },
+    {
+      "Id": "65c6d184-276f-4416-a64d-9392190a8b54",
+      "Email": "Oleg.Zhdanov15@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Роман",
+      "LastName": "Молчанов",
+      "DateOfBirth": "1983-11-01T23:05:03.6178715+06:00"
+    },
+    {
+      "Id": "94021b82-c4bb-49b4-94c3-4eb45836a920",
+      "Email": "Galina_Veselov@ya.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Алёна",
+      "LastName": "Николаева",
+      "DateOfBirth": "1983-05-11T00:54:14.900669+06:00"
+    },
+    {
+      "Id": "504f61f5-de28-4322-bdb0-6ee96de1735f",
+      "Email": "Marina65@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Роман",
+      "LastName": "Емельянова",
+      "DateOfBirth": "1992-03-30T19:16:29.7441562+06:00"
+    },
+    {
+      "Id": "a1ef8529-d0fa-4545-a347-55b51d7c180f",
+      "Email": "Oleg23@hotmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Игорь",
+      "LastName": "Блинов",
+      "DateOfBirth": "1993-08-06T08:00:56.258423+06:00"
+    },
+    {
+      "Id": "3160b4c2-f33b-4e6f-be21-61a7d336f514",
+      "Email": "Stepan67@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Игнатий",
+      "LastName": "Моисеева",
+      "DateOfBirth": "1963-07-20T15:38:03.6674684+06:00"
+    },
+    {
+      "Id": "d6c07e42-4101-4c83-8f36-1a57eb769cf8",
+      "Email": "Zinaida_Agafonova@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Евгения",
+      "LastName": "Дорофеева",
+      "DateOfBirth": "1972-07-27T06:30:09.6897815+06:00"
+    },
+    {
+      "Id": "2cd1dc6a-a04f-45b9-b633-9d59cca8e0e7",
+      "Email": "Mikhail90@yahoo.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Галина",
+      "LastName": "Лыткина",
+      "DateOfBirth": "1981-03-04T14:31:38.402949+06:00"
+    },
+    {
+      "Id": "db08b479-bd09-431d-a6e3-332892e073a2",
+      "Email": "Anfisa9@mail.ru",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Даниил",
+      "LastName": "Носова",
+      "DateOfBirth": "1981-05-28T05:27:23.8748863+06:00"
+    },
+    {
+      "Id": "9846b2eb-1827-4ee1-95dc-74915bc4d426",
+      "Email": "Irina.Grishin74@gmail.com",
+      "Phone": null,
+      "IsActive": false,
+      "FirstName": "Леонид",
+      "LastName": "Харитонов",
+      "DateOfBirth": "1979-06-06T17:03:04.8925206+06:00"
+    }
+  ],
+  "Managers": [
+    {
+      "Id": "7bc50719-9c5d-449d-a8fd-e2053e3b516b",
+      "UserId": "3160b4c2-f33b-4e6f-be21-61a7d336f514",
+      "EnterpriseIds": [
+        "3b841ad4-de61-4d73-a034-d11d9e74696d",
+        "96d54ef6-76be-49e2-83c6-6d0018e69122"
+      ]
+    },
+    {
+      "Id": "c4ef8bd8-790e-4d7e-8355-e8c06d856b6a",
+      "UserId": "d6c07e42-4101-4c83-8f36-1a57eb769cf8",
+      "EnterpriseIds": [
+        "9e414fc7-e934-449f-bdb6-0f6da20d6a91",
+        "7bd162d3-2759-487b-a21c-8d2463627672"
+      ]
+    },
+    {
+      "Id": "1e23e719-baa6-47b8-a5a4-d94aaec4ade3",
+      "UserId": "2cd1dc6a-a04f-45b9-b633-9d59cca8e0e7",
+      "EnterpriseIds": [
+        "5bcf6801-9e6c-4ab8-b708-a509f6512507",
+        "78bce5ee-6e77-4c33-9b4b-98ca0c65a611"
+      ]
+    },
+    {
+      "Id": "e3c3b72b-6e76-4c93-9601-059b27a9ae28",
+      "UserId": "db08b479-bd09-431d-a6e3-332892e073a2",
+      "EnterpriseIds": [
+        "908b0e1a-8af1-4279-9be8-e90750c1b924",
+        "98f470ab-8a17-4398-8f84-8a5b8d46e178"
+      ]
+    },
+    {
+      "Id": "fd61246b-d054-4c15-b317-b6c0879e8a2b",
+      "UserId": "9846b2eb-1827-4ee1-95dc-74915bc4d426",
+      "EnterpriseIds": [
+        "50cae016-c950-4cc8-8949-699c8fab5782",
+        "908b0e1a-8af1-4279-9be8-e90750c1b924",
+        "3c88402d-0b5f-4365-b71f-765bebb32022",
+        "98f470ab-8a17-4398-8f84-8a5b8d46e178"
+      ]
+    }
+  ]
+}

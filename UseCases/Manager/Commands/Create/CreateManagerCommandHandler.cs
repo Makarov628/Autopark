@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Autopark.UseCases.Manager.Commands.Create;
 
-internal class CreateManagerCommandHandler : IRequestHandler<CreateManagerCommand, Fin<LanguageExt.Unit>>
+internal class CreateManagerCommandHandler : IRequestHandler<CreateManagerCommand, Fin<int>>
 {
     private readonly AutoparkDbContext _dbContext;
 
@@ -21,19 +21,19 @@ internal class CreateManagerCommandHandler : IRequestHandler<CreateManagerComman
         _dbContext = dbContext;
     }
 
-    public async Task<Fin<LanguageExt.Unit>> Handle(CreateManagerCommand request, CancellationToken cancellationToken)
+    public async Task<Fin<int>> Handle(CreateManagerCommand request, CancellationToken cancellationToken)
     {
         var userId = UserId.Create(request.UserId);
         var user = await _dbContext.Users
             .Include(u => u.Roles)
             .FirstOrDefaultAsync(u => u.Id == userId, cancellationToken);
 
-        if (user == null)
+        if (user is null)
             return Error.New($"Пользователь с идентификатором '{userId.Value}' не существует");
 
         // Проверяем, есть ли уже ManagerEntity для этого пользователя
         var manager = await _dbContext.Managers.FirstOrDefaultAsync(m => m.UserId == userId, cancellationToken);
-        if (manager == null)
+        if (manager is null)
         {
             manager = new ManagerEntity
             {
@@ -68,6 +68,6 @@ internal class CreateManagerCommandHandler : IRequestHandler<CreateManagerComman
         }
 
         await _dbContext.SaveChangesAsync(cancellationToken);
-        return LanguageExt.Unit.Default;
+        return manager.Id.Value;
     }
 }
