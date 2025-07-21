@@ -11,7 +11,9 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authentication;
+using Octonica.ClickHouseClient;
+using NetTopologySuite.Geometries;
+using TimeZoneConverter;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,9 +48,13 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// Настройка JWT аутентификации
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-.AddJwtBearer(options =>
+// Настройка аутентификации
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
     {
@@ -71,19 +77,15 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 builder.Services.AddCors();
 
-builder.Services.AddDbContext<AutoparkDbContext>(options =>
-{
-    if (builder.Environment.IsEnvironment("Test"))
-    {
-        options.UseSqlite("DataSource=:memory:");
-        return;
-    }
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
-            sqlOptions =>
-            {
-                sqlOptions.EnableRetryOnFailure(maxRetryCount: 3, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
-            });
-});
+// Регистрация инфраструктуры (включая DbContext и все сервисы)
+builder.Services.AddInfrastructure(builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=Autopark.db");
+
+// Регистрация ClickHouse и GeometryFactory
+builder.Services.AddScoped<ClickHouseConnection>(_ =>
+    new ClickHouseConnection(builder.Configuration["ClickHouse:ConnectionString"])
+);
+builder.Services.AddSingleton<GeometryFactory>(_ =>
+    NetTopologySuite.NtsGeometryServices.Instance.CreateGeometryFactory(srid: 4326));
 
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(CreateVehicleCommand).Assembly));
 
@@ -92,17 +94,15 @@ builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof
 builder.Services.AddScoped<ICurrentUser, CurrentUser>();
 builder.Services.AddHttpContextAccessor();
 
-// Регистрация сервисов инфраструктуры
-builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
-builder.Services.AddScoped<IJwtService, JwtService>();
-builder.Services.AddScoped<IEmailService, EmailService>();
-builder.Services.AddScoped<IMessengerService, MessengerService>();
-builder.Services.AddScoped<ITokenGenerator, TokenGenerator>();
-builder.Services.AddScoped<IPushNotificationService, PushNotificationService>();
-builder.Services.AddScoped<ICaptchaService, CaptchaService>();
-
-// Добавляем контроллеры
-builder.Services.AddControllers();
+// Добавляем контроллеры и Razor Pages
+builder.Services.AddControllersWithViews()
+    .AddJsonOptions(options =>
+    {
+        // Настройка сериализации DateTimeOffset в ISO-8601 формате
+        options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
+        options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
+    });
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
@@ -117,8 +117,18 @@ app.UseMiddleware<JwtMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
 
+// Маршрутизация: сначала API контроллеры
 app.MapControllers();
-app.MapFallbackToFile("index.html");
+
+// Затем Razor Pages (кабинет менеджера)
+app.MapRazorPages();
+
+// // React приложение доступно по пути /app
+// app.MapFallbackToFile("/app", "index.html");
+// app.MapFallbackToFile("/app/{*path}", "index.html");
+
+// // И только потом React приложение для всех остальных маршрутов (если нужно)
+// app.MapFallbackToFile("index.html");
 
 app.UseSwagger();
 app.UseSwaggerUI();

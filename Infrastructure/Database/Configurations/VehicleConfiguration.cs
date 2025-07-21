@@ -78,6 +78,12 @@ public class VehicleConfiguration : IEntityTypeConfiguration<VehicleEntity>
                 activeDriverId => activeDriverId == null ? null : (int?)activeDriverId.Value,
                 value => value.HasValue ? DriverId.Create(value.Value) : null);
 
+        builder.Property(s => s.PurchaseDate)
+            .HasColumnType("datetime2(7)")
+            .HasConversion(
+                purchaseDate => purchaseDate.HasValue ? purchaseDate.Value.UtcDateTime : (DateTime?)null,
+                value => value.HasValue ? new DateTimeOffset(value.Value, TimeSpan.Zero) : (DateTimeOffset?)null);
+
         builder.HasOne(s => s.BrandModel)
             .WithMany(s => s.Vehicles)
             .HasForeignKey(s => s.BrandModelId)

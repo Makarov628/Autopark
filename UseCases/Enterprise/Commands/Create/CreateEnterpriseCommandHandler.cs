@@ -41,7 +41,8 @@ internal class CreateEnterpriseCommandHandler : IRequestHandler<CreateEnterprise
 
         var enterprise = EnterpriseEntity.Create(
             name: name.Head(),
-            address: address
+            address: address,
+            timeZoneId: request.TimeZoneId
         );
 
         await _dbContext.Enterprises.AddAsync(enterprise, cancellationToken);

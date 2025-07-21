@@ -15,5 +15,6 @@ public record VehicleResponse(
     int BrandModelId,
     int EnterpriseId,
     int? ActiveDriverId,
+    DateTimeOffset? PurchaseDate,
     int[] DriverIds
 );

@@ -3,6 +3,7 @@ import Alert from '../components/ui/Alert';
 import Button from '../components/ui/Button';
 import Input from '../components/ui/Input';
 import LoadingSpinner from '../components/ui/LoadingSpinner';
+import Pagination from '../components/ui/Pagination';
 import Select from '../components/ui/Select';
 import apiService from '../services/apiService';
 
@@ -20,6 +21,14 @@ const DriversPage = () => {
   const [editingId, setEditingId] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(20);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
+  const [sortBy, setSortBy] = useState('id');
+  const [sortDirection, setSortDirection] = useState('asc');
+  const [filterEnterpriseId, setFilterEnterpriseId] = useState('');
+  const [filterSearch, setFilterSearch] = useState('');
 
   useEffect(() => {
     fetchDrivers();
@@ -28,15 +37,28 @@ const DriversPage = () => {
     fetchVehicles();
   }, []);
 
+  useEffect(() => {
+    fetchDrivers();
+  }, [page, pageSize, sortBy, sortDirection, filterEnterpriseId, filterSearch]);
+
   const fetchDrivers = async () => {
     try {
       setLoading(true);
-      const response = await apiService.get('/drivers');
-      if (!response.ok) {
-        throw new Error('Ошибка при загрузке водителей');
-      }
-      const data = await response.json();
-      setDrivers(data);
+      const response = await apiService.getDrivers({
+        page,
+        pageSize,
+        sortBy,
+        sortDirection,
+        enterpriseId: filterEnterpriseId || undefined,
+        search: filterSearch || undefined
+      });
+      if (!response.ok) throw new Error('Ошибка при загрузке водителей');
+      const responseData = await response.json();
+      setDrivers(responseData.items);
+      setPage(responseData.page);
+      setPageSize(responseData.pageSize);
+      setTotalPages(responseData.totalPages);
+      setTotalCount(responseData.totalCount);
     } catch (err) {
       setError('Ошибка при загрузке водителей');
     } finally {
@@ -51,7 +73,7 @@ const DriversPage = () => {
         throw new Error('Ошибка при загрузке предприятий');
       }
       const data = await response.json();
-      setEnterprises(data);
+      setEnterprises(data.items);
     } catch (err) {
       setError('Ошибка при загрузке предприятий');
     }
@@ -60,7 +82,7 @@ const DriversPage = () => {
   const fetchAvailableUsers = async () => {
     try {
       const users = await apiService.getUsersWithoutRole('Driver');
-      setAvailableUsers(users);
+      setAvailableUsers(users.items);
     } catch {
       setError('Ошибка при загрузке пользователей');
     }
@@ -71,7 +93,7 @@ const DriversPage = () => {
       const response = await apiService.get('/vehicles');
       if (!response.ok) throw new Error('Ошибка при загрузке автомобилей');
       const data = await response.json();
-      setVehicles(data);
+      setVehicles(data.items);
     } catch {
       setError('Ошибка при загрузке автомобилей');
     }
@@ -238,61 +260,101 @@ const DriversPage = () => {
         </div>
       </form>
 
-      <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-        <div className="px-6 py-4 border-b border-gray-700">
-          <h3 className="text-lg font-medium text-white">Список водителей</h3>
+      <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+          <div className="flex items-center space-x-2 mb-2 md:mb-0">
+            <span className="text-gray-300">Размер страницы:</span>
+            <Select
+              value={pageSize}
+              onChange={e => { setPageSize(Number(e.target.value)); setPage(1); }}
+              options={[{ value: 10, label: '10' }, { value: 20, label: '20' }, { value: 50, label: '50' }, { value: 100, label: '100' }]}
+              className="w-24"
+            />
+          </div>
+          <div className="text-gray-300">
+            Страница {page} из {totalPages} (всего {totalCount} водителей)
+          </div>
+        </div>
+        <div className="flex flex-col md:flex-row md:items-end md:space-x-4 mb-4">
+          <div className="mb-2 md:mb-0">
+            <Select
+              label="Фильтр по предприятию"
+              value={filterEnterpriseId}
+              onChange={e => { setFilterEnterpriseId(e.target.value); setPage(1); }}
+              options={[{ value: '', label: 'Все предприятия' }, ...enterprises.map(e => ({ value: e.id, label: e.name }))]}
+              className="w-56"
+            />
+          </div>
+          <div className="mb-2 md:mb-0">
+            <Input
+              label="Поиск по ФИО"
+              value={filterSearch}
+              onChange={e => { setFilterSearch(e.target.value); setPage(1); }}
+              className="w-56"
+              placeholder="Введите имя или фамилию..."
+            />
+          </div>
         </div>
         <div className="overflow-x-auto">
-          <table className="min-w-full">
-            <thead className="bg-gray-700">
+          <table className="min-w-full bg-gray-900 text-gray-200 rounded-lg">
+            <thead>
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">ID пользователя</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Имя</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Фамилия</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Автомобиль</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Предприятие</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Действия</th>
+                <th className="px-4 py-2 cursor-pointer" onClick={() => handleSort('lastName')}>Фамилия {renderSortIcon('lastName')}</th>
+                <th className="px-4 py-2 cursor-pointer" onClick={() => handleSort('firstName')}>Имя {renderSortIcon('firstName')}</th>
+                <th className="px-4 py-2 cursor-pointer" onClick={() => handleSort('salary')}>Зарплата {renderSortIcon('salary')}</th>
+                <th className="px-4 py-2">Предприятие</th>
+                <th className="px-4 py-2">Машина</th>
+                <th className="px-4 py-2">Действия</th>
               </tr>
             </thead>
-            <tbody className="bg-gray-800 divide-y divide-gray-700">
+            <tbody>
               {drivers.map(driver => (
-                <tr key={driver.id}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{driver.userId}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{driver.firstName}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{driver.lastName}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{
-                    driver.attachedVehicleId
-                      ? (vehicles.find(v => v.id === driver.attachedVehicleId)?.registrationNumber || driver.attachedVehicleId)
-                      : '—'
-                  }</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
-                    {enterprises.find(e => e.id === driver.enterpriseId)?.name || 'Неизвестно'}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handleEdit(driver)}
-                      className="mr-2"
-                    >
-                      Редактировать
-                    </Button>
-                    <Button
-                      variant="danger"
-                      size="sm"
-                      onClick={() => handleDelete(driver.id)}
-                    >
-                      Удалить
-                    </Button>
+                <tr key={driver.id} className="border-b border-gray-700">
+                  <td className="px-4 py-2">{driver.lastName}</td>
+                  <td className="px-4 py-2">{driver.firstName}</td>
+                  <td className="px-4 py-2">{driver.salary}</td>
+                  <td className="px-4 py-2">{getEnterpriseName(driver.enterpriseId)}</td>
+                  <td className="px-4 py-2">{getVehicleName(driver.attachedVehicleId)}</td>
+                  <td className="px-4 py-2">
+                    <Button size="sm" variant="secondary" onClick={() => handleEdit(driver)}>Редактировать</Button>
+                    <Button size="sm" variant="danger" onClick={() => handleDelete(driver.id)} className="ml-2">Удалить</Button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+        <div className="flex justify-between items-center mt-4">
+          <Pagination page={page} totalPages={totalPages} onPageChange={setPage} />
+        </div>
       </div>
     </div>
   );
+
+  function handleSort(field) {
+    if (sortBy === field) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortBy(field);
+      setSortDirection('asc');
+    }
+    setPage(1);
+  }
+
+  function renderSortIcon(field) {
+    if (sortBy !== field) return null;
+    return sortDirection === 'asc' ? ' ▲' : ' ▼';
+  }
+
+  function getEnterpriseName(id) {
+    const ent = enterprises.find(e => e.id === id);
+    return ent ? ent.name : '';
+  }
+
+  function getVehicleName(id) {
+    const veh = vehicles.find(v => v.id === id);
+    return veh ? veh.name : '';
+  }
 };
 
 export default DriversPage; 

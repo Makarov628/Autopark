@@ -1,0 +1,156 @@
+@page
+@model Autopark.Web.Pages.Manager.IndexModel
+@{
+    ViewData["Title"] = "Кабинет менеджера";
+    Layout = "_ManagerLayout";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="h3 mb-0">Панель управления менеджера</h1>
+                <div class="text-muted">
+                    <i class="fas fa-user-circle me-2"></i>
+                    <span>@Model.CurrentManagerName</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Статистика -->
+    <div class="row mb-4">
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Предприятия
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.EnterprisesCount</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-building fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Водители
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.DriversCount</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                Транспортные средства
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.VehiclesCount</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-truck fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Модели
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.BrandModelsCount</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-car fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Быстрые действия -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card shadow">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Быстрые действия</h6>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <a href="/Manager/Enterprises" class="btn btn-primary btn-block btn-lg">
+                                <i class="fas fa-building me-2"></i>
+                                Мои предприятия
+                            </a>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <a href="/Manager/Logout" class="btn btn-outline-secondary btn-block btn-lg">
+                                <i class="fas fa-sign-out-alt me-2"></i>
+                                Выйти из системы
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Информация о системе -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Информация о системе
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="text-primary">Добро пожаловать в кабинет менеджера!</h6>
+                            <p class="text-muted">
+                                Здесь вы можете управлять своими предприятиями, просматривать статистику
+                                и контролировать работу автопарка.
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-primary">Что вы можете делать:</h6>
+                            <ul class="text-muted">
+                                <li>Просматривать список ваших предприятий</li>
+                                <li>Управлять транспортными средствами</li>
+                                <li>Контролировать водителей</li>
+                                <li>Анализировать статистику</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

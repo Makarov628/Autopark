@@ -5,7 +5,6 @@ import useAuthStore from './stores/authStore';
 
 // Layout
 import Layout from './components/layout/Layout';
-
 // Components
 import InitialSetupCheck from './components/InitialSetupCheck';
 
@@ -44,6 +43,16 @@ const ProtectedRoute = ({ children }) => {
     return <Navigate to="/login" replace />;
   }
 
+  return children;
+};
+
+// Компонент для проверки роли менеджера
+const RequireManagerRole = ({ children }) => {
+  const { getUserFromToken } = useAuthStore();
+  const user = getUserFromToken();
+  // if (!user || !user.roles.includes('manager')) {
+  //   return <Navigate to="/" replace />;
+  // }
   return children;
 };
 
@@ -113,6 +122,23 @@ function App() {
               <Route path="managers" element={<ManagersPage />} />
               <Route path="users" element={<UsersPage />} />
             </Route>
+
+            {/* Manager routes */}
+            {/* <Route
+              path="/"
+              element={
+                <ProtectedRoute>
+                  <RequireManagerRole>
+                    <ManagerLayout />
+                  </RequireManagerRole>
+                </ProtectedRoute>
+              }
+            >
+              <Route index element={<ManagerDashboardPage />} />
+              <Route path="dashboard" element={<ManagerDashboardPage />} />
+              <Route path="enterprises" element={<ManagerEnterprisesPage />} />
+              <Route path="vehicles" element={<ManagerVehiclesPage />} />
+            </Route> */}
 
             {/* Catch all route */}
             <Route path="*" element={<Navigate to="/" replace />} />

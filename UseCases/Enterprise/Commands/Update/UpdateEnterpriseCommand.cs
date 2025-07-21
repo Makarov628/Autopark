@@ -7,5 +7,6 @@ namespace Autopark.UseCases.Enterprise.Commands.Update;
 public record UpdateEnterpriseCommand(
     int Id,
     string Name,
-    string Address
+    string Address,
+    string? TimeZone = null
 ) : IRequest<Fin<Unit>>;

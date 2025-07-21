@@ -51,6 +51,7 @@ internal class GetByIdEnterpriseQueryHandler : IRequestHandler<GetByIdEnterprise
             enterprise.Id.Value,
             enterprise.Name.Value,
             enterprise.Address,
+            enterprise.TimeZoneId,
             vehiclesIds.Select(v => v.Value).ToArray(),
             driversIds.Select(d => d.Value).ToArray(),
             managersIds.Select(m => m.Value.ToString()).ToArray()

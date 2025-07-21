@@ -1,0 +1,257 @@
+@page
+@model Autopark.Web.Pages.Manager.EnterprisesModel
+@{
+    ViewData["Title"] = "Мои предприятия";
+    Layout = "_ManagerLayout";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="h3 mb-0">
+                    <i class="fas fa-building me-2"></i>
+                    Мои предприятия
+                </h1>
+                <div class="text-muted">
+                    <i class="fas fa-user-circle me-2"></i>
+                    <span>@Model.CurrentManagerName</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i>
+            @Model.SuccessMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            @Model.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Статистика -->
+    <div class="row mb-4">
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Всего предприятий
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.Enterprises.Count</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-building fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Активные предприятия
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.ActiveEnterprisesCount</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-check-circle fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                Транспортных средств
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.TotalVehiclesCount</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-truck fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Водителей
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.TotalDriversCount</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Список предприятий -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow">
+                <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-list me-2"></i>
+                        Список предприятий
+                    </h6>
+                    <div>
+                        <button class="btn btn-sm btn-outline-secondary"
+                            onclick="exportToCSV('#enterprisesTable', 'enterprises.csv')">
+                            <i class="fas fa-download me-1"></i>
+                            Экспорт
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @if (Model.Enterprises.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover table-sortable" id="enterprisesTable">
+                                <thead>
+                                    <tr>
+                                        <th data-sort="name" style="cursor: pointer;">
+                                            <i class="fas fa-sort me-1"></i>Название
+                                        </th>
+                                        <th data-sort="address" style="cursor: pointer;">
+                                            <i class="fas fa-sort me-1"></i>Адрес
+                                        </th>
+                                        <th data-sort="timezone" style="cursor: pointer;">
+                                            <i class="fas fa-sort me-1"></i>Таймзона
+                                        </th>
+                                        <th data-sort="vehicles" style="cursor: pointer;">
+                                            <i class="fas fa-sort me-1"></i>Транспорт
+                                        </th>
+                                        <th data-sort="drivers" style="cursor: pointer;">
+                                            <i class="fas fa-sort me-1"></i>Водители
+                                        </th>
+                                        <th>Действия</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var enterprise in Model.Enterprises)
+                                    {
+                                        <tr>
+                                            <td data-name="@enterprise.Name">
+                                                <strong>@enterprise.Name</strong>
+                                            </td>
+                                            <td data-address="@enterprise.Address">
+                                                <i class="fas fa-map-marker-alt me-1 text-muted"></i>
+                                                @enterprise.Address
+                                            </td>
+                                            <td data-timezone="@(enterprise.TimeZoneId ?? "UTC")">
+                                                <i class="fas fa-clock me-1 text-muted"></i>
+                                                @(enterprise.TimeZoneId ?? "UTC")
+                                            </td>
+                                            <td data-vehicles="@enterprise.VehicleIds.Length">
+                                                <span class="badge bg-info">
+                                                    <i class="fas fa-truck me-1"></i>
+                                                    @enterprise.VehicleIds.Length
+                                                </span>
+                                            </td>
+                                            <td data-drivers="@enterprise.DriverIds.Length">
+                                                <span class="badge bg-success">
+                                                    <i class="fas fa-users me-1"></i>
+                                                    @enterprise.DriverIds.Length
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <div class="btn-group" role="group">
+                                                    <button type="button" class="btn btn-sm btn-outline-primary"
+                                                        data-bs-toggle="tooltip" title="Просмотр деталей"
+                                                        onclick="viewEnterpriseDetails(@enterprise.Id)">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-sm btn-outline-secondary"
+                                                        data-bs-toggle="tooltip" title="Редактировать"
+                                                        onclick="editEnterprise(@enterprise.Id)">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <i class="fas fa-building fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">Нет предприятий</h5>
+                            <p class="text-muted">У вас пока нет доступных предприятий.</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно для деталей предприятия -->
+<div class="modal fade" id="enterpriseDetailsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fas fa-building me-2"></i>
+                    Детали предприятия
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="enterpriseDetailsContent">
+                <!-- Контент будет загружен динамически -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function viewEnterpriseDetails(enterpriseId) {
+            // Загрузка деталей предприятия
+            loadData(`/Manager/EnterpriseDetails/${enterpriseId}`, '#enterpriseDetailsContent', 'Загрузка деталей...');
+
+            // Показ модального окна
+            const modal = new bootstrap.Modal(document.getElementById('enterpriseDetailsModal'));
+            modal.show();
+        }
+
+        function editEnterprise(enterpriseId) {
+            // Перенаправление на страницу редактирования
+            window.location.href = `/Manager/EnterpriseEdit/${enterpriseId}`;
+        }
+    </script>
+}

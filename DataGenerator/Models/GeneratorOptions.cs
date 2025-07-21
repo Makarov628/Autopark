@@ -37,6 +37,6 @@ public class GeneratorOptions
     [Option('m', "managers", Required = false, Default = 5, HelpText = "Количество менеджеров")]
     public int Managers { get; set; }
 
-    [Option('e', "enterprises-per-manager", Required = false, Default = 2, HelpText = "Среднее количество предприятий на менеджера")]
+    [Option('p', "enterprises-per-manager", Required = false, Default = 2, HelpText = "Среднее количество предприятий на менеджера")]
     public int EnterprisesPerManager { get; set; }
 }

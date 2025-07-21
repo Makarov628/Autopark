@@ -35,6 +35,7 @@ public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, LoginUs
         // 1. Находим пользователя по email
         var user = await _dbContext.Users
             .Include(u => u.Credentials)
+            .Include(u => u.Roles)
             .FirstOrDefaultAsync(u => u.Email == request.Email, cancellationToken);
 
         if (user == null)
@@ -89,7 +90,8 @@ public class LoginUserCommandHandler : IRequestHandler<LoginUserCommand, LoginUs
             DeviceId = device.Id.Value,
             Email = user.Email,
             FirstName = user.FirstName.Value,
-            LastName = user.LastName.Value
+            LastName = user.LastName.Value,
+            Roles = user.Roles.Select(r => r.Role).ToArray()
         };
     }
 }

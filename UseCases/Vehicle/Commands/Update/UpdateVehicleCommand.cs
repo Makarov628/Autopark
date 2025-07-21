@@ -12,5 +12,6 @@ public record UpdateVehicleCommand(
     string RegistrationNumber,
     int BrandModelId,
     int EnterpriseId,
-    int? ActiveDriverId
+    int? ActiveDriverId,
+    DateTimeOffset? PurchaseDate = null
 ) : IRequest<Fin<LanguageExt.Unit>>;

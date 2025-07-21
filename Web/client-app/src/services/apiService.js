@@ -152,11 +152,75 @@ class ApiService {
     return this.request(url, { method: 'PATCH', body: data });
   }
 
+  async getTimezones() {
+    const response = await this.get('/timezones');
+    if (!response.ok) throw new Error('Ошибка при загрузке таймзон');
+    return await response.json();
+  }
+
   // Получить пользователей без роли (например, Driver или Manager)
   async getUsersWithoutRole(role) {
     const response = await this.get(`/user/available?notHasRole=${role}`);
     if (!response.ok) throw new Error('Ошибка при загрузке пользователей');
-    return response.json();
+    return await response.json();
+  }
+
+  // Получить список машин с пагинацией и сортировкой
+  async getVehicles(params = {}) {
+    const query = new URLSearchParams(params).toString();
+    const response = await this.get(`/vehicles${query ? '?' + query : ''}`);
+    if (!response.ok) throw new Error('Ошибка при загрузке машин');
+    return response.json(); // { items, page, pageSize, totalPages, totalCount }
+  }
+
+  async getManagers(params = {}) {
+    const searchParams = new URLSearchParams();
+    Object.entries(params).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) {
+        searchParams.append(key, value);
+      }
+    });
+    return this.get(`/managers?${searchParams.toString()}`);
+  }
+
+  async getBrandModels(params = {}) {
+    const searchParams = new URLSearchParams();
+    Object.entries(params).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) {
+        searchParams.append(key, value);
+      }
+    });
+    return this.get(`/brandmodels?${searchParams.toString()}`);
+  }
+
+  async getDrivers(params = {}) {
+    const searchParams = new URLSearchParams();
+    Object.entries(params).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) {
+        searchParams.append(key, value);
+      }
+    });
+    return this.get(`/drivers?${searchParams.toString()}`);
+  }
+
+  async getEnterprises(params = {}) {
+    const searchParams = new URLSearchParams();
+    Object.entries(params).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) {
+        searchParams.append(key, value);
+      }
+    });
+    return this.get(`/enterprises?${searchParams.toString()}`);
+  }
+
+  async getUsers(params = {}) {
+    const searchParams = new URLSearchParams();
+    Object.entries(params).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) {
+        searchParams.append(key, value);
+      }
+    });
+    return this.get(`/user?${searchParams.toString()}`);
   }
 }
 

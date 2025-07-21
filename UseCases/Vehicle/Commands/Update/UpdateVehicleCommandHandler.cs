@@ -77,7 +77,8 @@ internal class UpdateVehicleCommandHandler : IRequestHandler<UpdateVehicleComman
             registrationNumber.Head(),
             brandModelId,
             enterpriseId,
-            driverId);
+            driverId,
+            request.PurchaseDate);
 
         // Получаем машину с отслеживанием для обновления
         var trackedVehicle = await _dbContext.Vehicles.FirstOrDefaultAsync(v => v.Id == vehicleId, cancellationToken);
@@ -93,7 +94,8 @@ internal class UpdateVehicleCommandHandler : IRequestHandler<UpdateVehicleComman
             registrationNumber.Head(),
             brandModelId,
             enterpriseId,
-            driverId);
+            driverId,
+            request.PurchaseDate);
 
         await _dbContext.SaveChangesAsync(cancellationToken);
 

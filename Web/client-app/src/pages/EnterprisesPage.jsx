@@ -3,6 +3,9 @@ import Alert from '../components/ui/Alert';
 import Button from '../components/ui/Button';
 import Input from '../components/ui/Input';
 import LoadingSpinner from '../components/ui/LoadingSpinner';
+import Pagination from '../components/ui/Pagination';
+import Select from '../components/ui/Select';
+import TimeZoneSelect from '../components/ui/TimeZoneSelect';
 import apiService from '../services/apiService';
 
 const EnterprisesPage = () => {
@@ -10,29 +13,57 @@ const EnterprisesPage = () => {
   const [formData, setFormData] = useState({
     name: '',
     address: '',
-    phone: ''
+    phone: '',
+    timeZone: ''
   });
   const [editingId, setEditingId] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(20);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
+  const [sortBy, setSortBy] = useState('id');
+  const [sortDirection, setSortDirection] = useState('asc');
+  const [filterSearch, setFilterSearch] = useState('');
+  const [timeZones, setTimeZones] = useState([]);
 
   useEffect(() => {
     fetchEnterprises();
-  }, []);
+    fetchTimeZones();
+  }, [page, pageSize, sortBy, sortDirection, filterSearch]);
 
   const fetchEnterprises = async () => {
     try {
       setLoading(true);
-      const response = await apiService.get('/enterprises');
-      if (!response.ok) {
-        throw new Error('Ошибка при загрузке предприятий');
-      }
-      const data = await response.json();
-      setEnterprises(data);
-    } catch (err) {
+      const response = await apiService.getEnterprises({
+        page,
+        pageSize,
+        sortBy,
+        sortDirection,
+        search: filterSearch || undefined
+      });
+      if (!response.ok) throw new Error('Ошибка при загрузке предприятий');
+      const responseData = await response.json();
+      setEnterprises(responseData.items);
+      setPage(responseData.page);
+      setPageSize(responseData.pageSize);
+      setTotalPages(responseData.totalPages);
+      setTotalCount(responseData.totalCount);
+    } catch {
       setError('Ошибка при загрузке предприятий');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchTimeZones = async () => {
+    try {
+      const response = await apiService.getTimezones();
+      setTimeZones(response);
+    } catch (err) {
+      console.log(err)
+      setError('Ошибка при загрузке таймзон');
     }
   };
 
@@ -41,6 +72,13 @@ const EnterprisesPage = () => {
     setFormData(prev => ({
       ...prev,
       [name]: value
+    }));
+  };
+
+  const handleTimeZoneChange = (tz) => {
+    setFormData(prev => ({
+      ...prev,
+      timeZone: tz
     }));
   };
 
@@ -63,7 +101,8 @@ const EnterprisesPage = () => {
       setFormData({
         name: '',
         address: '',
-        phone: ''
+        phone: '',
+        timeZone: ''
       });
       setEditingId(null);
       await fetchEnterprises();
@@ -78,7 +117,8 @@ const EnterprisesPage = () => {
     setFormData({
       name: enterprise.name,
       address: enterprise.address,
-      phone: enterprise.phone
+      phone: enterprise.phone,
+      timeZone: enterprise.timeZoneId || ''
     });
     setEditingId(enterprise.id);
   };
@@ -140,13 +180,18 @@ const EnterprisesPage = () => {
             required
           />
 
-          <Input
+          {/* <Input
             label="Телефон"
             name="phone"
             type="tel"
             value={formData.phone}
             onChange={handleInputChange}
             required
+          /> */}
+          <TimeZoneSelect
+            value={formData.timeZone}
+            onChange={handleTimeZoneChange}
+            label="Таймзона предприятия"
           />
         </div>
 
@@ -166,7 +211,8 @@ const EnterprisesPage = () => {
                 setFormData({
                   name: '',
                   address: '',
-                  phone: ''
+                  phone: '',
+                  timeZone: ''
                 });
               }}
             >
@@ -176,51 +222,98 @@ const EnterprisesPage = () => {
         </div>
       </form>
 
-      <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-        <div className="px-6 py-4 border-b border-gray-700">
-          <h3 className="text-lg font-medium text-white">Список предприятий</h3>
+      <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+          <div className="flex items-center space-x-2 mb-2 md:mb-0">
+            <span className="text-gray-300">Размер страницы:</span>
+            <Select
+              value={pageSize}
+              onChange={e => { setPageSize(Number(e.target.value)); setPage(1); }}
+              options={[{ value: 10, label: '10' }, { value: 20, label: '20' }, { value: 50, label: '50' }, { value: 100, label: '100' }]}
+              className="w-24"
+            />
+          </div>
+          <div className="text-gray-300">
+            Страница {page} из {totalPages} (всего {totalCount} предприятий)
+          </div>
+        </div>
+        <div className="flex flex-col md:flex-row md:items-end md:space-x-4 mb-4">
+          <div className="mb-2 md:mb-0">
+            <Input
+              label="Поиск по названию или адресу"
+              value={filterSearch}
+              onChange={e => { setFilterSearch(e.target.value); setPage(1); }}
+              className="w-56"
+              placeholder="Введите название или адрес..."
+            />
+          </div>
         </div>
         <div className="overflow-x-auto">
-          <table className="min-w-full">
-            <thead className="bg-gray-700">
+          <table className="min-w-full bg-gray-900 text-gray-200 rounded-lg">
+            <thead>
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Название</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Адрес</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Телефон</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Действия</th>
+                <th className="px-4 py-2 cursor-pointer" onClick={() => handleSort('name')}>Название {renderSortIcon('name')}</th>
+                <th className="px-4 py-2 cursor-pointer" onClick={() => handleSort('address')}>Адрес {renderSortIcon('address')}</th>
+                <th className="px-4 py-2">Машин</th>
+                <th className="px-4 py-2">Водителей</th>
+                <th className="px-4 py-2">Время</th>
+                <th className="px-4 py-2">Действия</th>
               </tr>
             </thead>
-            <tbody className="bg-gray-800 divide-y divide-gray-700">
-              {enterprises.map(enterprise => (
-                <tr key={enterprise.id}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{enterprise.name}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{enterprise.address}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{enterprise.phone}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handleEdit(enterprise)}
-                      className="mr-2"
+            <tbody>
+              {enterprises.map(ent => (
+                <tr key={ent.id} className="border-b border-gray-700">
+                  <td className="px-4 py-2">{ent.name}</td>
+                  <td className="px-4 py-2">{ent.address}</td>
+                  <td className="px-4 py-2">{ent.vehicleIds?.length || 0}</td>
+                  <td className="px-4 py-2">{ent.driverIds?.length || 0}</td>
+                  <td className="px-4 py-2">
+                    {ent.timeZoneId
+                      ? (timeZones?.find(tz => tz.id === ent.timeZoneId)?.displayName || ent.timeZoneId)
+                      : 'UTC'}
+                  </td>
+                  <td className="px-4 py-2 space-x-2">
+                    <button
+                      className="text-blue-400 hover:underline mr-2"
+                      onClick={() => handleEdit(ent)}
+                      title="Редактировать"
                     >
-                      Редактировать
-                    </Button>
-                    <Button
-                      variant="danger"
-                      size="sm"
-                      onClick={() => handleDelete(enterprise.id)}
+                      ✏️
+                    </button>
+                    <button
+                      className="text-red-400 hover:underline"
+                      onClick={() => handleDelete(ent.id)}
+                      title="Удалить"
                     >
-                      Удалить
-                    </Button>
+                      🗑️
+                    </button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+        <div className="flex justify-between items-center mt-4">
+          <Pagination page={page} totalPages={totalPages} onPageChange={setPage} />
+        </div>
       </div>
     </div>
   );
+
+  function handleSort(field) {
+    if (sortBy === field) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortBy(field);
+      setSortDirection('asc');
+    }
+    setPage(1);
+  }
+
+  function renderSortIcon(field) {
+    if (sortBy !== field) return null;
+    return sortDirection === 'asc' ? ' ▲' : ' ▼';
+  }
 };
 
 export default EnterprisesPage; 

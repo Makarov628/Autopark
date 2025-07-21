@@ -17,6 +17,7 @@ public class EnterpriseEntity : Entity<EnterpriseId>
 
     public CyrillicString Name { get; protected set; }
     public string Address { get; protected set; }
+    public string? TimeZoneId { get; protected set; }
 
     public IReadOnlyList<VehicleEntity> Vehicles => _vehicles.AsReadOnly();
     public IReadOnlyList<DriverEntity> Drivers => _drivers.AsReadOnly();
@@ -25,35 +26,43 @@ public class EnterpriseEntity : Entity<EnterpriseId>
     private EnterpriseEntity(
         EnterpriseId id,
         CyrillicString name,
-        string address) : base(id)
+        string address,
+        string? timeZoneId) : base(id)
     {
         Name = name;
         Address = address;
+        TimeZoneId = timeZoneId;
     }
 
     public static EnterpriseEntity Create(
         CyrillicString name,
-        string address) =>
+        string address,
+        string? timeZoneId = null) =>
             Create(
                 EnterpriseId.Empty,
                 name,
-                address);
+                address,
+                timeZoneId);
 
     public static EnterpriseEntity Create(
         EnterpriseId id,
         CyrillicString name,
-        string address) =>
+        string address,
+        string? timeZoneId = null) =>
             new EnterpriseEntity(
                 id,
                 name,
-                address);
+                address,
+                timeZoneId);
 
     public void Update(
         CyrillicString name,
-        string address)
+        string address,
+        string? timeZoneId = null)
     {
         Name = name;
         Address = address;
+        TimeZoneId = timeZoneId;
     }
 
     protected EnterpriseEntity()

@@ -203,7 +203,7 @@ function BrandModel() {
             </tr>
           </thead>
           <tbody className="bg-gray-800 divide-y divide-gray-700">
-            {brandModels.map((bm) => (
+            {brandModels?.map((bm) => (
               <tr key={bm.id}>
                 <td className="px-6 py-4 whitespace-nowrap">{bm.id}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{bm.brandName}</td>

@@ -334,15 +334,22 @@ public class DataGeneratorService
                 RepeatPassword = "Password123!"
             };
 
-            var activateResult = await _mediator.Send(activateCommand);
-            if (activateResult)
+
+            try
             {
-                Console.WriteLine($"✅ Пользователь {user.Email} активирован");
+                var activateResult = await _mediator.Send(activateCommand);
+                if (activateResult)
+                {
+                    Console.WriteLine($"✅ Пользователь {user.Email} активирован");
+                }
             }
-            else
+            catch (System.Exception e)
             {
-                Console.WriteLine($"❌ Ошибка активации пользователя {user.Email}");
+
+                Console.WriteLine($"❌ Ошибка активации пользователя {user.Email}: {e.Message}");
+
             }
+
         }
 
         // 4. Импорт Enterprises
@@ -468,7 +475,7 @@ public class DataGeneratorService
 
         // 6.5. Получаем список всех водителей для создания маппинга
         Console.WriteLine("🔍 Получаем список водителей для создания маппинга...");
-        var getAllDriversQuery = new GetAllDriversQuery();
+        var getAllDriversQuery = new GetAllDriversQuery(1, 10000); // Получаем всех водителей
         var driversResult = await _mediator.Send(getAllDriversQuery);
 
         if (driversResult.IsFail)
@@ -478,7 +485,7 @@ public class DataGeneratorService
         }
 
         var drivers = driversResult.Match(
-            success => success,
+            success => success.Items, // Теперь возвращается PagedResult, берем Items
             failure => new List<DriversResponse>()
         );
         var driverIdMap = new Dictionary<string, int>();

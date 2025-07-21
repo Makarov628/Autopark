@@ -281,7 +281,7 @@ function VehiclePage() {
               required
             >
               <option value="">Выберите модель</option>
-              {brandModels.map(model => (
+              {brandModels?.map(model => (
                 <option key={model.id} value={model.id}>
                   {model.brandName} {model.modelName}
                 </option>

@@ -1,0 +1,233 @@
+@page "{id:int}"
+@model Autopark.Web.Pages.Manager.EnterpriseEditModel
+@{
+    ViewData["Title"] = "Редактирование предприятия";
+    Layout = "_ManagerLayout";
+}
+
+@functions {
+    public string TestMessage => "Razor работает!";
+}
+<div>@TestMessage</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="h3 mb-0">
+                    <i class="fas fa-edit me-2"></i>
+                    Редактирование предприятия
+                </h1>
+                <a href="/Manager/Enterprises" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-left me-1"></i>
+                    Назад к списку
+                </a>
+            </div>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            @Model.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card shadow">
+                <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-building me-2"></i>
+                        Информация о предприятии
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" asp-for="Enterprise.Id" />
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Enterprise.Name" class="form-label">
+                                        <i class="fas fa-building me-1"></i>
+                                        Название предприятия
+                                    </label>
+                                    <input asp-for="Enterprise.Name" class="form-control" required />
+                                    <span asp-validation-for="Enterprise.Name" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Model.Enterprise.Address" class="form-label">
+                                        <i class="fas fa-map-marker-alt me-1"></i>
+                                        Адрес
+                                    </label>
+                                    <input asp-for="Enterprise.Address" class="form-control" required />
+                                    <span asp-validation-for="Enterprise.Address" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Enterprise.TimeZoneId" class="form-label">
+                                <i class="fas fa-clock me-1"></i>
+                                Таймзона
+                            </label>
+                            <select asp-for="Enterprise.TimeZoneId" class="form-select" id="timeZoneSelect">
+                                <option value="">UTC (по умолчанию)</option>
+                                @foreach (var timeZone in Model.AvailableTimeZones)
+                                {
+                                    <option value="@timeZone.Id" data-offset="@timeZone.BaseUtcOffset.TotalHours"
+                                        @(Model.Enterprise.TimeZoneId == timeZone.Id ? "selected" : "")>
+                                        @timeZone.DisplayName (@timeZone.BaseUtcOffset.ToString(@"hh\:mm"))
+                                    </option>
+                                }
+                            </select>
+                            <div class="form-text">
+                                <i class="fas fa-info-circle me-1"></i>
+                                Таймзона используется для корректного отображения времени в системе
+                            </div>
+                            <span asp-validation-for="Enterprise.TimeZoneId" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-1"></i>
+                                Сохранить изменения
+                            </button>
+                            <a href="/Manager/Enterprises" class="btn btn-outline-secondary">
+                                <i class="fas fa-times me-1"></i>
+                                Отмена
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card shadow">
+                <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Информация
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <h6 class="text-muted">Текущая таймзона</h6>
+                        <p class="mb-0" id="currentTimeZoneInfo">
+                            @if (!string.IsNullOrEmpty(Model.Enterprise.TimeZoneId))
+                            {
+                                var timeZone = Model.AvailableTimeZones.FirstOrDefault(tz => tz.Id ==
+                                Model.Enterprise.TimeZoneId);
+                                if (timeZone != null)
+                                {
+                                    <span class="badge bg-info">
+                                        <i class="fas fa-clock me-1"></i>
+                                        @timeZone.DisplayName
+                                    </span>
+                                }
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">
+                                    <i class="fas fa-clock me-1"></i>
+                                    UTC
+                                </span>
+                            }
+                        </p>
+                    </div>
+
+                    <div class="mb-3">
+                        <h6 class="text-muted">Локальное время</h6>
+                        <p class="mb-0">
+                            <span class="badge bg-success">
+                                <i class="fas fa-calendar me-1"></i>
+                                <span id="localTime">@DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss")</span>
+                            </span>
+                        </p>
+                    </div>
+
+                    <div class="mb-3">
+                        <h6 class="text-muted">Время предприятия</h6>
+                        <p class="mb-0">
+                            <span class="badge bg-warning">
+                                <i class="fas fa-building me-1"></i>
+                                <span id="enterpriseTime">@DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss")</span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Обновление времени при изменении таймзоны
+        document.getElementById('timeZoneSelect').addEventListener('change', function () {
+            updateTimeZoneInfo();
+        });
+
+        function updateTimeZoneInfo() {
+            const select = document.getElementById('timeZoneSelect');
+            const selectedOption = select.options[select.selectedIndex];
+            const timeZoneId = select.value;
+
+            // Обновляем информацию о таймзоне
+            const timeZoneInfo = document.getElementById('currentTimeZoneInfo');
+            if (timeZoneId) {
+                timeZoneInfo.innerHTML = `<span class="badge bg-info"><i class="fas fa-clock me-1"></i>${selectedOption.text}</span>`;
+            } else {
+                timeZoneInfo.innerHTML = `<span class="badge bg-secondary"><i class="fas fa-clock me-1"></i>UTC</span>`;
+            }
+
+            // Обновляем время предприятия
+            updateEnterpriseTime();
+        }
+
+        function updateEnterpriseTime() {
+            const select = document.getElementById('timeZoneSelect');
+            const selectedOption = select.options[select.selectedIndex];
+            const offset = selectedOption.dataset.offset || 0;
+
+            const now = new Date();
+            const enterpriseTime = new Date(now.getTime() + (offset * 60 * 60 * 1000));
+
+            document.getElementById('enterpriseTime').textContent =
+                enterpriseTime.toLocaleString('ru-RU', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+        }
+
+        // Обновляем время каждую секунду
+        setInterval(function () {
+            const now = new Date();
+            document.getElementById('localTime').textContent =
+                now.toLocaleString('ru-RU', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+            updateEnterpriseTime();
+        }, 1000);
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function () {
+            updateTimeZoneInfo();
+        });
+    </script>
+}

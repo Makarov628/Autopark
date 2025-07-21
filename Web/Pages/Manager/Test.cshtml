@@ -1,0 +1,27 @@
+@page
+@model Autopark.Web.Pages.Manager.TestModel
+@{
+    ViewData["Title"] = "Тест";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Тест</title>
+</head>
+<body>
+    <h1>Тестовая страница</h1>
+    <p>Если вы видите эту страницу, значит Razor Pages работают.</p>
+    
+    <form method="post">
+        <input type="text" name="test" value="test" />
+        <button type="submit">Отправить</button>
+    </form>
+    
+    @if (Model.Message != null)
+    {
+                <p>Сообщение: @Model.Message</p>
+    }
+</body>
+</html> 

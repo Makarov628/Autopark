@@ -6,5 +6,6 @@ namespace Autopark.UseCases.Enterprise.Commands.Create;
 
 public record CreateEnterpriseCommand(
     string Name,
-    string Address
+    string Address,
+    string? TimeZoneId = null
 ) : IRequest<Fin<Unit>>;

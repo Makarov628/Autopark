@@ -117,6 +117,9 @@ namespace Autopark.Infrastructure.Database.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("TimeZoneId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
@@ -412,6 +415,9 @@ namespace Autopark.Infrastructure.Database.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("PurchaseDate")
+                        .HasColumnType("datetime2(7)");
 
                     b.Property<string>("RegistrationNumber")
                         .IsRequired()

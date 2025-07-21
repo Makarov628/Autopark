@@ -47,7 +47,8 @@ internal class UpdateEnterpriseCommandHandler : IRequestHandler<UpdateEnterprise
 
         enterprise.Update(
             name: name.Head(),
-            address: address
+            address: address,
+            timeZoneId: request.TimeZone
         );
 
         _dbContext.Enterprises.Attach(enterprise);

@@ -40,6 +40,12 @@ public class EnterpriseConfiguration : IEntityTypeConfiguration<EnterpriseEntity
                 address => address,
                 value => value);
 
+        builder.Property(s => s.TimeZoneId)
+            .ValueGeneratedNever()
+            .HasConversion(
+                timeZoneId => timeZoneId,
+                value => value);
+
         builder.HasMany(s => s.Vehicles)
             .WithOne(s => s.Enterprise)
             .HasForeignKey(s => s.EnterpriseId)

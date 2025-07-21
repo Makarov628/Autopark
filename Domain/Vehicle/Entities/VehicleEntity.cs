@@ -22,6 +22,7 @@ public class VehicleEntity : Entity<VehicleId>
     public Mileage MileageInKilometers { get; set; }
     public CyrillicString Color { get; protected set; }
     public RegistrationNumber RegistrationNumber { get; protected set; }
+    public DateTimeOffset? PurchaseDate { get; protected set; }
 
     public BrandModelId BrandModelId { get; protected set; }
     public BrandModelEntity BrandModel { get; protected set; }
@@ -41,7 +42,8 @@ public class VehicleEntity : Entity<VehicleId>
         CyrillicString color,
         RegistrationNumber registrationNumber,
         BrandModelId brandModelId,
-        EnterpriseId enterpriseId) : base(id)
+        EnterpriseId enterpriseId,
+        DateTimeOffset? purchaseDate = null) : base(id)
     {
         Name = name;
         Price = price;
@@ -50,6 +52,7 @@ public class VehicleEntity : Entity<VehicleId>
         RegistrationNumber = registrationNumber;
         BrandModelId = brandModelId;
         EnterpriseId = enterpriseId;
+        PurchaseDate = purchaseDate;
     }
 
     public static VehicleEntity Create(
@@ -59,7 +62,8 @@ public class VehicleEntity : Entity<VehicleId>
         CyrillicString color,
         RegistrationNumber registrationNumber,
         BrandModelId brandModelId,
-        EnterpriseId enterpriseId) =>
+        EnterpriseId enterpriseId,
+        DateTimeOffset? purchaseDate = null) =>
             Create(
                 VehicleId.Empty,
                 name,
@@ -68,7 +72,8 @@ public class VehicleEntity : Entity<VehicleId>
                 color,
                 registrationNumber,
                 brandModelId,
-                enterpriseId);
+                enterpriseId,
+                purchaseDate);
 
     public static VehicleEntity Create(
         VehicleId id,
@@ -78,7 +83,8 @@ public class VehicleEntity : Entity<VehicleId>
         CyrillicString color,
         RegistrationNumber registrationNumber,
         BrandModelId brandModelId,
-        EnterpriseId enterpriseId) =>
+        EnterpriseId enterpriseId,
+        DateTimeOffset? purchaseDate = null) =>
             new VehicleEntity(
                 id,
                 name,
@@ -87,7 +93,8 @@ public class VehicleEntity : Entity<VehicleId>
                 color,
                 registrationNumber,
                 brandModelId,
-                enterpriseId);
+                enterpriseId,
+                purchaseDate);
 
     // TODO: Temp method. Needs to decompose to separate methods
     public void Update(
@@ -98,7 +105,8 @@ public class VehicleEntity : Entity<VehicleId>
         RegistrationNumber registrationNumber,
         BrandModelId brandModelId,
         EnterpriseId enterpriseId,
-        DriverId? activeDriverId)
+        DriverId? activeDriverId,
+        DateTimeOffset? purchaseDate = null)
     {
         Name = name;
         Price = price;
@@ -108,6 +116,7 @@ public class VehicleEntity : Entity<VehicleId>
         BrandModelId = brandModelId;
         EnterpriseId = enterpriseId;
         ActiveDriverId = activeDriverId;
+        PurchaseDate = purchaseDate;
     }
 
     protected VehicleEntity()

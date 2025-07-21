@@ -10,6 +10,7 @@ public record EnterpriseResponse(
     int Id,
     string Name,
     string Address,
+    string? TimeZoneId,
     int[] VehicleIds,
     int[] DriverIds,
     string[] ManagerIds

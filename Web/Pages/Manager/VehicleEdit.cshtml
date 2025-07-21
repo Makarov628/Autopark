@@ -1,0 +1,295 @@
+@page "{id:int}"
+@model Autopark.Web.Pages.Manager.VehicleEditModel
+@{
+    ViewData["Title"] = "Редактирование автомобиля";
+    Layout = "_ManagerLayout";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="h3 mb-0">
+                    <i class="fas fa-edit me-2"></i>
+                    Редактирование автомобиля
+                </h1>
+                <a href="/Manager/Vehicles" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-left me-1"></i>
+                    Назад к списку
+                </a>
+            </div>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                @Model.ErrorMessage
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+    }
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card shadow">
+                <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-truck me-2"></i>
+                        Информация об автомобиле
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" asp-for="Vehicle.Id" />
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Vehicle.Name" class="form-label">
+                                        <i class="fas fa-truck me-1"></i>
+                                        Название автомобиля
+                                    </label>
+                                    <input asp-for="Vehicle.Name" class="form-control" required />
+                                    <span asp-validation-for="Vehicle.Name" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Vehicle.RegistrationNumber" class="form-label">
+                                        <i class="fas fa-hashtag me-1"></i>
+                                        Регистрационный номер
+                                    </label>
+                                    <input asp-for="Vehicle.RegistrationNumber" class="form-control" required />
+                                    <span asp-validation-for="Vehicle.RegistrationNumber" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Vehicle.Color" class="form-label">
+                                        <i class="fas fa-palette me-1"></i>
+                                        Цвет
+                                    </label>
+                                    <input asp-for="Vehicle.Color" class="form-control" required />
+                                    <span asp-validation-for="Vehicle.Color" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Vehicle.Price" class="form-label">
+                                        <i class="fas fa-ruble-sign me-1"></i>
+                                        Цена
+                                    </label>
+                                    <input asp-for="Vehicle.Price" type="number" step="0.01" class="form-control"
+                                        required />
+                                    <span asp-validation-for="Vehicle.Price" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Vehicle.MileageInKilometers" class="form-label">
+                                        <i class="fas fa-road me-1"></i>
+                                        Пробег (км)
+                                    </label>
+                                    <input asp-for="Vehicle.MileageInKilometers" type="number" step="0.1"
+                                        class="form-control" required />
+                                    <span asp-validation-for="Vehicle.MileageInKilometers" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Vehicle.EnterpriseId" class="form-label">
+                                        <i class="fas fa-building me-1"></i>
+                                        Предприятие
+                                    </label>
+                                    <select asp-for="Vehicle.EnterpriseId" class="form-select" required>
+                                        <option value="">Выберите предприятие</option>
+                                        @foreach (var enterprise in Model.Enterprises)
+                                        {
+                                                <option value="@enterprise.Id" @(Model.Vehicle.EnterpriseId == enterprise.Id ?
+                                                    "selected" : "")>
+                                            @enterprise.Name
+                                        </option>
+                                                                                                                                                                }
+                                    </select>
+                                    <span asp-validation-for="Vehicle.EnterpriseId" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Vehicle.BrandModelId" class="form-label">
+                                        <i class="fas fa-car me-1"></i>
+                                        Модель
+                                    </label>
+                                    <select asp-for="Vehicle.BrandModelId" class="form-select" required>
+                                        <option value="">Выберите модель</option>
+                                        @foreach (var brandModel in Model.BrandModels)
+                                        {
+                                                <option value="@brandModel.Id" @(Model.Vehicle.BrandModelId == brandModel.Id ?
+                                                    "selected" : "")>
+                                            @brandModel.BrandName @brandModel.ModelName
+                                        </option>
+                                                                                                                                                                }
+                                    </select>
+                                    <span asp-validation-for="Vehicle.BrandModelId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Vehicle.PurchaseDate" class="form-label">
+                                        <i class="fas fa-calendar me-1"></i>
+                                        Дата покупки
+                                    </label>
+                                    <input asp-for="Vehicle.PurchaseDate" type="datetime-local" class="form-control" />
+                                    <div class="form-text">
+                                        <i class="fas fa-info-circle me-1"></i>
+                                        Дата будет сохранена в UTC, но отображается в таймзоне предприятия
+                                    </div>
+                                    <span asp-validation-for="Vehicle.PurchaseDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Vehicle.ActiveDriverId" class="form-label">
+                                <i class="fas fa-user me-1"></i>
+                                Активный водитель
+                            </label>
+                            <select asp-for="Vehicle.ActiveDriverId" class="form-select">
+                                <option value="">Нет активного водителя</option>
+                                @foreach (var driver in Model.Drivers)
+                                {
+                                        <option value="@driver.Id" @(Model.Vehicle.ActiveDriverId == driver.Id ? "selected" :
+                                            "")>
+                                    @driver.FirstName @driver.LastName
+                                </option>
+                                                                                                                                }
+                            </select>
+                            <span asp-validation-for="Vehicle.ActiveDriverId" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-1"></i>
+                                Сохранить изменения
+                            </button>
+                            <a href="/Manager/Vehicles" class="btn btn-outline-secondary">
+                                <i class="fas fa-times me-1"></i>
+                                Отмена
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card shadow">
+                <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Информация
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <h6 class="text-muted">Текущее предприятие</h6>
+                        <p class="mb-0">
+                            @{
+                                    var currentEnterprise = Model.Enterprises.FirstOrDefault(e => e.Id ==
+                                    Model.Vehicle.EnterpriseId);
+                            }
+                            @if (currentEnterprise != null)
+                            {
+                                    <span class="badge bg-info">
+                                        <i class="fas fa-building me-1"></i>
+                                        @currentEnterprise.Name
+                                    </span>
+                                    <br>
+                                    <small class="text-muted">
+                                        <i class="fas fa-clock me-1"></i>
+                                        Таймзона: @(currentEnterprise.TimeZoneId ?? "UTC")
+                                    </small>
+                            }
+                            else
+                            {
+                                    <span class="text-muted">Не выбрано</span>
+                            }
+                        </p>
+                    </div>
+
+                    <div class="mb-3">
+                        <h6 class="text-muted">Дата покупки</h6>
+                        <p class="mb-0">
+                            @if (Model.Vehicle.PurchaseDate.HasValue)
+                            {
+                                    <span class="badge bg-success">
+                                        <i class="fas fa-calendar me-1"></i>
+                                        @Model.Vehicle.PurchaseDate.Value.ToString("dd.MM.yyyy HH:mm")
+                                    </span>
+                            }
+                            else
+                            {
+                                    <span class="text-muted">Не указана</span>
+                            }
+                        </p>
+                    </div>
+
+                    <div class="mb-3">
+                        <h6 class="text-muted">Активный водитель</h6>
+                        <p class="mb-0">
+                            @{
+                                    var activeDriver = Model.Drivers.FirstOrDefault(d => d.Id == Model.Vehicle.ActiveDriverId);
+                            }
+                            @if (activeDriver != null)
+                            {
+                                    <span class="badge bg-warning">
+                                        <i class="fas fa-user me-1"></i>
+                                        @activeDriver.FirstName @activeDriver.LastName
+                                    </span>
+                            }
+                            else
+                            {
+                                    <span class="text-muted">Не назначен</span>
+                            }
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+        <script>
+            // Обновление информации при изменении предприятия
+            document.getElementById('Vehicle_EnterpriseId').addEventListener('change', function () {
+                updateEnterpriseInfo();
+            });
+
+            function updateEnterpriseInfo() {
+                const enterpriseSelect = document.getElementById('Vehicle_EnterpriseId');
+                const selectedOption = enterpriseSelect.options[enterpriseSelect.selectedIndex];
+
+                if (selectedOption.value) {
+                    // В реальном приложении здесь можно загрузить информацию о предприятии через AJAX
+                    console.log('Выбрано предприятие:', selectedOption.text);
+                }
+            }
+
+            // Инициализация при загрузке страницы
+            document.addEventListener('DOMContentLoaded', function () {
+                updateEnterpriseInfo();
+            });
+        </script>
+}

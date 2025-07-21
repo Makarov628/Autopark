@@ -7,6 +7,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Autopark.UseCases.Common.Exceptions;
+using Autopark.UseCases.Common.Models;
 
 namespace Autopark.Web.Controllers;
 
@@ -24,9 +25,13 @@ public class DriversController : ControllerBase
 
     [HttpGet]
     [Authorize(Roles = "Admin,Manager,Driver")]
-    public async Task<ActionResult<List<DriversResponse>>> GetAll()
+    public async Task<ActionResult<PagedResult<DriversResponse>>> GetAll(
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 20,
+        [FromQuery] string? sortBy = null,
+        [FromQuery] string? sortDirection = null)
     {
-        var result = await _mediatr.Send(new GetAllDriversQuery(), HttpContext.RequestAborted);
+        var result = await _mediatr.Send(new GetAllDriversQuery(page, pageSize, sortBy, sortDirection), HttpContext.RequestAborted);
         return result.Match<ActionResult>(
             Ok,
             error => Problem(detail: error.Message, statusCode: 500));

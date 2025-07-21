@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import Alert from '../components/ui/Alert';
 import Button from '../components/ui/Button';
+import Input from '../components/ui/Input';
 import LoadingSpinner from '../components/ui/LoadingSpinner';
+import Pagination from '../components/ui/Pagination';
 import Select from '../components/ui/Select';
 import apiService from '../services/apiService';
 
@@ -17,20 +19,37 @@ const ManagersPage = () => {
   const [loading, setLoading] = useState(false);
   const [editingEnterprisesId, setEditingEnterprisesId] = useState(null);
   const [editingEnterpriseIds, setEditingEnterpriseIds] = useState([]);
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(20);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
+  const [sortBy, setSortBy] = useState('id');
+  const [sortDirection, setSortDirection] = useState('asc');
+  const [filterSearch, setFilterSearch] = useState('');
 
   useEffect(() => {
     fetchManagers();
     fetchEnterprises();
     fetchAvailableUsers();
-  }, []);
+  }, [page, pageSize, sortBy, sortDirection, filterSearch]);
 
   const fetchManagers = async () => {
     try {
       setLoading(true);
-      const response = await apiService.get('/managers');
+      const response = await apiService.getManagers({
+        page,
+        pageSize,
+        sortBy,
+        sortDirection,
+        search: filterSearch || undefined
+      });
       if (!response.ok) throw new Error('Ошибка при загрузке менеджеров');
-      const data = await response.json();
-      setManagers(data);
+      const responseData = await response.json();
+      setManagers(responseData.items);
+      setPage(responseData.page);
+      setPageSize(responseData.pageSize);
+      setTotalPages(responseData.totalPages);
+      setTotalCount(responseData.totalCount);
     } catch {
       setError('Ошибка при загрузке менеджеров');
     } finally {
@@ -43,7 +62,7 @@ const ManagersPage = () => {
       const response = await apiService.get('/enterprises');
       if (!response.ok) throw new Error('Ошибка при загрузке предприятий');
       const data = await response.json();
-      setEnterprises(data);
+      setEnterprises(data.items);
     } catch {
       setError('Ошибка при загрузке предприятий');
     }
@@ -52,7 +71,7 @@ const ManagersPage = () => {
   const fetchAvailableUsers = async () => {
     try {
       const users = await apiService.getUsersWithoutRole('Manager');
-      setAvailableUsers(users);
+      setAvailableUsers(users.items);
     } catch {
       setError('Ошибка при загрузке пользователей');
     }
@@ -167,76 +186,79 @@ const ManagersPage = () => {
           <Button type="submit" loading={loading}>Назначить</Button>
         </div>
       </form>
-      <div className="bg-gray-800 rounded-lg shadow-lg p-6">
-        <h2 className="text-xl font-semibold mb-4 text-white">Список менеджеров</h2>
-        <table className="min-w-full">
-          <thead>
-            <tr className="bg-gray-700">
-              <th className="px-4 py-2 text-left text-xs font-medium text-gray-400 uppercase">ID</th>
-              <th className="px-4 py-2 text-left text-xs font-medium text-gray-400 uppercase">Пользователь</th>
-              <th className="px-4 py-2 text-left text-xs font-medium text-gray-400 uppercase">Предприятия</th>
-              <th className="px-4 py-2 text-left text-xs font-medium text-gray-400 uppercase">Действия</th>
-            </tr>
-          </thead>
-          <tbody>
-            {managers.map(manager => (
-              <tr key={manager.id} className="border-b border-gray-700">
-                <td className="px-4 py-2 text-white">{manager.id}</td>
-                <td className="px-4 py-2 text-white">
-                  {manager.lastName} {manager.firstName} ({manager.email || manager.phone})
-                </td>
-                <td className="px-4 py-2 text-white">
-                  {editingEnterprisesId === manager.id ? (
-                    <select
-                      multiple
-                      value={editingEnterpriseIds}
-                      onChange={e => {
-                        const selected = Array.from(e.target.options).filter(o => o.selected).map(o => o.value);
-                        setEditingEnterpriseIds(selected);
-                      }}
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-200 leading-tight focus:outline-none focus:shadow-outline border-gray-600 bg-gray-900"
-                    >
-                      {enterprises.map(ent => (
-                        <option key={ent.id} value={ent.id}>{ent.name}</option>
-                      ))}
-                    </select>
-                  ) : (
-                    (manager.enterpriseIds || [])
-                      .map(eid => {
-                        const ent = enterprises.find(e => e.id === eid);
-                        return ent ? ent.name : eid;
-                      })
-                      .join(', ')
-                  )}
-                </td>
-                <td className="px-4 py-2 text-white space-x-2">
-                  {editingEnterprisesId === manager.id ? (
-                    <>
-                      <Button size="sm" onClick={() => handleSaveEnterprises(manager.id)}>
-                        Сохранить
-                      </Button>
-                      <Button size="sm" variant="secondary" onClick={() => setEditingEnterprisesId(null)}>
-                        Отмена
-                      </Button>
-                    </>
-                  ) : (
-                    <>
-                      <Button size="sm" variant="secondary" onClick={() => handleEditEnterprises(manager)}>
-                        Изменить предприятия
-                      </Button>
-                      <Button size="sm" variant="danger" onClick={() => handleDelete(manager.id)}>
-                        Удалить
-                      </Button>
-                    </>
-                  )}
-                </td>
+      <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+          <div className="flex items-center space-x-2 mb-2 md:mb-0">
+            <span className="text-gray-300">Размер страницы:</span>
+            <Select
+              value={pageSize}
+              onChange={e => { setPageSize(Number(e.target.value)); setPage(1); }}
+              options={[{ value: 10, label: '10' }, { value: 20, label: '20' }, { value: 50, label: '50' }, { value: 100, label: '100' }]}
+              className="w-24"
+            />
+          </div>
+          <div className="text-gray-300">
+            Страница {page} из {totalPages} (всего {totalCount} менеджеров)
+          </div>
+        </div>
+        <div className="flex flex-col md:flex-row md:items-end md:space-x-4 mb-4">
+          <div className="mb-2 md:mb-0">
+            <Input
+              label="Поиск по ФИО или email"
+              value={filterSearch}
+              onChange={e => { setFilterSearch(e.target.value); setPage(1); }}
+              className="w-56"
+              placeholder="Введите ФИО или email..."
+            />
+          </div>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="min-w-full bg-gray-900 text-gray-200 rounded-lg">
+            <thead>
+              <tr>
+                <th className="px-4 py-2 cursor-pointer" onClick={() => handleSort('lastName')}>Фамилия {renderSortIcon('lastName')}</th>
+                <th className="px-4 py-2 cursor-pointer" onClick={() => handleSort('firstName')}>Имя {renderSortIcon('firstName')}</th>
+                <th className="px-4 py-2 cursor-pointer" onClick={() => handleSort('email')}>Email {renderSortIcon('email')}</th>
+                <th className="px-4 py-2">Телефон</th>
+                <th className="px-4 py-2">Дата рождения</th>
+                <th className="px-4 py-2">Активен</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {managers.map(manager => (
+                <tr key={manager.id} className="border-b border-gray-700">
+                  <td className="px-4 py-2">{manager.lastName}</td>
+                  <td className="px-4 py-2">{manager.firstName}</td>
+                  <td className="px-4 py-2">{manager.email}</td>
+                  <td className="px-4 py-2">{manager.phone}</td>
+                  <td className="px-4 py-2">{manager.dateOfBirth ? new Date(manager.dateOfBirth).toLocaleDateString() : ''}</td>
+                  <td className="px-4 py-2">{manager.isActive ? 'Да' : 'Нет'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="flex justify-between items-center mt-4">
+          <Pagination page={page} totalPages={totalPages} onPageChange={setPage} />
+        </div>
       </div>
     </div>
   );
+
+  function handleSort(field) {
+    if (sortBy === field) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortBy(field);
+      setSortDirection('asc');
+    }
+    setPage(1);
+  }
+
+  function renderSortIcon(field) {
+    if (sortBy !== field) return null;
+    return sortDirection === 'asc' ? ' ▲' : ' ▼';
+  }
 };
 
 export default ManagersPage; 

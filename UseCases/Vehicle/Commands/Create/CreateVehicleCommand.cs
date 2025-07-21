@@ -11,5 +11,6 @@ public record CreateVehicleCommand(
     string Color,
     string RegistrationNumber,
     int BrandModelId,
-    int EnterpriseId
+    int EnterpriseId,
+    DateTimeOffset? PurchaseDate = null
 ) : IRequest<Fin<Unit>>;

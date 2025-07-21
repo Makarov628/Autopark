@@ -15,6 +15,7 @@ using GetByIdUser = Autopark.UseCases.User.Queries.GetById;
 using Autopark.Infrastructure.Database.Identity;
 using Autopark.Domain.User.Entities;
 using Autopark.UseCases.Common.Exceptions;
+using Autopark.UseCases.Common.Models;
 
 namespace Autopark.Web.Controllers;
 
@@ -175,9 +176,13 @@ public class UserController : ControllerBase
 
     [HttpGet]
     [Authorize(Roles = "Admin,Manager")]
-    public async Task<ActionResult<List<GetAllUser.UsersResponse>>> GetAll()
+    public async Task<ActionResult<PagedResult<GetAllUser.UsersResponse>>> GetAll(
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 20,
+        [FromQuery] string? sortBy = null,
+        [FromQuery] string? sortDirection = null)
     {
-        var result = await _mediatr.Send(new GetAllUserQuery(), HttpContext.RequestAborted);
+        var result = await _mediatr.Send(new GetAllUserQuery(null, page, pageSize, sortBy, sortDirection), HttpContext.RequestAborted);
         return result.Match<ActionResult>(
             Ok,
             error => Problem(detail: error.Message, statusCode: 500));

@@ -9,6 +9,7 @@ using GetAllManager = Autopark.UseCases.Manager.Queries.GetAll;
 using GetByIdManager = Autopark.UseCases.Manager.Queries.GetById;
 using Microsoft.AspNetCore.Authorization;
 using Autopark.UseCases.Common.Exceptions;
+using Autopark.UseCases.Common.Models;
 
 namespace Autopark.Web.Controllers;
 
@@ -26,9 +27,13 @@ public class ManagersController : ControllerBase
 
     [HttpGet]
     [Authorize(Roles = "Admin,Manager")]
-    public async Task<ActionResult<List<GetAllManager.ManagersResponse>>> GetAll()
+    public async Task<ActionResult<PagedResult<GetAllManager.ManagersResponse>>> GetAll(
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 20,
+        [FromQuery] string? sortBy = null,
+        [FromQuery] string? sortDirection = null)
     {
-        var result = await _mediatr.Send(new GetAllManagerQuery(), HttpContext.RequestAborted);
+        var result = await _mediatr.Send(new GetAllManagerQuery(page, pageSize, sortBy, sortDirection), HttpContext.RequestAborted);
         return result.Match<ActionResult>(
             Ok,
             error => Problem(detail: error.Message, statusCode: 500));

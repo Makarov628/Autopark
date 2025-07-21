@@ -65,7 +65,8 @@ internal class CreateVehicleCommandHandler : IRequestHandler<CreateVehicleComman
             color.Head(),
             registrationNumber.Head(),
             brandModelId,
-            enterpriseId
+            enterpriseId,
+            request.PurchaseDate
         );
 
         await _dbContext.Vehicles.AddAsync(vehicle, cancellationToken);

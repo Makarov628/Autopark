@@ -21,6 +21,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IPasswordHasher, PasswordHasher>();
         services.AddScoped<IPushNotificationService, PushNotificationService>();
         services.AddScoped<ITokenGenerator, TokenGenerator>();
+        services.AddScoped<ITimeZoneService, TimeZoneService>();
 
         return services;
     }
