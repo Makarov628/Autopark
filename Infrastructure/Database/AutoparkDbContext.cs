@@ -5,6 +5,7 @@ using Autopark.Domain.Enterprise.Entities;
 using Autopark.Domain.Vehicle.Entities;
 using Autopark.Infrastructure.Database.Configurations;
 using Autopark.Domain.User.Entities;
+using Autopark.Domain.Trip.Entities;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -28,6 +29,7 @@ public class AutoparkDbContext : DbContext
     public DbSet<UserRole> UserRoles { get; set; } = null!;
     public DbSet<Device> Devices { get; set; } = null!;
     public DbSet<ActivationToken> ActivationTokens { get; set; } = null!;
+    public DbSet<TripEntity> Trips { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -42,6 +44,7 @@ public class AutoparkDbContext : DbContext
         modelBuilder.ApplyConfiguration(new UserRoleConfiguration());
         modelBuilder.ApplyConfiguration(new DeviceConfiguration());
         modelBuilder.ApplyConfiguration(new ActivationTokenConfiguration());
+        modelBuilder.ApplyConfiguration(new TripConfiguration());
 
         base.OnModelCreating(modelBuilder);
     }

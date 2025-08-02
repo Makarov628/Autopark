@@ -1,0 +1,276 @@
+@page
+@model Autopark.Web.Pages.TrackVisualizationModel
+@{
+    ViewData["Title"] = "Визуализация треков";
+    Layout = "_ManagerLayout";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Параметры запроса</h5>
+                </div>
+                <div class="card-body">
+                    <form id="trackForm">
+                        <div class="mb-3">
+                            <label for="vehicleId" class="form-label">ID автомобиля</label>
+                            <input type="number" class="form-control" id="vehicleId" value="42" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fromDate" class="form-label">Начало периода</label>
+                            <input type="datetime-local" class="form-control" id="fromDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="toDate" class="form-label">Конец периода</label>
+                            <input type="datetime-local" class="form-control" id="toDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="timezone" class="form-label">Таймзона</label>
+                            <select class="form-control" id="timezone">
+                                <option value="UTC">UTC</option>
+                                <option value="Asia/Almaty" selected>Asia/Almaty</option>
+                                <option value="Europe/Moscow">Europe/Moscow</option>
+                                <option value="America/New_York">America/New_York</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Загрузить трек</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5>Статистика</h5>
+                </div>
+                <div class="card-body">
+                    <div id="stats">
+                        <p>Выберите параметры и загрузите трек</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Карта треков</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div id="map" style="height: 600px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        let map;
+        let trackLayers = [];
+
+        // Цвета для разных поездок
+        const colors = [
+            '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7',
+            '#DDA0DD', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E9'
+        ];
+
+        // Инициализация карты
+        function initMap() {
+            map = L.map('map').setView([43.2567, 76.9286], 12);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+        }
+
+        // Очистка предыдущих треков
+        function clearTracks() {
+            trackLayers.forEach(layer => map.removeLayer(layer));
+            trackLayers = [];
+        }
+
+        // Загрузка трека
+        async function loadTrack() {
+            const vehicleId = document.getElementById('vehicleId').value;
+            const fromDate = document.getElementById('fromDate').value;
+            const toDate = document.getElementById('toDate').value;
+            const timezone = document.getElementById('timezone').value;
+
+            if (!vehicleId || !fromDate || !toDate) {
+                alert('Заполните все обязательные поля');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/trips/${vehicleId}/track?from=${fromDate}&to=${toDate}&tz=${timezone}&format=json`);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                displayTrack(data);
+                displayStats(data);
+
+            } catch (error) {
+                console.error('Ошибка загрузки трека:', error);
+                alert('Ошибка загрузки трека: ' + error.message);
+            }
+        }
+
+        // Отображение трека на карте
+        function displayTrack(data) {
+            console.log(data)
+            clearTracks();
+
+            if (!data.trips || data.trips.length === 0) {
+                alert('Поездки не найдены в указанном диапазоне');
+                return;
+            }
+
+            // Группируем точки по поездкам
+            const tripPoints = {};
+            let pointIndex = 0;
+
+            data.trackPoints.forEach(point => {
+                // Находим, к какой поездке принадлежит точка
+                const trip = data.trips.find(t => {
+                    const pointTime = new Date(point.localTime);
+                    const tripStart = new Date(t.startUtc + 'Z');
+                    const tripEnd = new Date(t.endUtc + 'Z');
+                    return pointTime >= tripStart && pointTime <= tripEnd;
+                });
+
+                if (trip) {
+                    if (!tripPoints[trip.tripId]) {
+                        tripPoints[trip.tripId] = [];
+                    }
+                    tripPoints[trip.tripId].push([point.latitude, point.longitude]);
+                }
+            });
+            console.log(tripPoints)
+
+            // Рисуем треки для каждой поездки
+            Object.keys(tripPoints).forEach((tripId, index) => {
+                const points = tripPoints[tripId];
+                console.log(points);
+                const trip = data.trips.find(t => t.tripId == tripId);
+                const color = colors[index % colors.length];
+
+                if (points.length > 1) {
+                    const polyline = L.polyline(points, {
+                        color: color,
+                        weight: 4,
+                        opacity: 0.8
+                    }).addTo(map);
+
+                    // Добавляем маркеры начала и конца
+                    const startMarker = L.circleMarker(points[0], {
+                        radius: 8,
+                        fillColor: color,
+                        color: '#fff',
+                        weight: 2,
+                        opacity: 1,
+                        fillOpacity: 0.8
+                    }).addTo(map);
+
+                    const endMarker = L.circleMarker(points[points.length - 1], {
+                        radius: 8,
+                        fillColor: color,
+                        color: '#fff',
+                        weight: 2,
+                        opacity: 1,
+                        fillOpacity: 0.8
+                    }).addTo(map);
+
+                    // Добавляем popup с информацией о поездке
+                    const popupContent = `
+                                                                                    <b>Поездка #${tripId}</b><br>
+                                                                                    Начало: ${new Date(trip.startUtc).toLocaleString()}<br>
+                                                                                    Окончание: ${new Date(trip.endUtc).toLocaleString()}<br>
+                                                                                    Длительность: ${trip.durationMinutes} мин<br>
+                                                                                    Расстояние: ${trip.distanceKm?.toFixed(2) || 'N/A'} км
+                                                                                `;
+
+                    polyline.bindPopup(popupContent);
+                    startMarker.bindPopup(`<b>Начало поездки #${tripId}</b>`);
+                    endMarker.bindPopup(`<b>Конец поездки #${tripId}</b>`);
+
+                    trackLayers.push(polyline);
+                    trackLayers.push(startMarker);
+                    trackLayers.push(endMarker);
+                }
+            });
+
+
+            console.log(trackLayers)
+            // Подстраиваем карту под все треки
+            if (trackLayers.length > 0) {
+                const group = new L.featureGroup(trackLayers);
+                map.fitBounds(group.getBounds().pad(0.1));
+            }
+        }
+
+        // Отображение статистики
+        function displayStats(data) {
+            const statsDiv = document.getElementById('stats');
+
+            if (!data.trips || data.trips.length === 0) {
+                statsDiv.innerHTML = '<p>Поездки не найдены</p>';
+                return;
+            }
+
+            let html = `
+                                                                            <h6>Общая статистика:</h6>
+                                                                            <ul class="list-unstyled">
+                                                                                <li><strong>Количество поездок:</strong> ${data.trips.length}</li>
+                                                                                <li><strong>Общее время:</strong> ${data.totalDurationMinutes} мин</li>
+                                                                                <li><strong>Общее расстояние:</strong> ${data.totalDistanceKm.toFixed(2)} км</li>
+                                                                            </ul>
+                
+                                                                            <h6>Поездки:</h6>
+                                                                            <ul class="list-unstyled">
+                                                                        `;
+
+            data.trips.forEach((trip, index) => {
+                const color = colors[index % colors.length];
+                html += `
+                                                                                <li class="mb-2">
+                                                                                    <div style="display: flex; align-items: center;">
+                                                                                        <div style="width: 20px; height: 20px; background-color: ${color}; border-radius: 50%; margin-right: 10px;"></div>
+                                                                                        <div>
+                                                                                            <strong>Поездка #${trip.tripId}</strong><br>
+                                                                                            <small>${trip.durationMinutes} мин, ${trip.distanceKm?.toFixed(2) || 'N/A'} км</small>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </li>
+                                                                            `;
+            });
+
+            html += '</ul>';
+            statsDiv.innerHTML = html;
+        }
+
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', function () {
+            initMap();
+
+            // Устанавливаем значения по умолчанию
+            const now = new Date();
+            const yesterday = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+
+            document.getElementById('fromDate').value = yesterday.toISOString().slice(0, 16);
+            document.getElementById('toDate').value = now.toISOString().slice(0, 16);
+
+            // Обработчик формы
+            document.getElementById('trackForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                loadTrack();
+            });
+        });
+    </script>
+}

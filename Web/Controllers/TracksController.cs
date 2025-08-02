@@ -66,3 +66,24 @@ public sealed class TracksController : ControllerBase
             : Ok(list);
     }
 }
+public static class GeoJsonHelper
+{
+    public static object ToFeatureCollection(IEnumerable<TrackPoint> points)
+    {
+        var coords = points.Select(p => new[] { p.Longitude, p.Latitude });
+        return new
+        {
+            type = "FeatureCollection",
+            features = new[] {
+                new {
+                    type = "Feature",
+                    geometry = new {
+                        type  = "LineString",
+                        coordinates = coords
+                    },
+                    properties = new { }
+                }
+            }
+        };
+    }
+}
