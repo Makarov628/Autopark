@@ -139,9 +139,9 @@
             data.trackPoints.forEach(point => {
                 // Находим, к какой поездке принадлежит точка
                 const trip = data.trips.find(t => {
-                    const pointTime = new Date(point.localTime);
-                    const tripStart = new Date(t.startUtc + 'Z');
-                    const tripEnd = new Date(t.endUtc + 'Z');
+                    const pointTime = new Date(point.utcTime || point.UtcTime);
+                    const tripStart = new Date(t.startUtc);
+                    const tripEnd = new Date(t.endUtc);
                     return pointTime >= tripStart && pointTime <= tripEnd;
                 });
 
@@ -188,17 +188,21 @@
                     }).addTo(map);
 
                     // Добавляем popup с информацией о поездке
+                    const startAddress = trip.startPoint?.address || 'Адрес не определен';
+                    const endAddress = trip.endPoint?.address || 'Адрес не определен';
                     const popupContent = `
-                                                                                    <b>Поездка #${tripId}</b><br>
-                                                                                    Начало: ${new Date(trip.startUtc).toLocaleString()}<br>
-                                                                                    Окончание: ${new Date(trip.endUtc).toLocaleString()}<br>
-                                                                                    Длительность: ${trip.durationMinutes} мин<br>
-                                                                                    Расстояние: ${trip.distanceKm?.toFixed(2) || 'N/A'} км
-                                                                                `;
+                                                                                                                    <b>Поездка #${tripId}</b><br>
+                                                                                                                    <strong>Начало:</strong> ${new Date(trip.startUtc).toLocaleString()}<br>
+                                                                                                                    <em>${startAddress}</em><br><br>
+                                                                                                                    <strong>Окончание:</strong> ${new Date(trip.endUtc).toLocaleString()}<br>
+                                                                                                                    <em>${endAddress}</em><br><br>
+                                                                                                                    <strong>Длительность:</strong> ${trip.durationMinutes} мин<br>
+                                                                                                                    <strong>Расстояние:</strong> ${trip.distanceKm?.toFixed(2) || 'N/A'} км
+                                                                                                                `;
 
                     polyline.bindPopup(popupContent);
-                    startMarker.bindPopup(`<b>Начало поездки #${tripId}</b>`);
-                    endMarker.bindPopup(`<b>Конец поездки #${tripId}</b>`);
+                    startMarker.bindPopup(`<b>Начало поездки #${tripId}</b><br><em>${startAddress}</em>`);
+                    endMarker.bindPopup(`<b>Конец поездки #${tripId}</b><br><em>${endAddress}</em>`);
 
                     trackLayers.push(polyline);
                     trackLayers.push(startMarker);
@@ -225,30 +229,34 @@
             }
 
             let html = `
-                                                                            <h6>Общая статистика:</h6>
-                                                                            <ul class="list-unstyled">
-                                                                                <li><strong>Количество поездок:</strong> ${data.trips.length}</li>
-                                                                                <li><strong>Общее время:</strong> ${data.totalDurationMinutes} мин</li>
-                                                                                <li><strong>Общее расстояние:</strong> ${data.totalDistanceKm.toFixed(2)} км</li>
-                                                                            </ul>
+                                                                                                            <h6>Общая статистика:</h6>
+                                                                                                            <ul class="list-unstyled">
+                                                                                                                <li><strong>Количество поездок:</strong> ${data.trips.length}</li>
+                                                                                                                <li><strong>Общее время:</strong> ${data.totalDurationMinutes} мин</li>
+                                                                                                                <li><strong>Общее расстояние:</strong> ${data.totalDistanceKm.toFixed(2)} км</li>
+                                                                                                            </ul>
                 
-                                                                            <h6>Поездки:</h6>
-                                                                            <ul class="list-unstyled">
-                                                                        `;
+                                                                                                            <h6>Поездки:</h6>
+                                                                                                            <ul class="list-unstyled">
+                                                                                                        `;
 
             data.trips.forEach((trip, index) => {
                 const color = colors[index % colors.length];
+                const startAddress = trip.startPoint?.address || 'Адрес не определен';
+                const endAddress = trip.endPoint?.address || 'Адрес не определен';
                 html += `
-                                                                                <li class="mb-2">
-                                                                                    <div style="display: flex; align-items: center;">
-                                                                                        <div style="width: 20px; height: 20px; background-color: ${color}; border-radius: 50%; margin-right: 10px;"></div>
-                                                                                        <div>
-                                                                                            <strong>Поездка #${trip.tripId}</strong><br>
-                                                                                            <small>${trip.durationMinutes} мин, ${trip.distanceKm?.toFixed(2) || 'N/A'} км</small>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </li>
-                                                                            `;
+                                                                                                                <li class="mb-3">
+                                                                                                                    <div style="display: flex; align-items: flex-start;">
+                                                                                                                        <div style="width: 20px; height: 20px; background-color: ${color}; border-radius: 50%; margin-right: 10px; margin-top: 2px; flex-shrink: 0;"></div>
+                                                                                                                        <div style="flex-grow: 1;">
+                                                                                                                            <strong>Поездка #${trip.tripId}</strong><br>
+                                                                                                                            <small class="text-muted">${trip.durationMinutes} мин, ${trip.distanceKm?.toFixed(2) || 'N/A'} км</small><br>
+                                                                                                                            <small><strong>От:</strong> ${startAddress}</small><br>
+                                                                                                                            <small><strong>До:</strong> ${endAddress}</small>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </li>
+                                                                                                            `;
             });
 
             html += '</ul>';

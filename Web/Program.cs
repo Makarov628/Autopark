@@ -11,8 +11,6 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Octonica.ClickHouseClient;
-using NetTopologySuite.Geometries;
 using TimeZoneConverter;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -80,12 +78,7 @@ builder.Services.AddCors();
 // Регистрация инфраструктуры (включая DbContext и все сервисы)
 builder.Services.AddInfrastructure(builder.Configuration.GetConnectionString("DefaultConnection") ?? "Data Source=Autopark.db");
 
-// Регистрация ClickHouse и GeometryFactory
-builder.Services.AddScoped<ClickHouseConnection>(_ =>
-    new ClickHouseConnection(builder.Configuration["ClickHouse:ConnectionString"])
-);
-builder.Services.AddSingleton<GeometryFactory>(_ =>
-    NetTopologySuite.NtsGeometryServices.Instance.CreateGeometryFactory(srid: 4326));
+// Удалили регистрацию ClickHouse - теперь используем PostgreSQL через Entity Framework
 
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(CreateVehicleCommand).Assembly));
 
@@ -93,6 +86,7 @@ builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof
 // builder.Services.AddTransient<IClaimsTransformation, EnterpriseClaimsTransformation>();
 builder.Services.AddScoped<ICurrentUser, CurrentUser>();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddHttpClient();
 
 // Добавляем контроллеры и Razor Pages
 builder.Services.AddControllersWithViews()

@@ -19,6 +19,7 @@ public class AutoparkDbContext : DbContext
         : base(options) { }
 
     public DbSet<VehicleEntity> Vehicles { get; set; } = null!;
+    public DbSet<VehicleTrackPointEntity> VehicleTrackPoints { get; set; } = null!;
     public DbSet<BrandModelEntity> BrandModels { get; set; } = null!;
     public DbSet<EnterpriseEntity> Enterprises { get; set; } = null!;
     public DbSet<DriverEntity> Drivers { get; set; } = null!;
@@ -30,11 +31,13 @@ public class AutoparkDbContext : DbContext
     public DbSet<Device> Devices { get; set; } = null!;
     public DbSet<ActivationToken> ActivationTokens { get; set; } = null!;
     public DbSet<TripEntity> Trips { get; set; } = null!;
+    public DbSet<TripPointEntity> TripPoints { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new BrandModelConfiguration());
         modelBuilder.ApplyConfiguration(new VehicleConfiguration());
+        modelBuilder.ApplyConfiguration(new VehicleTrackPointConfiguration());
         modelBuilder.ApplyConfiguration(new EnterpriseConfiguration());
         modelBuilder.ApplyConfiguration(new DriverConfiguration());
         modelBuilder.ApplyConfiguration(new ManagerConfiguration());
@@ -45,6 +48,7 @@ public class AutoparkDbContext : DbContext
         modelBuilder.ApplyConfiguration(new DeviceConfiguration());
         modelBuilder.ApplyConfiguration(new ActivationTokenConfiguration());
         modelBuilder.ApplyConfiguration(new TripConfiguration());
+        modelBuilder.ApplyConfiguration(new TripPointConfiguration());
 
         base.OnModelCreating(modelBuilder);
     }

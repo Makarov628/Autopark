@@ -4,6 +4,7 @@ using Autopark.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetTopologySuite.Geometries;
 
@@ -12,9 +13,11 @@ using NetTopologySuite.Geometries;
 namespace Autopark.Infrastructure.Database.Migrations
 {
     [DbContext(typeof(AutoparkDbContext))]
-    partial class AutoparkDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250802184602_StartEndTrripPoints")]
+    partial class StartEndTrripPoints
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -623,12 +626,12 @@ namespace Autopark.Infrastructure.Database.Migrations
                     b.HasOne("Autopark.Domain.Trip.Entities.TripPointEntity", "EndPoint")
                         .WithMany()
                         .HasForeignKey("EndPointId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("Autopark.Domain.Trip.Entities.TripPointEntity", "StartPoint")
                         .WithMany()
                         .HasForeignKey("StartPointId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("EndPoint");
 

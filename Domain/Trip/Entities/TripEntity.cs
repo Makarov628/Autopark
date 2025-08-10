@@ -11,17 +11,32 @@ public class TripEntity : Entity<TripId>
     public DateTime EndUtc { get; protected set; }
     public double? DistanceKm { get; protected set; }
 
+    public TripPointId? StartPointId { get; protected set; }
+    public TripPointEntity? StartPoint { get; protected set; }
+
+    public TripPointId? EndPointId { get; protected set; }
+    public TripPointEntity? EndPoint { get; protected set; }
+
+    // Конструктор для Entity Framework
+    private TripEntity() : base()
+    {
+    }
+
     private TripEntity(
         TripId id,
         VehicleId vehicleId,
         DateTime startUtc,
         DateTime endUtc,
-        double? distanceKm = null) : base(id)
+        double? distanceKm = null,
+        TripPointId? startPointId = null,
+        TripPointId? endPointId = null) : base(id)
     {
         VehicleId = vehicleId;
         StartUtc = startUtc;
         EndUtc = endUtc;
         DistanceKm = distanceKm;
+        StartPointId = startPointId;
+        EndPointId = endPointId;
     }
 
     public static TripEntity Create(
@@ -29,17 +44,32 @@ public class TripEntity : Entity<TripId>
         VehicleId vehicleId,
         DateTime startUtc,
         DateTime endUtc,
-        double? distanceKm = null)
+        double? distanceKm = null,
+        TripPointId? startPointId = null,
+        TripPointId? endPointId = null)
     {
         if (startUtc >= endUtc)
             throw new ArgumentException("StartUtc must be before EndUtc");
 
-        return new TripEntity(id, vehicleId, startUtc, endUtc, distanceKm);
+        return new TripEntity(id, vehicleId, startUtc, endUtc, distanceKm, startPointId, endPointId);
     }
 
     public void UpdateDistance(double distanceKm)
     {
         DistanceKm = distanceKm;
+        RenewUpdateDate();
+    }
+
+    public void SetStartPoint(TripPointId startPointId)
+    {
+        StartPointId = startPointId;
+        RenewUpdateDate();
+    }
+
+    public void SetEndPoint(TripPointId endPointId)
+    {
+        EndPointId = endPointId;
+        RenewUpdateDate();
     }
 
     public TimeSpan GetDuration()

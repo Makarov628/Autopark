@@ -1,0 +1,184 @@
+@page
+@model Autopark.Web.Pages.DataExportImportModel
+@{
+    ViewData["Title"] = "Экспорт и импорт данных";
+    Layout = "_ManagerLayout";
+}
+
+<div class="container mt-4">
+    <h1>@ViewData["Title"]</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Экспорт данных предприятия</h3>
+                </div>
+                <div class="card-body">
+                    <form id="exportForm">
+                        <div class="mb-3">
+                            <label for="enterpriseId" class="form-label">ID предприятия</label>
+                            <input type="number" class="form-control" id="enterpriseId" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="startDate" class="form-label">Начальная дата (опционально)</label>
+                            <input type="datetime-local" class="form-control" id="startDate">
+                        </div>
+                        <div class="mb-3">
+                            <label for="endDate" class="form-label">Конечная дата (опционально)</label>
+                            <input type="datetime-local" class="form-control" id="endDate">
+                        </div>
+                        <div class="mb-3">
+                            <label for="format" class="form-label">Формат</label>
+                            <select class="form-control" id="format">
+                                <option value="json">JSON</option>
+                                <option value="csv">CSV</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Экспортировать</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Импорт данных предприятия</h3>
+                </div>
+                <div class="card-body">
+                    <form id="importForm" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="importFile" class="form-label">Выберите файл</label>
+                            <input type="file" class="form-control" id="importFile" accept=".json,.csv" required>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="updateExisting">
+                                <label class="form-check-label" for="updateExisting">
+                                    Обновлять существующие записи
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success">Импортировать</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div id="results" class="alert" style="display: none;"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Экспорт данных
+        document.getElementById('exportForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const enterpriseId = document.getElementById('enterpriseId').value;
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            const format = document.getElementById('format').value;
+
+            let url = `/api/DataExportImport/export/enterprise/${enterpriseId}?format=${format}`;
+            if (startDate) url += `&startDate=${encodeURIComponent(startDate)}`;
+            if (endDate) url += `&endDate=${encodeURIComponent(endDate)}`;
+
+            try {
+                const response = await fetch(url, {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
+
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const downloadUrl = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = downloadUrl;
+                    a.download = response.headers.get('Content-Disposition')?.split('filename=')[1] || `export.${format}`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(downloadUrl);
+
+                    showResult('Экспорт успешно завершен!', 'success');
+                } else {
+                    const error = await response.text();
+                    showResult(`Ошибка экспорта: ${error}`, 'danger');
+                }
+            } catch (error) {
+                showResult(`Ошибка: ${error.message}`, 'danger');
+            }
+        });
+
+        // Импорт из файла
+        document.getElementById('importForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const fileInput = document.getElementById('importFile');
+            const updateExisting = document.getElementById('updateExisting').checked;
+
+            if (!fileInput.files[0]) {
+                showResult('Выберите файл для импорта', 'warning');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            const fileName = fileInput.files[0].name.toLowerCase();
+            const endpoint = fileName.endsWith('.json') ? 'json' : 'csv';
+
+            try {
+                const response = await fetch(`/api/DataExportImport/import/${endpoint}?updateExisting=${updateExisting}`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    },
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    let message = `Импорт завершен!\n`;
+                    message += `Предприятий: ${result.enterprisesImported}\n`;
+                    message += `Машин: ${result.vehiclesImported}\n`;
+                    message += `Водителей: ${result.driversImported}\n`;
+                    message += `Поездок: ${result.tripsImported}\n`;
+                    message += `Точек трека: ${result.trackPointsImported}`;
+
+                    if (result.warnings && result.warnings.length > 0) {
+                        message += `\n\nПредупреждения:\n${result.warnings.join('\n')}`;
+                    }
+
+                    if (result.errors && result.errors.length > 0) {
+                        message += `\n\nОшибки:\n${result.errors.join('\n')}`;
+                    }
+
+                    showResult(message, result.errors && result.errors.length > 0 ? 'warning' : 'success');
+                } else {
+                    showResult(`Ошибка импорта: ${result.message || 'Неизвестная ошибка'}`, 'danger');
+                }
+            } catch (error) {
+                showResult(`Ошибка: ${error.message}`, 'danger');
+            }
+        });
+
+        function showResult(message, type) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.className = `alert alert-${type}`;
+            resultsDiv.style.display = 'block';
+            resultsDiv.innerHTML = message.replace(/\n/g, '<br>');
+
+            // Прокрутка к результатам
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+</script>

@@ -45,6 +45,37 @@ public class TripConfiguration : IEntityTypeConfiguration<TripEntity>
             .HasColumnType("float")
             .IsRequired(false);
 
+        builder.Property(s => s.StartPointId)
+            .HasConversion(
+                id => id != null ? id.Value : (long?)null,
+                value => value.HasValue ? TripPointId.Create(value.Value) : null)
+            .IsRequired(false);
+
+        builder.Property(s => s.EndPointId)
+            .HasConversion(
+                id => id != null ? id.Value : (long?)null,
+                value => value.HasValue ? TripPointId.Create(value.Value) : null)
+            .IsRequired(false);
+
+        builder.Property(s => s.CreatedAt)
+            .HasColumnType("datetime2(7)")
+            .IsRequired();
+
+        builder.Property(s => s.UpdatedAt)
+            .HasColumnType("datetime2(7)")
+            .IsRequired();
+
+        // Связи с точками
+        builder.HasOne(s => s.StartPoint)
+            .WithMany()
+            .HasForeignKey(s => s.StartPointId)
+            .OnDelete(DeleteBehavior.NoAction);
+
+        builder.HasOne(s => s.EndPoint)
+            .WithMany()
+            .HasForeignKey(s => s.EndPointId)
+            .OnDelete(DeleteBehavior.NoAction);
+
         // Индексы для быстрого поиска по диапазону времени
         builder.HasIndex(s => new { s.VehicleId, s.StartUtc, s.EndUtc });
         builder.HasIndex(s => s.StartUtc);

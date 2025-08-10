@@ -5,7 +5,6 @@ using Autopark.Domain.Trip.ValueObjects;
 using Autopark.Domain.Vehicle.ValueObjects;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Octonica.ClickHouseClient;
 using TimeZoneConverter;
 
 namespace Autopark.UseCases.Trip.Queries.GetTripsByDateRange;
@@ -13,16 +12,16 @@ namespace Autopark.UseCases.Trip.Queries.GetTripsByDateRange;
 internal class GetTripsByDateRangeQueryHandler : IRequestHandler<GetTripsByDateRangeQuery, GetTripsByDateRangeResponse>
 {
     private readonly AutoparkDbContext _dbContext;
-    private readonly ClickHouseConnection _clickHouseConnection;
+    private readonly IVehicleTrackingService _trackingService;
     private readonly ITimeZoneService _timeZoneService;
 
     public GetTripsByDateRangeQueryHandler(
         AutoparkDbContext dbContext,
-        ClickHouseConnection clickHouseConnection,
+        IVehicleTrackingService trackingService,
         ITimeZoneService timeZoneService)
     {
         _dbContext = dbContext;
-        _clickHouseConnection = clickHouseConnection;
+        _trackingService = trackingService;
         _timeZoneService = timeZoneService;
     }
 
@@ -57,7 +56,7 @@ internal class GetTripsByDateRangeQueryHandler : IRequestHandler<GetTripsByDateR
                 0);
         }
 
-        // 3. Получаем точки трека из ClickHouse для всех поездок
+        // 3. Получаем точки трека из PostgreSQL для всех поездок
         var allTrackPoints = new List<TrackPoint>();
         var tzInfo = TZConvert.GetTimeZoneInfo(request.TimeZoneId);
 
@@ -84,36 +83,21 @@ internal class GetTripsByDateRangeQueryHandler : IRequestHandler<GetTripsByDateR
         DateTime endUtc,
         TimeZoneInfo timeZoneInfo)
     {
-        const string sql = @"
-            SELECT ts, pos.2 AS lat, pos.1 AS lon,
-                   speed, rpm, fuel_lvl
-            FROM   can_telemetry
-            WHERE  vehicle_id = {vid:UInt32}
-              AND  ts BETWEEN {from:DateTime64} AND {to:DateTime64}
-            ORDER BY ts";
+        var vehicleIdValue = VehicleId.Create(vehicleId);
+        var trackPoints = await _trackingService.GetTrackPointsAsync(vehicleIdValue, startUtc, endUtc);
 
-        await _clickHouseConnection.OpenAsync();
-        await using var cmd = _clickHouseConnection.CreateCommand(sql);
-        cmd.Parameters.AddWithValue("vid", vehicleId);
-        cmd.Parameters.AddWithValue("from", startUtc);
-        cmd.Parameters.AddWithValue("to", endUtc);
-
-        var points = new List<TrackPoint>();
-
-        await using var reader = await cmd.ExecuteReaderAsync();
-        while (await reader.ReadAsync())
+        var points = trackPoints.Select(tp =>
         {
-            var utc = reader.GetDateTime(0);
-            var local = TimeZoneInfo.ConvertTimeFromUtc(utc, timeZoneInfo);
-            points.Add(new TrackPoint(
-                local,
-                reader.GetDouble(1),
-                reader.GetDouble(2),
-                reader.GetFloat(3),
-                reader.GetUInt16(4),
-                reader.GetByte(5)
-            ));
-        }
+            var localTime = TimeZoneInfo.ConvertTimeFromUtc(tp.TimestampUtc, timeZoneInfo);
+            return new TrackPoint(
+                localTime,
+                tp.Latitude,
+                tp.Longitude,
+                tp.Speed,
+                tp.Rpm,
+                tp.FuelLevel
+            );
+        }).ToList();
 
         return points;
     }
